@@ -1,0 +1,12 @@
+Runner\TestRunner.class
+Bases\APECOTestBase.class
+Bases\CommonFunctions.class
+UserPortalPagesActions\UserLoginPageActions.class
+StepDefinitions\UserLoginDefinitions.class
+UserPortalPagesLocators\UserServicesPageLocators.class
+UserPortalPagesLocators\UserLoginPageLocators.class
+UserPortalPagesLocators\UserWorkspacePageLocators.class
+Util\TestUtil.class
+UserPortalPagesActions\UserServicesPageActions.class
+UserPortalPagesActions\UserWorkspacePageActions.class
+Hooks\APECOPortalHooks.class
