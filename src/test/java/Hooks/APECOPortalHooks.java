@@ -16,31 +16,39 @@ public class APECOPortalHooks extends APECOTestBase {
 
 	
 	
-	public APECOPortalHooks()   throws IOException {
-		
+	
+public APECOPortalHooks()   throws IOException {
+	super();
 
 	}
 	
 	
-	@Before		
-	public void setup() throws IOException {
+	@Before(value = "@UserLogin")		
+	public void userSetup() throws IOException {
 		PageFactory.initElements(driver,this);
-		initialization();
-		PagesInitialization();
+		initialization(properties.getProperty("url"));
+		UserPagesInitialization();	
+	}
+	
+	@Before(value = "@AdminLogin")		
+	public void adminsetup() throws IOException {
+		PageFactory.initElements(driver,this);
+
+		initialization(properties.getProperty("AdminPortalUrl"));
+		AdminPagesInitialization();
 		
 	}
 
 	
-@After
-	public void tearDown(Scenario scenario) {
-		if (scenario.isFailed()) {
-			final byte[] screenshot = ((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES);
-			 scenario.attach(screenshot, "image/png", scenario.getName()); 
-		}
-		 if (driver != null) {
-			// driver.close();
-	            driver.quit();
-	        }
-	
-}
+//@After ()
+//	public void tearDown(Scenario scenario) {
+//		if (scenario.isFailed()) {
+//			final byte[] screenshot = ((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES);
+//			 scenario.attach(screenshot, "image/png", scenario.getName()); 
+//		}
+//		 if (driver != null) {
+//			// driver.close();
+//	            driver.quit();
+//	        }
+//}
 }

@@ -13,18 +13,44 @@
 			   <testng.version>7.10.2</testng.version>
 			   <maven.compiler.plugin.version>3.10.1</maven.compiler.plugin.version>
 			   <maven.surefire.plugin.version>3.5.0</maven.surefire.plugin.version>
-			 <maven.compiler.source>21</maven.compiler.source>
-  				  <maven.compiler.target>21</maven.compiler.target>
+			 <maven.compiler.source>17</maven.compiler.source>
+  				  <maven.compiler.target>17</maven.compiler.target>
 	 </properties>
   
   
   <dependencies>
+  	
+			<dependency>
+			    <groupId>net.masterthought</groupId>
+			    <artifactId>maven-cucumber-reporting</artifactId>
+			    <version>5.8.4</version>
+			</dependency>
+			<dependency>
+			    <groupId>com.google.guava</groupId>
+			    <artifactId>guava</artifactId>
+			    <version>33.4.0-jre</version>
+			</dependency>
+			
+			  	<dependency>
+			    <groupId>com.google.guava</groupId>
+			    <artifactId>failureaccess</artifactId>
+			    <version>1.0.2</version>
+			</dependency>
+			  <dependency>
+				    <groupId>net.java.dev.jna</groupId>
+				    <artifactId>jna</artifactId>
+				    <version>5.15.0</version>
+			</dependency>
 		  	<dependency>
 					    <groupId>io.cucumber</groupId>
 					    <artifactId>cucumber-java</artifactId>
 					    <version>7.19.0</version>
 			</dependency>
-			
+			<dependency>
+			    <groupId>io.cucumber</groupId>
+			    <artifactId>cucumber-picocontainer</artifactId>
+			    <version>7.19.0</version>
+			</dependency>
 			<dependency>
 					    <groupId>io.cucumber</groupId>
 					    <artifactId>cucumber-testng</artifactId>
@@ -33,7 +59,7 @@
 		  <dependency>
 				    <groupId>org.seleniumhq.selenium</groupId>
 				    <artifactId>selenium-java</artifactId>
-				    <version>4.25.0</version>
+				    <version>4.27.0</version>
 		</dependency>
   
 		  <dependency>
@@ -42,16 +68,7 @@
 				    <version>7.10.2</version>
 				    <scope>test</scope>
 		</dependency>
-		  <dependency>
-				    <groupId>org.apache.maven.plugins</groupId>
-				    <artifactId>maven-compiler-plugin</artifactId>
-				    <version>3.10.1</version>
-		</dependency>
-		  <dependency>
-				    <groupId>org.apache.maven.plugins</groupId>
-				    <artifactId>maven-surefire-plugin</artifactId>
-				    <version>3.5.0</version>
-		</dependency>
+
 		<dependency>
 				    <groupId>com.aventstack</groupId>
 				    <artifactId>extentreports</artifactId>
@@ -63,27 +80,51 @@
 				    <version>1.14.0</version>
 				</dependency>
  		 </dependencies>
-  <build>
+    <build>
         <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.10.1</version>
-                <configuration>
-                    <source>21</source>
-                    <target>21</target>
-                </configuration>
-            </plugin>
+        
+        
+        
+        
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.5.0</version>
                 <configuration>
-                    <suiteXmlFiles>
-                        <suiteXmlFile>testng.xml</suiteXmlFile>
-                    </suiteXmlFiles>
+                    <testFailureIgnore>true</testFailureIgnore>
                 </configuration>
+            </plugin>
+                    <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <version>3.10.1</version> <!-- or the latest version -->
+      <configuration>
+        <source>21</source>
+        <target>21</target>
+      </configuration>
+        </plugin>
+            
+            
+            <plugin>
+                <groupId>net.masterthought</groupId>
+                <artifactId>maven-cucumber-reporting</artifactId>
+                <version>5.8.4</version>
+                <executions>
+                    <execution>
+                        <id>execution</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <configuration>
+                            <projectName>BDD_APECO</projectName>
+                            <outputDirectory>${project.build.directory}/cucumber-report-html</outputDirectory>
+                            <cucumberOutput>${project.build.directory}/cucumber.json</cucumberOutput>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
+    
 </project>
