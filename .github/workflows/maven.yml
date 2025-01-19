@@ -35,10 +35,9 @@ jobs:
         mvn test --file pom.xml -Dheadless=true -X -e > test-output.log 2>&1
     - name: Extract report URL
       run: |
-        set -o allexport
-        source test-output.log
-        REPORT_URL=$(grep -o 'https://reports.cucumber.io/reports/[^ ]*' test-output.log)
-        echo $REPORT_URL > report-url.txt
+        $url = Select-String -Path test-output.log -Pattern 'https://reports.cucumber.io/reports/[^ ]*'
+        $url -replace '^.*((https?:\/\/[^ ]+))', '$1' | Out-File -FilePath report-url.txt
+        echo $url
     - name: Upload artifact
       uses: actions/upload-artifact@v3
       with:
