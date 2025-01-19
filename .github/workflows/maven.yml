@@ -41,5 +41,7 @@ jobs:
     - name: Upload artifact
       uses: actions/upload-artifact@v3
       with:
-        name: cucumber-report-url
-        path: report-url.txt
+        name: artifacts
+        path: |
+          test-output.log
+          report-url.txt
