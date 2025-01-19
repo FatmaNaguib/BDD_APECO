@@ -6,7 +6,7 @@ import io.cucumber.testng.CucumberOptions;
 
 
 @CucumberOptions(
-		features="D:\\My Projects\\BDD_APECO\\src\\test\\resources\\Features\\1.feature",
+		features="./src/test/resources/Features/AllActions_FinalApproval.feature",
 		glue = {"Definitions","Hooks"},
 		tags = "@UserLogin",
 		monochrome = true,
