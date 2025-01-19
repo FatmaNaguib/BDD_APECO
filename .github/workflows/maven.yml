@@ -31,4 +31,16 @@ jobs:
     - name: Build with Maven
       run: mvn -B package -DskipTests --file pom.xml
     - name: Test with Maven
-      run: mvn test --file pom.xml -Dheadless=true -X -e      
+      run: |
+        mvn test --file pom.xml -Dheadless=true -X -e > test-output.log 2>&1
+    - name: Extract report URL
+      run: |
+        set -o allexport
+        source test-output.log
+        REPORT_URL=$(grep -o 'https://reports.cucumber.io/reports/[^ ]*' test-output.log)
+        echo $REPORT_URL > report-url.txt
+    - name: Upload artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: cucumber-report-url
+        path: report-url.txt
