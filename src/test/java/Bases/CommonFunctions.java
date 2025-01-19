@@ -84,7 +84,7 @@ public void clickWebElement(WebElement webElement) {
 	}
 		
 	public String uplodedFilePath(String fileName) {	
-		String filePath = "D:\\My Projects\\BDD_APECO\\src\\test\\resources\\UploadFiles\\";
+		String filePath = "./src/test/resources/UploadFiles/";
 		String fullFilePath = filePath + fileName;
 		return fullFilePath;
 	}

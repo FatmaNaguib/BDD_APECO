@@ -171,7 +171,7 @@ public class APECOTestBase {
 
 	 public APECOTestBase() throws IOException {
 			properties = new Properties();
-			FileInputStream confgFile = new FileInputStream("D:\\My Projects\\BDD_APECO\\src\\test\\java\\Config\\confg.properties");
+			FileInputStream confgFile = new FileInputStream("./src/test/java/Config/confg.properties");
 			properties.load(confgFile);
 	 }
 	

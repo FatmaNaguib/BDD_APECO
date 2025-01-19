@@ -26,7 +26,7 @@ public class AdminTestBase {
 	public void  adminInitialization() throws IOException {
 
 		properties = new Properties();
-		FileInputStream configfilee = new FileInputStream("D:\\My Projects\\BDD_APECO\\src\\test\\java\\Config\\confg.properties");
+		FileInputStream configfilee = new FileInputStream("./src/test/java/Config/confg.properties");
 		properties.load(configfilee);
 		
 		String	adminBrowserName = properties.getProperty("AdminBrowser");
