@@ -8,7 +8,7 @@ import io.cucumber.testng.CucumberOptions;
 
 
 @CucumberOptions(
-		features="./src/test/resources/InprogressFeatures/",
+		features="./src/test/resources/Features/",
 		glue = {"Definitions","Hooks"},
 		tags = "@UserLogin",
 		monochrome = true,
