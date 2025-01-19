@@ -195,7 +195,7 @@ public class APECOTestBase {
 			
 		chromeOptions.setExperimentalOption("excludeSwitches", new String[]{"enable-automation"}); 
 			chromeOptions.addArguments("--disable-extensions");
-			 boolean isHeadless = Boolean.parseBoolean(System.getProperty("headless", "false"));
+			 boolean isHeadless = Boolean.parseBoolean(System.getProperty("headless", "true"));
 	        if (isHeadless) {
 	        	chromeOptions.addArguments("--headless");
 	        	chromeOptions.addArguments("--window-size=1920,1080");
