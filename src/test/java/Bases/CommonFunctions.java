@@ -6,6 +6,7 @@ import java.awt.Toolkit;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
 import java.io.IOException;
+import java.nio.file.Paths;
 import java.time.Duration;
 
 import org.openqa.selenium.By;
@@ -86,6 +87,7 @@ public void clickWebElement(WebElement webElement) {
 	public String uplodedFilePath(String fileName) {	
 		String filePath = "./src/test/resources/UploadFiles/";
 		String fullFilePath = filePath + fileName;
+		fullFilePath = Paths.get(fullFilePath).toAbsolutePath().toString();
 		return fullFilePath;
 	}
 	
