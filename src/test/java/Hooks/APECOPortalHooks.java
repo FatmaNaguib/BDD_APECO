@@ -40,15 +40,15 @@ public APECOPortalHooks()   throws IOException {
 	}
 
 	
-//@After ()
-//	public void tearDown(Scenario scenario) {
-//		if (scenario.isFailed()) {
-//			final byte[] screenshot = ((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES);
-//			 scenario.attach(screenshot, "image/png", scenario.getName()); 
-//		}
-//		 if (driver != null) {
-//			// driver.close();
-//	            driver.quit();
-//	        }
-//}
+@After ()
+	public void tearDown(Scenario scenario) {
+		if (scenario.isFailed()) {
+			final byte[] screenshot = ((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES);
+			 scenario.attach(screenshot, "image/png", scenario.getName()); 
+		}
+		 if (driver != null) {
+			// driver.close();
+	            driver.quit();
+	        }
+}
 }
