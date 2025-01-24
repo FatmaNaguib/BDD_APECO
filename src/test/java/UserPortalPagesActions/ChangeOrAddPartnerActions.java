@@ -176,6 +176,7 @@ public class ChangeOrAddPartnerActions extends APECOTestBase {
 		changeOrAddPartnerLocators.dataAcknowledge_Checkbox.click();
 		changeOrAddPartnerLocators.paymentAcknowledge_Checkbox.click();
 		commonFunctions.clickWebElement(changeOrAddPartnerLocators.pay_btn);
+		//commonFunctions.clickWebElement(changeOrAddPartnerLocators.pay_btn);
 		//changeOrAddPartnerLocators.pay_btn.click();
 	}
 	
@@ -193,9 +194,9 @@ public class ChangeOrAddPartnerActions extends APECOTestBase {
 		return ChangeOrAddPartnerRequestNumber;		
 	}
 	public void postPayRequestfees() throws InterruptedException {
-		commonFunctions.waitElementToBevisible(changeOrAddPartnerLocators.pay_btn);
-		commonFunctions.moveToWebElement(changeOrAddPartnerLocators.pay_btn);
-		changeOrAddPartnerLocators.pay_btn.click();
+		commonFunctions.waitElementToBevisible(changeOrAddPartnerLocators.postPay_btn);
+		commonFunctions.moveToWebElement(changeOrAddPartnerLocators.postPay_btn);
+		changeOrAddPartnerLocators.postPay_btn.click();
 		commonFunctions.moveToWebElement(changeOrAddPartnerLocators.payNow_btn);
 		changeOrAddPartnerLocators.payNow_btn.click();
 		commonFunctions.waitElementToBevisible(changeOrAddPartnerLocators.submit_btn);

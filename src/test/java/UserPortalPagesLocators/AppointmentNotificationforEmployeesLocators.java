@@ -34,25 +34,25 @@ public class AppointmentNotificationforEmployeesLocators {
 	@FindBy(xpath = "//input[@id='Specialization']") public WebElement specialization_TextBox;
 	@FindBy(xpath = "//input[@placeholder='Qualification Date']") public WebElement qualificationDate_Calendar;
 	@FindBy(xpath = "//input[@id='Certificate Issuing Authority']") public WebElement certificateIssuingAuthority_Textbox;
-	@FindBy (xpath ="//label[@for=\"scientificQualification\"]//following::span[1]")public WebElement scientificQualification_uploader;
-	@FindBy (xpath ="//label[@for=\"equivalencyAcademicQualificationOrPaymentReceipt\"]//following::span[1]")public WebElement equivalencyAcademicQualificationOrPaymentReceipt_uploader;
-	@FindBy (xpath ="//label[@for=\"authenticationAcademicQualifications\"]//following::span[1]")public WebElement authenticationAcademicQualifications_uploader;
+	@FindBy (xpath ="//input[@id=\"scientificQualification\"]")public WebElement scientificQualification_uploader;
+	@FindBy (xpath ="//input[@id=\"equivalencyAcademicQualificationOrPaymentReceipt\"]")public WebElement equivalencyAcademicQualificationOrPaymentReceipt_uploader;
+	@FindBy (xpath ="//input[@id=\"authenticationAcademicQualifications\"]")public WebElement authenticationAcademicQualifications_uploader;
 	 @FindBy(xpath = "//button[@id='nz-tabs-0-tab-3']") public  WebElement previousExperience_btn;
 	  @FindBy(xpath = "//button[@class='ant-btn ant-btn-primary ant-btn-lg ng-star-inserted']") public  WebElement managerDataNext_btn; 
 	  ////
-	  @FindBy (xpath ="//label[@for=\"coloredPassport\"]//following::span[1]")public WebElement coloredPassport_uploader;
-	  @FindBy (xpath ="//label[@for=\"coloredNationalID\"]//following::span[1]")public WebElement coloredNationalID_uploader;
-		@FindBy (xpath ="//label[@for=\"administrativeApproval\"]//following::span[1]")public WebElement administrativeApproval_uploader;
-		@FindBy (xpath ="//label[@for=\"certificateOfGoodConduct\"]//following::span[1]")public WebElement certificateOfGoodConduct_uploader;		
-		@FindBy (xpath ="//label[@for='profilePicture']//following::span[1]")public WebElement profilePicture_uploader;
-		@FindBy (xpath ="//label[@for=\"sponsorLetter\"]//following::span[1]")public WebElement sponsorLetter_uploader;			
-		@FindBy (xpath ="//label[@for=\"appointmentInterviewPassDocument\"]//following::span[1]")public WebElement appointmentInterviewPassDocument_uploader;
+	  @FindBy (xpath ="//input[@id=\"coloredPassport\"]")public WebElement coloredPassport_uploader;
+	  @FindBy (xpath ="//input[@id=\"coloredNationalID\"]")public WebElement coloredNationalID_uploader;
+		@FindBy (xpath ="//input[@id=\"administrativeApproval\"]")public WebElement administrativeApproval_uploader;
+		@FindBy (xpath ="//input[@id=\"certificateOfGoodConduct\"]")public WebElement certificateOfGoodConduct_uploader;		
+		@FindBy (xpath ="//input[@id=\"profilePicture\"]")public WebElement profilePicture_uploader;
+		@FindBy (xpath ="//input[@id=\"sponsorLetter\"]")public WebElement sponsorLetter_uploader;			
+		@FindBy (xpath ="//input[@id=\"appointmentInterviewPassDocument\"]")public WebElement appointmentInterviewPassDocument_uploader;
 		
 		@FindBy(xpath = "//button[@class='ant-btn ant-btn-primary ant-btn-lg ng-star-inserted']") public WebElement attachmentsNxt_btn;
 		@FindBy(xpath = "//input[@type='checkbox']") public WebElement dataAcknowledge_Checkbox;
-		@FindBy(xpath = "//button[@class='ant-btn ant-btn-primary ant-btn-lg ng-star-inserted']") public WebElement pay_btn;
-		@FindBy(xpath = "//button[@nztype=\"primary\"]") public WebElement payNow_btn;
-		@FindBy(xpath = "//span[normalize-space()='Submit']") public WebElement submit_btn;
+		@FindBy(xpath = "//button[@class=\"ant-btn ant-btn-primary ant-btn-lg ng-star-inserted\"]") public WebElement pay_btn;
+		@FindBy(xpath = "//button[@class=\"ant-btn ant-btn-primary ant-btn-lg\"]") public WebElement payNow_btn;
+		@FindBy(xpath = "//button[@class=\"ant-btn\"]") public WebElement submit_btn;
 		@FindBy(xpath = "//span[@class=\"font-weight-semibold fs-2rem\"]") public WebElement confirmation_msg;
 		@FindBy(xpath = "//span[@class='ng-star-inserted']") public WebElement confirmation_btn;
 		

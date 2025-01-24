@@ -8,7 +8,6 @@ import org.openqa.selenium.support.PageFactory;
 
 import Bases.APECOTestBase;
 import Bases.CommonFunctions;
-
 import UserPortalPagesLocators.ChangeSchoolManagerLocators;
 
 
@@ -54,8 +53,9 @@ public class ChangeSchoolManagerActions extends APECOTestBase {
 		js.executeScript("window.scrollBy(0,500)");
 		changeSchoolManagerLocators.placeofBirth_TextBox.sendKeys(placeofBirth);
 		changeSchoolManagerLocators.idCardNumber_TextBox.sendKeys(idCardNumber);
-		changeSchoolManagerLocators.idCardExpirationDate_TextBox.sendKeys(idCardExpirationDate);
 		js.executeScript("window.scrollBy(0,500)");
+		changeSchoolManagerLocators.idCardExpirationDate_TextBox.sendKeys(idCardExpirationDate);
+		//changeSchoolManagerLocators.idCardExpirationDate_TextBox.sendKeys(idCardExpirationDate);
 		changeSchoolManagerLocators.passportNumber_TextBox.sendKeys(passportNumber);
 		changeSchoolManagerLocators.passportExpirationDate_Calendar.sendKeys(passportExpirationDate);
 		commonFunctions.moveToWebElement(changeSchoolManagerLocators.religion_ddl);

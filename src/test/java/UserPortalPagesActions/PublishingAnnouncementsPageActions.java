@@ -26,28 +26,24 @@ public class PublishingAnnouncementsPageActions extends APECOTestBase {
 	}
 
 	
-	public void submitPublishingAnnouncementsRequest(String channelName  ,String advertisementFile) throws AWTException, InterruptedException {
-		
-		
+	public String submitPublishingAnnouncementsRequest(String channelName  ,String advertisementFile) throws AWTException, InterruptedException {
 		commonFunctions.enterddlValue(publishingAnnouncementsPageLocator.channelName_ddl,channelName);
 		commonFunctions.uploadfile(publishingAnnouncementsPageLocator.advertisement_uploader, advertisementFile);
-		
 		commonFunctions.moveToWebElement(publishingAnnouncementsPageLocator.dataAcknowledge_Checkbox);
 		publishingAnnouncementsPageLocator.dataAcknowledge_Checkbox.click();
 		commonFunctions.moveToWebElement(publishingAnnouncementsPageLocator.pay_btn);
 		publishingAnnouncementsPageLocator.pay_btn.click();
+		publishingAnnouncementsPageLocator.payNow_btn.click();
 		Thread.sleep(1000);
 		publishingAnnouncementsPageLocator.submit_btn.click();
-		  
 		Thread.sleep(1000);
 		 String msg = publishingAnnouncementsPageLocator.confirmation_msg.getText();
-	
-		 int number = Integer.parseInt(msg.replaceAll("[^0-9]",""));
-		 System.out.println(number);
-			
-		System.out.println(publishingAnnouncementsPageLocator.confirmation_msg.getText());
+		 String publishingAnnouncementsRequestNumber = msg.replaceAll("[^0-9]","");
 		publishingAnnouncementsPageLocator.confirmation_btn.click();
+		
+		return publishingAnnouncementsRequestNumber;
 	}
+	
 	
 	
 }

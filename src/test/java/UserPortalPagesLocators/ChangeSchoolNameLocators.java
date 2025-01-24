@@ -12,12 +12,13 @@ public class ChangeSchoolNameLocators {
 	@FindBy (xpath ="//input[@id='newSchoolNameEn']")public WebElement newSchoolNameEn_textBox;	
 	@FindBy (xpath ="//label[@for='schoolNameAr']//following::input[@placeholder=\"New school name (Arabic)\"]")public WebElement newSchoolNameAr_textBox;
 	
-	@FindBy (xpath ="//label[@for='newSchoolNameReservationFile']//following::span[1]")public WebElement newSchoolNameReservationFile_uploader;
-	@FindBy (xpath ="//label[@for='licenseHolderNameChangeLetter']//following::span[1]")public WebElement licenseHolderNameChangeLetter_uploader;
+	@FindBy (xpath ="//input[@id=\"newSchoolNameReservationFile\"]")public WebElement newSchoolNameReservationFile_uploader;
+	@FindBy (xpath ="//input[@id=\"licenseHolderNameChangeLetter\"]")public WebElement licenseHolderNameChangeLetter_uploader;
 	@FindBy(xpath = "//input[@type='checkbox']") public WebElement dataAcknowledge_Checkbox;
 	@FindBy(xpath = "//button[@class='ant-btn ant-btn-primary ant-btn-lg ng-star-inserted']") public WebElement pay_btn;
-	@FindBy(xpath = "//button[@nztype=\"primary\"]") public WebElement payNow_btn;
-	@FindBy(xpath = "//span[normalize-space()='Submit']") public WebElement submit_btn;
+//	@FindBy(xpath = "//button[@class=\"ant-btn ant-btn-primary ant-btn-lg\"]") public WebElement payNow_btn;
+	@FindBy(xpath = "//button[@class='ant-btn ant-btn-primary ant-btn-lg']") public WebElement payNow_btn;
+	@FindBy(xpath = "//button[@class=\"ant-btn\"]") public WebElement submit_btn;
 	@FindBy(xpath = "//span[@class=\"font-weight-semibold fs-2rem\"]") public WebElement confirmation_msg;
 	@FindBy(xpath = "//span[@class='ng-star-inserted']") public WebElement confirmation_btn;
 }

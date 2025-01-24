@@ -100,7 +100,6 @@ public class ChangeSchoolLocationActions extends APECOTestBase{
 	public void siteIsReady() {
 		commonFunctions.clickWebElement(changeSchoolLocationLocators.siteisReadyBtn);
 		commonFunctions.clickWebElement(changeSchoolLocationLocators.save_btn);
-		
 	}
 	
 	public void payRequestfees() throws InterruptedException {

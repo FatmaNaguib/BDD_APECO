@@ -13,9 +13,9 @@ import UserPortalPagesLocators.AddingEducationalStagesLocators;
 public class AddingEducationalStagesActions extends APECOTestBase {
 	CommonFunctions commonFunctions = new CommonFunctions();
 	JavascriptExecutor js = (JavascriptExecutor)driver;
+	
 	AddingEducationalStagesLocators addingEducationalStagesLocators;
 	public AddingEducationalStagesActions() throws IOException {
-		super();
 		addingEducationalStagesLocators = new AddingEducationalStagesLocators();
 		PageFactory.initElements(driver,addingEducationalStagesLocators);
 	}
@@ -43,6 +43,8 @@ public class AddingEducationalStagesActions extends APECOTestBase {
 		addingEducationalStagesLocators.addStageBtn.click();
 		commonFunctions.moveToWebElement(addingEducationalStagesLocators.stages_collabs);
 		addingEducationalStagesLocators.stages_collabs.click();
+		//commonFunctions.moveToWebElement(addingEducationalStagesLocators.stages_collabs);
+		//addingEducationalStagesLocators.stages_collabs.click();
 		js.executeScript("window.scrollBy(0,1000)");
 		commonFunctions.moveToWebElement(addingEducationalStagesLocators.stage4_ddl);
 		commonFunctions.enterddlValue(addingEducationalStagesLocators.stage4_ddl, stage);
@@ -84,8 +86,27 @@ public class AddingEducationalStagesActions extends APECOTestBase {
 	public String confirmRequest() throws InterruptedException {
 		commonFunctions.waitElementToBevisible(addingEducationalStagesLocators.confirmation_msg);
 		 String msg =addingEducationalStagesLocators.confirmation_msg.getText();
-		 String addingEducationalStages = msg.replaceAll("[^0-9]","");
+		 String addingEducationalStagesNumber = msg.replaceAll("[^0-9]","");
 		commonFunctions.clickWebElement(addingEducationalStagesLocators.confirmation_btn);
-		return addingEducationalStages;
+		return addingEducationalStagesNumber;
+	}
+	
+	public void siteIsReady() {
+		commonFunctions.clickWebElement(addingEducationalStagesLocators .siteisReadyBtn);
+		commonFunctions.clickWebElement(addingEducationalStagesLocators .save_btn);
+	}
+	
+	public void postPayRequestfees() throws InterruptedException {
+		commonFunctions.waitElementToBevisible(addingEducationalStagesLocators.pay_btn);
+		commonFunctions.moveToWebElement(addingEducationalStagesLocators.pay_btn);
+		addingEducationalStagesLocators.pay_btn.click();
+		commonFunctions.moveToWebElement(addingEducationalStagesLocators.payNow_btn);
+		addingEducationalStagesLocators.payNow_btn.click();
+		commonFunctions.waitElementToBevisible(addingEducationalStagesLocators.submit_btn);
+		addingEducationalStagesLocators.submit_btn.click();	
+		commonFunctions.moveToWebElement(addingEducationalStagesLocators.okay_btn);
+		commonFunctions.waitElementToBevisible(addingEducationalStagesLocators.okay_btn);
+		addingEducationalStagesLocators.okay_btn.click();
+		Thread.sleep(3000);
 	}
 }

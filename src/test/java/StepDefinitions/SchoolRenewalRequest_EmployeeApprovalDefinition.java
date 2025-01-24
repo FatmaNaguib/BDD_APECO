@@ -15,7 +15,7 @@ public class SchoolRenewalRequest_EmployeeApprovalDefinition extends APECOTestBa
 
 
 	@Then("The Employee Aprroves The Request")
-	public void the_employee_aprroves_the_request() {
+	public void the_employee_aprroves_the_request() throws InterruptedException {
 		adminRequestDetailsActions.employeeApprovesTheSchoolRenewalRequest();
 	}
 

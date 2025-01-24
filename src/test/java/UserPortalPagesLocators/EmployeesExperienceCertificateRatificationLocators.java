@@ -20,8 +20,8 @@ public class EmployeesExperienceCertificateRatificationLocators {
 	@FindBy(xpath = "//label[@for='workingLeaveDate']//following::input[1]") public WebElement returnDateDatepicker;
 	@FindBy(xpath ="//button[@class='ant-btn ant-btn-primary ant-btn-lg ng-star-inserted']") public WebElement experienceCertificateNext_btn;
 	
-	@FindBy (xpath = "//label[@for='nationalID']//following::span[1]") public WebElement nationalID_Uploader;
-	@FindBy (xpath = "//label[@for='recruitmentNotification']//following::span[1]") public WebElement recruitmentNotification_Uploader;
+	@FindBy (xpath = "//input[@id=\"nationalID\"]") public WebElement nationalID_Uploader;
+	@FindBy (xpath = "//input[@id=\"recruitmentNotification\"]") public WebElement recruitmentNotification_Uploader;
 	@FindBy(xpath ="//button[@class='ant-btn ant-btn-primary ant-btn-lg ng-star-inserted']") public WebElement experienceCertificateAttachmentsNext_btn;
 	
 	@FindBy(xpath = "//input[@type='checkbox']") public WebElement dataAcknowledge_Checkbox;

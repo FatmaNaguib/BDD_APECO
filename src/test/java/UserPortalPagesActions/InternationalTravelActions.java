@@ -12,53 +12,53 @@ import UserPortalPagesLocators.InternationalTravelLocators;
 
 public class InternationalTravelActions  extends APECOTestBase{
  
-	InternationalTravelLocators  InternationalTravelLocators;
+	InternationalTravelLocators  internationalTravelLocators;
 	 CommonFunctions commonFunctions = new CommonFunctions();
 	 JavascriptExecutor js = (JavascriptExecutor)driver;
 	 
 	public InternationalTravelActions() throws IOException {
 		super();
-		InternationalTravelLocators = new InternationalTravelLocators();
-		PageFactory.initElements(driver, approvalforInternationalTravelLocators);
+		internationalTravelLocators = new InternationalTravelLocators();
+		PageFactory.initElements(driver, internationalTravelLocators);
 	}
 	
 	//String curriculum,
 	
-public void submitInternationalTravelRequest(String destination,  String targetedStages, String departureDate,
+public String  submitInternationalTravelRequest(String destination,  String targetedStages, String departureDate,
 		String returnDateDate, String goalofTheTrip, String coordinatorName, String coordinatorPhoneNumber,String email, String dailyTripProgram, String invitation ) throws AWTException, InterruptedException {
-	approvalforInternationalTravelLocators.destinationTextbox.sendKeys(destination);
+	 internationalTravelLocators.destinationTextbox.sendKeys(destination);
 	//commonFunctions.enterddlValue(approvalforInternationalTravelLocators.Curriculum_ddl, curriculum);
-	commonFunctions.enterddlValue(approvalforInternationalTravelLocators.targetedStages_ddl, targetedStages);
-	approvalforInternationalTravelLocators.pageBody.click();
-	commonFunctions.moveToWebElement(approvalforInternationalTravelLocators.departureDateDatepicker);
-	commonFunctions.enterddlValue(approvalforInternationalTravelLocators.departureDateDatepicker, departureDate);
-	commonFunctions.enterddlValue(approvalforInternationalTravelLocators.returnDateDatepicker, returnDateDate);
-	InternationalTravelLocators.goalofTheTripTextarea.sendKeys(goalofTheTrip);
-	approvalforInternationalTravelLocators.coordinatorNameTextbox.sendKeys(coordinatorName);
-	approvalforInternationalTravelLocators.coordinatorPhoneNumberTextbox.sendKeys(coordinatorPhoneNumber);
+	commonFunctions.enterddlValue( internationalTravelLocators.targetedStages_ddl, targetedStages);
+	 internationalTravelLocators.pageBody.click();
+	commonFunctions.moveToWebElement( internationalTravelLocators.departureDateDatepicker);
+	commonFunctions.enterddlValue( internationalTravelLocators.departureDateDatepicker, departureDate);
+	commonFunctions.enterddlValue( internationalTravelLocators.returnDateDatepicker, returnDateDate);
+	 internationalTravelLocators.goalofTheTripTextarea.sendKeys(goalofTheTrip);
+	 internationalTravelLocators.coordinatorNameTextbox.sendKeys(coordinatorName);
+	 
+	 internationalTravelLocators.coordinatorPhoneNumberTextbox.sendKeys(coordinatorPhoneNumber);
 	js.executeScript("window.scrollBy(0,3000)");
-	approvalforInternationalTravelLocators.emailTextbox.sendKeys(email);
-	approvalforInternationalTravelLocators.dailyTripProgramTextbox.sendKeys(dailyTripProgram);
+	 internationalTravelLocators.emailTextbox.sendKeys(email);
+	 internationalTravelLocators.dailyTripProgramTextbox.sendKeys(dailyTripProgram);
 	js.executeScript("window.scrollBy(0,3000)");
-	commonFunctions.moveToWebElement(approvalforInternationalTravelLocators. travelDataNext_btn);
-	approvalforInternationalTravelLocators.travelDataNext_btn.click();
+	commonFunctions.moveToWebElement( internationalTravelLocators. travelDataNext_btn);
+	 internationalTravelLocators.travelDataNext_btn.click();
 	
-	approvalforInternationalTravelLocators.addAttachments_btn.click();
-	approvalforInternationalTravelLocators.attachmentExpand_btn.click();
-	commonFunctions.uploadfile(approvalforInternationalTravelLocators.invitationUploader, invitation);
-	approvalforInternationalTravelLocators.attachmentsNext_btn.click();
+	 internationalTravelLocators.addAttachments_btn.click();
+	 internationalTravelLocators.attachmentExpand_btn.click();
+	commonFunctions.uploadfile( internationalTravelLocators.invitationUploader, invitation);
+	 internationalTravelLocators.attachmentsNext_btn.click();
 	
-	approvalforInternationalTravelLocators.dataAcknowledge_Checkbox.click();
-	approvalforInternationalTravelLocators.submit_btn.click();
+	 internationalTravelLocators.dataAcknowledge_Checkbox.click();
+	 internationalTravelLocators.submit_btn.click();
 	
 	Thread.sleep(2000);
-	 String msg = approvalforInternationalTravelLocators.confirmation_msg.getText();
-
-	 int number = Integer.parseInt(msg.replaceAll("[^0-9]",""));
-	 System.out.println(number);
+	 String msg =  internationalTravelLocators.confirmation_msg.getText();
+	 String internationalTravelRequestNumber = msg.replaceAll("[^0-9]","");
 	 Thread.sleep(2000);
-	System.out.println(approvalforInternationalTravelLocators.confirmation_msg.getText());
-	approvalforInternationalTravelLocators.confirmation_btn.click();
+	System.out.println( internationalTravelLocators.confirmation_msg.getText());
+	 internationalTravelLocators.confirmation_btn.click();
+	 return internationalTravelRequestNumber;
 	
 	}
 

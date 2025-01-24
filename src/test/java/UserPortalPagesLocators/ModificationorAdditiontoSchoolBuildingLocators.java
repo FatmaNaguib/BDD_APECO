@@ -22,10 +22,10 @@ public class ModificationorAdditiontoSchoolBuildingLocators {
 	 
 	 
 	 
-		@FindBy (xpath ="(//span[@class=\"choose-file-btn\"])[1]")public WebElement  officialLetter_uploader;
-		@FindBy (xpath ="(//label[@for=\"file-input\"])[1]//following::span[@class=\"choose-file-btn\"][1]")public WebElement currentEngineeringPlan_uploader;
-		@FindBy (xpath ="(//label[@for=\"file-input\"])[2]//following::span[@class=\"choose-file-btn\"][1]")public WebElement newEngineeringPlan_uploader;
-		@FindBy (xpath ="(//label[@for=\"file-input\"])[3]//following::span[@class=\"choose-file-btn\"][1]")public WebElement landMap_uploader;
+		@FindBy (xpath ="//input[@id=\"officialLetterSignedByLicenseHolderRegardingRequiredAmendment\"]")public WebElement  officialLetter_uploader;
+		@FindBy (xpath ="//input[@id=\"currentEngineeringPlanApprovedByAjmanPrivateEducationOffice\"]")public WebElement currentEngineeringPlan_uploader;
+		@FindBy (xpath ="//input[@id=\"newEngineeringPlanIssuedByOneOfAccreditedEngineeringOffices\"]")public WebElement newEngineeringPlan_uploader;
+		@FindBy (xpath ="//input[@id=\"landMap\"]")public WebElement landMap_uploader;
 		@FindBy(xpath = "//input[@type='checkbox']") public WebElement dataAcknowledge_Checkbox;
 		@FindBy(xpath = "//button[normalize-space()='Submit']") public WebElement submit_btn;
 		@FindBy(xpath = "//span[@class=\"font-weight-semibold fs-2rem\"]") public WebElement confirmation_msg;

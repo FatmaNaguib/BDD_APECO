@@ -33,7 +33,6 @@ public void engineereRatsTheEngineeringPlanforTheModificationorAdditiontoSchoolB
 		
 		commonFunctions.waitElementToBevisible(adminReducingEducationalStagesLocators.complete_btn);
 		adminReducingEducationalStagesLocators.complete_btn.click();
-;
 		adminReducingEducationalStagesLocators.save_btn.click();
 		adminAgentQueueActions.adminLogout();
 	}

@@ -14,6 +14,8 @@ public class AllActionsDefinition_ChangeSchoolName extends APECOTestBase {
 	
 	public AllActionsDefinition_ChangeSchoolName(ScenarioContext scenarioContext) throws IOException {
 		this.scenarioContext = scenarioContext;
+		UserPagesInitialization();
+		AdminPagesInitialization();
 	}
 
 
@@ -26,8 +28,8 @@ public void the_applicant_applies_for_a_new_change_school_name_request() throws 
 	userServicesPageActions.startChangeSchoolNameRequest();
 	
 	String licensedSchoolName = (String) scenarioContext.getData("licensedSchoolName");
-	System.out.println(licensedSchoolName);
-	userSchoolsListActions.selectSchool(licensedSchoolName);
+userSchoolsListActions.selectSchool(licensedSchoolName);
+	
 	
 	String[] schoolNames = UserSchoolsListActions.schoolName();
 	String schoolNameAr = schoolNames[0];
@@ -46,13 +48,13 @@ public void the_employee_aprroves_the_change_school_name_request() throws IOExce
 	
 	 adminLoginPageActions.adminLoginurl("https://apeco-admin-portal-qc.graycliff-e2cfdb11.eastus.azurecontainerapps.io/login");
 	  Thread.sleep(1000);
+		adminLoginPageActions.selectEngLang();	 
 	adminLoginPageActions.adminLogin(properties.getProperty("employeeUsername"), properties.getProperty("employeePassword"));
 	String changeSchoolNameRequestNumber = (String) scenarioContext.getData("changeSchoolNameRequestNumber");
 	adminAgentQueueActions.adminSearchforaRequest(changeSchoolNameRequestNumber);
 		adminAgentQueueActions.adminOpenRequestDetailsScreen();
 		 adminChangeSchoolNameActions.employeelApproval("Approve By Employee");
 		 adminAgentQueueActions.adminLogout();
-	    adminLoginPageActions.adminLoginurl("https://apeco-portal-qc.graycliff-e2cfdb11.eastus.azurecontainerapps.io/auth/login");
 }
 
 

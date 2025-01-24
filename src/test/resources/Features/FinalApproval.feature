@@ -1,8 +1,8 @@
-Feature: TestAllActions_FinalApproval.featurezzz
+Feature: Final Approval Service
 
 
 @UserLogin  
-Scenario: Review Employee Approvs The Final Approval Request
+Scenario: The User Can Apply Final Approval Service Request And The Request is approved Successfully
 
   Given The Applicant Has an Approved Initial approval request
   Given The Applicant Has a Valid School Name 
@@ -12,5 +12,5 @@ Then The Admin School Manager Approves The Scheduled Meeting
 Then The Review Employee Meets The School Manager
 Then The Engineer Aprroves The Final Approval Request
 Then The Employee Aprroves The Final Approval Request
-	Then User Pays The Final Approval Request fees
+
 

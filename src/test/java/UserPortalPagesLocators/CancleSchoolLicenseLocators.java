@@ -13,14 +13,17 @@ public class CancleSchoolLicenseLocators {
 	@FindBy(xpath = "//checkbox-input[@ng-reflect-name=\"staffStatusSettlement\"]") public WebElement staffStatusSettlementCheckbox;	
     @FindBy(xpath = "//button[@class='ant-btn ant-btn-primary ant-btn-lg']") public  WebElement licenseCancelationNext_btn;
     
-	@FindBy (xpath ="//label[@for='cancellationRequestAuthorizedByLicenseHolder']//following::span[1]")public WebElement cancellationRequestAuthorizedByLicenseHolder_uploader;	
-	@FindBy (xpath ="//label[@for='latestCommercialLicense']//following::span[1]")public WebElement latestCommercialLicense_uploader;	
+	@FindBy (xpath ="//input[@id=\"cancellationRequestAuthorizedByLicenseHolder\"]")public WebElement cancellationRequestAuthorizedByLicenseHolder_uploader;	
+	@FindBy (xpath ="//input[@id=\"latestCommercialLicense\"]")public WebElement latestCommercialLicense_uploader;	
 	@FindBy(xpath = "//input[@type='checkbox']") public WebElement dataAcknowledge_Checkbox;
 	@FindBy(xpath = "//button[@class='ant-btn ant-btn-primary ant-btn-lg ng-star-inserted']") public WebElement pay_btn;
 	
 	@FindBy(xpath = "//span[normalize-space()='Submit']") public WebElement  Submit_btn;
 	//@FindBy(xpath = "//button[@class=\"ant-btn ant-btn-lg ng-star-inserted\"]//span[@class=\"ng-star-inserted\"]") public WebElement confirmation_msg;
 	@FindBy(xpath = "//span[@class=\"font-weight-semibold fs-2rem\"]") public WebElement confirmation_msg;
-	@FindBy(xpath = "//span[@class='ng-star-inserted']") public WebElement confirmation_btn;
+	@FindBy(xpath = "//button[@class=\"ant-btn ng-star-inserted ant-btn-lg\"]") public WebElement confirmation_btn;
+	
+	//span[@class='ng-star-inserted']
+	
 	
 }

@@ -23,14 +23,19 @@ import com.google.gson.JsonParser;
 import AdminPortaPageslLocators.AdminInitialApprovalRequestDetailsLocators;
 import AdminPortaPageslLocators.AdminloginPageLocatore;
 import AdminPortaPageslLocators.AdminSchoolRenewalRequestDetailsLocators;
+import AdminPortalPagesActions.AdminAddingEducationalStagesActions;
 import AdminPortalPagesActions.AdminAgentQueueActions;
+import AdminPortalPagesActions.AdminAppointmentNotificationforEmployeesActions;
+import AdminPortalPagesActions.AdminApprovalofAnnualActivitiesandProgramsActions;
 import AdminPortalPagesActions.AdminChangeOrAddPartnerActions;
 import AdminPortalPagesActions.AdminChangeSchoolLocationActions;
 import AdminPortalPagesActions.AdminChangeSchoolManagerActions;
 import AdminPortalPagesActions.AdminChangeSchoolNameActions;
 import AdminPortalPagesActions.AdminComplaintActions;
+import AdminPortalPagesActions.AdminEmployeesExperienceCertificateRatificationActions;
 import AdminPortalPagesActions.AdminFinalApprovalActions;
 import AdminPortalPagesActions.AdminInitialApprovalRequestDetailsActions;
+import AdminPortalPagesActions.AdminInternationalTravelActions;
 import AdminPortalPagesActions.AdminLoginPageActions;
 import AdminPortalPagesActions.AdminModificationorAdditiontoSchoolBuildingActions;
 import AdminPortalPagesActions.AdminModificationorIncreaseinTuitionFeesActions;
@@ -66,19 +71,7 @@ import UserPortalPagesActions.LicenseRenewalActions;
 import UserPortalPagesActions.ModificationorAdditiontoSchoolBuildingActions;
 import UserPortalPagesActions.ModificationorIncreaseinTuitionFeesActions;
 import UserPortalPagesActions.PartnerWithdrawalRequestActions;
-import UserPortalPagesLocators.InternationalTravelLocators;
-import UserPortalPagesLocators.CancleSchoolLicenseLocators;
-import UserPortalPagesLocators.ChangeSchoolManagerLocators;
-import UserPortalPagesLocators.ChangeSchoolNameLocators;
-import UserPortalPagesLocators.EmployeesExperienceCertificateRatificationLocators;
-import UserPortalPagesLocators.EventPermitbyanExternalEntityLocators;
-import UserPortalPagesLocators.FinalApprovalLocators;
-import UserPortalPagesLocators.InitialApplovalDocumentsPageLocators;
-import UserPortalPagesLocators.InitialApplovalOwnersProfilesPageLocators;
-import UserPortalPagesLocators.InitialApplovalSchoolInformationPageLocators;
-import UserPortalPagesLocators.LicenseRenewalLocators;
-import UserPortalPagesLocators.PublishingAnnouncementsPageLocators;
-import  UserPortalPagesLocators.UserServicesPageLocators;
+
 import Util.TestUtil;
 
 
@@ -87,53 +80,23 @@ public class APECOTestBase {
 	public static  Properties properties ;
 	public static  WebDriver driver;
 	
-	public static UserServicesPageLocators userServicesPageLocators;
 	
 	public static  UserLoginPageActions userLoginPageActions;
 	public static UserWorkspacePageActions userWorkspacePageActions ;
-	
 	public static InitialApplovalOwnersProfilesPageActions initialApplovalOwnersProfilesPageActions;
-	public 	static InitialApplovalOwnersProfilesPageLocators initialApplovalOwnersProfilesPageLocators;
-	
-	public static InitialApplovalSchoolInformationPageLocators initialApplovalSchoolInformationPageLocatoes;
-	public static InitialApplovalSchoolInformationPageActions initialApplovalSchoolInformationPageActions;
-	
-	public static InitialApplovalDocumentsPageActions initialApplovalDocumentsPageActions;
-	public static InitialApplovalDocumentsPageLocators initialApplovalDocumentsPageLocators;
-	
+	public static InitialApplovalSchoolInformationPageActions initialApplovalSchoolInformationPageActions;	
+	public static InitialApplovalDocumentsPageActions initialApplovalDocumentsPageActions;	
 	public static  FinalApprovalActions finalApprovalActions;
-	public static  FinalApprovalLocators finalApprovalLocators;
-	
-	
-	public static 	PublishingAnnouncementsPageLocators publishingAnnouncementsPageLocatos;
 	public static PublishingAnnouncementsPageActions publishingAnnouncementsPageActions;
-	
-	public static InternationalTravelLocators approvalforInternationalTravelLocators ;
 	public static InternationalTravelActions approvalforInternationalTravelActions;
-	
 	public static 	UserSchoolsListActions userSchoolsListActions;
 	public static UserSchoolsListActions selectSchoolActions;
-	
-	public static LicenseRenewalLocators licenseRenewalLocators;
 	public static LicenseRenewalActions  licenseRenewalActions;
-	
-
-	public static ChangeSchoolNameLocators changeSchoolNameLocators;
 	public static ChangeSchoolNameActions changeSchoolNameActions;
-	
-	public static ChangeSchoolManagerLocators changeSchoolManagerLocators;
 	public static ChangeSchoolManagerActions changeSchoolManagerActions;
-	
-	public static 	CancleSchoolLicenseLocators cancleSchoolLicenseLocators;
 	public static 	CancleSchoolLicenseActions  cancleSchoolLicenseActions ;
-	
-	public  static EventPermitbyanExternalEntityActions eventPermitbyanExternalEntityActions;
-	public  static EventPermitbyanExternalEntityLocators eventPermitbyanExternalEntityLocators;
-	
-	public  static EmployeesExperienceCertificateRatificationLocators employeesExperienceCertificateRatificationLocators;
+	public  static EventPermitbyanExternalEntityActions eventPermitbyanExternalEntityActions;	
 	public  static EmployeesExperienceCertificateRatificationActions employeesExperienceCertificateRatificationActions;
-
-	
 	public  static ChangeOrAddPartnerActions changeOrAddPartnerActions;
 	public  static PartnerWithdrawalRequestActions partnerWithdrawalRequestActions;
 	public static AppointmentNotificationforEmployeesActions apointmentNotificationforEmployeesActions;
@@ -146,7 +109,9 @@ public class APECOTestBase {
 	public static AnnualActivitiesandProgramsActions annualActivitiesandProgramsActions;
 	public static UserRequestsPageActions userRequestsPageActions;
 	public static SubmitaComplaintActions submitaComplaintActions;
+	public static AdminAppointmentNotificationforEmployeesActions adminAppointmentNotificationforEmployeesActions;
 	public static CommonFunctions commonFunctions;
+	public static AdminApprovalofAnnualActivitiesandProgramsActions adminApprovalofAnnualActivitiesandProgramsActions;
 	
 	public static AdminLoginPageActions adminLoginPageActions;
 	public static AdminServicesListPageActions adminServicesListPageActions;
@@ -168,6 +133,9 @@ public class APECOTestBase {
 	public static AdminSchoolRenewalRequestDetailsActions adminSchoolRenewalRequestDetailsActions;
 	public static AdminChangeSchoolLocationActions adminChangeSchoolLocationActions;
 	public static AdminReducingEducationalStagesActions adminReducingEducationalStagesActions;
+	public static AdminAddingEducationalStagesActions adminAddingEducationalStagesActions;
+	public static  AdminInternationalTravelActions adminInternationalTravelActions;
+	public static AdminEmployeesExperienceCertificateRatificationActions adminEmployeesExperienceCertificateRatificationActions;
 
 	 public APECOTestBase() throws IOException {
 			properties = new Properties();
@@ -195,7 +163,7 @@ public class APECOTestBase {
 			
 		chromeOptions.setExperimentalOption("excludeSwitches", new String[]{"enable-automation"}); 
 			chromeOptions.addArguments("--disable-extensions");
-			 boolean isHeadless = Boolean.parseBoolean(System.getProperty("headless", "true"));
+			 boolean isHeadless = Boolean.parseBoolean(System.getProperty("headless", "false"));
 	        if (isHeadless) {
 	        	chromeOptions.addArguments("--headless");
 	        	chromeOptions.addArguments("--window-size=1920,1080");
@@ -261,45 +229,21 @@ public class APECOTestBase {
 		userLoginPageActions = new UserLoginPageActions();
 		userWorkspacePageActions = new UserWorkspacePageActions();
 		userServicesPageActions = new UserServicesPageActions();
-		userSchoolsListActions = new UserSchoolsListActions();
-		
-		
-		initialApplovalOwnersProfilesPageLocators = new InitialApplovalOwnersProfilesPageLocators();
+		userSchoolsListActions = new UserSchoolsListActions();	
 		initialApplovalOwnersProfilesPageActions= new InitialApplovalOwnersProfilesPageActions();
-		
-		
-		initialApplovalSchoolInformationPageLocatoes = new InitialApplovalSchoolInformationPageLocators();
 		 initialApplovalSchoolInformationPageActions = new InitialApplovalSchoolInformationPageActions();
-		 
-		 initialApplovalDocumentsPageLocators = new InitialApplovalDocumentsPageLocators();
-		 initialApplovalDocumentsPageActions = new InitialApplovalDocumentsPageActions();
-		 
+		 initialApplovalDocumentsPageActions = new InitialApplovalDocumentsPageActions();		 
 		 finalApprovalActions = new FinalApprovalActions();
-		 finalApprovalLocators = new FinalApprovalLocators();
-		 
-		 publishingAnnouncementsPageLocatos = new  PublishingAnnouncementsPageLocators();
-		 publishingAnnouncementsPageActions = new PublishingAnnouncementsPageActions();
-		 
-		 changeSchoolNameLocators = new ChangeSchoolNameLocators();
-		 changeSchoolNameActions =new  ChangeSchoolNameActions();
-		 
-		 approvalforInternationalTravelLocators = new InternationalTravelLocators();
-		 approvalforInternationalTravelActions = new InternationalTravelActions();
-		 
-		 eventPermitbyanExternalEntityActions = new EventPermitbyanExternalEntityActions();
-		 eventPermitbyanExternalEntityLocators = new EventPermitbyanExternalEntityLocators();
-		 
-
-		 licenseRenewalLocators = new LicenseRenewalLocators();
+		 publishingAnnouncementsPageActions = new PublishingAnnouncementsPageActions();	 
+		 changeSchoolNameActions =new  ChangeSchoolNameActions();		 
+		 approvalforInternationalTravelActions = new InternationalTravelActions();	 
+		 eventPermitbyanExternalEntityActions = new EventPermitbyanExternalEntityActions();		
 		 licenseRenewalActions = new LicenseRenewalActions();
 		 changeSchoolLocationActions = new ChangeSchoolLocationActions();
-		 changeSchoolManagerLocators = new ChangeSchoolManagerLocators();
 		 changeSchoolManagerActions = new ChangeSchoolManagerActions();
 		 changeOrAddPartnerActions = new ChangeOrAddPartnerActions();
-			cancleSchoolLicenseLocators = new CancleSchoolLicenseLocators();
 			cancleSchoolLicenseActions = new CancleSchoolLicenseActions();
 			employeesExperienceCertificateRatificationActions = new EmployeesExperienceCertificateRatificationActions();
-			employeesExperienceCertificateRatificationLocators  = new EmployeesExperienceCertificateRatificationLocators();
 			partnerWithdrawalRequestActions = new PartnerWithdrawalRequestActions();
 			apointmentNotificationforEmployeesActions = new AppointmentNotificationforEmployeesActions();
 			modificationorAdditiontoSchoolBuildingActions = new ModificationorAdditiontoSchoolBuildingActions();
@@ -308,16 +252,15 @@ public class APECOTestBase {
 			reducingEducationalStagesActions = new ReducingEducationalStagesActions();
 			annualActivitiesandProgramsActions = new AnnualActivitiesandProgramsActions();
 			submitaComplaintActions = new SubmitaComplaintActions();
-		 userServicesPageLocators = new UserServicesPageLocators();
 		 userRequestsPageActions = new UserRequestsPageActions();
 		commonFunctions = new CommonFunctions();
+		 adminEmployeesExperienceCertificateRatificationActions = new  AdminEmployeesExperienceCertificateRatificationActions();
 		
 		
 		
 	}
 		public void AdminPagesInitialization() throws IOException {
 		adminLoginPageActions = new AdminLoginPageActions();
-		adminLoginPageLcators  = new AdminloginPageLocatore();
 		adminServicesListPageActions = new AdminServicesListPageActions();
 		adminAgentQueueActions = new AdminAgentQueueActions();
 		adminRequestDetailsActions = new AdminSchoolRenewalRequestDetailsActions();
@@ -335,6 +278,10 @@ public class APECOTestBase {
 			adminSchoolRenewalRequestDetailsActions = new AdminSchoolRenewalRequestDetailsActions();
 			adminChangeSchoolLocationActions = new AdminChangeSchoolLocationActions();
 			adminReducingEducationalStagesActions = new AdminReducingEducationalStagesActions ();
+			adminAddingEducationalStagesActions = new AdminAddingEducationalStagesActions();
+			adminAppointmentNotificationforEmployeesActions = new AdminAppointmentNotificationforEmployeesActions();
+			adminApprovalofAnnualActivitiesandProgramsActions = new AdminApprovalofAnnualActivitiesandProgramsActions();
+			adminInternationalTravelActions = new AdminInternationalTravelActions();
 		}
 
 	}

@@ -15,8 +15,7 @@ public class AppointmentNotificationforEmployeesActions  extends APECOTestBase{
 	JavascriptExecutor js = (JavascriptExecutor)driver;
 	
 	public AppointmentNotificationforEmployeesActions() throws IOException {
-		super();
-		 appointmentNotificationforEmployeesLocators = new AppointmentNotificationforEmployeesLocators();
+		appointmentNotificationforEmployeesLocators = new AppointmentNotificationforEmployeesLocators();
 		 PageFactory.initElements(driver, appointmentNotificationforEmployeesLocators);
 	}
 	
@@ -96,12 +95,13 @@ public class AppointmentNotificationforEmployeesActions  extends APECOTestBase{
 			
 			) throws AWTException, InterruptedException {
 		js.executeScript("window.scrollTo(0,0)");
-		commonFunctions.waitElementToBevisible(appointmentNotificationforEmployeesLocators.coloredPassport_uploader);
+	//	commonFunctions.waitElementToBevisible(appointmentNotificationforEmployeesLocators.coloredPassport_uploader);
 				commonFunctions.uploadfile(appointmentNotificationforEmployeesLocators.coloredPassport_uploader, coloredPassport);
 				commonFunctions.uploadfile(appointmentNotificationforEmployeesLocators.coloredNationalID_uploader,coloredNationalID);
 				commonFunctions.uploadfile(appointmentNotificationforEmployeesLocators.administrativeApproval_uploader,administrativeApproval);
 				commonFunctions.uploadfile(appointmentNotificationforEmployeesLocators.certificateOfGoodConduct_uploader,certificateOfGoodConduct);
 				commonFunctions.uploadfile(appointmentNotificationforEmployeesLocators.profilePicture_uploader,profilePicture);
+				js.executeScript("window.scrollBy(0,500)");
 				commonFunctions.uploadfile(appointmentNotificationforEmployeesLocators.sponsorLetter_uploader,sponsorLetter);
 				commonFunctions.uploadfile(appointmentNotificationforEmployeesLocators.appointmentInterviewPassDocument_uploader,appointmentInterviewPassDocument);
 			Thread.sleep(1000);
@@ -112,22 +112,21 @@ public class AppointmentNotificationforEmployeesActions  extends APECOTestBase{
 	}
 	public void payRequestfees() throws InterruptedException {
 		js.executeScript("window.scrollTo(0,0)");
-		commonFunctions.moveToWebElement(appointmentNotificationforEmployeesLocators.dataAcknowledge_Checkbox);
-		appointmentNotificationforEmployeesLocators.dataAcknowledge_Checkbox.click();
+		Thread.sleep(3000);
+commonFunctions.moveToWebElement(appointmentNotificationforEmployeesLocators.dataAcknowledge_Checkbox);
+	appointmentNotificationforEmployeesLocators.dataAcknowledge_Checkbox.click();
+	
 		appointmentNotificationforEmployeesLocators.pay_btn.click();
-		commonFunctions.waitElementToBevisible(appointmentNotificationforEmployeesLocators.payNow_btn);
 		Thread.sleep(1000);
 	//	js.executeScript("window.scrollBy(0,2000)");
-		commonFunctions.moveToWebElement(appointmentNotificationforEmployeesLocators.payNow_btn);
+//		commonFunctions.moveToWebElement(appointmentNotificationforEmployeesLocators.payNow_btn);
+//		appointmentNotificationforEmployeesLocators.payNow_btn.click();
+		//commonFunctions.clickWebElement(appointmentNotificationforEmployeesLocators.payNow_btn);
 		appointmentNotificationforEmployeesLocators.payNow_btn.click();
 		Thread.sleep(2000);
-		commonFunctions.waitElementToBevisible(appointmentNotificationforEmployeesLocators.submit_btn);
-		//commonFunctions.clickWebElement(appointmentNotificationforEmployeesLocators.payNow_btn);
-		//appointmentNotificationforEmployeesLocators.payNow_btn.click();
-
-		commonFunctions.moveToWebElement(appointmentNotificationforEmployeesLocators.submit_btn);
-		
-		commonFunctions.clickWebElement(appointmentNotificationforEmployeesLocators.submit_btn);
+//		commonFunctions.waitElementToBevisible(appointmentNotificationforEmployeesLocators.submit_btn);
+		appointmentNotificationforEmployeesLocators.submit_btn.click();
+	//	commonFunctions.clickWebElement(appointmentNotificationforEmployeesLocators.submit_btn);
 	}
 	
 	public String getRequestNumber() throws InterruptedException {

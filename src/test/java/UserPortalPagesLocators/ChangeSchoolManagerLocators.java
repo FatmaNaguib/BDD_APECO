@@ -19,7 +19,8 @@ public class ChangeSchoolManagerLocators {
 	
 	@FindBy(id = "placeOfDate") public WebElement placeofBirth_TextBox;
 	@FindBy(id = "idCardNumber") public WebElement idCardNumber_TextBox;
-	@FindBy(xpath = "//input[@placeholder='ID Card Expiration Date']") public WebElement idCardExpirationDate_TextBox;
+	
+	@FindBy(xpath = "//input[@placeholder=\"Emirates ID Expiration Date\"]") public WebElement idCardExpirationDate_TextBox;
 	@FindBy(id = "passportNumber") public WebElement passportNumber_TextBox;
 	@FindBy(xpath = "//input[@placeholder='Passport Expiration Date']") public WebElement passportExpirationDate_Calendar;
 	@FindBy(xpath = "//label[@for=\"religion\"]//following::input[1]") public WebElement religion_ddl;
@@ -34,7 +35,7 @@ public class ChangeSchoolManagerLocators {
 	@FindBy(xpath = "//input[@id='Specialization']") public WebElement specialization_TextBox;
 	@FindBy(xpath = "//input[@placeholder='Qualification Date']") public WebElement qualificationDate_Calendar;
 	@FindBy(xpath = "//input[@id='Certificate Issuing Authority']") public WebElement certificateIssuingAuthority_Textbox;
-	@FindBy (xpath ="//label[@for='verifiedQualificationAndAcademicRecord']//following::span[1]")public WebElement verifiedQualificationAndAcademicRecord_uploader;
+	@FindBy (xpath ="//input[@id=\"verifiedQualificationAndAcademicRecord\"]")public WebElement verifiedQualificationAndAcademicRecord_uploader;
 	 @FindBy(xpath = "//button[@id='nz-tabs-0-tab-3']") public  WebElement previousExperience_btn;
 	@FindBy(id = "Employer") public WebElement employer_TextBox;
 	@FindBy(id = "Job Title") public WebElement jobTitle_TextBox;
@@ -43,15 +44,15 @@ public class ChangeSchoolManagerLocators {
 	@FindBy (xpath ="//input[@placeholder='Work completion date']")public WebElement workCompletionDate_Calendar;
 	@FindBy(xpath = "//select-input[@ng-reflect-name=\"country\"]//nz-select-search//input[1]") public WebElement country_ddl;
 	
-	@FindBy (xpath ="//label[@for='experienceCertificates']//following::span[1]")public WebElement experienceCertificates_uploader;
+	@FindBy (xpath ="//input[@id=\"experienceCertificates\"]")public WebElement experienceCertificates_uploader;
     @FindBy(xpath = "//button[@class='ant-btn ant-btn-primary ant-btn-lg ng-star-inserted']") public  WebElement managerDataNext_btn; 
     
-	@FindBy (xpath ="//label[@for='emiratiIdForManager']//following::span[1]")public WebElement emiratiIdforManager_uploader;
-	@FindBy (xpath ="//label[@for='passportForManager']//following::span[1]")public WebElement passportforManager_uploader;
-	@FindBy (xpath ="//label[@for='criminalStatusCertificateForManager']//following::span[1]")public WebElement criminalStatusCertificateForManager_uploader;
-	@FindBy (xpath ="//label[@for='profilePicture']//following::span[1]")public WebElement profilePicture_uploader;
-	@FindBy (xpath ="//label[@for='managerApproval']//following::span[1]")public WebElement managerApproval_uploader;	
-	@FindBy (xpath ="//label[@for='cvManager']//following::span[1]")public WebElement managerCV_uploader;
+	@FindBy (xpath ="//input[@id=\"emiratiIdForManager\"]")public WebElement emiratiIdforManager_uploader;
+	@FindBy (xpath ="//input[@id=\"passportForManager\"]")public WebElement passportforManager_uploader;
+	@FindBy (xpath ="//input[@id=\"criminalStatusCertificateForManager\"]")public WebElement criminalStatusCertificateForManager_uploader;
+	@FindBy (xpath ="//input[@id=\"profilePicture\"]")public WebElement profilePicture_uploader;
+	@FindBy (xpath ="//input[@id=\"managerApproval\"]")public WebElement managerApproval_uploader;	
+	@FindBy (xpath ="//input[@id=\"cvManager\"]")public WebElement managerCV_uploader;
 	@FindBy(xpath = "//input[@type='checkbox']") public WebElement dataAcknowledge_Checkbox;
 	@FindBy(xpath = "//button[@class='ant-btn ant-btn-primary ant-btn-lg ng-star-inserted']") public WebElement attachmentsNxt_btn;
 	@FindBy(xpath = "//button[@class='ant-btn ant-btn-primary ant-btn-lg ng-star-inserted']") public WebElement pay_btn;

@@ -10,7 +10,7 @@ public class AdminChangeOrAddPartnerLocators {
 	
 	@FindBy(xpath = "//button[@class='btn btn-success ng-star-inserted']") public WebElement approve_btn;
 	@FindBy(xpath = "//textarea[@placeholder=\"Type description\"]") 	public WebElement comments_TextArea;
-	@FindBy(id="input-file") 	public WebElement initialApprovalfile_Uploader;
+	@FindBy(xpath="//input[@id=\"input-file\"]") 	public WebElement initialApprovalfile_Uploader;
 	
 
 

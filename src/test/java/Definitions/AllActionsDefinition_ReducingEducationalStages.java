@@ -25,8 +25,6 @@ public class AllActionsDefinition_ReducingEducationalStages extends APECOTestBas
 		String licensedSchoolName = (String) scenarioContext.getData("licensedSchoolName");
 		userSchoolsListActions.selectSchool(licensedSchoolName);
 		
-		//String licensedSchoolName = (String) scenarioContext.getData("licensedSchoolName");
-		userSchoolsListActions.selectSchool("New Education School 10845");	
 		reducingEducationalStagesActions.selectEducationalStages();
 		reducingEducationalStagesActions.reducingEducationalStagesAttachments("UploadFile.pdf","UploadFile.pdf","UploadFile.pdf","UploadFile.pdf");
 		reducingEducationalStagesActions.submitRequest();

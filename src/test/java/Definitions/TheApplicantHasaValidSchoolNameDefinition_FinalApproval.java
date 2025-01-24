@@ -22,7 +22,6 @@ public class TheApplicantHasaValidSchoolNameDefinition_FinalApproval extends APE
 		userWorkspacePageActions.clickonSideMenu_Services_link();
 		userServicesPageActions.clickeFinalApprovalServiceLink();
 		String licensedSchoolName = (String) scenarioContext.getData("licensedSchoolName");
-		System.out.println(licensedSchoolName);
 		userSchoolsListActions.selectSchool(licensedSchoolName);
 		finalApprovalActions.enterSchoolFees("100", "100", "100","200", "200", "200","300", "300", "300", "Dubai", "500", "500");
 		 finalApprovalActions.enterCandidateData();
@@ -34,7 +33,7 @@ public class TheApplicantHasaValidSchoolNameDefinition_FinalApproval extends APE
 			scenarioContext.setData("finalapprovalRequestNumber", finalapprovalRequestNumber);
 			Thread.sleep(1000);
 			userWorkspacePageActions.logout();
-			 adminLoginPageActions.adminLoginurl("https://apeco-admin-portal-qc.graycliff-e2cfdb11.eastus.azurecontainerapps.io/login");
+		//	 adminLoginPageActions.adminLoginurl("https://apeco-admin-portal-qc.graycliff-e2cfdb11.eastus.azurecontainerapps.io/login");
 	}
 
 

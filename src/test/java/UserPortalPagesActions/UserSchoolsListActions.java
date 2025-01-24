@@ -1,8 +1,8 @@
 package UserPortalPagesActions;
 
 import java.io.IOException;
-
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
@@ -12,6 +12,7 @@ import UserPortalPagesLocators.UserSchoolsListLocators;
 public class UserSchoolsListActions extends APECOTestBase {
 
 	UserSchoolsListLocators userSchoolsListLocators;
+	JavascriptExecutor js = (JavascriptExecutor)driver;
 	
 	public UserSchoolsListActions() throws IOException {
 		userSchoolsListLocators = new UserSchoolsListLocators();
@@ -33,6 +34,7 @@ public class UserSchoolsListActions extends APECOTestBase {
 public void selectSchool( String licensedSchoolName) throws InterruptedException {
 //	System.out.println(adminInitialApprovalRequestDetailsActions.licensedSchoolName());
 	//adminInitialApprovalRequestDetailsActions.getLicensedSchoolName();
+
 	commonFunctions.moveToWebElement(findElementByDynamicValue(licensedSchoolName));
 	WebElement schoolElement = findElementByDynamicValue(licensedSchoolName);
 	commonFunctions.clickWebElement(schoolElement);

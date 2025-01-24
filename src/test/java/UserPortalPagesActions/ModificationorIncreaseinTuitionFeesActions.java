@@ -64,10 +64,15 @@ public class ModificationorIncreaseinTuitionFeesActions  extends APECOTestBase{
 	public void payRequestfees() throws InterruptedException {
 		js.executeScript("window.scrollTo(0,0)");
 		Thread.sleep(3000);
-	commonFunctions.moveToWebElement(modificationorIncreaseinTuitionFeesLocators.dataAcknowledge_Checkbox);
+	//commonFunctions.moveToWebElement(modificationorIncreaseinTuitionFeesLocators.dataAcknowledge_Checkbox);
 		//commonFunctions.clickWebElement(modificationorIncreaseinTuitionFeesLocators.dataAcknowledge_Checkbox);
-	commonFunctions.waitElementToBeClickable(modificationorIncreaseinTuitionFeesLocators.dataAcknowledge_Checkbox);
+	//commonFunctions.waitElementToBeClickable(modificationorIncreaseinTuitionFeesLocators.dataAcknowledge_Checkbox);
+		js.executeScript("window.scrollTo(0,300)");
+		
+		commonFunctions.moveToWebElement(modificationorIncreaseinTuitionFeesLocators.dataAcknowledge_Checkbox);
 		modificationorIncreaseinTuitionFeesLocators.dataAcknowledge_Checkbox.click();
+
+	//	modificationorIncreaseinTuitionFeesLocators.dataAcknowledge_Checkbox.click();
 		modificationorIncreaseinTuitionFeesLocators.payButton.click();
 		modificationorIncreaseinTuitionFeesLocators.payNowButton.click();
 		//modificationorIncreaseinTuitionFeesLocators.submit_btn.click();
@@ -79,6 +84,7 @@ public class ModificationorIncreaseinTuitionFeesActions  extends APECOTestBase{
 		 String msg = modificationorIncreaseinTuitionFeesLocators.confirmation_msg.getText();
 		 String tuitionFeesRequestNumber  =msg.replaceAll("[^0-9]","");
 		System.out.println(tuitionFeesRequestNumber);
+		Thread.sleep(1000);
 		commonFunctions.waitElementToBevisible(modificationorIncreaseinTuitionFeesLocators.confirmation_btn);
 		modificationorIncreaseinTuitionFeesLocators.confirmation_btn.click();
 		return tuitionFeesRequestNumber;

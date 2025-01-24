@@ -22,7 +22,6 @@ public class ReducingEducationalStagesActions extends APECOTestBase {
 	
 	public void selectEducationalStages() throws InterruptedException {
 		js.executeScript("window.scrollTo(0,0)");
-		//commonFunctions.moveToWebElement(reducingEducationalStagesLocators.firstEducationalStageCheckBox);
 		reducingEducationalStagesLocators.firstEducationalStageCheckBox.click();
 		Thread.sleep(1000);
 		reducingEducationalStagesLocators.nextButton.click();
@@ -57,19 +56,19 @@ public class ReducingEducationalStagesActions extends APECOTestBase {
 	}
 	
 	public void postPayRequestfees() throws InterruptedException {
-		commonFunctions.waitElementToBevisible(reducingEducationalStagesLocators.pay_btn);
-		commonFunctions.moveToWebElement(reducingEducationalStagesLocators.pay_btn);
-		reducingEducationalStagesLocators.pay_btn.click();
-		js.executeScript("window.scrollTo(0,0)");
+		
+		commonFunctions.waitElementToBevisible(reducingEducationalStagesLocators.postPay_btn);
+		commonFunctions.moveToWebElement(reducingEducationalStagesLocators.postPay_btn);
+		reducingEducationalStagesLocators.postPay_btn.click();
 		commonFunctions.moveToWebElement(reducingEducationalStagesLocators.payNow_btn);
-
+		commonFunctions.clickWebElement(reducingEducationalStagesLocators.payNow_btn);
 		reducingEducationalStagesLocators.payNow_btn.click();
-
 		commonFunctions.waitElementToBevisible(reducingEducationalStagesLocators.submit_btn);
 		reducingEducationalStagesLocators.submit_btn.click();	
 		commonFunctions.moveToWebElement(reducingEducationalStagesLocators.okay_btn);
 		commonFunctions.waitElementToBevisible(reducingEducationalStagesLocators.okay_btn);
 		reducingEducationalStagesLocators.okay_btn.click();
 		Thread.sleep(3000);
+		
 	}
 }

@@ -28,7 +28,7 @@ public class AdminChangeOrAddPartnerActions extends APECOTestBase {
 		commonFunctions.clickWebElement(adminChangeOrAddPartnerLocators.approve_btn);
 		//adminInitialApprovalRequestDetailsLocators.employeeApprove_btn.click();
 		adminChangeOrAddPartnerLocators.comments_TextArea.sendKeys("The Request Has Been Approved By The Employee");
-		commonFunctions.uploadfile(adminChangeOrAddPartnerLocators.initialApprovalfile_Uploader, initialApprovalfile);
+		commonFunctions.approvalUploadfile(adminChangeOrAddPartnerLocators.initialApprovalfile_Uploader, initialApprovalfile);
 		commonFunctions.clickWebElement(adminChangeOrAddPartnerLocators.save_btn);
 		adminAgentQueueActions.adminLogout();
 	}

@@ -23,11 +23,10 @@ public class AllActionsDefinition_ChangeSchoolLocation extends APECOTestBase {
 
 	userLoginPageActions.userlogin(properties.getProperty("username"), properties.getProperty("password"));
 		userWorkspacePageActions.clickonSideMenu_Services_link();
-		userServicesPageActions.clickChangeSchoolLocationLink();
-		
+		userServicesPageActions.clickChangeSchoolLocationLink();		
 		String licensedSchoolName = (String) scenarioContext.getData("licensedSchoolName");
-		userSchoolsListActions.selectSchool(licensedSchoolName);
-
+		userSchoolsListActions.selectSchool(licensedSchoolName);		
+		
 		   changeSchoolLocationActions.enterSchoolDetails	("New building", "Moahamed Essam", "شارع جابر المبارك", "Boys",  "الموقع / رقم قطعة الأرض باللغة الإنجليزية - طلب تغيير موقع مدرسة", "الموقع / رقم قطعة الأرض باللغة العربية - طلب تغيير موقع مدرسة",  "800","900", "400", "90", "First","Owner");
 		   changeSchoolLocationActions.uploadAttachments("UploadFile.pdf","UploadFile.pdf","UploadFile.pdf","UploadFile.pdf","UploadFile.pdf","UploadFile.pdf");
 			changeSchoolLocationActions.submitChangeSchoolLocationRequest();			
@@ -35,7 +34,7 @@ public class AllActionsDefinition_ChangeSchoolLocation extends APECOTestBase {
 			scenarioContext.setData("changeSchoolLocationRequestNumber",changeSchoolLocationRequestNumber );
 			Thread.sleep(1000);
 			userWorkspacePageActions.logout();
-			adminLoginPageActions.adminLoginurl("https://apeco-admin-portal-qc.graycliff-e2cfdb11.eastus.azurecontainerapps.io/login");
+	//		adminLoginPageActions.adminLoginurl("https://apeco-admin-portal-qc.graycliff-e2cfdb11.eastus.azurecontainerapps.io/login");
 			
 	}
 	
@@ -48,12 +47,13 @@ public class AllActionsDefinition_ChangeSchoolLocation extends APECOTestBase {
 		 adminAgentQueueActions.adminSearchforaRequest(changeSchoolLocationRequestNumber);
 		  adminAgentQueueActions.adminOpenRequestDetailsScreen();
 		  adminChangeSchoolLocationActions.engineerRatsTheStudyPlanforTheModificationorAdditiontoSchoolBuildingRequest();
-		adminLoginPageActions.adminLoginurl("https://apeco-admin-portal-qc.graycliff-e2cfdb11.eastus.azurecontainerapps.io/login");
+	//	adminLoginPageActions.adminLoginurl("https://apeco-admin-portal-qc.graycliff-e2cfdb11.eastus.azurecontainerapps.io/login");
 			   
 	}
 
 	@Then("The Engineer Completes the Change School Location Request Field Technical Approval File")
 	public void the_engineer_completes_the_change_school_location_request_field_technical_approval_file() throws InterruptedException, IOException {
+		adminLoginPageActions.adminLoginurl("https://apeco-admin-portal-qc.graycliff-e2cfdb11.eastus.azurecontainerapps.io/login");
 		adminLoginPageActions.selectEngLang();
 		adminLoginPageActions.adminLogin(properties.getProperty("engineerUsername"), properties.getProperty("engineerPassword"));
 		String  changeSchoolLocationRequestNumber = (String) scenarioContext.getData("changeSchoolLocationRequestNumber");
@@ -71,6 +71,7 @@ public class AllActionsDefinition_ChangeSchoolLocation extends APECOTestBase {
 			userWorkspacePageActions.clickonSideMenuRequestslink();
 			String changeSchoolLocationRequestNumber = (String) scenarioContext.getData("changeSchoolLocationRequestNumber");
 			 userRequestsPageActions.searchForaRequestbyNumber(changeSchoolLocationRequestNumber);
+			 Thread.sleep(1000);
 			userRequestsPageActions.clickDetailsButton();
 			changeSchoolLocationActions.siteIsReady();
 		 	userWorkspacePageActions.logout();
@@ -96,8 +97,6 @@ public class AllActionsDefinition_ChangeSchoolLocation extends APECOTestBase {
 		adminAgentQueueActions.adminSearchforaRequest(changeSchoolLocationRequestNumber);
 			adminAgentQueueActions.adminOpenRequestDetailsScreen();
 		adminChangeSchoolLocationActions.employeeApprovestheChangeSchoolLocatiolRequest();
-
-
 	}
 
 	@Then("The Applicant Pays The Change School Location Request fees")

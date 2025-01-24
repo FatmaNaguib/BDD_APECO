@@ -38,8 +38,6 @@ public class AdminAgentQueueActions extends APECOTestBase {
 	
 	public void adminOpenRequestDetailsScreen()  {
 		commonFunctions.clickWebElement(adminAgentQueueLocators.requestNumberLink);
-		//adminAgentQueueLocators.requestNumberLink.click();
-		
 	}
 	
 	public void adminLogout() throws InterruptedException {

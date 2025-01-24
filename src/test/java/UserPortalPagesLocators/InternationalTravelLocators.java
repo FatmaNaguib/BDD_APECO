@@ -12,7 +12,8 @@ public class InternationalTravelLocators {
 	@FindBy(xpath = "//input[@placeholder='Return Date']") public WebElement returnDateDatepicker;
 	@FindBy(id = "goalOfTheTrip") public WebElement goalofTheTripTextarea;
 	@FindBy(id = "coordinatorName") public WebElement coordinatorNameTextbox;
-	@FindBy(id = "coordinatorPhoneNumber") public WebElement coordinatorPhoneNumberTextbox;
+	//@FindBy(id = "coordinatorPhoneNumber") public WebElement internationalTravelLocators;
+	@FindBy(id="coordinatorPhoneNumber") public WebElement coordinatorPhoneNumberTextbox;
 	@FindBy(id = "email") public WebElement emailTextbox;
 	@FindBy(id = "dailyTripProgram") public WebElement dailyTripProgramTextbox;
 	@FindBy(xpath ="//button[@class='ant-btn ant-btn-primary ant-btn-lg ng-star-inserted']") public WebElement travelDataNext_btn;
@@ -21,7 +22,7 @@ public class InternationalTravelLocators {
 	
 	@FindBy(xpath ="//span[@class='ng-star-inserted']") public WebElement addAttachments_btn;
 	@FindBy(xpath ="//span[@class='anticon anticon-down']//*[name()='svg']") public WebElement attachmentExpand_btn;
-	@FindBy (xpath = "//label[@for='invitationFile']//following::span[1]") public WebElement invitationUploader;
+	@FindBy (xpath = "//input[@id=\"invitationFile\"]") public WebElement invitationUploader;
 	
 	@FindBy(xpath = "//input[@type='checkbox']") public WebElement dataAcknowledge_Checkbox;
 	@FindBy(xpath = "//span[normalize-space()='Submit']") public WebElement submit_btn;

@@ -37,6 +37,7 @@ public class EmployeesExperienceCertificateRatificationActions extends APECOTest
 		employeesExperienceCertificateRatificationLocators.jobTitleEng.sendKeys(jobTitleEng);
 		employeesExperienceCertificateRatificationLocators.jobTitleAr.sendKeys(jobTitleAr);	
 		commonFunctions.enterddlValue(employeesExperienceCertificateRatificationLocators.curriculum_ddl, curriculum);
+		commonFunctions.moveToWebElement(employeesExperienceCertificateRatificationLocators.stages_ddl);
 		commonFunctions.enterddlValue(employeesExperienceCertificateRatificationLocators.stages_ddl, stages);
 		employeesExperienceCertificateRatificationLocators.pageBody.click();
 		commonFunctions.moveToWebElement(employeesExperienceCertificateRatificationLocators.departureDateDatepicker);
@@ -61,20 +62,19 @@ public class EmployeesExperienceCertificateRatificationActions extends APECOTest
 		employeesExperienceCertificateRatificationLocators.dataAcknowledge_Checkbox.click();
 		commonFunctions.moveToWebElement(employeesExperienceCertificateRatificationLocators.pay_btn);
 		employeesExperienceCertificateRatificationLocators.pay_btn.click();
+		Thread.sleep(2000);
 		employeesExperienceCertificateRatificationLocators.payNow_btn.click();
 		Thread.sleep(1000);
 		employeesExperienceCertificateRatificationLocators.submit_btn.click();
 		Thread.sleep(1000);
 	}
 	
-	public int getRequestNumber() throws InterruptedException {
+	public String  getRequestNumber() throws InterruptedException {
 		Thread.sleep(1000);
 		 String msg = employeesExperienceCertificateRatificationLocators.confirmation_msg.getText();
-		 int number = Integer.parseInt(msg.replaceAll("[^0-9]",""));
-		System.out.println(employeesExperienceCertificateRatificationLocators.confirmation_msg.getText());
+		String CertificationofExperienceCertificateforEmployeesRequestNumber = msg.replaceAll("[^0-9]","");
 		employeesExperienceCertificateRatificationLocators.confirmation_btn.click();
-		System.out.println(number);
-		return number;
+		return CertificationofExperienceCertificateforEmployeesRequestNumber;
 	}
 
 }

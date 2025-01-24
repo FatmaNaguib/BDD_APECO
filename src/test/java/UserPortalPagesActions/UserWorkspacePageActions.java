@@ -55,19 +55,9 @@ public void clickonSideMenuRequestslink()  {
 }
 	
 public void logout() {
-
+	
 	commonFunctions.moveToWebElement(userWorkspacePageLocators.sideMenu);
 	commonFunctions.clickWebElement(userWorkspacePageLocators.logout_Btn);
-	/*
-	commonFunctions.waitElementToBevisible(userWorkspacePageLocators.logout_Btn);
-	js.executeScript("arguments[0].scrollIntoView({ behavior: 'instant', block: 'end' });", userWorkspacePageLocators.logout_Btn);
-	commonFunctions.waitElementToBeClickable(userWorkspacePageLocators.logout_Btn);
-	userWorkspacePageLocators.logout_Btn.click() ;
-	*/
 	commonFunctions.clickWebElement(userWorkspacePageLocators.yesLogout_Btn);
-	
-	/*commonFunctions.waitElementToBevisible(userWorkspacePageLocators.yesLogout_Btn);
-	commonFunctions.clickWebElement(userWorkspacePageLocators.yesLogout_Btn);
-	userWorkspacePageLocators.yesLogout_Btn.click();	*/
 }
 }

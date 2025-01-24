@@ -14,6 +14,8 @@ public class AllActionsDefinition_ChangeSchoolManager extends APECOTestBase{
 	
 	public AllActionsDefinition_ChangeSchoolManager(ScenarioContext scenarioContext) throws IOException {
 		this.scenarioContext = scenarioContext;
+		UserPagesInitialization();
+		AdminPagesInitialization();
 	}
 
 	@Given("The Applicant Has School Valid License")
@@ -21,9 +23,9 @@ public class AllActionsDefinition_ChangeSchoolManager extends APECOTestBase{
 		userLoginPageActions.userlogin(properties.getProperty("username"), properties.getProperty("password"));
 		userWorkspacePageActions.clickonSideMenu_Services_link();
 		userServicesPageActions.clickeFinalApprovalServiceLink();
-		String licensedSchoolName = (String) scenarioContext.getData("licensedSchoolName");
-		System.out.println(licensedSchoolName);
-		userSchoolsListActions.selectSchool(licensedSchoolName);
+	String licensedSchoolName = (String) scenarioContext.getData("licensedSchoolName");
+	userSchoolsListActions.selectSchool(licensedSchoolName);
+		//userSchoolsListActions.selectSchool("New Education School 75183");
 		finalApprovalActions.enterSchoolFees("100", "100", "100","200", "200", "200","300", "300", "300", "Dubai", "500", "500");
 		 finalApprovalActions.enterCandidateData();
 		 finalApprovalActions.enterManagerData("Mohamed Nader","Emirati","Male","School Manager","Single","1990-11-05","United Arab Emirates","123456789","2025-11-05","987654321","2025-11-05","Muslim","fatma_naguib99@hotmail.com","123456", "123456", "123456", "123456");
@@ -35,8 +37,6 @@ public class AllActionsDefinition_ChangeSchoolManager extends APECOTestBase{
 			Thread.sleep(1000);
 			userWorkspacePageActions.logout();
 			 adminLoginPageActions.adminLoginurl("https://apeco-admin-portal-qc.graycliff-e2cfdb11.eastus.azurecontainerapps.io/login");
-		
-
 				adminLoginPageActions.selectEngLang();
 			adminLoginPageActions.adminLogin(properties.getProperty("reviewEmployeeUsername"), properties.getProperty("reviewEmployeePassword"));
 			//String  finalapprovalRequestNumber = (String) scenarioContext.getData("finalapprovalRequestNumber");
@@ -46,7 +46,6 @@ public class AllActionsDefinition_ChangeSchoolManager extends APECOTestBase{
 			 adminLoginPageActions.adminLoginurl("https://apeco-admin-portal-qc.graycliff-e2cfdb11.eastus.azurecontainerapps.io/login");
 //			adminAgentQueueActions.adminLogout();
 			// adminLoginPageActions.adminLogin("https://apeco-admin-portal-qc.graycliff-e2cfdb11.eastus.azurecontainerapps.io/login");
-		
 				adminLoginPageActions.selectEngLang();
 				adminLoginPageActions.adminLogin(properties.getProperty("reviewEmployeeUsername"), properties.getProperty("reviewEmployeePassword"));
 			//	String  finalapprovalRequestNumber = (String) scenarioContext.getData("finalapprovalRequestNumber");
@@ -55,7 +54,6 @@ public class AllActionsDefinition_ChangeSchoolManager extends APECOTestBase{
 				  adminFinalApprovalActions.reviewEmployeeScheduleMeetingForTheFinalApprovalRequest("Manager Meeting", "15-01-2026", "2:45 PM", "5:45 PM", "Online Meeting", "Manager's Online Meeting");
 				  adminLoginPageActions.adminLoginurl("https://apeco-admin-portal-qc.graycliff-e2cfdb11.eastus.azurecontainerapps.io/login");
 				  Thread.sleep(1000);
-				  //
 					adminLoginPageActions.selectEngLang();
 					adminLoginPageActions.adminLogin(properties.getProperty("adminSchoolManagerUsername"), properties.getProperty("adminSchoolManagerPassword"));
 				//	String  finalapprovalRequestNumber = (String) scenarioContext.getData("finalapprovalRequestNumber");
@@ -105,7 +103,6 @@ public class AllActionsDefinition_ChangeSchoolManager extends APECOTestBase{
 		userWorkspacePageActions.clickonSideMenu_Services_link();
 		userServicesPageActions.clickChangeSchoolManagerLink();
 		String licensedSchoolName = (String) scenarioContext.getData("licensedSchoolName");
-		System.out.println(licensedSchoolName);
 		userSchoolsListActions.selectSchool(licensedSchoolName);
 		changeSchoolManagerActions.enterManagerData("Mohamed Nader","Emirati","Male","Teacher","Single","1990-11-05","UAE","123456789","2025-11-05","987654321","2025-11-05","Muslim","fatma_naguib22@hotmail.com","2025-11-05","2025-11-05","Dubai","2025-11-05",
 				"Bachelor's Degree","Engineering","2020-11-05","Cairo university","UploadFile.pdf","School","Manager","2020-12-03","2024-12-03","United Arab Emirates","UploadFile.pdf");

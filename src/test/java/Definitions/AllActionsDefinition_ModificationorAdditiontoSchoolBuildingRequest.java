@@ -12,6 +12,8 @@ public class AllActionsDefinition_ModificationorAdditiontoSchoolBuildingRequest 
 	private final ScenarioContext scenarioContext;
 	public AllActionsDefinition_ModificationorAdditiontoSchoolBuildingRequest(ScenarioContext scenarioContext) throws IOException {
 		this.scenarioContext = scenarioContext;
+		UserPagesInitialization();
+		AdminPagesInitialization();
 	}
 	@Then("The Applicant Applies for a New Modification or Addition  a Private School Building request")
 	public void the_applicant_applies_for_a_new_modification_or_addition_a_private_school_building_request() throws InterruptedException, AWTException, IOException {
@@ -19,8 +21,6 @@ public class AllActionsDefinition_ModificationorAdditiontoSchoolBuildingRequest 
 		userWorkspacePageActions.clickonSideMenu_Services_link();	
 		userServicesPageActions.clickModificationorAdditiontoSchoolBuildingLink();	
 		String licensedSchoolName = (String) scenarioContext.getData("licensedSchoolName");
-		System.out.println(licensedSchoolName);
-		userSchoolsListActions.selectSchool(licensedSchoolName);	
 		userSchoolsListActions.selectSchool(licensedSchoolName);		
 		modificationorAdditiontoSchoolBuildingActions.enterSchoolDetails	("Modification of existing building", "Moahamed Essam", "شارع جابر المبارك", "Boys",  "الموقع / رقم قطعة الأرض باللغة الإنجليزية - طلب تغيير موقع مدرسة", "الموقع / رقم قطعة الأرض باللغة العربية - طلب تغيير موقع مدرسة",  "800","900", "400", "90", "First Class","Owner");
 		modificationorAdditiontoSchoolBuildingActions.uploadAttachments("UploadFile.pdf","UploadFile.pdf","UploadFile.pdf","UploadFile.pdf");
@@ -84,7 +84,7 @@ public void the_engineer_approves_the_initial_visit() throws InterruptedExceptio
 
 @Then("The Applicant Pays the Modification or Addition a Private School Building Request fees")
 public void the_applicant_pays_the_modification_or_addition_a_private_school_building_request_fees() throws InterruptedException, IOException {
-/*	 adminLoginPageActions.adminLoginurl("https://apeco-portal-qc.graycliff-e2cfdb11.eastus.azurecontainerapps.io/auth/login");
+adminLoginPageActions.adminLoginurl("https://apeco-portal-qc.graycliff-e2cfdb11.eastus.azurecontainerapps.io/auth/login");
 	 	Thread.sleep(1000);
 	 	userLoginPageActions.userlogin(properties.getProperty("username"), properties.getProperty("password"));
 		userWorkspacePageActions.clickonSideMenuRequestslink();
@@ -92,7 +92,7 @@ public void the_applicant_pays_the_modification_or_addition_a_private_school_bui
 		 userRequestsPageActions.searchForaRequestbyNumber(ModificationorAdditiontoSchoolBuildingRequest);
 		userRequestsPageActions.clickDetailsButton();
 	 	modificationorAdditiontoSchoolBuildingActions.payRequestfees();
-	 	userWorkspacePageActions.logout();*/
+	 	userWorkspacePageActions.logout();
 	 	
 }
 

@@ -11,8 +11,8 @@ public class ChangeOrAddPartnerLocators {
 	@FindBy(id ="company_name") public WebElement institutionorCompanyTextbox;
 	@FindBy(id = "full_name") public WebElement ownersFullnameTextbox;
 	@FindBy(xpath = "//input[@id='family_Name']") public WebElement ownersFamilyNameTextbox;
-	@FindBy (xpath = "//label[@for='Photograph']//following::span[1]") public WebElement PhotographUploader;
-	@FindBy(xpath = "//label[@for='criminal_status_certificate']//following::span[1]") public WebElement criminalStatusCertificate;
+	@FindBy (xpath = "//input[@id=\"Photograph\"]") public WebElement PhotographUploader;
+	@FindBy(xpath = "//input[@id=\"criminal_status_certificate\"]") public WebElement criminalStatusCertificate;
 	@FindBy(id  =  "PlaceOfBirth") public WebElement ownersPlaceofbirthTextbox;
 	@FindBy(xpath = "//input[@placeholder='Date of Birth']") public WebElement dateofBirthDatepicker;
 	@FindBy(xpath= "//label[@for='CurrentNationality']//following::input[1]") public WebElement ownersCurrentnationality_ddl; 
@@ -27,7 +27,7 @@ public class ChangeOrAddPartnerLocators {
 	@FindBy (id  = "placeOfIssue") public WebElement passportplaceOfIssueTextBox;
 	@FindBy(xpath = "//input[@placeholder='Release Date']") public WebElement passportReleaseDateDatepicker;
 	@FindBy(xpath = "//input[@placeholder='Expiry Date']") public WebElement passportExpiryDateDatepicker;
-	@FindBy (xpath = " //label[@for='passport']//following::span[1] ") public WebElement passportUploader;
+	@FindBy (xpath = "//input[@id=\"passport\"]") public WebElement passportUploader;
 	@FindBy(xpath = "//span[normalize-space()='Passport Details']//following::span[1]") public WebElement passportDetailComplitionLable;
 	
 	
@@ -35,8 +35,8 @@ public class ChangeOrAddPartnerLocators {
    //Owners Residence Details
 	@FindBy(xpath = "//span[normalize-space()='Residence Details']") public WebElement residenceDetailsTap;
 	@FindBy(id = "emiratesID") public WebElement emiratesIDTextbox;
-	@FindBy(xpath =" //label[@for='validEmiratesID']//following::span[1]") public WebElement validEmiratesIDUploader;
-	@FindBy (xpath = "//span[normalize-space()='Passport Details']//following::span[1]") public WebElement residenceDetailsComplitionLable;
+	@FindBy(xpath ="//input[@id=\"validEmiratesID\"]") public WebElement validEmiratesIDUploader;
+	@FindBy (xpath = "//input[@id=\"Residency\"]") public WebElement residenceDetailsComplitionLable;
 ;
 	
 	
@@ -92,15 +92,16 @@ public class ChangeOrAddPartnerLocators {
 	@FindBy(xpath = "//button[@class='ant-btn ng-star-inserted ant-btn-lg']") public WebElement downloadPopup_btn;
 	@FindBy (xpath ="	//button[@class='ant-btn ant-btn-primary ant-btn-lg ng-star-inserted']//span[normalize-space()='Next']") public WebElement downloadDocNext_btn;	
 	
-	@FindBy (xpath =" //label[@for=\"licenseModificationRequest\"]//following::span[1]")public WebElement licenseModificationRequest_uploader;
-	@FindBy (xpath =" //label[@for=\"certifiedPartnershipAgreement\"]//following::span[1]")public WebElement certifiedPartnershipAgreement_uploader;
-	@FindBy (xpath =" //label[@for='attachment']//following::span[1]")public WebElement introductionDocumentsat_uploader;
+	@FindBy (xpath ="//input[@id=\"licenseModificationRequest\"]")public WebElement licenseModificationRequest_uploader;
+	@FindBy (xpath =" //input[@id=\"certifiedPartnershipAgreement\"]")public WebElement certifiedPartnershipAgreement_uploader;
+	@FindBy (xpath =" //input[@id=\"attachment\"]")public WebElement introductionDocumentsat_uploader;
 	@FindBy(xpath ="//button[@class='ant-btn ant-btn-primary ant-btn-lg ng-star-inserted']") public WebElement attachmentsNext_btn;
 	@FindBy(xpath = "(//input[@type='checkbox'])[1]") public WebElement dataAcknowledge_Checkbox;
 	@FindBy(xpath = "(//input[@type='checkbox'])[2]") public WebElement paymentAcknowledge_Checkbox;
-	@FindBy(xpath = "//button[@class=\"btn btn-lg btn-success ng-star-inserted\"]") public WebElement pay_btn;
+	@FindBy(xpath = "//button[@class=\"ant-btn ant-btn-primary ant-btn-lg ng-star-inserted\"]") public WebElement pay_btn;
+	@FindBy(xpath = "//button[@class=\"btn btn-lg btn-success ng-star-inserted\"]") public WebElement postPay_btn;
 	@FindBy(xpath = " //button[@class=\"ant-btn ant-btn-primary ant-btn-lg\"]") public WebElement payNow_btn;
-	@FindBy(xpath = " //span[normalize-space()='Submit']") public WebElement submit_btn;
+	@FindBy(xpath = " //button[@class=\"ant-btn\"]") public WebElement submit_btn;
 	@FindBy(xpath = "//span[@class=\"font-weight-semibold fs-2rem\"]") public WebElement confirmation_msg;
 	@FindBy(xpath = "//span[@class='ng-star-inserted']") public WebElement confirmation_btn;
 	@FindBy(xpath = "//button[@class='ant-btn ng-star-inserted ant-btn-lg']") public WebElement okay_btn;

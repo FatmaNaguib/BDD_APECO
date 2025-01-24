@@ -47,9 +47,11 @@ public class ChangeSchoolNameActions extends APECOTestBase {
 		commonFunctions.moveToWebElement(changeSchoolNameLocators.pay_btn);
 		changeSchoolNameLocators.pay_btn.click();
 		Thread.sleep(2000);
+		js.executeScript("window.scrollBy(0,500)");
 		commonFunctions.waitElementToBevisible(changeSchoolNameLocators.payNow_btn);
-		changeSchoolNameLocators.payNow_btn.click();
-		changeSchoolNameLocators.submit_btn.click();
+		commonFunctions.clickWebElement(changeSchoolNameLocators.payNow_btn);
+		//changeSchoolNameLocators.payNow_btn.click();
+	commonFunctions.clicknextButton(changeSchoolNameLocators.submit_btn); 
 	
 	}
 	
