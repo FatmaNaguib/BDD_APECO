@@ -12,15 +12,18 @@ import java.time.Duration;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-
-
+import java.util.NoSuchElementException;
 import java.util.Random;
+import java.util.concurrent.TimeUnit;
 
 
 public class CommonFunctions extends APECOTestBase {
@@ -33,6 +36,23 @@ public class CommonFunctions extends APECOTestBase {
 		PageFactory.initElements(driver, this);
 	}
 	
+	public void implicitWait(int seconds) {
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(seconds));
+	}
+	
+	public void fluentWait(WebElement webElement ) {
+		Wait<WebDriver> wait = new FluentWait<>(driver)
+			    .withTimeout(Duration.ofSeconds(40))  // Maximum time to wait
+			    .pollingEvery(Duration.ofMillis(500)) // Interval between each poll
+			    .ignoring(NoSuchElementException.class); // Exceptions to ignore
+	    wait.until(driver -> {
+	        // Check if the element is displayed
+	        return webElement.isDisplayed() ? webElement : null;
+	    });
+			//	wait.until(ExpectedConditions.visibilityOfElementLocated(webElement));
+			//	wait.until(ExpectedConditions.elementToBeClickable(webElementName));
+	}
+	
 	
 public void clickWebElement(WebElement webElement, String block) {
 	commonFunctions.waitElementToBevisible(webElement);
@@ -40,6 +60,7 @@ public void clickWebElement(WebElement webElement, String block) {
 	commonFunctions.waitElementToBeClickable(webElement);
 	js.executeScript("arguments[0].click();", webElement);
 }
+
 public void clickWebElement(WebElement webElement) {
 	clickWebElement(webElement, "end");
 }	
@@ -55,8 +76,6 @@ public void clickWebElement(WebElement webElement) {
 	}
 	
 	public void moveToWebElement(WebElement webElement) {
-		//WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(60));
-		//wait.until(ExpectedConditions.visibilityOf(webElement));
 		actions.moveToElement(webElement);
 		actions.perform();
 	}
@@ -111,22 +130,16 @@ public void clickWebElement(WebElement webElement) {
 		Thread.sleep(5000);
 	}
 	public void approvalUploadfile(WebElement uploaderName,String fileName ) throws AWTException, InterruptedException {
-		// Now locate the input inside the iframe
-		//WebElement fileInput = driver.findElement(By.xpath("//input[@id='input-file']"));
 
 		
 		js.executeScript("arguments[0].style.display='block';", uploaderName);
-		//waitElementToBevisible(uploaderName);
-		//waitElementToBeClickable(uploaderName);
+
 		moveToWebElement(uploaderName);
 		String fullFilePath = uplodedFilePath(fileName);	
 		uploaderName.sendKeys(fullFilePath);
-
-		// Switch back to the main content
 		driver.switchTo().defaultContent();
-	//	String fullFilePath2 = uplodedFilePath(fileName);	
 		uploaderName.sendKeys(fullFilePath);
-		Thread.sleep(5000);
+		commonFunctions.implicitWait(50);
 	}
 	public int createRandomNumber() {
 		 Random random = new Random();

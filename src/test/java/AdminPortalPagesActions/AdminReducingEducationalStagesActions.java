@@ -21,16 +21,17 @@ public class AdminReducingEducationalStagesActions extends APECOTestBase {
 	
 public void engineereRatsTheEngineeringPlanforTheModificationorAdditiontoSchoolBuildingRequest() throws InterruptedException {
 		
-		Thread.sleep(1000);
-		commonFunctions.waitElementToBevisible( adminReducingEducationalStagesLocators.engineerRateApprove_btn);
+		//Thread.sleep(1000);
+		commonFunctions.fluentWait(adminReducingEducationalStagesLocators.engineerRateApprove_btn);
+		commonFunctions.waitElementToBevisible(adminReducingEducationalStagesLocators.engineerRateApprove_btn);
 		 adminReducingEducationalStagesLocators.engineerRateApprove_btn.click();
 		 adminReducingEducationalStagesLocators.save_btn.click();
 		adminAgentQueueActions.adminLogout();
 	}
 	
 	public void employeeCompletetheInitialApproval(	) throws InterruptedException  {
-		Thread.sleep(1000);
-		
+	//	Thread.sleep(1000);
+		commonFunctions.fluentWait(adminReducingEducationalStagesLocators.complete_btn);
 		commonFunctions.waitElementToBevisible(adminReducingEducationalStagesLocators.complete_btn);
 		adminReducingEducationalStagesLocators.complete_btn.click();
 		adminReducingEducationalStagesLocators.save_btn.click();
@@ -40,7 +41,8 @@ public void engineereRatsTheEngineeringPlanforTheModificationorAdditiontoSchoolB
 
 	
 	public void employeeApprovestheReducingEducationalStagesRequest() throws InterruptedException {
-		Thread.sleep(1000);
+	//	Thread.sleep(1000);
+		commonFunctions.fluentWait(adminReducingEducationalStagesLocators.approve_btn);
 		commonFunctions.waitElementToBevisible(adminReducingEducationalStagesLocators.approve_btn);
 		adminReducingEducationalStagesLocators.approve_btn.click();
 		adminReducingEducationalStagesLocators.save_btn.click();

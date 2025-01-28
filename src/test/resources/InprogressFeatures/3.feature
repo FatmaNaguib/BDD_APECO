@@ -1,8 +1,9 @@
-Feature: Certification of Experience Certificate for Employees
+Feature: School License Renewal Request
 
-@UserLogin 
-Scenario: Check Thet  User Applay For New Certification of Experience Certificate for Employees Request Successfully
+@UserLogin  
+Scenario: The User Can Apply for School License Renewal Request And The Request is approved Successfully
 
 
-Then The Applicant Applies for a New Certification of Experience Certificate for Employees Request
-Then The Employee Approves The Certification of Experience Certificate for Employees Request
+Then The Applicant Applies for a New School License Renewal Request
+Then The Employee Approves The School License Renewal Request
+Then The Applicant Pays The School License Renewal Request Fees

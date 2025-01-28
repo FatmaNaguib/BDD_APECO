@@ -17,7 +17,8 @@ public class AdminModificationorAdditiontoSchoolBuildingActions extends APECOTes
 	}
 	public void engineerRatsTheStudyPlanforTheModificationorAdditiontoSchoolBuildingRequest() throws InterruptedException {
 		
-		Thread.sleep(1000);
+		//Thread.sleep(1000);
+		commonFunctions.fluentWait(adminModificationorAdditiontoSchoolBuildingLocators.approve_btn);
 		commonFunctions.waitElementToBevisible(adminModificationorAdditiontoSchoolBuildingLocators.approve_btn);
 		adminModificationorAdditiontoSchoolBuildingLocators.approve_btn.click();
 		adminModificationorAdditiontoSchoolBuildingLocators.save_btn.click();
@@ -25,8 +26,8 @@ public class AdminModificationorAdditiontoSchoolBuildingActions extends APECOTes
 	}
 	
 	public void engineerCompletetheInitialTechnicalApproval(String engineerApprovalLocationEn, String engineerApprovalLocationAr	) throws InterruptedException  {
-		Thread.sleep(1000);
-		
+	//	Thread.sleep(1000);
+		commonFunctions.fluentWait(adminModificationorAdditiontoSchoolBuildingLocators.complete_btn);
 		commonFunctions.waitElementToBevisible(adminModificationorAdditiontoSchoolBuildingLocators.complete_btn);
 		adminModificationorAdditiontoSchoolBuildingLocators.complete_btn.click();
 		commonFunctions.waitElementToBeClickable(adminModificationorAdditiontoSchoolBuildingLocators.engineerApprovalLocationEn_Textbox);

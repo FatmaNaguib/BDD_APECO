@@ -36,19 +36,23 @@ public class ReducingEducationalStagesActions extends APECOTestBase {
 		commonFunctions.uploadfile(reducingEducationalStagesLocators.currentEngineeringPlanApprovedUploader, currentEngineeringPlanApproved);
 		commonFunctions.uploadfile(reducingEducationalStagesLocators. newEngineeringPlanIssuedUploader,newEngineeringPlanIssued);
 		commonFunctions.uploadfile(reducingEducationalStagesLocators.landMapUploader,landMap);
-		Thread.sleep(2000);
+		//Thread.sleep(2000);
+		commonFunctions.implicitWait(20);
 	}
 	
 	public void submitRequest() throws InterruptedException {
 		js.executeScript("window.scrollTo(0,0)");
-		Thread.sleep(1000);
+		//Thread.sleep(1000);
+		commonFunctions.implicitWait(10);
+		//commonFunctions.fluentWait(reducingEducationalStagesLocators.dataAcknowledge_Checkbox);
 		commonFunctions.moveToWebElement(reducingEducationalStagesLocators.dataAcknowledge_Checkbox);
 		reducingEducationalStagesLocators.dataAcknowledge_Checkbox.click();
 		reducingEducationalStagesLocators.submitButton.click();
 	}
 	
 	public String getRequestNumber() throws InterruptedException {
-		Thread.sleep(1000);
+		//Thread.sleep(1000);
+		commonFunctions.fluentWait(reducingEducationalStagesLocators.confirmation_msg);
 		 String msg =reducingEducationalStagesLocators.confirmation_msg.getText();
 		 String reducingEducationalStagesRequestNumber = msg.replaceAll("[^0-9]","");
 		reducingEducationalStagesLocators.confirmation_btn.click();
@@ -60,15 +64,18 @@ public class ReducingEducationalStagesActions extends APECOTestBase {
 		commonFunctions.waitElementToBevisible(reducingEducationalStagesLocators.postPay_btn);
 		commonFunctions.moveToWebElement(reducingEducationalStagesLocators.postPay_btn);
 		reducingEducationalStagesLocators.postPay_btn.click();
+		Thread.sleep(1000);
 		commonFunctions.moveToWebElement(reducingEducationalStagesLocators.payNow_btn);
 		commonFunctions.clickWebElement(reducingEducationalStagesLocators.payNow_btn);
-		reducingEducationalStagesLocators.payNow_btn.click();
+		//reducingEducationalStagesLocators.payNow_btn.click();
 		commonFunctions.waitElementToBevisible(reducingEducationalStagesLocators.submit_btn);
+		commonFunctions.moveToWebElement(reducingEducationalStagesLocators.submit_btn);
 		reducingEducationalStagesLocators.submit_btn.click();	
 		commonFunctions.moveToWebElement(reducingEducationalStagesLocators.okay_btn);
 		commonFunctions.waitElementToBevisible(reducingEducationalStagesLocators.okay_btn);
 		reducingEducationalStagesLocators.okay_btn.click();
-		Thread.sleep(3000);
+		//Thread.sleep(3000);
+		commonFunctions.implicitWait(30);
 		
 	}
 }

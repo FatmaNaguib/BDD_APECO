@@ -44,7 +44,8 @@ public class ChangeOrAddPartnerActions extends APECOTestBase {
 		changeOrAddPartnerLocators.ownersFamilyNameTextbox.sendKeys(ownersFamilyName);
 		commonFunctions.uploadfile(changeOrAddPartnerLocators.PhotographUploader,photographName);
 		commonFunctions.uploadfile(changeOrAddPartnerLocators.criminalStatusCertificate,criminalStatusCertifion);;
-		Thread.sleep(1000);
+		//Thread.sleep(1000);
+		commonFunctions.implicitWait(10);
 		changeOrAddPartnerLocators.ownersPlaceofbirthTextbox.sendKeys(ownersPlaceofbirth);
 		commonFunctions.moveToWebElement(changeOrAddPartnerLocators.dateofBirthDatepicker);
 		commonFunctions.enterddlValue(changeOrAddPartnerLocators.dateofBirthDatepicker, dateofBirth);
@@ -59,23 +60,18 @@ public class ChangeOrAddPartnerActions extends APECOTestBase {
       changeOrAddPartnerLocators.passportDetailsTap.click();
 	String personalDataComplitionStat = commonFunctions.getLableText(changeOrAddPartnerLocators.personalDataComplitionLable);
 	System.out.println(personalDataComplitionStat);
-
-		return personalDataComplitionStat;
-		
+	return personalDataComplitionStat;
 	}
 	
 	public String enterOwnerpassportDetails(String ownerPassportNumber, String passportplaceOfIssue,String passportReleaseDate, String passportExpiryDate, String passport ) throws AWTException, InterruptedException {
-		
 		changeOrAddPartnerLocators.ownerPassportNumberTextBox.sendKeys(ownerPassportNumber);
 		changeOrAddPartnerLocators.passportplaceOfIssueTextBox.sendKeys(passportplaceOfIssue);
 		commonFunctions.enterddlValue(changeOrAddPartnerLocators.passportReleaseDateDatepicker, passportReleaseDate);
 		commonFunctions.enterddlValue(changeOrAddPartnerLocators.passportExpiryDateDatepicker, passportExpiryDate);
 		commonFunctions.uploadfile(changeOrAddPartnerLocators.passportUploader, passport);
-		
 		changeOrAddPartnerLocators.residenceDetailsTap.click();
 		String passportDetailComplitionStat =commonFunctions.getLableText(changeOrAddPartnerLocators.passportDetailComplitionLable);
 		return passportDetailComplitionStat;
-		
 	}
 	
 	
@@ -83,7 +79,8 @@ public class ChangeOrAddPartnerActions extends APECOTestBase {
 		
 		changeOrAddPartnerLocators.emiratesIDTextbox.sendKeys(emiratesID);
 		commonFunctions.uploadfile(changeOrAddPartnerLocators.validEmiratesIDUploader, validEmiratesID);
-		Thread.sleep(1000);
+		//Thread.sleep(1000);
+		commonFunctions.implicitWait(10);
 		changeOrAddPartnerLocators.QualifyingTap.click();
 		String ResidenceDetailsStat =commonFunctions.getLableText(changeOrAddPartnerLocators.passportDetailComplitionLable);
 		return ResidenceDetailsStat;
@@ -97,21 +94,19 @@ public class ChangeOrAddPartnerActions extends APECOTestBase {
 		commonFunctions.enterddlValue(changeOrAddPartnerLocators.qualificationObtainedDatepicker, qualificationObtainedDate);
 		commonFunctions.enterddlValue(changeOrAddPartnerLocators.qualificationCountry_ddl, qualificationCountry);
 		changeOrAddPartnerLocators.maritalStatusDataTap.click();
-		Thread.sleep(5000);
+		//Thread.sleep(5000);
+		commonFunctions.implicitWait(40);
 		String qualificationsDetailsComplitionStat =commonFunctions.getLableText(changeOrAddPartnerLocators.QualificationsComplitionLable);
 		return qualificationsDetailsComplitionStat;
 	}
 	
 	
 	public String enterMaritalStatusDetails(String MaritalStatus) {
-
 		commonFunctions.enterddlValue(changeOrAddPartnerLocators.fmaritalStatus_ddl, MaritalStatus);
 		js.executeScript("window.scrollBy(0,1000)");
-		//commonFunctions.moveToWebElement(initialApplovalPageOwnersProfilesLocators.fatherAndMotherTap);
 		changeOrAddPartnerLocators.fatherAndMotherTap.click();
 		String  maritalStatusDetailsStat =commonFunctions.getLableText(changeOrAddPartnerLocators.maritalStatusComplitionLable);
 		return  maritalStatusDetailsStat;
-
 	}
 	
 	public String enterFatherandMotherDetails(String fatherName,String fatherNationality, String motherNationality, String motherName) {
@@ -126,7 +121,6 @@ public class ChangeOrAddPartnerActions extends APECOTestBase {
 		changeOrAddPartnerLocators.housingDetailsTap.click();
 		String FatherandMotherDetailsStat =commonFunctions.getLableText(changeOrAddPartnerLocators.QualificationsComplitionLable);
 		return FatherandMotherDetailsStat;
-
 	}
 	
 	public String enterHousingDetails(String region, String street, String mobileNumber,String poBoxNumber) {
@@ -155,9 +149,11 @@ public class ChangeOrAddPartnerActions extends APECOTestBase {
 	
 	public void downloadDocument() throws InterruptedException {
 		
-		Thread.sleep(1000);
+		//Thread.sleep(1000);
+		commonFunctions.fluentWait(changeOrAddPartnerLocators.downloadPopup_btn);
 		changeOrAddPartnerLocators.downloadPopup_btn.click();
-		Thread.sleep(1000);
+		//Thread.sleep(1000);
+		commonFunctions.fluentWait(changeOrAddPartnerLocators.downloadDocNext_btn);
 		changeOrAddPartnerLocators.downloadDocNext_btn.click();
 	}
 	
@@ -165,14 +161,16 @@ public class ChangeOrAddPartnerActions extends APECOTestBase {
 		commonFunctions.uploadfile(changeOrAddPartnerLocators.licenseModificationRequest_uploader, licenseModificationRequest_uploader);
 		commonFunctions.uploadfile(changeOrAddPartnerLocators.certifiedPartnershipAgreement_uploader, certifiedPartnershipAgreement_uploader);
 		commonFunctions.uploadfile(changeOrAddPartnerLocators.introductionDocumentsat_uploader, introductionDocumentsat_uploader);
-		Thread.sleep(2000);
-		changeOrAddPartnerLocators. attachmentsNext_btn.click();
+		//Thread.sleep(2000);
+		commonFunctions.fluentWait(changeOrAddPartnerLocators.attachmentsNext_btn);
+		changeOrAddPartnerLocators.attachmentsNext_btn.click();
 		
 	}
 	public void checkTheDataAcknowledge() throws InterruptedException  {
 
-		Thread.sleep(1000);
-		
+		//Thread.sleep(1000);
+		commonFunctions.implicitWait(10);
+		//commonFunctions.fluentWait(changeOrAddPartnerLocators.dataAcknowledge_Checkbox);
 		changeOrAddPartnerLocators.dataAcknowledge_Checkbox.click();
 		changeOrAddPartnerLocators.paymentAcknowledge_Checkbox.click();
 		commonFunctions.clickWebElement(changeOrAddPartnerLocators.pay_btn);
@@ -186,7 +184,8 @@ public class ChangeOrAddPartnerActions extends APECOTestBase {
 		//changeOrAddPartnerLocators.payNow_btn.click();
 		commonFunctions.clickWebElement(changeOrAddPartnerLocators.submit_btn);
 		changeOrAddPartnerLocators.submit_btn.click();
-		Thread.sleep(1000);
+		//Thread.sleep(1000);
+		commonFunctions.fluentWait(changeOrAddPartnerLocators.confirmation_msg);
 		commonFunctions.waitElementToBevisible(changeOrAddPartnerLocators.confirmation_msg);
 		 String msg = changeOrAddPartnerLocators.confirmation_msg.getText();
 		 String ChangeOrAddPartnerRequestNumber = msg.replaceAll("[^0-9]","");
@@ -204,7 +203,8 @@ public class ChangeOrAddPartnerActions extends APECOTestBase {
 		commonFunctions.moveToWebElement(changeOrAddPartnerLocators.okay_btn);
 		commonFunctions.waitElementToBevisible(changeOrAddPartnerLocators.okay_btn);
 		changeOrAddPartnerLocators. okay_btn.click();
-		Thread.sleep(3000);
+		//Thread.sleep(3000);
+		commonFunctions.implicitWait(30);
 	}
 	
 }

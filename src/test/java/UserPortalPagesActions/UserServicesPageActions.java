@@ -99,6 +99,7 @@ public void startChangeSchoolNameRequest() throws InterruptedException {
 			//ResponseWrapper responseWrapper = setDevTools("https://apeco-gateway-qc.graycliff-e2cfdb11.eastus.azurecontainerapps.io/ServiceDesk/api/Requests/GetRequests?Status=0&ServiceCode=final-approval-school&PageIndex=1&PageSize=1000");
 			String currentUrl = driver.getCurrentUrl();
 			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+			commonFunctions.moveToWebElement(userServicesPageLocators.initialApprovalServiceLink);
 			userServicesPageLocators.initialApprovalServiceLink.click();
 			try {
 			    wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("draft-request-dialog")));
@@ -161,20 +162,42 @@ public void startChangeSchoolNameRequest() throws InterruptedException {
 	
 public void clickChangeSchoolManagerLink() throws InterruptedException {
 
-		js.executeScript("window.scrollTo(0,0)");
-		ResponseWrapper responseWrapper = setDevTools("https://apeco-gateway-qc.graycliff-e2cfdb11.eastus.azurecontainerapps.io/ServiceDesk/api/Requests/GetRequests?Status=0&ServiceCode=school-change-manager&PageIndex=1&PageSize=1000");
-		
-		userServicesPageLocators.principalChangeServiceLink.click();
-		
-		new WebDriverWait(driver, Duration.ofSeconds(50)).until(driver1 -> responseWrapper.Json!= null);
-		int draftRequests = responseWrapper.Json.has("draftRequests") ? responseWrapper.Json.get("draftRequests").getAsInt() : -1;
+//		js.executeScript("window.scrollTo(0,0)");
+//		ResponseWrapper responseWrapper = setDevTools("https://apeco-gateway-qc.graycliff-e2cfdb11.eastus.azurecontainerapps.io/ServiceDesk/api/Requests/GetRequests?Status=0&ServiceCode=school-change-manager&PageIndex=1&PageSize=1000");
+//		
+//		userServicesPageLocators.principalChangeServiceLink.click();
+//		
+//		new WebDriverWait(driver, Duration.ofSeconds(50)).until(driver1 -> responseWrapper.Json!= null);
+//		int draftRequests = responseWrapper.Json.has("draftRequests") ? responseWrapper.Json.get("draftRequests").getAsInt() : -1;
+//
+//		if(draftRequests==0) {
+//			userServicesPageLocators.pageBody.click();
+//		}	if(draftRequests!=0) {
+//			userServicesPageLocators.newRequest_btn.click();
+//		}
+//		js.executeScript("window.scrollTo(0,0)");
 
-		if(draftRequests==0) {
-			userServicesPageLocators.pageBody.click();
-		}	if(draftRequests!=0) {
-			userServicesPageLocators.newRequest_btn.click();
-		}
-		js.executeScript("window.scrollTo(0,0)");
+	js.executeScript("window.scrollTo(0,0)");
+	String currentUrl = driver.getCurrentUrl();
+	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+	userServicesPageLocators.principalChangeServiceLink.click();
+	try {
+	    wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("draft-request-dialog")));
+	    System.out.println("Modal dialog is displayed.");
+	    js.executeScript("window.scrollTo(0,0)");
+	    commonFunctions.clickWebElement( userServicesPageLocators.newRequest_btn);
+	   // userServicesPageLocators.newRequest_btn.click();
+	} catch (org.openqa.selenium.TimeoutException e) {
+	    try {
+	        wait.until(ExpectedConditions.not(ExpectedConditions.urlToBe(currentUrl)));
+	        System.out.println("Redirection detected. New URL: " + driver.getCurrentUrl());
+	        js.executeScript("window.scrollTo(0,0)");
+	        userServicesPageLocators.pageBody.click();
+	    } catch (org.openqa.selenium.TimeoutException ex) {
+	        System.out.println("Neither modal dialog appeared nor redirection occurred.");
+	    }
+	}
+	js.executeScript("window.scrollTo(0,0)");
 	}
 
 	
@@ -224,71 +247,125 @@ public void clickChangeSchoolManagerLink() throws InterruptedException {
 	}
 	
 	public void clickSchoolLicenseCancelationServiceLink() throws InterruptedException {
-		
-		commonFunctions.moveToWebElement(userServicesPageLocators.schoolLicenseCancelationServiceLink);
 
-		ResponseWrapper responseWrapper = setDevTools("https://apeco-gateway-qc.graycliff-e2cfdb11.eastus.azurecontainerapps.io/ServiceDesk/api/Requests/GetRequests?Status=0&ServiceCode=school-license-cancellation&PageIndex=1&PageSize=1000");
+		String currentUrl = driver.getCurrentUrl();
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
 		userServicesPageLocators.schoolLicenseCancelationServiceLink.click();
-		
-		new WebDriverWait(driver, Duration.ofSeconds(10)).until(driver1 -> responseWrapper.Json!= null);
-		int draftRequests = responseWrapper.Json.has("draftRequests") ? responseWrapper.Json.get("draftRequests").getAsInt() : -1;
-
-		if(draftRequests==0) {
-			userServicesPageLocators.pageBody.click();
-		}	if(draftRequests!=0) {
-			userServicesPageLocators.newRequest_btn.click();
+		try {
+		    wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("draft-request-dialog")));
+		    System.out.println("Modal dialog is displayed.");
+		    js.executeScript("window.scrollTo(0,0)");
+		    commonFunctions.clickWebElement( userServicesPageLocators.newRequest_btn);
+		} catch (org.openqa.selenium.TimeoutException e) {
+		    try {
+		        wait.until(ExpectedConditions.not(ExpectedConditions.urlToBe(currentUrl)));
+		        System.out.println("Redirection detected. New URL: " + driver.getCurrentUrl());
+		        js.executeScript("window.scrollTo(0,0)");
+		        userServicesPageLocators.pageBody.click();
+		    } catch (org.openqa.selenium.TimeoutException ex) {
+		        System.out.println("Neither modal dialog appeared nor redirection occurred.");
+		    }
 		}
-
 	
 	}
 	public void clickChangeSchoolManagerServiceLink() throws InterruptedException {
 		
-		commonFunctions.moveToWebElement(userServicesPageLocators.changeSchoolManagerServiceLink);
-
-		ResponseWrapper responseWrapper = setDevTools("https://apeco-gateway-qc.graycliff-e2cfdb11.eastus.azurecontainerapps.io/ServiceDesk/api/Requests/GetRequests?Status=0&ServiceCode=school-change-manager&PageIndex=1&PageSize=1000");
-		userServicesPageLocators.changeSchoolManagerServiceLink.click();
+//		commonFunctions.moveToWebElement(userServicesPageLocators.changeSchoolManagerServiceLink);
+//
+//		ResponseWrapper responseWrapper = setDevTools("https://apeco-gateway-qc.graycliff-e2cfdb11.eastus.azurecontainerapps.io/ServiceDesk/api/Requests/GetRequests?Status=0&ServiceCode=school-change-manager&PageIndex=1&PageSize=1000");
+//		userServicesPageLocators.changeSchoolManagerServiceLink.click();
+//		
+//		new WebDriverWait(driver, Duration.ofSeconds(10)).until(driver1 -> responseWrapper.Json!= null);
+//		int draftRequests = responseWrapper.Json.has("draftRequests") ? responseWrapper.Json.get("draftRequests").getAsInt() : -1;
+//
+//		if(draftRequests==0) {
+//			userServicesPageLocators.pageBody.click();
+//		}	if(draftRequests!=0) {
+//			userServicesPageLocators.newRequest_btn.click();
+//		}
 		
-		new WebDriverWait(driver, Duration.ofSeconds(10)).until(driver1 -> responseWrapper.Json!= null);
-		int draftRequests = responseWrapper.Json.has("draftRequests") ? responseWrapper.Json.get("draftRequests").getAsInt() : -1;
 
-		if(draftRequests==0) {
-			userServicesPageLocators.pageBody.click();
-		}	if(draftRequests!=0) {
-			userServicesPageLocators.newRequest_btn.click();
+		String currentUrl = driver.getCurrentUrl();
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+		userServicesPageLocators.changeSchoolManagerServiceLink.click();;
+		try {
+		    wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("draft-request-dialog")));
+		    System.out.println("Modal dialog is displayed.");
+		    js.executeScript("window.scrollTo(0,0)");
+		    commonFunctions.clickWebElement( userServicesPageLocators.newRequest_btn);
+		} catch (org.openqa.selenium.TimeoutException e) {
+		    try {
+		        wait.until(ExpectedConditions.not(ExpectedConditions.urlToBe(currentUrl)));
+		        System.out.println("Redirection detected. New URL: " + driver.getCurrentUrl());
+		        js.executeScript("window.scrollTo(0,0)");
+		        userServicesPageLocators.pageBody.click();
+		    } catch (org.openqa.selenium.TimeoutException ex) {
+		        System.out.println("Neither modal dialog appeared nor redirection occurred.");
+		    }
 		}
+	
 	}
 	
 	public void clickEventPermitbyanExternalEntityServiceLink() throws InterruptedException {
 		
-		commonFunctions.moveToWebElement(userServicesPageLocators.eventPermitbyanExternalEntityServiceLink);
-		ResponseWrapper responseWrapper = setDevTools("https://apeco-gateway-qc.graycliff-e2cfdb11.eastus.azurecontainerapps.io/ServiceDesk/api/Requests/GetRequests?Status=0&ServiceCode=third-party-event-permit&PageIndex=1&PageSize=1000");
-		userServicesPageLocators.eventPermitbyanExternalEntityServiceLink.click();
+//		commonFunctions.moveToWebElement(userServicesPageLocators.eventPermitbyanExternalEntityServiceLink);
+//		ResponseWrapper responseWrapper = setDevTools("https://apeco-gateway-qc.graycliff-e2cfdb11.eastus.azurecontainerapps.io/ServiceDesk/api/Requests/GetRequests?Status=0&ServiceCode=third-party-event-permit&PageIndex=1&PageSize=1000");
+//		userServicesPageLocators.eventPermitbyanExternalEntityServiceLink.click();
+//		
+//		new WebDriverWait(driver, Duration.ofSeconds(20)).until(driver1 -> responseWrapper.Json!= null);
+//		int draftRequests = responseWrapper.Json.has("draftRequests") ? responseWrapper.Json.get("draftRequests").getAsInt() : -1;
+//
+//		if(draftRequests==0) {
+//			userServicesPageLocators.pageBody.click();
+//		}	if(draftRequests!=0) {
+//			userServicesPageLocators.newRequest_btn.click();
+//		}
 		
-		new WebDriverWait(driver, Duration.ofSeconds(20)).until(driver1 -> responseWrapper.Json!= null);
-		int draftRequests = responseWrapper.Json.has("draftRequests") ? responseWrapper.Json.get("draftRequests").getAsInt() : -1;
 
-		if(draftRequests==0) {
-			userServicesPageLocators.pageBody.click();
-		}	if(draftRequests!=0) {
-			userServicesPageLocators.newRequest_btn.click();
+		String currentUrl = driver.getCurrentUrl();
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+		userServicesPageLocators.eventPermitbyanExternalEntityServiceLink.click();
+		try {
+		    wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("draft-request-dialog")));
+		    System.out.println("Modal dialog is displayed.");
+		    js.executeScript("window.scrollTo(0,0)");
+		    commonFunctions.clickWebElement( userServicesPageLocators.newRequest_btn);
+		} catch (org.openqa.selenium.TimeoutException e) {
+		    try {
+		        wait.until(ExpectedConditions.not(ExpectedConditions.urlToBe(currentUrl)));
+		        System.out.println("Redirection detected. New URL: " + driver.getCurrentUrl());
+		        js.executeScript("window.scrollTo(0,0)");
+		        userServicesPageLocators.pageBody.click();
+		    } catch (org.openqa.selenium.TimeoutException ex) {
+		        System.out.println("Neither modal dialog appeared nor redirection occurred.");
+		    }
 		}
 	}
 	
 	public void clickexperienceCertificateforEmployeesServiceLink() throws InterruptedException {
 		
+		String currentUrl = driver.getCurrentUrl();
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
 		commonFunctions.moveToWebElement(userServicesPageLocators.experienceCertificateforEmployeesServiceLink);
-
-		ResponseWrapper responseWrapper = setDevTools("https://apeco-gateway-qc.graycliff-e2cfdb11.eastus.azurecontainerapps.io/ServiceDesk/api/Requests/GetRequests?Status=0&ServiceCode=employees-experience-certificate&PageIndex=1&PageSize=1000");
 		userServicesPageLocators.experienceCertificateforEmployeesServiceLink.click();
-		
-		new WebDriverWait(driver, Duration.ofSeconds(20)).until(driver1 -> responseWrapper.Json!= null);
-		int draftRequests = responseWrapper.Json.has("draftRequests") ? responseWrapper.Json.get("draftRequests").getAsInt() : -1;
-
-		if(draftRequests==0) {
-			userServicesPageLocators.pageBody.click();
-		}	if(draftRequests!=0) {
-			userServicesPageLocators.newRequest_btn.click();
+		try {
+		    wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("draft-request-dialog")));
+		    System.out.println("Modal dialog is displayed.");
+		    js.executeScript("window.scrollTo(0,0)");
+		    commonFunctions.clickWebElement( userServicesPageLocators.newRequest_btn);
+		   // userServicesPageLocators.newRequest_btn.click();
+		} catch (org.openqa.selenium.TimeoutException e) {
+		    try {
+		        wait.until(ExpectedConditions.not(ExpectedConditions.urlToBe(currentUrl)));
+		        System.out.println("Redirection detected. New URL: " + driver.getCurrentUrl());
+		        js.executeScript("window.scrollTo(0,0)");
+		        userServicesPageLocators.pageBody.click();
+		    } catch (org.openqa.selenium.TimeoutException ex) {
+		        System.out.println("Neither modal dialog appeared nor redirection occurred.");
+		    }
 		}
+		
+		
 	}
 	
 	
@@ -317,32 +394,71 @@ public void clickChangeSchoolManagerLink() throws InterruptedException {
 	}
 	
 public void clickChangeorAddPartnerRequestLink() throws InterruptedException {
-		js.executeScript("window.scrollTo(0,0)");
-		ResponseWrapper responseWrapper = setDevTools("https://apeco-gateway-qc.graycliff-e2cfdb11.eastus.azurecontainerapps.io/ServiceDesk/api/Requests/GetRequests?Status=0&ServiceCode=school-change-owners&PageIndex=1&PageSize=1000");
-		userServicesPageLocators.changeorAddPartnerServiceLink.click();
-		new WebDriverWait(driver, Duration.ofSeconds(40)).until(driver1 -> responseWrapper.Json!= null);
-		int draftRequests = responseWrapper.Json.has("draftRequests") ? responseWrapper.Json.get("draftRequests").getAsInt() : -1;
-
-		if(draftRequests==0) {
-			userServicesPageLocators.pageBody.click();
-		}	if(draftRequests!=0) {
-			userServicesPageLocators.newRequest_btn.click();
-		}
-		js.executeScript("window.scrollTo(0,0)");
+//		js.executeScript("window.scrollTo(0,0)");
+//		ResponseWrapper responseWrapper = setDevTools("https://apeco-gateway-qc.graycliff-e2cfdb11.eastus.azurecontainerapps.io/ServiceDesk/api/Requests/GetRequests?Status=0&ServiceCode=school-change-owners&PageIndex=1&PageSize=1000");
+//		userServicesPageLocators.changeorAddPartnerServiceLink.click();
+//		new WebDriverWait(driver, Duration.ofSeconds(40)).until(driver1 -> responseWrapper.Json!= null);
+//		int draftRequests = responseWrapper.Json.has("draftRequests") ? responseWrapper.Json.get("draftRequests").getAsInt() : -1;
+//
+//		if(draftRequests==0) {
+//			userServicesPageLocators.pageBody.click();
+//		}	if(draftRequests!=0) {
+//			userServicesPageLocators.newRequest_btn.click();
+//		}
+//		js.executeScript("window.scrollTo(0,0)");
+	js.executeScript("window.scrollTo(0,0)");
+	String currentUrl = driver.getCurrentUrl();
+	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+	userServicesPageLocators.changeorAddPartnerServiceLink.click();
+	try {
+	    wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("draft-request-dialog")));
+	    System.out.println("Modal dialog is displayed.");
+	    js.executeScript("window.scrollTo(0,0)");
+	    commonFunctions.clickWebElement( userServicesPageLocators.newRequest_btn);
+	} catch (org.openqa.selenium.TimeoutException e) {
+	    try {
+	        wait.until(ExpectedConditions.not(ExpectedConditions.urlToBe(currentUrl)));
+	        System.out.println("Redirection detected. New URL: " + driver.getCurrentUrl());
+	        js.executeScript("window.scrollTo(0,0)");
+	        userServicesPageLocators.pageBody.click();
+	    } catch (org.openqa.selenium.TimeoutException ex) {
+	        System.out.println("Neither modal dialog appeared nor redirection occurred.");
+	    }
+	}
 }
 			public void clickPartnerWithdrawalRequestLink() throws InterruptedException {
+					//	js.executeScript("window.scrollTo(0,0)");
+//						ResponseWrapper responseWrapper = setDevTools("https://apeco-gateway-qc.graycliff-e2cfdb11.eastus.azurecontainerapps.io/ServiceDesk/api/Requests/GetRequests?Status=0&ServiceCode=school-partner-withdrawal&PageIndex=1&PageSize=1000");
+//						userServicesPageLocators.PartnerWithdrawalServiceLink.click();
+//						new WebDriverWait(driver, Duration.ofSeconds(20)).until(driver1 -> responseWrapper.Json!= null);
+//						int draftRequests = responseWrapper.Json.has("draftRequests") ? responseWrapper.Json.get("draftRequests").getAsInt() : -1;
+//					
+//						if(draftRequests==0) {
+//							userServicesPageLocators.pageBody.click();
+//						}	if(draftRequests!=0) {
+//							userServicesPageLocators.newRequest_btn.click();
+//						}
 						js.executeScript("window.scrollTo(0,0)");
-						ResponseWrapper responseWrapper = setDevTools("https://apeco-gateway-qc.graycliff-e2cfdb11.eastus.azurecontainerapps.io/ServiceDesk/api/Requests/GetRequests?Status=0&ServiceCode=school-partner-withdrawal&PageIndex=1&PageSize=1000");
-						userServicesPageLocators.PartnerWithdrawalServiceLink.click();
-						new WebDriverWait(driver, Duration.ofSeconds(20)).until(driver1 -> responseWrapper.Json!= null);
-						int draftRequests = responseWrapper.Json.has("draftRequests") ? responseWrapper.Json.get("draftRequests").getAsInt() : -1;
-					
-						if(draftRequests==0) {
-							userServicesPageLocators.pageBody.click();
-						}	if(draftRequests!=0) {
-							userServicesPageLocators.newRequest_btn.click();
+						String currentUrl = driver.getCurrentUrl();
+						WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+						userServicesPageLocators.changeorAddPartnerServiceLink.click();
+						try {
+						    wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("draft-request-dialog")));
+						    System.out.println("Modal dialog is displayed.");
+						    js.executeScript("window.scrollTo(0,0)");
+						    commonFunctions.clickWebElement( userServicesPageLocators.newRequest_btn);
+						} catch (org.openqa.selenium.TimeoutException e) {
+						    try {
+						        wait.until(ExpectedConditions.not(ExpectedConditions.urlToBe(currentUrl)));
+						        System.out.println("Redirection detected. New URL: " + driver.getCurrentUrl());
+						        js.executeScript("window.scrollTo(0,0)");
+						        userServicesPageLocators.pageBody.click();
+						    } catch (org.openqa.selenium.TimeoutException ex) {
+						        System.out.println("Neither modal dialog appeared nor redirection occurred.");
+						    }
 						}
 						js.executeScript("window.scrollTo(0,0)");
+						
 			}
 			public void clickAppointmentNotificationforEmployeesRequestLink() throws InterruptedException {				
 				js.executeScript("window.scrollTo(0,0)");
@@ -521,7 +637,7 @@ public void clickChangeorAddPartnerRequestLink() throws InterruptedException {
 				userServicesPageLocators.parentServices_ddlValue.click();
 				Thread.sleep(1000);
 				js.executeScript("window.scrollTo(0,0)");
-				ResponseWrapper responseWrapper = setDevTools("https://apeco-gateway-qc.graycliff-e2cfdb11.eastus.azurecontainerapps.io/ServiceDesk/api/Requests/GetRequests?Status=0&ServiceCode=submit-complaint&PageIndex=1&PageSize=1000");
+		/*		ResponseWrapper responseWrapper = setDevTools("https://apeco-gateway-qc.graycliff-e2cfdb11.eastus.azurecontainerapps.io/ServiceDesk/api/Requests/GetRequests?Status=0&ServiceCode=submit-complaint&PageIndex=1&PageSize=1000");
 				userServicesPageLocators.SubmitaComplaintServiceLink.click();
 				new WebDriverWait(driver, Duration.ofSeconds(30)).until(driver1 -> responseWrapper.Json!= null);
 				int draftRequests = responseWrapper.Json.has("draftRequests") ? responseWrapper.Json.get("draftRequests").getAsInt() : -1;
@@ -532,7 +648,27 @@ public void clickChangeorAddPartnerRequestLink() throws InterruptedException {
 				}	if(draftRequests!=0) {
 					userServicesPageLocators.newRequest_btn.click();
 				}
-				js.executeScript("window.scrollTo(0,0)");
+				js.executeScript("window.scrollTo(0,0)");*/
+				
+				String currentUrl = driver.getCurrentUrl();
+				WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+				userServicesPageLocators.SubmitaComplaintServiceLink.click();
+				try {
+				    wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("draft-request-dialog")));
+				    System.out.println("Modal dialog is displayed.");
+				    js.executeScript("window.scrollTo(0,0)");
+				    commonFunctions.clickWebElement( userServicesPageLocators.newRequest_btn);
+				   // userServicesPageLocators.newRequest_btn.click();
+				} catch (org.openqa.selenium.TimeoutException e) {
+				    try {
+				        wait.until(ExpectedConditions.not(ExpectedConditions.urlToBe(currentUrl)));
+				        System.out.println("Redirection detected. New URL: " + driver.getCurrentUrl());
+				        js.executeScript("window.scrollTo(0,0)");
+				        userServicesPageLocators.pageBody.click();
+				    } catch (org.openqa.selenium.TimeoutException ex) {
+				        System.out.println("Neither modal dialog appeared nor redirection occurred.");
+				    }
+				}
 	}
 
 }

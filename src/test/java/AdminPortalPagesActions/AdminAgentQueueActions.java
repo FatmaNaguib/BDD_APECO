@@ -23,14 +23,11 @@ public class AdminAgentQueueActions extends APECOTestBase {
 	
 	public void adminSearchforaRequest(String requestNumber) throws InterruptedException {
 		commonFunctions.moveToWebElement(adminAgentQueueLocators.saerch_Textbox);
-	//	js.executeScript("arguments[0].sendKeys();", adminAgentQueueLocators.saerch_Textbox);
-		
 		adminAgentQueueLocators.saerch_Textbox.sendKeys(requestNumber);
 	}
 	
 	public void adminSearchforaRequest2(String requestNumber, WebElement webElement ) throws InterruptedException {
-		commonFunctions.moveToWebElement(adminAgentQueueLocators.saerch_Textbox);
-	//	js.executeScript("arguments[0].sendKeys();", adminAgentQueueLocators.saerch_Textbox);		
+		commonFunctions.moveToWebElement(adminAgentQueueLocators.saerch_Textbox);		
 		js.executeScript("arguments[0].value='"+ requestNumber +"';", webElement);
 		adminAgentQueueLocators.saerch_Textbox.sendKeys(requestNumber);
 	}
@@ -41,13 +38,10 @@ public class AdminAgentQueueActions extends APECOTestBase {
 	}
 	
 	public void adminLogout() throws InterruptedException {
-		Thread.sleep(1000);
+		commonFunctions.fluentWait(adminAgentQueueLocators.adminNameLink);
 		commonFunctions.clickWebElement(adminAgentQueueLocators.adminNameLink);
-		//commonFunctions.waitElementToBevisible(adminAgentQueueLocators.adminNameLink);
-		//commonFunctions.moveToWebElement(adminAgentQueueLocators.adminNameLink);
-		//adminAgentQueueLocators.adminNameLink.click();
 		commonFunctions.clickWebElement(adminAgentQueueLocators.adminLogoutLink);
-	//	adminAgentQueueLocators.adminLogoutLink.click();
+
 	}
 
 	

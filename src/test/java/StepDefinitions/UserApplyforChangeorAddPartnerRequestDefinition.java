@@ -37,7 +37,8 @@ public class UserApplyforChangeorAddPartnerRequestDefinition extends APECOTestBa
 	@Then("The Applicant Enters Owner's Passport Details")
 	public void the_applicant_enters_owner_s_passport_details() throws InterruptedException, AWTException {
 		String passportDetailComplitionStat =  changeOrAddPartnerActions.enterOwnerpassportDetails("A123456","UAE","2024-05-27","2025-05-27","Passport.jpg");
-		  Thread.sleep(1000);
+		  //Thread.sleep(1000);
+		commonFunctions.implicitWait(10);
 		assertEquals(passportDetailComplitionStat, "Completed"); 
 		 System.out.println("7-User Enters Owner's Passport Details");
 	}
@@ -45,7 +46,8 @@ public class UserApplyforChangeorAddPartnerRequestDefinition extends APECOTestBa
 	@Then("The Applicant Enters Residence Details")
 	public void the_applicant_enters_residence_details() throws InterruptedException, AWTException {
 		String residenceDetailComplitionStat =  changeOrAddPartnerActions.enterResidenceDetailsDetails("123456789123456","Residence.jpg");
-		  Thread.sleep(1000);
+		  //Thread.sleep(1000);
+		commonFunctions.implicitWait(10);
 		assertEquals( residenceDetailComplitionStat, "Completed"); 
 		 System.out.println("8-User Enters Residence Details");
 	}

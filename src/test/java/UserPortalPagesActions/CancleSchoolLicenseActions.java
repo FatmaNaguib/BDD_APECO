@@ -37,7 +37,8 @@ public class CancleSchoolLicenseActions extends APECOTestBase{
 		
 		commonFunctions.uploadfile(cancleSchoolLicenseLocators.cancellationRequestAuthorizedByLicenseHolder_uploader, cancellationRequestAuthorizedByLicenseHolder_uploader);
 		commonFunctions.uploadfile(cancleSchoolLicenseLocators.latestCommercialLicense_uploader, cancellationRequestAuthorizedByLicenseHolder_uploader);
-		Thread.sleep(2000);
+		//Thread.sleep(2000);
+		commonFunctions.implicitWait(20);
 		cancleSchoolLicenseLocators.dataAcknowledge_Checkbox.click();
 		cancleSchoolLicenseLocators.pay_btn.click();
 		
@@ -45,7 +46,8 @@ public class CancleSchoolLicenseActions extends APECOTestBase{
 	
 	public String  submitCancelSchoolLicenseRequest() throws InterruptedException {
 		cancleSchoolLicenseLocators.Submit_btn.click();
-		Thread.sleep(1000);
+		//Thread.sleep(1000);
+		commonFunctions.implicitWait(10);
 		 String msg = cancleSchoolLicenseLocators.confirmation_msg.getText();
 		 String SchoolLicenseCancellationRequestNumber = msg.replaceAll("[^0-9]","");
 		cancleSchoolLicenseLocators.confirmation_btn.click();

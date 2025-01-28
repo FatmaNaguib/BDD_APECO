@@ -57,9 +57,11 @@ public class AddingEducationalStagesActions extends APECOTestBase {
 		addingEducationalStagesLocators.newSchoolBookFees_TextBox.sendKeys(newSchoolBookFees);
 		addingEducationalStagesLocators.newSchoolUniformFees_TextBox.sendKeys(newSchoolUniformFees);
 		js.executeScript("window.scrollBy(0,1000)");
-		Thread.sleep(1000);
+		//Thread.sleep(1000);
+		commonFunctions.implicitWait(10);
 		commonFunctions.moveToWebElement(addingEducationalStagesLocators.nextButton);
-		addingEducationalStagesLocators.nextButton.click();
+		commonFunctions.clickWebElement(addingEducationalStagesLocators.nextButton);
+		//addingEducationalStagesLocators.nextButton.click();
 	}
 
 	public void addingEducationalStagesAttachments(
@@ -71,7 +73,8 @@ public class AddingEducationalStagesActions extends APECOTestBase {
 		commonFunctions.uploadfile(addingEducationalStagesLocators.currentApprovedEngineeringPlanUploader, currentApprovedEngineeringPlan);
 		commonFunctions.uploadfile(addingEducationalStagesLocators.newEngineeringPlanAfterGradeChangeUploader,newEngineeringPlanAfterGradeChange);
 		commonFunctions.uploadfile(addingEducationalStagesLocators.landMapUploader,landMap);
-		Thread.sleep(1000);
+		//Thread.sleep(1000);
+		commonFunctions.implicitWait(10);
 		addingEducationalStagesLocators.nextButton.click();
 	}
 	

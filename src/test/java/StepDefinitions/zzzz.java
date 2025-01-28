@@ -29,7 +29,8 @@ public class zzzz extends APECOTestBase{
 			finalApprovalActions.submitTheRequest();
 			String  finalapprovalRequestNumber = finalApprovalActions.confirmRequest();
 			scenarioContext.setData("finalapprovalRequestNumber", finalapprovalRequestNumber);
-			Thread.sleep(1000);
+			//Thread.sleep(1000);
+			commonFunctions.implicitWait(10);
 			userWorkspacePageActions.logout();
 			 adminLoginPageActions.adminLoginurl("https://apeco-admin-portal-qc.graycliff-e2cfdb11.eastus.azurecontainerapps.io/login");
 		
@@ -53,7 +54,8 @@ public class zzzz extends APECOTestBase{
 				adminAgentQueueActions.adminOpenRequestDetailsScreen();
 				  adminFinalApprovalActions.reviewEmployeeScheduleMeetingForTheFinalApprovalRequest("Manager Meeting", "15-01-2026", "2:45 PM", "5:45 PM", "Online Meeting", "Manager's Online Meeting");
 				  adminLoginPageActions.adminLoginurl("https://apeco-admin-portal-qc.graycliff-e2cfdb11.eastus.azurecontainerapps.io/login");
-				  Thread.sleep(1000);
+				  //Thread.sleep(1000);
+				  commonFunctions.implicitWait(10);
 				  //
 					adminLoginPageActions.selectEngLang();
 					adminLoginPageActions.adminLogin(properties.getProperty("adminSchoolManagerUsername"), properties.getProperty("adminSchoolManagerPassword"));
@@ -62,8 +64,8 @@ public class zzzz extends APECOTestBase{
 					adminAgentQueueActions.adminOpenRequestDetailsScreen();
 					adminFinalApprovalActions.adminAcceptsScheduledMeeting();
 					  adminLoginPageActions.adminLoginurl("https://apeco-admin-portal-qc.graycliff-e2cfdb11.eastus.azurecontainerapps.io/login");
-					Thread.sleep(1000);
-					//
+					//Thread.sleep(1000);
+					  commonFunctions.implicitWait(10);
 					adminLoginPageActions.selectEngLang();
 					adminLoginPageActions.adminLogin(properties.getProperty("reviewEmployeeUsername"), properties.getProperty("reviewEmployeePassword"));
 				//	String  finalapprovalRequestNumber = (String) scenarioContext.getData("finalapprovalRequestNumber");
@@ -71,8 +73,8 @@ public class zzzz extends APECOTestBase{
 					adminAgentQueueActions.adminOpenRequestDetailsScreen();
 				  adminFinalApprovalActions.reviewEmployeeMeetsTheManager();
 					 adminLoginPageActions.adminLoginurl("https://apeco-admin-portal-qc.graycliff-e2cfdb11.eastus.azurecontainerapps.io/login");
-					  Thread.sleep(1000);
-					  //
+					  //Thread.sleep(1000);
+					 commonFunctions.implicitWait(10);
 						adminLoginPageActions.selectEngLang();
 						adminLoginPageActions.adminLogin(properties.getProperty("engineerUsername"), properties.getProperty("engineerPassword"));
 					//	String  finalapprovalRequestNumber = (String) scenarioContext.getData("finalapprovalRequestNumber");
@@ -80,7 +82,8 @@ public class zzzz extends APECOTestBase{
 						adminAgentQueueActions.adminOpenRequestDetailsScreen();
 					    adminFinalApprovalActions.engineerTechnicalApproval("الموقع / رقم قطعة الأرض باللغة الإنجليزية - إصدار تصريح جديد", "الموقع / رقم قطعة الأرض باللغة العربية - إصدار تصريح جديد");
 					    adminLoginPageActions.adminLoginurl("https://apeco-admin-portal-qc.graycliff-e2cfdb11.eastus.azurecontainerapps.io/login");
-						  Thread.sleep(1000);
+						  //Thread.sleep(1000);
+					    commonFunctions.implicitWait(10);
 			 //	adminLoginPageActions.selectEngLang();
 							adminLoginPageActions.adminLogin(properties.getProperty("employeeUsername"), properties.getProperty("employeePassword"));
 						//	String  finalapprovalRequestNumber = (String) scenarioContext.getData("finalapprovalRequestNumber");
@@ -88,7 +91,8 @@ public class zzzz extends APECOTestBase{
 							adminAgentQueueActions.adminOpenRequestDetailsScreen();
 						 	adminFinalApprovalActions.employeelApproval();
 						    adminLoginPageActions.adminLoginurl("https://apeco-portal-qc.graycliff-e2cfdb11.eastus.azurecontainerapps.io/auth/login");
-						 	Thread.sleep(1000);
+						 	//Thread.sleep(1000);
+						    commonFunctions.implicitWait(10);
 							userLoginPageActions.userlogin(properties.getProperty("username"), properties.getProperty("password"));
 							userWorkspacePageActions.clickonSideMenuRequestslink();
 							String requestNo = (String) scenarioContext.getData("finalapprovalRequestNumber");

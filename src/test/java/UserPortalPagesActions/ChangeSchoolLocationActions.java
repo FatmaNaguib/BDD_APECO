@@ -35,22 +35,14 @@ public class ChangeSchoolLocationActions extends APECOTestBase{
 		changeSchoolLocationLocators.schoolAddressTextbox.clear();
 		changeSchoolLocationLocators.schoolAddressTextbox.sendKeys(schoolAddress);
 		js.executeScript("window.scrollBy(0,500)");
-		//commonFunctions.moveToWebElement(changeSchoolLocationLocators.gender_ddl);
-		//commonFunctions.enterddlValue(changeSchoolLocationLocators.gender_ddl, genderText);
 		changeSchoolLocationLocators.locationNumberEn_Textbox.clear();
 		changeSchoolLocationLocators.locationNumberEn_Textbox.sendKeys(locationNumberEn);
 		changeSchoolLocationLocators.locationNumberAr_Textbox.clear();
 		changeSchoolLocationLocators.locationNumberAr_Textbox.sendKeys(locationNumberAr);
-		//changeSchoolLocationLocators.locationNumberAr_Textbox.clear();
-		//commonFunctions.moveToWebElement(changeSchoolLocationLocators.buildingOwnership_ddl);
-		//commonFunctions.enterddlValue(changeSchoolLocationLocators.landOwnership_ddl, landOwnershipText);
-		//commonFunctions.enterddlValue(changeSchoolLocationLocators.buildingOwnership_ddl, buildingOwnershipText);
-		//js.executeScript("window.scrollBy(0,1000)");
 		changeSchoolLocationLocators.landAreaTextbox.clear();
 		changeSchoolLocationLocators.landAreaTextbox.sendKeys(landArea);
 		changeSchoolLocationLocators.buildingAreaTextbox.clear();
 		changeSchoolLocationLocators.buildingAreaTextbox.sendKeys(buildingArea);
-	//	js.executeScript("window.scrollBy(0,2000)");
 		changeSchoolLocationLocators.totalIndoorCourtAreaTextbox.clear();
 		changeSchoolLocationLocators.totalIndoorCourtAreaTextbox.sendKeys(TotalIndoorCourtArea);
 		changeSchoolLocationLocators.totalExternalCanopyAreaTextbox.clear();
@@ -72,7 +64,6 @@ public class ChangeSchoolLocationActions extends APECOTestBase{
 			String certificateFromMunicipalityCivilDefense 
 			) throws AWTException, InterruptedException {
 		js.executeScript("window.scrollBy(0,-1000)");
-		//Thread.sleep(1000);
 		commonFunctions.uploadfile(changeSchoolLocationLocators.newEngineeringPlan_uploader, newEngineeringPlan);
 		commonFunctions.uploadfile(changeSchoolLocationLocators.landMap_uploader, landMap);
 		commonFunctions.uploadfile(changeSchoolLocationLocators.timePlan_uploader, timePlan);
@@ -81,7 +72,8 @@ public class ChangeSchoolLocationActions extends APECOTestBase{
 		commonFunctions.uploadfile(changeSchoolLocationLocators.certificateFromMunicipalityCivilDefense_uploader, certificateFromMunicipalityCivilDefense);
 		js.executeScript("window.scrollBy(0,300)");
 		commonFunctions.moveToWebElement(changeSchoolLocationLocators.attachmentsNext_btn);
-		Thread.sleep(1000);
+		//Thread.sleep(1000);
+		commonFunctions.fluentWait(changeSchoolLocationLocators.attachmentsNext_btn);
 		changeSchoolLocationLocators.attachmentsNext_btn.click();
 	}
 	public void submitChangeSchoolLocationRequest(){
@@ -90,7 +82,8 @@ public class ChangeSchoolLocationActions extends APECOTestBase{
 	}
 	
 	public String getRequestNumber() throws InterruptedException {
-		Thread.sleep(1000);
+		//Thread.sleep(1000);
+	commonFunctions.implicitWait(10);
 	String msg = changeSchoolLocationLocators.confirmation_msg.getText();
 	 String changeSchoolLocationRequestNumber = msg.replaceAll("[^0-9]","");
 	 commonFunctions.clickWebElement(changeSchoolLocationLocators.confirmation_btn);
@@ -113,7 +106,8 @@ public class ChangeSchoolLocationActions extends APECOTestBase{
 		commonFunctions.moveToWebElement(changeSchoolLocationLocators.okay_btn);
 		commonFunctions.waitElementToBevisible(changeSchoolLocationLocators.okay_btn);
 		changeSchoolLocationLocators.okay_btn.click();
-		Thread.sleep(3000);
+		//Thread.sleep(3000);
+		commonFunctions.implicitWait(30);
 	}
 }
 

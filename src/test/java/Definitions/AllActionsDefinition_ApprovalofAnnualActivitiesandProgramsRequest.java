@@ -3,7 +3,7 @@ package Definitions;
 import java.awt.AWTException;
 import java.io.IOException;
 
-import AdminPortalPagesActions.AdminApprovalofAnnualActivitiesandProgramsActions;
+
 import Bases.APECOTestBase;
 import Util.ScenarioContext;
 import io.cucumber.java.en.Then;
@@ -22,10 +22,10 @@ public class AllActionsDefinition_ApprovalofAnnualActivitiesandProgramsRequest e
 	userWorkspacePageActions.clickonSideMenu_Services_link();
 	 userServicesPageActions.clickAnnualActivitiesandProgramsLink();
 	
-	// String licensedSchoolName = (String) scenarioContext.getData("licensedSchoolName");
-	// userSchoolsListActions.selectSchool(licensedSchoolName);
+	String licensedSchoolName = (String) scenarioContext.getData("licensedSchoolName");
+	 userSchoolsListActions.selectSchool(licensedSchoolName);
 
-	 userSchoolsListActions.selectSchool("New Education School 86169");
+	// userSchoolsListActions.selectSchool("New Education School 86169");
 
 	annualActivitiesandProgramsActions.enterRequestData("Omar Khaled", "01022002200", "omar@hotmail.com");
 
@@ -42,15 +42,13 @@ public class AllActionsDefinition_ApprovalofAnnualActivitiesandProgramsRequest e
 public void the_employee_approves_the_annual_activities_and_programs() throws IOException, InterruptedException, AWTException {
 	Thread.sleep(1000);
 	adminLoginPageActions.adminLoginurl("https://apeco-admin-portal-qc.graycliff-e2cfdb11.eastus.azurecontainerapps.io/login");
-	Thread.sleep(1000);
+	//Thread.sleep(1000);
+	commonFunctions.implicitWait(10);
 	adminLoginPageActions.selectEngLang();	  
 	adminLoginPageActions.adminLogin(properties.getProperty("employeeUsername"), properties.getProperty("employeePassword"));
-	
-	
 	String anuannualActivitiesandProgramsmberRequestNumber = (String) scenarioContext.getData("anuannualActivitiesandProgramsmberRequestNumber");
 	adminAgentQueueActions.adminSearchforaRequest(anuannualActivitiesandProgramsmberRequestNumber);
 	adminAgentQueueActions.adminOpenRequestDetailsScreen();
 	adminApprovalofAnnualActivitiesandProgramsActions.employeeApprovesTheApprovalofAnnualActivitiesandProgramsRequest();
-
 }
 }

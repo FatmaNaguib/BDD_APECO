@@ -52,7 +52,8 @@ public class SubmitaComplaintActions extends APECOTestBase {
 	
 	public static int requestNumber = 0;
 	public void confirmRequest() throws InterruptedException {
-		Thread.sleep(3000);
+		//Thread.sleep(3000);
+		commonFunctions.fluentWait( submitaComplaintLocators.confirmation_msg);
 		//commonFunctions.waitElement(submitaComplaintLocators.confirmation_msg);
 		String msg = submitaComplaintLocators.confirmation_msg.getText();
 		//String msg = webElement.getText();

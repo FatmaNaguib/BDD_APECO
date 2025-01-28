@@ -47,8 +47,6 @@ public class InitialApplovalOwnersProfilesPageActions extends APECOTestBase{
 	
 	public void clicknextButton() throws InterruptedException {
 		commonFunctions.clickWebElement(initialApplovalPageOwnersProfilesLocators.nextButton);
-		
-	//	initialApplovalPageOwnersProfilesLocators.nextButton.click();
 	}
 	
 
@@ -73,16 +71,10 @@ public class InitialApplovalOwnersProfilesPageActions extends APECOTestBase{
 		initialApplovalPageOwnersProfilesLocators.ownersFullnameTextbox.sendKeys(ownersFullname);
 		initialApplovalPageOwnersProfilesLocators.ownersFamilyNameTextbox.sendKeys(ownersFamilyName);
 		js.executeScript("window.scrollTo(0,800)");
-		//commonFunctions.clickWebElement(initialApplovalPageOwnersProfilesLocators.PhotographUploader);
-		
-
-//		boolean isElementPresent = (Boolean) js.executeScript( "return document.querySelector('input#Photograph') !== null;");
-//			System.out.println("Is element present: " + isElementPresent);
-	//js.executeScript("document.getElementById('Photograph').style.display='block';");
-	//	commonFunctions.unhideWebElement(initialApplovalPageOwnersProfilesLocators.PhotographUploader);
 		commonFunctions.uploadfile(initialApplovalPageOwnersProfilesLocators.PhotographUploader,photographName);
 		commonFunctions.uploadfile(initialApplovalPageOwnersProfilesLocators.criminalStatusCertificate,criminalStatusCertifion);;
-		Thread.sleep(1000);
+		//Thread.sleep(1000);
+		commonFunctions.fluentWait(initialApplovalPageOwnersProfilesLocators.ownersPlaceofbirthTextbox);
 		initialApplovalPageOwnersProfilesLocators.ownersPlaceofbirthTextbox.sendKeys(ownersPlaceofbirth);
 		commonFunctions.moveToWebElement(initialApplovalPageOwnersProfilesLocators.dateofBirthDatepicker);
 		commonFunctions.enterddlValue(initialApplovalPageOwnersProfilesLocators.dateofBirthDatepicker, dateofBirth);
@@ -97,9 +89,7 @@ public class InitialApplovalOwnersProfilesPageActions extends APECOTestBase{
       initialApplovalPageOwnersProfilesLocators.passportDetailsTap.click();
 	String personalDataComplitionStat = getLableText(initialApplovalPageOwnersProfilesLocators.personalDataComplitionLable);
 	System.out.println(personalDataComplitionStat);
-
 		return personalDataComplitionStat;
-		
 	}
 
 
@@ -120,11 +110,11 @@ public class InitialApplovalOwnersProfilesPageActions extends APECOTestBase{
 		
 		initialApplovalPageOwnersProfilesLocators.emiratesIDTextbox.sendKeys(emiratesID);
 		commonFunctions.uploadfile(initialApplovalPageOwnersProfilesLocators.validEmiratesIDUploader, validEmiratesID);
-		Thread.sleep(1000);
+		//Thread.sleep(1000);
+		commonFunctions.implicitWait(10);
 		initialApplovalPageOwnersProfilesLocators.QualifyingTap.click();
 		String ResidenceDetailsStat =commonFunctions.getLableText(initialApplovalPageOwnersProfilesLocators.passportDetailComplitionLable);
-		return ResidenceDetailsStat;
-		
+		return ResidenceDetailsStat;		
 	}
 	
 	public String enterOwnerQualificationsDetails(String qualificationType, String schoolandUniversity,String qualificationObtainedDate, String qualificationCountry ) throws Exception {
@@ -134,21 +124,18 @@ public class InitialApplovalOwnersProfilesPageActions extends APECOTestBase{
 		commonFunctions.enterddlValue(initialApplovalPageOwnersProfilesLocators.qualificationObtainedDatepicker, qualificationObtainedDate);
 		commonFunctions.enterddlValue(initialApplovalPageOwnersProfilesLocators.qualificationCountry_ddl, qualificationCountry);
 		initialApplovalPageOwnersProfilesLocators.maritalStatusDataTap.click();
-		Thread.sleep(5000);
+		//Thread.sleep(3000);
+		commonFunctions.implicitWait(10);
 		String qualificationsDetailsComplitionStat =commonFunctions.getLableText(initialApplovalPageOwnersProfilesLocators.QualificationsComplitionLable);
 		return qualificationsDetailsComplitionStat;
 	}
 	
-	
 	public String enterMaritalStatusDetails(String MaritalStatus) {
-
 		commonFunctions.enterddlValue(initialApplovalPageOwnersProfilesLocators.fmaritalStatus_ddl, MaritalStatus);
 		js.executeScript("window.scrollBy(0,1000)");
-		//commonFunctions.moveToWebElement(initialApplovalPageOwnersProfilesLocators.fatherAndMotherTap);
 		initialApplovalPageOwnersProfilesLocators.fatherAndMotherTap.click();
 		String  maritalStatusDetailsStat =commonFunctions.getLableText(initialApplovalPageOwnersProfilesLocators.maritalStatusComplitionLable);
 		return  maritalStatusDetailsStat;
-
 	}
 	
 	public String enterFatherandMotherDetails(String fatherName, String motherName) {

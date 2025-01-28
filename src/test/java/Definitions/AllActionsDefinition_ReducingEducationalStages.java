@@ -3,7 +3,6 @@ package Definitions;
 import java.awt.AWTException;
 import java.io.IOException;
 
-import AdminPortalPagesActions.AdminInitialApprovalRequestDetailsActions;
 import Bases.APECOTestBase;
 import Util.ScenarioContext;
 import io.cucumber.java.en.Then;
@@ -24,20 +23,19 @@ public class AllActionsDefinition_ReducingEducationalStages extends APECOTestBas
 		userServicesPageActions.clickReducingEducationalStagesLink();
 		String licensedSchoolName = (String) scenarioContext.getData("licensedSchoolName");
 		userSchoolsListActions.selectSchool(licensedSchoolName);
-		
+//		userSchoolsListActions.selectSchool("New Education School 27938");
 		reducingEducationalStagesActions.selectEducationalStages();
 		reducingEducationalStagesActions.reducingEducationalStagesAttachments("UploadFile.pdf","UploadFile.pdf","UploadFile.pdf","UploadFile.pdf");
 		reducingEducationalStagesActions.submitRequest();
 		String reducingEducationalStagesRequestNumber = reducingEducationalStagesActions.getRequestNumber();
 		scenarioContext.setData("reducingEducationalStagesRequestNumber",reducingEducationalStagesRequestNumber );		
 		userWorkspacePageActions.logout();
-		adminLoginPageActions.adminLoginurl("https://apeco-admin-portal-qc.graycliff-e2cfdb11.eastus.azurecontainerapps.io/login");
-		
+		adminLoginPageActions.adminLoginurl("https://apeco-admin-portal-qc.graycliff-e2cfdb11.eastus.azurecontainerapps.io/login");	
 	}
 	
 	@Then("The Engineer Approves the Reducing Educational Stages Engineering Plan")
 	public void the_engineer_approves_the_reducing_educational_stages_engineering_plan() throws InterruptedException, IOException {
-		
+		Thread.sleep(1000);
 			adminLoginPageActions.adminLoginurl("https://apeco-admin-portal-qc.graycliff-e2cfdb11.eastus.azurecontainerapps.io/login");
 		adminLoginPageActions.selectEngLang();
 		adminLoginPageActions.adminLogin(properties.getProperty("engineerUsername"), properties.getProperty("engineerPassword"));
@@ -55,14 +53,14 @@ public class AllActionsDefinition_ReducingEducationalStages extends APECOTestBas
 		String  reducingEducationalStagesRequestNumber = (String) scenarioContext.getData("reducingEducationalStagesRequestNumber");
 		   adminAgentQueueActions.adminSearchforaRequest(reducingEducationalStagesRequestNumber);
 		   adminAgentQueueActions.adminOpenRequestDetailsScreen();
-		   adminReducingEducationalStagesActions. employeeCompletetheInitialApproval();
-		   
+		   adminReducingEducationalStagesActions. employeeCompletetheInitialApproval();   
 	}
 
 	@Then("The Employee Approves the Reducing Educational Stages Request")
 	public void the_employee_approves_the_reducing_educational_stages_request() throws InterruptedException, IOException {
 		 adminLoginPageActions.adminLoginurl("https://apeco-admin-portal-qc.graycliff-e2cfdb11.eastus.azurecontainerapps.io/login");
-		  Thread.sleep(1000);
+		  //Thread.sleep(1000);
+		 commonFunctions.implicitWait(10);
 		adminLoginPageActions.adminLogin(properties.getProperty("employeeUsername"), properties.getProperty("employeePassword"));
 		String reducingEducationalStagesRequestNumber = (String) scenarioContext.getData("reducingEducationalStagesRequestNumber");
 		adminAgentQueueActions.adminSearchforaRequest(reducingEducationalStagesRequestNumber);
@@ -73,7 +71,8 @@ public class AllActionsDefinition_ReducingEducationalStages extends APECOTestBas
 	@Then("The Applicant Pays The Reducing Educational Stages Request fees")
 	public void the_applicant_pays_the_reducing_educational_stages_request_fees() throws InterruptedException, IOException {
 		 adminLoginPageActions.adminLoginurl("https://apeco-portal-qc.graycliff-e2cfdb11.eastus.azurecontainerapps.io/auth/login");
-		 	Thread.sleep(1000);
+		 	//Thread.sleep(1000);
+		 commonFunctions.implicitWait(10);
 		 	userLoginPageActions.userlogin(properties.getProperty("username"), properties.getProperty("password"));
 			userWorkspacePageActions.clickonSideMenuRequestslink();
 			String reducingEducationalStagesRequestNumber = (String) scenarioContext.getData("reducingEducationalStagesRequestNumber");

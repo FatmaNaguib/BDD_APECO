@@ -42,7 +42,6 @@ public class AppointmentNotificationforEmployeesActions  extends APECOTestBase{
 		appointmentNotificationforEmployeesLocators.appointmentNotificationforEmployeesBody.click();
 		commonFunctions.enterddlValue(appointmentNotificationforEmployeesLocators.grades_ddl,grades);
 		appointmentNotificationforEmployeesLocators.appointmentNotificationforEmployeesBody.click();
-		
 		appointmentNotificationforEmployeesLocators.appliedPosition_TextBox.sendKeys(appliedPosition);
 		commonFunctions.moveToWebElement(appointmentNotificationforEmployeesLocators.maritalStatus_ddl);
 		commonFunctions.enterddlValue(appointmentNotificationforEmployeesLocators.maritalStatus_ddl,maritalStatus);
@@ -68,11 +67,8 @@ public class AppointmentNotificationforEmployeesActions  extends APECOTestBase{
 			String scientificQualification, String equivalencyAcademicQualificationOrPaymentReceipt, String authenticationAcademicQualifications
 			
 			) throws InterruptedException, AWTException {
-		
-		
 		commonFunctions.moveToWebElement(appointmentNotificationforEmployeesLocators.qualifications_tab);
 		appointmentNotificationforEmployeesLocators.qualifications_tab.click();
-		
 		commonFunctions.enterddlValue(appointmentNotificationforEmployeesLocators.qualification_ddl,qualification);
 		appointmentNotificationforEmployeesLocators.specialization_TextBox.sendKeys(specialization);
 		appointmentNotificationforEmployeesLocators.qualificationDate_Calendar.sendKeys(qualificationDate);
@@ -82,9 +78,9 @@ public class AppointmentNotificationforEmployeesActions  extends APECOTestBase{
 		commonFunctions.uploadfile(appointmentNotificationforEmployeesLocators.equivalencyAcademicQualificationOrPaymentReceipt_uploader, equivalencyAcademicQualificationOrPaymentReceipt);
 		commonFunctions.uploadfile(appointmentNotificationforEmployeesLocators. authenticationAcademicQualifications_uploader, authenticationAcademicQualifications);
 		commonFunctions.moveToWebElement(appointmentNotificationforEmployeesLocators.previousExperience_btn);
-	
 		appointmentNotificationforEmployeesLocators.previousExperience_btn.click();
-		Thread.sleep(1000);
+		//Thread.sleep(1000);
+		commonFunctions.implicitWait(10);
 		commonFunctions.moveToWebElement(appointmentNotificationforEmployeesLocators.managerDataNext_btn);
 		appointmentNotificationforEmployeesLocators. managerDataNext_btn.click();		
 	}
@@ -92,7 +88,6 @@ public class AppointmentNotificationforEmployeesActions  extends APECOTestBase{
 			String coloredPassport, String coloredNationalID,
 			String administrativeApproval, String certificateOfGoodConduct,
 			String profilePicture, String sponsorLetter, String appointmentInterviewPassDocument
-			
 			) throws AWTException, InterruptedException {
 		js.executeScript("window.scrollTo(0,0)");
 	//	commonFunctions.waitElementToBevisible(appointmentNotificationforEmployeesLocators.coloredPassport_uploader);
@@ -104,7 +99,8 @@ public class AppointmentNotificationforEmployeesActions  extends APECOTestBase{
 				js.executeScript("window.scrollBy(0,500)");
 				commonFunctions.uploadfile(appointmentNotificationforEmployeesLocators.sponsorLetter_uploader,sponsorLetter);
 				commonFunctions.uploadfile(appointmentNotificationforEmployeesLocators.appointmentInterviewPassDocument_uploader,appointmentInterviewPassDocument);
-			Thread.sleep(1000);
+			//Thread.sleep(1000);
+				commonFunctions.implicitWait(10);
 			js.executeScript("window.scrollBy(0,500)");
 				commonFunctions.clickWebElement(appointmentNotificationforEmployeesLocators.attachmentsNxt_btn);
 				//commonFunctions.moveToWebElement(appointmentNotificationforEmployeesLocators.attachmentsNxt_btn);
@@ -112,26 +108,28 @@ public class AppointmentNotificationforEmployeesActions  extends APECOTestBase{
 	}
 	public void payRequestfees() throws InterruptedException {
 		js.executeScript("window.scrollTo(0,0)");
-		Thread.sleep(3000);
+		//Thread.sleep(3000);
+		commonFunctions.implicitWait(20);
 commonFunctions.moveToWebElement(appointmentNotificationforEmployeesLocators.dataAcknowledge_Checkbox);
 	appointmentNotificationforEmployeesLocators.dataAcknowledge_Checkbox.click();
-	
 		appointmentNotificationforEmployeesLocators.pay_btn.click();
-		Thread.sleep(1000);
+		//Thread.sleep(1000);
+		commonFunctions.implicitWait(10);
 	//	js.executeScript("window.scrollBy(0,2000)");
 //		commonFunctions.moveToWebElement(appointmentNotificationforEmployeesLocators.payNow_btn);
 //		appointmentNotificationforEmployeesLocators.payNow_btn.click();
 		//commonFunctions.clickWebElement(appointmentNotificationforEmployeesLocators.payNow_btn);
 		appointmentNotificationforEmployeesLocators.payNow_btn.click();
-		Thread.sleep(2000);
+		//Thread.sleep(2000);
+		commonFunctions.implicitWait(20);
 //		commonFunctions.waitElementToBevisible(appointmentNotificationforEmployeesLocators.submit_btn);
 		appointmentNotificationforEmployeesLocators.submit_btn.click();
 	//	commonFunctions.clickWebElement(appointmentNotificationforEmployeesLocators.submit_btn);
 	}
 	
 	public String getRequestNumber() throws InterruptedException {
-		Thread.sleep(3000);
-		
+		//Thread.sleep(3000);
+		commonFunctions.fluentWait(appointmentNotificationforEmployeesLocators.confirmation_msg);
 		commonFunctions.waitElementToBevisible(appointmentNotificationforEmployeesLocators.confirmation_msg);
 		 String msg = appointmentNotificationforEmployeesLocators.confirmation_msg.getText();
 		 String apointmentNotificationforEmployeesRequestNumber = msg.replaceAll("[^0-9]","");

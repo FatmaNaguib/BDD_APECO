@@ -36,22 +36,14 @@ public class ModificationorAdditiontoSchoolBuildingActions extends APECOTestBase
 		modificationorAdditiontoSchoolBuildingLocators.schoolAddressTextbox.clear();
 		modificationorAdditiontoSchoolBuildingLocators.schoolAddressTextbox.sendKeys(schoolAddress);
 		js.executeScript("window.scrollBy(0,500)");
-		//commonFunctions.moveToWebElement(changeSchoolLocationLocators.gender_ddl);
-		//commonFunctions.enterddlValue(changeSchoolLocationLocators.gender_ddl, genderText);
 		modificationorAdditiontoSchoolBuildingLocators.locationNumberEn_Textbox.clear();
 		modificationorAdditiontoSchoolBuildingLocators.locationNumberEn_Textbox.sendKeys(locationNumberEn);
 		modificationorAdditiontoSchoolBuildingLocators.locationNumberAr_Textbox.clear();
 		modificationorAdditiontoSchoolBuildingLocators.locationNumberAr_Textbox.sendKeys(locationNumberAr);
-		//changeSchoolLocationLocators.locationNumberAr_Textbox.clear();
-		//commonFunctions.moveToWebElement(changeSchoolLocationLocators.buildingOwnership_ddl);
-		//commonFunctions.enterddlValue(changeSchoolLocationLocators.landOwnership_ddl, landOwnershipText);
-		//commonFunctions.enterddlValue(changeSchoolLocationLocators.buildingOwnership_ddl, buildingOwnershipText);
-		//js.executeScript("window.scrollBy(0,1000)");
 		modificationorAdditiontoSchoolBuildingLocators.landAreaTextbox.clear();
 		modificationorAdditiontoSchoolBuildingLocators.landAreaTextbox.sendKeys(landArea);
 		modificationorAdditiontoSchoolBuildingLocators.buildingAreaTextbox.clear();
 		modificationorAdditiontoSchoolBuildingLocators.buildingAreaTextbox.sendKeys(buildingArea);
-	//	js.executeScript("window.scrollBy(0,2000)");
 		modificationorAdditiontoSchoolBuildingLocators.totalIndoorCourtAreaTextbox.clear();
 		modificationorAdditiontoSchoolBuildingLocators.totalIndoorCourtAreaTextbox.sendKeys(TotalIndoorCourtArea);
 		modificationorAdditiontoSchoolBuildingLocators.totalExternalCanopyAreaTextbox.clear();
@@ -69,13 +61,15 @@ public class ModificationorAdditiontoSchoolBuildingActions extends APECOTestBase
 			) throws AWTException, InterruptedException {
 		js.executeScript("window.scrollBy(0,-1000)");
 		//Thread.sleep(1000);
+		commonFunctions.implicitWait(10);
 		commonFunctions.uploadfile(modificationorAdditiontoSchoolBuildingLocators.officialLetter_uploader, officialLetter);
 		commonFunctions.uploadfile(modificationorAdditiontoSchoolBuildingLocators.currentEngineeringPlan_uploader,currentEngineeringPlan);
 		commonFunctions.uploadfile(modificationorAdditiontoSchoolBuildingLocators.newEngineeringPlan_uploader, newEngineeringPlan);
 		commonFunctions.uploadfile(modificationorAdditiontoSchoolBuildingLocators.landMap_uploader, landMap);
 		js.executeScript("window.scrollBy(0,300)");
 		commonFunctions.moveToWebElement(modificationorAdditiontoSchoolBuildingLocators.nextBtn);
-		Thread.sleep(1000);
+		//Thread.sleep(1000);
+		commonFunctions.fluentWait(modificationorAdditiontoSchoolBuildingLocators.nextBtn);
 		modificationorAdditiontoSchoolBuildingLocators.nextBtn.click();
 	}
 	public void submitModificationorAdditiontoSchoolBuildingRequest(){
@@ -84,7 +78,8 @@ public class ModificationorAdditiontoSchoolBuildingActions extends APECOTestBase
 	}
 	
 	public String confirmRequest() throws InterruptedException {
-		Thread.sleep(1000);
+		//Thread.sleep(1000);
+		commonFunctions.fluentWait(modificationorAdditiontoSchoolBuildingLocators.confirmation_msg);
 		commonFunctions.waitElementToBevisible(modificationorAdditiontoSchoolBuildingLocators.confirmation_msg);
 	String msg = modificationorAdditiontoSchoolBuildingLocators.confirmation_msg.getText();
 	 String ModificationorAdditiontoSchoolBuildingRequest = msg.replaceAll("[^0-9]","");
@@ -112,7 +107,8 @@ public class ModificationorAdditiontoSchoolBuildingActions extends APECOTestBase
 		commonFunctions.moveToWebElement(modificationorAdditiontoSchoolBuildingLocators.okay_btn);
 		commonFunctions.waitElementToBevisible(modificationorAdditiontoSchoolBuildingLocators.okay_btn);
 		modificationorAdditiontoSchoolBuildingLocators.okay_btn.click();
-		Thread.sleep(3000);
+		//Thread.sleep(3000);
+		commonFunctions.implicitWait(30);
 	}
 	
 }

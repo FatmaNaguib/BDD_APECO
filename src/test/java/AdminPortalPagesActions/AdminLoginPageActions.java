@@ -16,7 +16,6 @@ public class AdminLoginPageActions extends APECOTestBase {
 		super();
 		 adminLoginPageLcators  = new AdminloginPageLocatore();
 		PageFactory.initElements(driver, adminLoginPageLcators);
-		
 	}
 
 	public void selectEngLang() {
@@ -30,7 +29,8 @@ public class AdminLoginPageActions extends APECOTestBase {
 		adminLoginPageLcators.adminUsername_Textbox.sendKeys(adminUserName);
 		adminLoginPageLcators.adminPassword_Textbox.sendKeys(adminPassword);
 	//commonFunctions.clickWebElement(adminLoginPageLcators.adminLoginButton);
-	Thread.sleep(1000);
+	//Thread.sleep(1000);
+		commonFunctions.fluentWait(adminLoginPageLcators.adminLoginButton);
 		adminLoginPageLcators.adminLoginButton.click();			
 		//return new AdminServicesListPageLocators();
 	}

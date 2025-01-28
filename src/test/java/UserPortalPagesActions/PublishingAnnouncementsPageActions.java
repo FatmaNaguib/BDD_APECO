@@ -34,16 +34,14 @@ public class PublishingAnnouncementsPageActions extends APECOTestBase {
 		commonFunctions.moveToWebElement(publishingAnnouncementsPageLocator.pay_btn);
 		publishingAnnouncementsPageLocator.pay_btn.click();
 		publishingAnnouncementsPageLocator.payNow_btn.click();
-		Thread.sleep(1000);
+		//Thread.sleep(1000);
+		commonFunctions.fluentWait(publishingAnnouncementsPageLocator.submit_btn);
 		publishingAnnouncementsPageLocator.submit_btn.click();
-		Thread.sleep(1000);
+		//Thread.sleep(1000);
+		commonFunctions.fluentWait(publishingAnnouncementsPageLocator.confirmation_msg);
 		 String msg = publishingAnnouncementsPageLocator.confirmation_msg.getText();
 		 String publishingAnnouncementsRequestNumber = msg.replaceAll("[^0-9]","");
 		publishingAnnouncementsPageLocator.confirmation_btn.click();
-		
 		return publishingAnnouncementsRequestNumber;
-	}
-	
-	
-	
+	}	
 }

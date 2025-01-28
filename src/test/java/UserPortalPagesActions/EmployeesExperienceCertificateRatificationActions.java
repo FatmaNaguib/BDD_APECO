@@ -40,9 +40,7 @@ public class EmployeesExperienceCertificateRatificationActions extends APECOTest
 		commonFunctions.moveToWebElement(employeesExperienceCertificateRatificationLocators.stages_ddl);
 		commonFunctions.enterddlValue(employeesExperienceCertificateRatificationLocators.stages_ddl, stages);
 		employeesExperienceCertificateRatificationLocators.pageBody.click();
-		commonFunctions.moveToWebElement(employeesExperienceCertificateRatificationLocators.departureDateDatepicker);
-		//js.executeScript("window.scrollBy(0,1000)");
-		
+		commonFunctions.moveToWebElement(employeesExperienceCertificateRatificationLocators.departureDateDatepicker);		
 		commonFunctions.enterddlValue(employeesExperienceCertificateRatificationLocators.departureDateDatepicker,departureDateDate);
 		commonFunctions.moveToWebElement(employeesExperienceCertificateRatificationLocators.departureDateDatepicker);
 		commonFunctions.moveToWebElement(employeesExperienceCertificateRatificationLocators.experienceCertificateAttachmentsNext_btn);
@@ -63,14 +61,25 @@ public class EmployeesExperienceCertificateRatificationActions extends APECOTest
 		commonFunctions.moveToWebElement(employeesExperienceCertificateRatificationLocators.pay_btn);
 		employeesExperienceCertificateRatificationLocators.pay_btn.click();
 		Thread.sleep(2000);
-		employeesExperienceCertificateRatificationLocators.payNow_btn.click();
-		Thread.sleep(1000);
-		employeesExperienceCertificateRatificationLocators.submit_btn.click();
-		Thread.sleep(1000);
+		
+	//	commonFunctions.implicitWait(20);
+		commonFunctions.moveToWebElement(employeesExperienceCertificateRatificationLocators.payNow_btn);
+		//employeesExperienceCertificateRatificationLocators.payNow_btn.click();
+		commonFunctions.clickWebElement(employeesExperienceCertificateRatificationLocators.payNow_btn);
+		//Thread.sleep(1000);
+		commonFunctions.implicitWait(20);
+		//commonFunctions.fluentWait(employeesExperienceCertificateRatificationLocators.submit_btn);
+		commonFunctions.waitElementToBevisible(employeesExperienceCertificateRatificationLocators.submit_btn);
+		commonFunctions.moveToWebElement(employeesExperienceCertificateRatificationLocators.submit_btn);
+		commonFunctions.clickWebElement(employeesExperienceCertificateRatificationLocators.submit_btn);
+		//employeesExperienceCertificateRatificationLocators.submit_btn.click();
+		//Thread.sleep(1000);
+		commonFunctions.implicitWait(10);
 	}
 	
 	public String  getRequestNumber() throws InterruptedException {
-		Thread.sleep(1000);
+		//Thread.sleep(1000);
+		commonFunctions.fluentWait(employeesExperienceCertificateRatificationLocators.confirmation_msg);
 		 String msg = employeesExperienceCertificateRatificationLocators.confirmation_msg.getText();
 		String CertificationofExperienceCertificateforEmployeesRequestNumber = msg.replaceAll("[^0-9]","");
 		employeesExperienceCertificateRatificationLocators.confirmation_btn.click();

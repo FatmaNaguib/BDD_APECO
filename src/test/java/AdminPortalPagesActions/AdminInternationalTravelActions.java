@@ -15,7 +15,8 @@ public class AdminInternationalTravelActions extends APECOTestBase {
 	}
 	public void employeeApprovesInternationalTravelRequest() throws InterruptedException {
 		
-		Thread.sleep(1000);
+		//Thread.sleep(1000);
+		commonFunctions.fluentWait(adminInternationalTravelLocators.approve_btn);
 		commonFunctions.waitElementToBevisible(adminInternationalTravelLocators.approve_btn);
 		adminInternationalTravelLocators.approve_btn.click();
 		adminInternationalTravelLocators.save_btn.click();

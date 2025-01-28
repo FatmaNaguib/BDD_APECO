@@ -59,14 +59,16 @@ public class UserApplyforInitialApprovalForThreeStagesRequestDefinition extends 
 	@Then("^User Enters Owner's Passport Details$")
 	public void user_enters_owner_s_passport_details() throws AWTException, InterruptedException {
 		String passportDetailComplitionStat = initialApplovalOwnersProfilesPageActions.enterOwnerpassportDetails("A123456","UAE","2024-05-27","2025-05-27","Passport.jpg");
-		  Thread.sleep(1000);
+		  //Thread.sleep(1000);
+		commonFunctions.implicitWait(10);
 		assertEquals(passportDetailComplitionStat, "Completed"); 
 	}
 	
 	@Then("^User Enters Residence Details$")
 	public void user_enters__enters_residence_details() throws AWTException, InterruptedException {
 		String residenceDetailComplitionStat = initialApplovalOwnersProfilesPageActions.enterResidenceDetailsDetails("123456789123456","Residence.jpg");
-		  Thread.sleep(1000);
+		  //Thread.sleep(1000);
+		commonFunctions.implicitWait(10);
 		assertEquals( residenceDetailComplitionStat, "Completed"); 
 	}
 

@@ -18,8 +18,6 @@ public class APECOPortalHooks extends APECOTestBase {
 	
 	
 public APECOPortalHooks()   throws IOException {
-	super();
-
 	}
 	
 	

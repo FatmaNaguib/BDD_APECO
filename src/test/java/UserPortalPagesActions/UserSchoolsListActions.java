@@ -34,7 +34,7 @@ public class UserSchoolsListActions extends APECOTestBase {
 public void selectSchool( String licensedSchoolName) throws InterruptedException {
 //	System.out.println(adminInitialApprovalRequestDetailsActions.licensedSchoolName());
 	//adminInitialApprovalRequestDetailsActions.getLicensedSchoolName();
-
+//commonFunctions.fluentWait(findElementByDynamicValue(licensedSchoolName));
 	commonFunctions.moveToWebElement(findElementByDynamicValue(licensedSchoolName));
 	WebElement schoolElement = findElementByDynamicValue(licensedSchoolName);
 	commonFunctions.clickWebElement(schoolElement);

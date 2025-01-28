@@ -106,16 +106,11 @@ public class ChangeSchoolManagerActions extends APECOTestBase {
 		commonFunctions.uploadfile(changeSchoolManagerLocators.managerApproval_uploader,managerApproval);
 		commonFunctions.uploadfile(changeSchoolManagerLocators.managerCV_uploader, managerCV);
 		commonFunctions.clickWebElement(changeSchoolManagerLocators.attachmentsNxt_btn);
-		//commonFunctions.moveToWebElement(changeSchoolManagerLocators.attachmentsNxt_btn);
-	//	changeSchoolManagerLocators.attachmentsNxt_btn.click();
 	}
 	
 	public void submitRequest() throws InterruptedException {
-		
 		changeSchoolManagerLocators.dataAcknowledge_Checkbox.click();
 		changeSchoolManagerLocators.pay_btn.click();
-		//changeSchoolManagerLocators.submit_btn.click();
-	
 	}
 	
 	
@@ -123,20 +118,21 @@ public class ChangeSchoolManagerActions extends APECOTestBase {
 		commonFunctions.waitElementToBevisible(changeSchoolManagerLocators.confirmation_msg);
 	String msg = changeSchoolManagerLocators.confirmation_msg.getText();
 	String	changeSchoolManagerRequestNumber = msg.replaceAll("[^0-9]","");
-	 Thread.sleep(1000);
+	 //Thread.sleep(1000);
+	commonFunctions.implicitWait(10);
 	 commonFunctions.waitElementToBevisible(changeSchoolManagerLocators.confirmation_btn);
 	changeSchoolManagerLocators.confirmation_btn.click();
 	return changeSchoolManagerRequestNumber;
 
 	}
 	public void payRequestfees() throws InterruptedException {
-
 		commonFunctions.clickWebElement(changeSchoolManagerLocators.postPay_btn);
 		commonFunctions.clickWebElement(changeSchoolManagerLocators.payNow_btn);
 		//commonFunctions.waitElementToBevisible(changeSchoolManagerLocators.submit_btn);
 		commonFunctions.clickWebElement(changeSchoolManagerLocators.submit_btn);
 		commonFunctions.clickWebElement(changeSchoolManagerLocators.okay_btn);
-		Thread.sleep(3000);
+		//Thread.sleep(3000);
+		commonFunctions.implicitWait(30);
 	}
 	
 

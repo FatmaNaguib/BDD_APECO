@@ -26,10 +26,14 @@ public class InitialApplovalDocumentsPageActions extends APECOTestBase  {
 
 	public void downloadDocument() throws InterruptedException {
 		
-		Thread.sleep(1000);
+		//Thread.sleep(1000);
+		commonFunctions.fluentWait(initialApplovalDocumentsPageLocators.downloadPopup_btn);
 		initialApplovalDocumentsPageLocators.downloadPopup_btn.click();
-		Thread.sleep(1000);
-		initialApplovalDocumentsPageLocators.downloadDocNext_btn.click();
+		//Thread.sleep(1000);
+		commonFunctions.fluentWait(initialApplovalDocumentsPageLocators.downloadDocNext_btn);
+		commonFunctions.waitElementToBeClickable(initialApplovalDocumentsPageLocators.downloadDocNext_btn);
+		commonFunctions.clickWebElement(initialApplovalDocumentsPageLocators.downloadDocNext_btn);
+		//initialApplovalDocumentsPageLocators.downloadDocNext_btn.click();
 	}
 
 	public void uploadDocument(String docAttachment) throws AWTException, InterruptedException {
@@ -37,6 +41,7 @@ public class InitialApplovalDocumentsPageActions extends APECOTestBase  {
 		commonFunctions.waitElementToBeClickable(initialApplovalDocumentsPageLocators.attachmentsNext_btn);
 		commonFunctions.moveToWebElement(initialApplovalDocumentsPageLocators.attachmentsNext_btn);
 		js.executeScript("window.scrollTo(0,0)");
+		commonFunctions.fluentWait(initialApplovalDocumentsPageLocators.attachmentsNext_btn);
 		commonFunctions.waitElementToBeClickable(initialApplovalDocumentsPageLocators.attachmentsNext_btn);
 		initialApplovalDocumentsPageLocators.attachmentsNext_btn.click();
 	}
@@ -47,23 +52,22 @@ public class InitialApplovalDocumentsPageActions extends APECOTestBase  {
 		initialApplovalDocumentsPageLocators.dataAcknowledge_Checkbox.click();
 		commonFunctions.moveToWebElement(initialApplovalDocumentsPageLocators.pay_btn);
 		initialApplovalDocumentsPageLocators.pay_btn.click();
-//		commonFunctions.waitElementToBevisible(initialApplovalDocumentsPageLocators.payNow_btn);
-//		initialApplovalDocumentsPageLocators.payNow_btn.click();
 		commonFunctions.clickWebElement(initialApplovalDocumentsPageLocators.payNow_btn);
 		commonFunctions.waitElementToBevisible(initialApplovalDocumentsPageLocators.submit_btn);
 		commonFunctions.moveToWebElement(initialApplovalDocumentsPageLocators.submit_btn);
 		initialApplovalDocumentsPageLocators.submit_btn.click();	
-		Thread.sleep(3000);
+		//Thread.sleep(3000);
+		commonFunctions.implicitWait(30);
 	}
 	
 	public int confirmRequest() throws InterruptedException {
-		Thread.sleep(1000);
+		//Thread.sleep(1000);
+		commonFunctions.fluentWait(initialApplovalDocumentsPageLocators.confirmation_msg);
 		commonFunctions.waitElementToBevisible(initialApplovalDocumentsPageLocators.confirmation_msg);
 		 String msg = initialApplovalDocumentsPageLocators.confirmation_msg.getText();
 		 int requestNumber = Integer.parseInt(msg.replaceAll("[^0-9]",""));
 		 System.out.println(requestNumber);
 		 commonFunctions.moveToWebElement(initialApplovalDocumentsPageLocators.confirmation_btn);
-		 //commonFunctions.waitElementToBevisible(initialApplovalDocumentsPageLocators.confirmation_btn);
 		initialApplovalDocumentsPageLocators.confirmation_btn.click();
 		return requestNumber;
 	}

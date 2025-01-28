@@ -17,7 +17,8 @@ public class UserApplyforCancleSchoolLicenseDefinition extends APECOTestBase {
 
 	@When("^User Starts New Cancle School License  Request Request$")
 	public void user_starts_new_cancle_school_license_request_request() throws InterruptedException {
-		Thread.sleep(1000);
+		//Thread.sleep(1000);
+		commonFunctions.implicitWait(10);
 		userServicesPageActions.clickSchoolLicenseCancelationServiceLink();
 		userSchoolsListActions.selectSchool(AdminInitialApprovalRequestDetailsActions.licensedSchoolName);
 		 System.out.println("1-User Starts New Cancle School License  Request Request");

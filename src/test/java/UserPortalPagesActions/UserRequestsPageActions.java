@@ -39,7 +39,8 @@ public class UserRequestsPageActions  extends APECOTestBase {
 		userRequestsPageLocators.reply_Btn.click();
 		userRequestsPageLocators.comment_Txtarea.sendKeys(comments);
 		userRequestsPageLocators.save_Btn.click();
-		Thread.sleep(1000);
+		//Thread.sleep(1000);
+		commonFunctions.fluentWait(userRequestsPageLocators.confirmation_btn);
 		userRequestsPageLocators.confirmation_btn.click();
 	}
 }

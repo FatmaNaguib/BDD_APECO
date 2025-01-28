@@ -234,7 +234,8 @@ public class FinalApprovalActions extends APECOTestBase {
 		//finalApprovalLocators.pay_btn.click();
 		commonFunctions.moveToWebElement(finalApprovalLocators.submit_btn);
 		finalApprovalLocators.submit_btn.click();
-		Thread.sleep(3000);
+		//	Thread.sleep(3000);
+		commonFunctions.implicitWait(30);
 	}
 	
 	
@@ -242,7 +243,8 @@ public class FinalApprovalActions extends APECOTestBase {
 		commonFunctions.waitElementToBevisible(finalApprovalLocators.confirmation_msg);
 		 String msg = finalApprovalLocators.confirmation_msg.getText();
 		String finalApprovalRequestNumber = msg.replaceAll("[^0-9]",""); 
-		 Thread.sleep(1000);
+		 //Thread.sleep(1000);
+		 commonFunctions.implicitWait(10);
 		commonFunctions.moveToWebElement(finalApprovalLocators.confirmation_btn);
 		finalApprovalLocators.confirmation_btn.click();
 		return finalApprovalRequestNumber;
@@ -259,7 +261,8 @@ public class FinalApprovalActions extends APECOTestBase {
 		commonFunctions.moveToWebElement(finalApprovalLocators.okay_btn);
 		commonFunctions.waitElementToBevisible(finalApprovalLocators.okay_btn);
 		finalApprovalLocators. okay_btn.click();
-		Thread.sleep(3000);
+		//Thread.sleep(3000);
+		commonFunctions.implicitWait(30);
 	}
 	
 	

@@ -254,10 +254,7 @@ public class APECOTestBase {
 			submitaComplaintActions = new SubmitaComplaintActions();
 		 userRequestsPageActions = new UserRequestsPageActions();
 		commonFunctions = new CommonFunctions();
-		 adminEmployeesExperienceCertificateRatificationActions = new  AdminEmployeesExperienceCertificateRatificationActions();
-		
-		
-		
+		 adminEmployeesExperienceCertificateRatificationActions = new  AdminEmployeesExperienceCertificateRatificationActions();			
 	}
 		public void AdminPagesInitialization() throws IOException {
 		adminLoginPageActions = new AdminLoginPageActions();

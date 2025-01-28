@@ -26,11 +26,9 @@ public void the_applicant_applies_for_a_new_change_school_name_request() throws 
 	userLoginPageActions.userlogin(properties.getProperty("username"), properties.getProperty("password"));
 	userWorkspacePageActions.clickonSideMenu_Services_link();
 	userServicesPageActions.startChangeSchoolNameRequest();
-	
 	String licensedSchoolName = (String) scenarioContext.getData("licensedSchoolName");
-userSchoolsListActions.selectSchool(licensedSchoolName);
-	
-	
+	userSchoolsListActions.selectSchool(licensedSchoolName);
+	//userSchoolsListActions.selectSchool("New Education School 30120");	
 	String[] schoolNames = UserSchoolsListActions.schoolName();
 	String schoolNameAr = schoolNames[0];
 	String schoolNameEng = schoolNames[1];
@@ -38,7 +36,8 @@ userSchoolsListActions.selectSchool(licensedSchoolName);
 	changeSchoolNameActions.payRequestfees();
 	String changeSchoolNameRequestNumber =	changeSchoolNameActions.confirmRequest();
 	scenarioContext.setData("changeSchoolNameRequestNumber", changeSchoolNameRequestNumber);
-	Thread.sleep(1000);    
+	//Thread.sleep(1000);
+	commonFunctions.implicitWait(10);
 	userWorkspacePageActions.logout();
 
 }
@@ -47,14 +46,15 @@ userSchoolsListActions.selectSchool(licensedSchoolName);
 public void the_employee_aprroves_the_change_school_name_request() throws IOException, InterruptedException {
 	
 	 adminLoginPageActions.adminLoginurl("https://apeco-admin-portal-qc.graycliff-e2cfdb11.eastus.azurecontainerapps.io/login");
-	  Thread.sleep(1000);
-		adminLoginPageActions.selectEngLang();	 
+	  //Thread.sleep(1000);
+	 commonFunctions.implicitWait(10);
+	adminLoginPageActions.selectEngLang();	 
 	adminLoginPageActions.adminLogin(properties.getProperty("employeeUsername"), properties.getProperty("employeePassword"));
 	String changeSchoolNameRequestNumber = (String) scenarioContext.getData("changeSchoolNameRequestNumber");
 	adminAgentQueueActions.adminSearchforaRequest(changeSchoolNameRequestNumber);
-		adminAgentQueueActions.adminOpenRequestDetailsScreen();
-		 adminChangeSchoolNameActions.employeelApproval("Approve By Employee");
-		 adminAgentQueueActions.adminLogout();
+	adminAgentQueueActions.adminOpenRequestDetailsScreen();
+	 adminChangeSchoolNameActions.employeelApproval("Approve By Employee");
+	 adminAgentQueueActions.adminLogout();
 }
 
 

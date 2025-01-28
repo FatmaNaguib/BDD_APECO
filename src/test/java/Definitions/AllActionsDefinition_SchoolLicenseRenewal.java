@@ -28,12 +28,14 @@ public class AllActionsDefinition_SchoolLicenseRenewal extends APECOTestBase {
 		userServicesPageActions.clickschoolLicenseRenewalLink();
 		String licensedSchoolName = (String) scenarioContext.getData("licensedSchoolName");
 		userSchoolsListActions.selectSchool(licensedSchoolName);
-		licenseRenewalActions.submitlicenseRenewalRequest("Intoduction Document.pdf", "Intoduction Document.pdf", "Intoduction Document.pdf", "Intoduction Document.pdf", "Intoduction Document.pdf", "Intoduction Document.pdf", "Intoduction Document.pdf", "Intoduction Document.pdf");
-	
+		
+//		userSchoolsListActions.selectSchool("New Education School 16598");	
+		
+		licenseRenewalActions.submitlicenseRenewalRequest("Intoduction Document.pdf", "Intoduction Document.pdf", "Intoduction Document.pdf", "Intoduction Document.pdf", "Intoduction Document.pdf", "Intoduction Document.pdf", "Intoduction Document.pdf", "Intoduction Document.pdf");	
 		String schoolLicenseRenewalRequestNumber = licenseRenewalActions.confirmRequestl();
 		scenarioContext.setData("schoolLicenseRenewalRequestNumber",schoolLicenseRenewalRequestNumber );
-		
-		Thread.sleep(1000);
+		//Thread.sleep(1000);
+		commonFunctions.implicitWait(20);
 		userWorkspacePageActions.logout();
 		 
 	}
@@ -42,6 +44,7 @@ public class AllActionsDefinition_SchoolLicenseRenewal extends APECOTestBase {
 	public void the_employee_approves_the_school_license_renewal_request() throws InterruptedException, IOException {
 
 		Thread.sleep(1000);
+		
 		driver.get("https://apeco-admin-portal-qc.graycliff-e2cfdb11.eastus.azurecontainerapps.io/login");	
 		adminLoginPageActions.selectEngLang();	  
 		adminLoginPageActions.adminLogin(properties.getProperty("employeeUsername"), properties.getProperty("employeePassword"));
@@ -49,7 +52,8 @@ public class AllActionsDefinition_SchoolLicenseRenewal extends APECOTestBase {
 		adminAgentQueueActions.adminSearchforaRequest(schoolLicenseRenewalRequestNumber);
 		adminAgentQueueActions.adminOpenRequestDetailsScreen();
 		adminSchoolRenewalRequestDetailsActions.employeeApprovesTheSchoolRenewalRequest();
-		Thread.sleep(1000);
+		//Thread.sleep(1000);
+		commonFunctions.implicitWait(10);
 		
 	}
 	@Then("The Applicant Pays The School License Renewal Request Fees")

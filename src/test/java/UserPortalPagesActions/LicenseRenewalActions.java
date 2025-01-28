@@ -36,11 +36,14 @@ public class LicenseRenewalActions extends APECOTestBase  {
 			commonFunctions.uploadfile(licenseRenewalLocators.schoolClinicLicense_uploader,schoolClinicLicense);
 			commonFunctions.uploadfile(licenseRenewalLocators.sphysicianPracticeLicense_uploader,sphysicianPracticeLicense);
 			js.executeScript("window.scrollBy(0,1000)");
-			Thread.sleep(1000);
+			//Thread.sleep(1000);
+			commonFunctions.implicitWait(10);
 			commonFunctions.uploadfile(licenseRenewalLocators.nurseLicense_uploader,nurseLicense );
 			commonFunctions.uploadfile(licenseRenewalLocators.buildingValidityLetterAjmanMunicipalityValid1Year_uploader,buildingValidityLetterAjmanMunicipalityValid1Year);
 			commonFunctions.uploadfile(licenseRenewalLocators.leaseAgreementOwnershipDocumentValid_uploader,leaseAgreementOwnershipDocumentValid);
-			Thread.sleep(2000);
+		//	Thread.sleep(2000);
+			commonFunctions.implicitWait(2000);
+			//commonFunctions.fluentWait(licenseRenewalLocators.dataAcknowledge_Checkbox);
 			licenseRenewalLocators.dataAcknowledge_Checkbox.click();
 			commonFunctions.clickWebElement(licenseRenewalLocators.submit_btn);
 			//licenseRenewalLocators.submit_btn.click();
@@ -49,7 +52,9 @@ public class LicenseRenewalActions extends APECOTestBase  {
 		
 		public String  confirmRequestl() throws InterruptedException {
 			
-			Thread.sleep(1000);
+			//Thread.sleep(1000);
+			commonFunctions.implicitWait(10);
+			commonFunctions.fluentWait(licenseRenewalLocators.confirmation_msg);
 			commonFunctions.waitElementToBeClickable(licenseRenewalLocators.confirmation_msg);
 			String msg = licenseRenewalLocators.confirmation_msg.getText();
 			 String  schoolLicenseRenewalRequestNumber = msg.replaceAll("[^0-9]","");
@@ -68,6 +73,7 @@ public class LicenseRenewalActions extends APECOTestBase  {
 			commonFunctions.moveToWebElement(licenseRenewalLocators.okay_btn);
 			commonFunctions.waitElementToBevisible(licenseRenewalLocators.okay_btn);
 			licenseRenewalLocators. okay_btn.click();
-			Thread.sleep(3000);
+			//Thread.sleep(3000);
+			commonFunctions.implicitWait(30);
 }
 }

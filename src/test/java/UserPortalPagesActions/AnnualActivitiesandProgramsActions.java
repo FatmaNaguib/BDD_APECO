@@ -36,13 +36,16 @@ public class AnnualActivitiesandProgramsActions extends APECOTestBase {
 		commonFunctions.moveToWebElement(annualActivitiesandProgramsLocators.pay_btn);
 		annualActivitiesandProgramsLocators.pay_btn.click();
 		annualActivitiesandProgramsLocators.payNow_btn.click();
-		Thread.sleep(1000);
+		//Thread.sleep(1000);
+		commonFunctions.implicitWait(10);
 		annualActivitiesandProgramsLocators.submit_btn.click();	
-		Thread.sleep(3000);
+		//Thread.sleep(3000);
+		commonFunctions.implicitWait(10);
 	}
 	
 	public String getRequestNumber() throws InterruptedException {
-		Thread.sleep(1000);
+		//Thread.sleep(1000);
+		commonFunctions.implicitWait(10);
 		 String msg = annualActivitiesandProgramsLocators.confirmation_msg.getText();
 		 String anuannualActivitiesandProgramsmberRequestNumber = msg.replaceAll("[^0-9]","");
 	

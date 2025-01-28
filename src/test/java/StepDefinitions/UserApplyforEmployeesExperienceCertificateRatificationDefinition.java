@@ -17,7 +17,8 @@ public class UserApplyforEmployeesExperienceCertificateRatificationDefinition ex
 
 	@When("^User Starts New Employees Experience Certificate Ratification Request$")
 	public void user_starts_new_employees_experience_certificate_ratification_request() throws InterruptedException {
-		Thread.sleep(1000);
+		//Thread.sleep(1000);
+		commonFunctions.implicitWait(10);
 		userServicesPageActions.clickexperienceCertificateforEmployeesServiceLink();
 		userSchoolsListActions.selectSchool(AdminInitialApprovalRequestDetailsActions.licensedSchoolName);
 	}

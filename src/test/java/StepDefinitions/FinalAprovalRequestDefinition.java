@@ -57,7 +57,8 @@ public class FinalAprovalRequestDefinition extends APECOTestBase {
 	
 	@Then("User Logs Out")
 	public void  user_logs_out() throws InterruptedException {
-		Thread.sleep(1000);
+//		Thread.sleep(1000);
+		commonFunctions.implicitWait(10);
 			userWorkspacePageActions.logout();
 	}	
 	

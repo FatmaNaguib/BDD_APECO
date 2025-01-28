@@ -33,12 +33,10 @@ public class ModificationorIncreaseinTuitionFeesActions  extends APECOTestBase{
 		modificationorIncreaseinTuitionFeesLocators. newTuitionfees1_Textbox.sendKeys( newTuitionfees1);
 		modificationorIncreaseinTuitionFeesLocators.newschoolbookfees1_Textbox.sendKeys(newschoolbookfees1);
 		modificationorIncreaseinTuitionFeesLocators.newschooluniformfees1_Textbox.sendKeys(newschooluniformfees1);
-		
 		commonFunctions.moveToWebElement(modificationorIncreaseinTuitionFeesLocators.newTuitionfees2_Textbox);
 		modificationorIncreaseinTuitionFeesLocators.newTuitionfees2_Textbox.sendKeys(newTuitionfees2);
 		modificationorIncreaseinTuitionFeesLocators.newschoolbookfees2_Textbox.sendKeys(newschoolbookfees2);
 		modificationorIncreaseinTuitionFeesLocators.newschooluniformfees2_Textbox.sendKeys(newschooluniformfees2);
-		
 		commonFunctions.moveToWebElement(modificationorIncreaseinTuitionFeesLocators.newTuitionfees3_Textbox);
 		modificationorIncreaseinTuitionFeesLocators.newTuitionfees3_Textbox.sendKeys(newTuitionfees3);
 		modificationorIncreaseinTuitionFeesLocators.newschoolbookfees3_Textbox.sendKeys(newschoolbookfees3);
@@ -53,38 +51,32 @@ public class ModificationorIncreaseinTuitionFeesActions  extends APECOTestBase{
 	public void enterTuitionFeesAttachments(
 			String officiallyLicensedAuthorizedManual, String financialReport			
 			) throws InterruptedException, AWTException {
-		
 		commonFunctions.uploadfile(modificationorIncreaseinTuitionFeesLocators.officiallyLicensedAuthorizedManual_uploader,officiallyLicensedAuthorizedManual);
 		commonFunctions.uploadfile(modificationorIncreaseinTuitionFeesLocators.financialReport_uploader,financialReport);
 		commonFunctions.clickWebElement(modificationorIncreaseinTuitionFeesLocators.nextButton);
-	//	modificationorIncreaseinTuitionFeesLocators.nextButton.click();
 	}
 
 	
 	public void payRequestfees() throws InterruptedException {
 		js.executeScript("window.scrollTo(0,0)");
-		Thread.sleep(3000);
-	//commonFunctions.moveToWebElement(modificationorIncreaseinTuitionFeesLocators.dataAcknowledge_Checkbox);
-		//commonFunctions.clickWebElement(modificationorIncreaseinTuitionFeesLocators.dataAcknowledge_Checkbox);
-	//commonFunctions.waitElementToBeClickable(modificationorIncreaseinTuitionFeesLocators.dataAcknowledge_Checkbox);
+		//Thread.sleep(3000);
+		commonFunctions.implicitWait(30);
 		js.executeScript("window.scrollTo(0,300)");
-		
 		commonFunctions.moveToWebElement(modificationorIncreaseinTuitionFeesLocators.dataAcknowledge_Checkbox);
 		modificationorIncreaseinTuitionFeesLocators.dataAcknowledge_Checkbox.click();
-
-	//	modificationorIncreaseinTuitionFeesLocators.dataAcknowledge_Checkbox.click();
 		modificationorIncreaseinTuitionFeesLocators.payButton.click();
 		modificationorIncreaseinTuitionFeesLocators.payNowButton.click();
-		//modificationorIncreaseinTuitionFeesLocators.submit_btn.click();
 		commonFunctions.clickWebElement(modificationorIncreaseinTuitionFeesLocators.submit_btn);
 	}
 	
 	public String confirmRequest() throws InterruptedException {
-		Thread.sleep(1000);
+		//Thread.sleep(1000);
+		commonFunctions.fluentWait(modificationorIncreaseinTuitionFeesLocators.confirmation_msg);
 		 String msg = modificationorIncreaseinTuitionFeesLocators.confirmation_msg.getText();
 		 String tuitionFeesRequestNumber  =msg.replaceAll("[^0-9]","");
 		System.out.println(tuitionFeesRequestNumber);
-		Thread.sleep(1000);
+		//Thread.sleep(1000);
+		commonFunctions.fluentWait(modificationorIncreaseinTuitionFeesLocators.confirmation_btn);
 		commonFunctions.waitElementToBevisible(modificationorIncreaseinTuitionFeesLocators.confirmation_btn);
 		modificationorIncreaseinTuitionFeesLocators.confirmation_btn.click();
 		return tuitionFeesRequestNumber;

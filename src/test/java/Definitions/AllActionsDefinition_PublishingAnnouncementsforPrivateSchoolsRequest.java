@@ -26,10 +26,11 @@ public class AllActionsDefinition_PublishingAnnouncementsforPrivateSchoolsReques
 		userServicesPageActions.clickPublishingAnnouncementsServiceLink();
 		String licensedSchoolName = (String) scenarioContext.getData("licensedSchoolName");
 		userSchoolsListActions.selectSchool(licensedSchoolName);	
-	//	userSchoolsListActions.selectSchool("New Education School 29048");	
+	//	userSchoolsListActions.selectSchool("New Education School 27938");	
 		String publishingAnnouncementsRequestNumber = publishingAnnouncementsPageActions.submitPublishingAnnouncementsRequest("Social media", "Omar.jpeg");
 		scenarioContext.setData("publishingAnnouncementsRequestNumber",publishingAnnouncementsRequestNumber );
-		Thread.sleep(1000);
+		//Thread.sleep(1000);
+		commonFunctions.implicitWait(10);
 		userWorkspacePageActions.logout();
 	}
 
@@ -37,6 +38,7 @@ public class AllActionsDefinition_PublishingAnnouncementsforPrivateSchoolsReques
 	public void the_employee_approves_the_publishing_announcements_for_private_schools_request() throws InterruptedException, IOException, AWTException {
 
 		Thread.sleep(1000);
+		
 		driver.get("https://apeco-admin-portal-qc.graycliff-e2cfdb11.eastus.azurecontainerapps.io/login");	
 		adminLoginPageActions.selectEngLang();	  
 		adminLoginPageActions.adminLogin(properties.getProperty("employeeUsername"), properties.getProperty("employeePassword"));

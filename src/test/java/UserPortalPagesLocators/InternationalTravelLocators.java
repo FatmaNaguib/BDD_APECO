@@ -20,7 +20,7 @@ public class InternationalTravelLocators {
 	@FindBy(xpath ="//span[normalize-space()='Next']") public WebElement attachmentsNext_btn;
 	@FindBy (xpath = "//body") 	public WebElement pageBody;
 	
-	@FindBy(xpath ="//span[@class='ng-star-inserted']") public WebElement addAttachments_btn;
+	@FindBy(xpath ="//button[@class=\"ant-btn add-btn ant-btn-lg ng-star-inserted\"]") public WebElement addAttachments_btn;
 	@FindBy(xpath ="//span[@class='anticon anticon-down']//*[name()='svg']") public WebElement attachmentExpand_btn;
 	@FindBy (xpath = "//input[@id=\"invitationFile\"]") public WebElement invitationUploader;
 	

@@ -19,7 +19,8 @@ public class AdminFinalApprovalActions extends APECOTestBase {
 
 	public void reviewEmployeeRatsTheStudyPlanforTheFinalApprovalRequest() throws InterruptedException {
 		
-		Thread.sleep(1000);
+	//	Thread.sleep(1000);
+		commonFunctions.fluentWait(adminFinalApprovalLocators.Approve_btn);
 		commonFunctions.waitElementToBevisible(adminFinalApprovalLocators.Approve_btn);
 		adminFinalApprovalLocators.Approve_btn.click();
 		adminFinalApprovalLocators.save_btn.click();
@@ -44,10 +45,10 @@ public class AdminFinalApprovalActions extends APECOTestBase {
 	public void adminAcceptsScheduledMeeting() throws InterruptedException {
 		commonFunctions.waitElementToBevisible(adminFinalApprovalLocators.accept_btn);
 		adminFinalApprovalLocators.accept_btn.click();
-		adminFinalApprovalLocators.save_btn.click();
-		//adminFinalApprovalLocators.Approve_btn.click();
-	//	adminFinalApprovalLocators.save_btn.click();
-		Thread.sleep(1000);
+		commonFunctions.clickWebElement(adminFinalApprovalLocators.save_btn);
+		//adminFinalApprovalLocators.save_btn.click();
+		//Thread.sleep(1000);
+		commonFunctions.implicitWait(10);
 		adminAgentQueueActions.adminLogout();
 	}
 	
@@ -55,8 +56,6 @@ public class AdminFinalApprovalActions extends APECOTestBase {
 		commonFunctions.waitElementToBevisible(adminFinalApprovalLocators.done_btn);
 		adminFinalApprovalLocators.done_btn.click();
 		adminFinalApprovalLocators.save_btn.click();
-	//	adminFinalApprovalLocators.Approve_btn.click();
-	//	adminFinalApprovalLocators.save_btn.click();
 		adminAgentQueueActions.adminLogout();
 	}
 	

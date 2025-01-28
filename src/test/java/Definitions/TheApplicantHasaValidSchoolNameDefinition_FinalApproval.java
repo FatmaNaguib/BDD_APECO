@@ -31,7 +31,8 @@ public class TheApplicantHasaValidSchoolNameDefinition_FinalApproval extends APE
 			finalApprovalActions.submitTheRequest();
 			String  finalapprovalRequestNumber = finalApprovalActions.confirmRequest();
 			scenarioContext.setData("finalapprovalRequestNumber", finalapprovalRequestNumber);
-			Thread.sleep(1000);
+			//Thread.sleep(1000);
+			commonFunctions.implicitWait(20);
 			userWorkspacePageActions.logout();
 		//	 adminLoginPageActions.adminLoginurl("https://apeco-admin-portal-qc.graycliff-e2cfdb11.eastus.azurecontainerapps.io/login");
 	}

@@ -25,13 +25,13 @@ public class AllActionsDefinition_SchoolLicenseCancellation extends APECOTestBas
 		userWorkspacePageActions.clickonSideMenu_Services_link();
 		userServicesPageActions.clickSchoolLicenseCancelationServiceLink();
 		String licensedSchoolName = (String) scenarioContext.getData("licensedSchoolName");
-	userSchoolsListActions.selectSchool(licensedSchoolName);
-	
+		userSchoolsListActions.selectSchool(licensedSchoolName);
 		cancleSchoolLicenseActions.resoneofSchoolCancellation("Financial reasons","We Don't Have Mony");
 		cancleSchoolLicenseActions.attachSchoolCancellationAttachments("UploadFile.pdf","UploadFile.pdf");
 		 String SchoolLicenseCancellationRequestNumber =   cancleSchoolLicenseActions.submitCancelSchoolLicenseRequest();
 			scenarioContext.setData("SchoolLicenseCancellationRequestNumber", SchoolLicenseCancellationRequestNumber);
-			Thread.sleep(1000);
+			//Thread.sleep(1000);
+			commonFunctions.implicitWait(10);
 			userWorkspacePageActions.logout();
 		//	 adminLoginPageActions.adminLoginurl("https://apeco-admin-portal-qc.graycliff-e2cfdb11.eastus.azurecontainerapps.io/login");
 			 //adminLoginPageActions.adminLogin(properties.getProperty("employeeUsername"), properties.getProperty("employeePassword"));
@@ -40,9 +40,9 @@ public class AllActionsDefinition_SchoolLicenseCancellation extends APECOTestBas
 	@Then("The Employee Approves The School License Cancellation request")
 	public void the_employee_approves_the_school_license_cancellation_request() throws InterruptedException, IOException {
 		Thread.sleep(1000);
-		//	 adminLoginPageActions.adminLoginurl("https://apeco-admin-portal-qc.graycliff-e2cfdb11.eastus.azurecontainerapps.io/login");
 			 driver.get("https://apeco-admin-portal-qc.graycliff-e2cfdb11.eastus.azurecontainerapps.io/login");
-			 Thread.sleep(1000);
+			 //Thread.sleep(1000);
+			 commonFunctions.implicitWait(10);
 			 adminLoginPageActions.selectEngLang();
 		 adminLoginPageActions.adminLogin(properties.getProperty("employeeUsername"), properties.getProperty("employeePassword"));
 		String  SchoolLicenseCancellationRequestNumber = (String) scenarioContext.getData("SchoolLicenseCancellationRequestNumber");
@@ -53,10 +53,12 @@ public class AllActionsDefinition_SchoolLicenseCancellation extends APECOTestBas
 	
 	@Then("The Department Manager Approves The School License Cancellation Request")
 	public void the_department_manager_approves_the_school_license_cancellation_request() throws IOException, InterruptedException {
-		Thread.sleep(1000);
+		//Thread.sleep(1000);
+		commonFunctions.implicitWait(10);
 		//	 adminLoginPageActions.adminLoginurl("https://apeco-admin-portal-qc.graycliff-e2cfdb11.eastus.azurecontainerapps.io/login");
 			 driver.get("https://apeco-admin-portal-qc.graycliff-e2cfdb11.eastus.azurecontainerapps.io/login");
-			 Thread.sleep(1000);
+			 //Thread.sleep(1000);
+			 commonFunctions.implicitWait(10);
 			 adminLoginPageActions.selectEngLang();
 		 adminLoginPageActions.adminLogin(properties.getProperty("departmentManagerUsername"), properties.getProperty("departmentManagerPassword"));
 		String  SchoolLicenseCancellationRequestNumber = (String) scenarioContext.getData("SchoolLicenseCancellationRequestNumber");

@@ -35,7 +35,8 @@ public class ChangeSchoolNameActions extends APECOTestBase {
 		js.executeScript("window.scrollBy(0,1000)");
 		commonFunctions.uploadfile(changeSchoolNameLocators.newSchoolNameReservationFile_uploader,reservationfileforTheNewSchoolName);
 		commonFunctions.uploadfile(changeSchoolNameLocators.licenseHolderNameChangeLetter_uploader,officialletterfromtheLicenseHolderRegardingNameChange);
-		Thread.sleep(2000);
+		//Thread.sleep(2000);
+		commonFunctions.implicitWait(20);
 	}
 	
 	public void payRequestfees() throws InterruptedException {
@@ -46,12 +47,14 @@ public class ChangeSchoolNameActions extends APECOTestBase {
 		js.executeScript("window.scrollBy(0,1000)");
 		commonFunctions.moveToWebElement(changeSchoolNameLocators.pay_btn);
 		changeSchoolNameLocators.pay_btn.click();
-		Thread.sleep(2000);
+	//	Thread.sleep(2000);
+		commonFunctions.implicitWait(20);
 		js.executeScript("window.scrollBy(0,500)");
 		commonFunctions.waitElementToBevisible(changeSchoolNameLocators.payNow_btn);
 		commonFunctions.clickWebElement(changeSchoolNameLocators.payNow_btn);
 		//changeSchoolNameLocators.payNow_btn.click();
-	commonFunctions.clicknextButton(changeSchoolNameLocators.submit_btn); 
+		//commonFunctions.clicknextButton(changeSchoolNameLocators.submit_btn); 
+		commonFunctions.clickWebElement(changeSchoolNameLocators.submit_btn);
 	
 	}
 	

@@ -6,7 +6,7 @@ Feature: Change School Location Request
 Scenario: The User Can Apply Change School Location Request And The Request is approved Successfully
 
   Given The Applicant Has an Approved Initial approval request
-  Given The Applicant Has a Valid School Name 
+  Given The Applicant Has School Valid License
  Then The Applicant Apply For Change School Location Request
  Then The Engineer Approves the Change School Location Request Engineering Plan
 Then The Engineer Completes the Change School Location Request Field Technical Approval File
