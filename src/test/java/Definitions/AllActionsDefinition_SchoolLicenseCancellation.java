@@ -1,5 +1,7 @@
 package Definitions;
 
+import static org.testng.Assert.assertTrue;
+
 import java.awt.AWTException;
 import java.io.IOException;
 
@@ -14,7 +16,6 @@ public class AllActionsDefinition_SchoolLicenseCancellation extends APECOTestBas
 		this.scenarioContext = scenarioContext;
 		AdminPagesInitialization();
 		UserPagesInitialization();
-
 	}
 
 	@Then("The Applicant Applies for a New School License Cancellation Request")
@@ -30,40 +31,38 @@ public class AllActionsDefinition_SchoolLicenseCancellation extends APECOTestBas
 		cancleSchoolLicenseActions.attachSchoolCancellationAttachments("UploadFile.pdf","UploadFile.pdf");
 		 String SchoolLicenseCancellationRequestNumber =   cancleSchoolLicenseActions.submitCancelSchoolLicenseRequest();
 			scenarioContext.setData("SchoolLicenseCancellationRequestNumber", SchoolLicenseCancellationRequestNumber);
-			//Thread.sleep(1000);
+			commonFunctions.implicitWait(10);
+			assertTrue(SchoolLicenseCancellationRequestNumber.length() > 0);
 			commonFunctions.implicitWait(10);
 			userWorkspacePageActions.logout();
-		//	 adminLoginPageActions.adminLoginurl("https://apeco-admin-portal-qc.graycliff-e2cfdb11.eastus.azurecontainerapps.io/login");
-			 //adminLoginPageActions.adminLogin(properties.getProperty("employeeUsername"), properties.getProperty("employeePassword"));
 	}
 
 	@Then("The Employee Approves The School License Cancellation request")
 	public void the_employee_approves_the_school_license_cancellation_request() throws InterruptedException, IOException {
 		Thread.sleep(1000);
-			 driver.get("https://apeco-admin-portal-qc.graycliff-e2cfdb11.eastus.azurecontainerapps.io/login");
-			 //Thread.sleep(1000);
+			 driver.get(properties.getProperty("AdminPortalUrl"));
 			 commonFunctions.implicitWait(10);
 			 adminLoginPageActions.selectEngLang();
 		 adminLoginPageActions.adminLogin(properties.getProperty("employeeUsername"), properties.getProperty("employeePassword"));
 		String  SchoolLicenseCancellationRequestNumber = (String) scenarioContext.getData("SchoolLicenseCancellationRequestNumber");
 		   adminAgentQueueActions.adminSearchforaRequest(SchoolLicenseCancellationRequestNumber);
-			adminAgentQueueActions.adminOpenRequestDetailsScreen();
+			adminAgentQueueActions.adminOpenRequestDetailsScreen(SchoolLicenseCancellationRequestNumber);
 		adminSchoolLicenseCancellationRequestsActions.employeelApproval();
+		 adminAgentQueueActions.checkRequestStatus(SchoolLicenseCancellationRequestNumber, "Open - Administration Manager Review");
+		 adminAgentQueueActions.adminLogout();
 	}
 	
 	@Then("The Department Manager Approves The School License Cancellation Request")
 	public void the_department_manager_approves_the_school_license_cancellation_request() throws IOException, InterruptedException {
-		//Thread.sleep(1000);
 		commonFunctions.implicitWait(10);
-		//	 adminLoginPageActions.adminLoginurl("https://apeco-admin-portal-qc.graycliff-e2cfdb11.eastus.azurecontainerapps.io/login");
-			 driver.get("https://apeco-admin-portal-qc.graycliff-e2cfdb11.eastus.azurecontainerapps.io/login");
-			 //Thread.sleep(1000);
-			 commonFunctions.implicitWait(10);
-			 adminLoginPageActions.selectEngLang();
+		driver.get(properties.getProperty("AdminPortalUrl"));
+		 commonFunctions.implicitWait(10);
+		 adminLoginPageActions.selectEngLang();
 		 adminLoginPageActions.adminLogin(properties.getProperty("departmentManagerUsername"), properties.getProperty("departmentManagerPassword"));
 		String  SchoolLicenseCancellationRequestNumber = (String) scenarioContext.getData("SchoolLicenseCancellationRequestNumber");
-		   adminAgentQueueActions.adminSearchforaRequest(SchoolLicenseCancellationRequestNumber);
-			adminAgentQueueActions.adminOpenRequestDetailsScreen();
+	   adminAgentQueueActions.adminSearchforaRequest(SchoolLicenseCancellationRequestNumber);
+		adminAgentQueueActions.adminOpenRequestDetailsScreen(SchoolLicenseCancellationRequestNumber);
 		adminSchoolLicenseCancellationRequestsActions.departmentManagerApproval();
+		 adminAgentQueueActions.checkRequestStatus(SchoolLicenseCancellationRequestNumber, "Closed - Accepted");
 	}
 }

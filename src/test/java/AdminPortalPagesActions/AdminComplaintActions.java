@@ -20,6 +20,7 @@ public class AdminComplaintActions extends APECOTestBase {
 	public void adminClosesTheComplaint()  {
 		adminComplaintLocatores.close_Btn.click();
 		adminComplaintLocatores.save_Btn.click();
+		
 	}
 
 }

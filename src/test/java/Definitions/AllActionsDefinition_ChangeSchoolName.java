@@ -1,5 +1,8 @@
 package Definitions;
 
+
+import static org.testng.Assert.assertTrue;
+
 import java.awt.AWTException;
 import java.io.IOException;
 
@@ -22,13 +25,14 @@ public class AllActionsDefinition_ChangeSchoolName extends APECOTestBase {
 
 @Then("The Applicant Applies for a New Change School Name Request")
 public void the_applicant_applies_for_a_new_change_school_name_request() throws IOException, InterruptedException, AWTException {
-	adminLoginPageActions.adminLoginurl("https://apeco-portal-qc.graycliff-e2cfdb11.eastus.azurecontainerapps.io/auth/login");
+//	
+	driver.get(properties.getProperty("url"));
 	userLoginPageActions.userlogin(properties.getProperty("username"), properties.getProperty("password"));
 	userWorkspacePageActions.clickonSideMenu_Services_link();
 	userServicesPageActions.startChangeSchoolNameRequest();
-	String licensedSchoolName = (String) scenarioContext.getData("licensedSchoolName");
-	userSchoolsListActions.selectSchool(licensedSchoolName);
-	//userSchoolsListActions.selectSchool("New Education School 30120");	
+//	String licensedSchoolName = (String) scenarioContext.getData("licensedSchoolName");
+//	userSchoolsListActions.selectSchool(licensedSchoolName);
+	userSchoolsListActions.selectSchool("New Education School 20565");	
 	String[] schoolNames = UserSchoolsListActions.schoolName();
 	String schoolNameAr = schoolNames[0];
 	String schoolNameEng = schoolNames[1];
@@ -36,7 +40,7 @@ public void the_applicant_applies_for_a_new_change_school_name_request() throws 
 	changeSchoolNameActions.payRequestfees();
 	String changeSchoolNameRequestNumber =	changeSchoolNameActions.confirmRequest();
 	scenarioContext.setData("changeSchoolNameRequestNumber", changeSchoolNameRequestNumber);
-	//Thread.sleep(1000);
+	assertTrue(changeSchoolNameRequestNumber.length() > 0);
 	commonFunctions.implicitWait(10);
 	userWorkspacePageActions.logout();
 
@@ -45,16 +49,20 @@ public void the_applicant_applies_for_a_new_change_school_name_request() throws 
 @Then("The Employee Aprroves The Change School Name Request")
 public void the_employee_aprroves_the_change_school_name_request() throws IOException, InterruptedException {
 	
-	 adminLoginPageActions.adminLoginurl("https://apeco-admin-portal-qc.graycliff-e2cfdb11.eastus.azurecontainerapps.io/login");
-	  //Thread.sleep(1000);
+	driver.get(properties.getProperty("AdminPortalUrl"));
 	 commonFunctions.implicitWait(10);
 	adminLoginPageActions.selectEngLang();	 
 	adminLoginPageActions.adminLogin(properties.getProperty("employeeUsername"), properties.getProperty("employeePassword"));
 	String changeSchoolNameRequestNumber = (String) scenarioContext.getData("changeSchoolNameRequestNumber");
+	
 	adminAgentQueueActions.adminSearchforaRequest(changeSchoolNameRequestNumber);
-	adminAgentQueueActions.adminOpenRequestDetailsScreen();
+	adminAgentQueueActions.adminOpenRequestDetailsScreen(changeSchoolNameRequestNumber);
 	 adminChangeSchoolNameActions.employeelApproval("Approve By Employee");
-	 adminAgentQueueActions.adminLogout();
+	 
+	 adminAgentQueueActions.checkRequestStatus(changeSchoolNameRequestNumber, "Closed - Accepted");
+
+//	        adminAgentQueueActions.adminLogout();
+
 }
 
 

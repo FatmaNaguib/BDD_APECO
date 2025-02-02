@@ -6,13 +6,16 @@ import java.io.IOException;
 
 import AdminPortalPagesActions.AdminInitialApprovalRequestDetailsActions;
 import Bases.APECOTestBase;
+import Util.ScenarioContext;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class UserApplyforPartnerWithdrawalRequestDefinition  extends APECOTestBase {
 
-	public UserApplyforPartnerWithdrawalRequestDefinition() throws IOException {
-		super();
+	private final ScenarioContext scenarioContext;
+	
+	public UserApplyforPartnerWithdrawalRequestDefinition(ScenarioContext scenarioContext) throws IOException {
+		this.scenarioContext = scenarioContext;
 		UserPagesInitialization();
 	}
 
@@ -20,7 +23,12 @@ public class UserApplyforPartnerWithdrawalRequestDefinition  extends APECOTestBa
 @When("User Starts New Partner Withdrawal Request")
 public void user_starts_new_partner_withdrawal_request() throws InterruptedException {
 userServicesPageActions.clickPartnerWithdrawalRequestLink();
-userSchoolsListActions.selectSchool(AdminInitialApprovalRequestDetailsActions.licensedSchoolName);
+//String licensedSchoolName = (String) scenarioContext.getData("licensedSchoolName");
+//userSchoolsListActions.selectSchool(licensedSchoolName);
+userSchoolsListActions.selectSchool("New Education School  31877");
+partnerWithdrawalRequestActions.selectOwner();
+
+
 }
 
 @Then("User Selects a Partner")

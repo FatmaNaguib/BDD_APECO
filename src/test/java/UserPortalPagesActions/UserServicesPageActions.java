@@ -324,6 +324,7 @@ public void clickChangeSchoolManagerLink() throws InterruptedException {
 
 		String currentUrl = driver.getCurrentUrl();
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+		commonFunctions.moveToWebElement(userServicesPageLocators.eventPermitbyanExternalEntityServiceLink);
 		userServicesPageLocators.eventPermitbyanExternalEntityServiceLink.click();
 		try {
 		    wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("draft-request-dialog")));
@@ -635,7 +636,7 @@ public void clickChangeorAddPartnerRequestLink() throws InterruptedException {
 			public void startSubmitaComplaintRequest() throws InterruptedException {
 				userServicesPageLocators.serviceType_ddl.click();
 				userServicesPageLocators.parentServices_ddlValue.click();
-				Thread.sleep(1000);
+				commonFunctions.implicitWait(5);
 				js.executeScript("window.scrollTo(0,0)");
 		/*		ResponseWrapper responseWrapper = setDevTools("https://apeco-gateway-qc.graycliff-e2cfdb11.eastus.azurecontainerapps.io/ServiceDesk/api/Requests/GetRequests?Status=0&ServiceCode=submit-complaint&PageIndex=1&PageSize=1000");
 				userServicesPageLocators.SubmitaComplaintServiceLink.click();

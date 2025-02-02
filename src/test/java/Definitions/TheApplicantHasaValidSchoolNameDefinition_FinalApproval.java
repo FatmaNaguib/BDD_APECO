@@ -21,8 +21,9 @@ public class TheApplicantHasaValidSchoolNameDefinition_FinalApproval extends APE
 		userLoginPageActions.userlogin(properties.getProperty("username"), properties.getProperty("password"));
 		userWorkspacePageActions.clickonSideMenu_Services_link();
 		userServicesPageActions.clickeFinalApprovalServiceLink();
-		String licensedSchoolName = (String) scenarioContext.getData("licensedSchoolName");
-		userSchoolsListActions.selectSchool(licensedSchoolName);
+	//	String licensedSchoolName = (String) scenarioContext.getData("licensedSchoolName");
+	//	userSchoolsListActions.selectSchool(licensedSchoolName);
+		userSchoolsListActions.selectSchool("New Education School 13330");
 		finalApprovalActions.enterSchoolFees("100", "100", "100","200", "200", "200","300", "300", "300", "Dubai", "500", "500");
 		 finalApprovalActions.enterCandidateData();
 		 finalApprovalActions.enterManagerData("Mohamed Nader","Emirati","Male","School Manager","Single","1990-11-05","United Arab Emirates","123456789","2025-11-05","987654321","2025-11-05","Muslim","fatma_naguib99@hotmail.com","123456", "123456", "123456", "123456");

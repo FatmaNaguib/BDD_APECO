@@ -1,5 +1,8 @@
 package Definitions;
 
+import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
+
 import java.awt.AWTException;
 import java.io.IOException;
 
@@ -20,15 +23,15 @@ public class AllActionsDefinition_ModificationorAdditiontoSchoolBuildingRequest 
 		userLoginPageActions.userlogin(properties.getProperty("username"), properties.getProperty("password"));
 		userWorkspacePageActions.clickonSideMenu_Services_link();	
 		userServicesPageActions.clickModificationorAdditiontoSchoolBuildingLink();	
-		String licensedSchoolName = (String) scenarioContext.getData("licensedSchoolName");
-		userSchoolsListActions.selectSchool(licensedSchoolName);		
-	//	userSchoolsListActions.selectSchool("New Education School 99967");	
+//		String licensedSchoolName = (String) scenarioContext.getData("licensedSchoolName");
+//		userSchoolsListActions.selectSchool(licensedSchoolName);		
+		userSchoolsListActions.selectSchool("New Education School 64590");
 		modificationorAdditiontoSchoolBuildingActions.enterSchoolDetails	("Modification of existing building", "Moahamed Essam", "شارع جابر المبارك", "Boys",  "الموقع / رقم قطعة الأرض باللغة الإنجليزية - طلب تغيير موقع مدرسة", "الموقع / رقم قطعة الأرض باللغة العربية - طلب تغيير موقع مدرسة",  "800","900", "400", "90", "First Class","Owner");
 		modificationorAdditiontoSchoolBuildingActions.uploadAttachments("UploadFile.pdf","UploadFile.pdf","UploadFile.pdf","UploadFile.pdf");
 		   modificationorAdditiontoSchoolBuildingActions.submitModificationorAdditiontoSchoolBuildingRequest();  
 			String ModificationorAdditiontoSchoolBuildingRequest = modificationorAdditiontoSchoolBuildingActions.confirmRequest();
 			scenarioContext.setData("ModificationorAdditiontoSchoolBuildingRequest", ModificationorAdditiontoSchoolBuildingRequest);
-			//Thread.sleep(1000);
+			assertTrue(ModificationorAdditiontoSchoolBuildingRequest.length() > 0);
 			commonFunctions.implicitWait(10);
 			userWorkspacePageActions.logout();
 			
@@ -38,65 +41,88 @@ public class AllActionsDefinition_ModificationorAdditiontoSchoolBuildingRequest 
 @Then("The Engineer Reviews the Engineering Plan for The Modification or Addition a Private School Building Request")
 public void the_engineer_reviews_the_engineering_plan_for_the_modification_or_addition_a_private_school_building_request() throws InterruptedException, IOException {
 	Thread.sleep(1000);
-	driver.get("https://apeco-admin-portal-qc.graycliff-e2cfdb11.eastus.azurecontainerapps.io/login");
+	
+	driver.get(properties.getProperty("AdminPortalUrl"));
 		adminLoginPageActions.selectEngLang();
 		adminLoginPageActions.adminLogin(properties.getProperty("engineerUsername"), properties.getProperty("engineerPassword"));
 		String  ModificationorAdditiontoSchoolBuildingRequest = (String) scenarioContext.getData("ModificationorAdditiontoSchoolBuildingRequest");
 		   adminAgentQueueActions.adminSearchforaRequest(ModificationorAdditiontoSchoolBuildingRequest);
-		   adminAgentQueueActions.adminOpenRequestDetailsScreen();
+		   adminAgentQueueActions.adminOpenRequestDetailsScreen(ModificationorAdditiontoSchoolBuildingRequest);
 		adminModificationorAdditiontoSchoolBuildingActions.engineerRatsTheStudyPlanforTheModificationorAdditiontoSchoolBuildingRequest();
-		adminLoginPageActions.adminLoginurl("https://apeco-admin-portal-qc.graycliff-e2cfdb11.eastus.azurecontainerapps.io/login");
+		 adminAgentQueueActions.checkRequestStatus(ModificationorAdditiontoSchoolBuildingRequest, "Open - Complete The Initial Technical Approval File");
+		
+		adminAgentQueueActions.adminLogout();
+
 }
 
 
 @Then("The Engineer Completes the Initial Technical Approval File for The Modification or Addition a Private School Building Request")
 public void the_engineer_completes_the_initial_technical_approval_file_for_the_modification_or_addition_a_private_school_building_request() throws InterruptedException, IOException {
-	 adminLoginPageActions.adminLoginurl("https://apeco-admin-portal-qc.graycliff-e2cfdb11.eastus.azurecontainerapps.io/login");
+Thread.sleep(1000);
+	driver.get(properties.getProperty("AdminPortalUrl"));
 		adminLoginPageActions.selectEngLang();
 		adminLoginPageActions.adminLogin(properties.getProperty("engineerUsername"), properties.getProperty("engineerPassword"));
 		String  ModificationorAdditiontoSchoolBuildingRequest = (String) scenarioContext.getData("ModificationorAdditiontoSchoolBuildingRequest");
 		   adminAgentQueueActions.adminSearchforaRequest(ModificationorAdditiontoSchoolBuildingRequest);
-		   adminAgentQueueActions.adminOpenRequestDetailsScreen();
+		   adminAgentQueueActions.adminOpenRequestDetailsScreen(ModificationorAdditiontoSchoolBuildingRequest);
 		adminModificationorAdditiontoSchoolBuildingActions.engineerCompletetheInitialTechnicalApproval("الموقع / رقم قطعة الأرض باللغة الإنجليزية - طلب تعديل أو اضافة على مبنى لمدرسة خاصة","الموقع / رقم قطعة الأرض باللغة العربية - طلب تعديل أو اضافة على مبنى لمدرسة خاصة");
+		adminAgentQueueActions.checkRequestStatus(ModificationorAdditiontoSchoolBuildingRequest, "Open - Site Is Ready For Initial Inspection");
+		adminAgentQueueActions.adminLogout();
 }
 
 @Then("The Applicant Confirms the Site is Ready")
 public void the_applicant_confirms_the_site_is_ready() throws InterruptedException, IOException {
-	 adminLoginPageActions.adminLoginurl("https://apeco-portal-qc.graycliff-e2cfdb11.eastus.azurecontainerapps.io/auth/login");
-	 	//Thread.sleep(1000);
+	 Thread.sleep(1000);
+	driver.get(properties.getProperty("url"));
+	 
 	 commonFunctions.implicitWait(10);
 	 	userLoginPageActions.userlogin(properties.getProperty("username"), properties.getProperty("password"));
 		userWorkspacePageActions.clickonSideMenuRequestslink();
 		String ModificationorAdditiontoSchoolBuildingRequest = (String) scenarioContext.getData("ModificationorAdditiontoSchoolBuildingRequest");
 		 userRequestsPageActions.searchForaRequestbyNumber(ModificationorAdditiontoSchoolBuildingRequest);
-		userRequestsPageActions.clickDetailsButton();
+		userRequestsPageActions.clickDetailsButton(ModificationorAdditiontoSchoolBuildingRequest);
 	 	modificationorAdditiontoSchoolBuildingActions.siteIsReady();
+	 			
 	 	userWorkspacePageActions.logout();
 }
 
 @Then("The Engineer Approves the Initial Visit")
 public void the_engineer_approves_the_initial_visit() throws InterruptedException, IOException {
-	 adminLoginPageActions.adminLoginurl("https://apeco-admin-portal-qc.graycliff-e2cfdb11.eastus.azurecontainerapps.io/login");
+	driver.get(properties.getProperty("AdminPortalUrl"));
 		adminLoginPageActions.selectEngLang();
 		adminLoginPageActions.adminLogin(properties.getProperty("engineerUsername"), properties.getProperty("engineerPassword"));
 		String  ModificationorAdditiontoSchoolBuildingRequest = (String) scenarioContext.getData("ModificationorAdditiontoSchoolBuildingRequest");
 		   adminAgentQueueActions.adminSearchforaRequest(ModificationorAdditiontoSchoolBuildingRequest);
-		   adminAgentQueueActions.adminOpenRequestDetailsScreen();
+		   
+
+			String requestStatus =adminAgentQueueActions.getRequestServiceAndStatus();
+		        System.out.println("Request Status: " + requestStatus);
+		      assertEquals(requestStatus,"Open - Initial Visit");
+		   
+		   adminAgentQueueActions.adminOpenRequestDetailsScreen(ModificationorAdditiontoSchoolBuildingRequest);
 		adminModificationorAdditiontoSchoolBuildingActions.engineerCompletetheInitialVisit("الموقع / رقم قطعة الأرض باللغة الإنجليزية - طلب تعديل أو اضافة على مبنى لمدرسة خاصة","الموقع / رقم قطعة الأرض باللغة العربية - طلب تعديل أو اضافة على مبنى لمدرسة خاصة");
+		 adminAgentQueueActions.checkRequestStatus(ModificationorAdditiontoSchoolBuildingRequest, "Open - Payment Step");
+		 adminAgentQueueActions.adminLogout();
 }
 
 @Then("The Applicant Pays the Modification or Addition a Private School Building Request fees")
 public void the_applicant_pays_the_modification_or_addition_a_private_school_building_request_fees() throws InterruptedException, IOException {
-		adminLoginPageActions.adminLoginurl("https://apeco-portal-qc.graycliff-e2cfdb11.eastus.azurecontainerapps.io/auth/login");
-	 	//Thread.sleep(1000);
+	 	Thread.sleep(1000);
+	driver.get(properties.getProperty("url"));
 		commonFunctions.implicitWait(10);
 	 	userLoginPageActions.userlogin(properties.getProperty("username"), properties.getProperty("password"));
 		userWorkspacePageActions.clickonSideMenuRequestslink();
 		String ModificationorAdditiontoSchoolBuildingRequest = (String) scenarioContext.getData("ModificationorAdditiontoSchoolBuildingRequest");
 		 userRequestsPageActions.searchForaRequestbyNumber(ModificationorAdditiontoSchoolBuildingRequest);
-		userRequestsPageActions.clickDetailsButton();
+		userRequestsPageActions.clickDetailsButton(ModificationorAdditiontoSchoolBuildingRequest);
 	 	modificationorAdditiontoSchoolBuildingActions.payRequestfees();
-	 	userWorkspacePageActions.logout();
+	 	
+		userWorkspacePageActions.clickonSideMenuRequestslink();
+		userRequestsPageActions.searchForaRequestbyNumber(ModificationorAdditiontoSchoolBuildingRequest);
+		userRequestsPageActions.getRequestStatus("Closed - Accepted");
+		userRequestsPageActions.clickDetailsButton(ModificationorAdditiontoSchoolBuildingRequest);
+	 	
+	 //	userWorkspacePageActions.logout();
 	 	
 }
 

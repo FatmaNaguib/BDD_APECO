@@ -183,7 +183,8 @@ public class ChangeOrAddPartnerActions extends APECOTestBase {
 		commonFunctions.clickWebElement(changeOrAddPartnerLocators.payNow_btn);
 		//changeOrAddPartnerLocators.payNow_btn.click();
 		commonFunctions.clickWebElement(changeOrAddPartnerLocators.submit_btn);
-		changeOrAddPartnerLocators.submit_btn.click();
+
+	
 		//Thread.sleep(1000);
 		commonFunctions.fluentWait(changeOrAddPartnerLocators.confirmation_msg);
 		commonFunctions.waitElementToBevisible(changeOrAddPartnerLocators.confirmation_msg);

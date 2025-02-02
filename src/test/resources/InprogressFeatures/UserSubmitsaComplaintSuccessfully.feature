@@ -22,7 +22,7 @@ Scenario: Check That School Representative Can Reply The Complaint Successfully
 	
 	
 @AdminLogin 
-Scenario: Review Employee Can Closes The Complaint Successfully
+Scenario: Review Employee Can Close The Complaint Successfully
 
 	Given The user is on admin login page
 	When The user enters The Review Employee's username and Review Employee's password and click on login button

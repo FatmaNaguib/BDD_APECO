@@ -20,6 +20,6 @@ public class AdminInternationalTravelActions extends APECOTestBase {
 		commonFunctions.waitElementToBevisible(adminInternationalTravelLocators.approve_btn);
 		adminInternationalTravelLocators.approve_btn.click();
 		adminInternationalTravelLocators.save_btn.click();
-		adminAgentQueueActions.adminLogout();
+		//adminAgentQueueActions.adminLogout();
 	}
 }

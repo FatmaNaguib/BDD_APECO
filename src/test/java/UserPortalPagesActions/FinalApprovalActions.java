@@ -232,6 +232,7 @@ public class FinalApprovalActions extends APECOTestBase {
 		finalApprovalLocators.dataAcknowledge_Checkbox.click();
 		//commonFunctions.moveToWebElement(finalApprovalLocators.pay_btn);
 		//finalApprovalLocators.pay_btn.click();
+		commonFunctions.implicitWait(10);
 		commonFunctions.moveToWebElement(finalApprovalLocators.submit_btn);
 		finalApprovalLocators.submit_btn.click();
 		//	Thread.sleep(3000);
@@ -241,6 +242,7 @@ public class FinalApprovalActions extends APECOTestBase {
 	
 	public String confirmRequest() throws InterruptedException {
 		commonFunctions.waitElementToBevisible(finalApprovalLocators.confirmation_msg);
+		
 		 String msg = finalApprovalLocators.confirmation_msg.getText();
 		String finalApprovalRequestNumber = msg.replaceAll("[^0-9]",""); 
 		 //Thread.sleep(1000);
@@ -251,18 +253,35 @@ public class FinalApprovalActions extends APECOTestBase {
 	}
 	
 	public void payRequestfees() throws InterruptedException {
+	commonFunctions.waitElementToBevisible(finalApprovalLocators.pay_btn);
+//		commonFunctions.moveToWebElement(finalApprovalLocators.pay_btn);
+//		finalApprovalLocators.pay_btn.click();
+//		commonFunctions.moveToWebElement(finalApprovalLocators.payNow_btn);
+//		finalApprovalLocators.payNow_btn.click();
+//		commonFunctions.waitElementToBevisible(finalApprovalLocators.submit_btn);
+//		commonFunctions.moveToWebElement(finalApprovalLocators.submit_btn);
+//		commonFunctions.clickWebElement(finalApprovalLocators.submit_btn);
+//		commonFunctions.moveToWebElement(finalApprovalLocators.okay_btn);
+//		commonFunctions.waitElementToBevisible(finalApprovalLocators.okay_btn);
+//		finalApprovalLocators. okay_btn.click();
+//		//Thread.sleep(3000);
+//		commonFunctions.implicitWait(30);
 		commonFunctions.waitElementToBevisible(finalApprovalLocators.pay_btn);
 		commonFunctions.moveToWebElement(finalApprovalLocators.pay_btn);
 		finalApprovalLocators.pay_btn.click();
+		Thread.sleep(1000);
 		commonFunctions.moveToWebElement(finalApprovalLocators.payNow_btn);
-		finalApprovalLocators.payNow_btn.click();
+		commonFunctions.clickWebElement(finalApprovalLocators.payNow_btn);
+		//reducingEducationalStagesLocators.payNow_btn.click();
 		commonFunctions.waitElementToBevisible(finalApprovalLocators.submit_btn);
+		commonFunctions.moveToWebElement(finalApprovalLocators.submit_btn);
 		finalApprovalLocators.submit_btn.click();	
 		commonFunctions.moveToWebElement(finalApprovalLocators.okay_btn);
 		commonFunctions.waitElementToBevisible(finalApprovalLocators.okay_btn);
-		finalApprovalLocators. okay_btn.click();
+		finalApprovalLocators.okay_btn.click();
 		//Thread.sleep(3000);
 		commonFunctions.implicitWait(30);
+		
 	}
 	
 	

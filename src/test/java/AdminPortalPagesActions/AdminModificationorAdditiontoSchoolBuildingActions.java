@@ -22,7 +22,7 @@ public class AdminModificationorAdditiontoSchoolBuildingActions extends APECOTes
 		commonFunctions.waitElementToBevisible(adminModificationorAdditiontoSchoolBuildingLocators.approve_btn);
 		adminModificationorAdditiontoSchoolBuildingLocators.approve_btn.click();
 		adminModificationorAdditiontoSchoolBuildingLocators.save_btn.click();
-		adminAgentQueueActions.adminLogout();
+		//adminAgentQueueActions.adminLogout();
 	}
 	
 	public void engineerCompletetheInitialTechnicalApproval(String engineerApprovalLocationEn, String engineerApprovalLocationAr	) throws InterruptedException  {
@@ -36,7 +36,7 @@ public class AdminModificationorAdditiontoSchoolBuildingActions extends APECOTes
 		adminModificationorAdditiontoSchoolBuildingLocators.engineerApprovalLocationAr_Textbox.clear();
 		adminModificationorAdditiontoSchoolBuildingLocators.engineerApprovalLocationAr_Textbox.sendKeys(engineerApprovalLocationAr);
 		adminModificationorAdditiontoSchoolBuildingLocators.save_btn.click();
-		adminAgentQueueActions.adminLogout();
+		//adminAgentQueueActions.adminLogout();
 	}
 	
 	public void engineerCompletetheInitialVisit(String engineerApprovalLocationEn, String engineerApprovalLocationAr	) throws InterruptedException {
@@ -49,7 +49,7 @@ public class AdminModificationorAdditiontoSchoolBuildingActions extends APECOTes
 		adminModificationorAdditiontoSchoolBuildingLocators.engineerApprovalLocationAr_Textbox.clear();
 		adminModificationorAdditiontoSchoolBuildingLocators.engineerApprovalLocationAr_Textbox.sendKeys(engineerApprovalLocationAr);
 		adminModificationorAdditiontoSchoolBuildingLocators.save_btn.click();
-		adminAgentQueueActions.adminLogout();
+	//	adminAgentQueueActions.adminLogout();
 		
 	}
 

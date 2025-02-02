@@ -1,15 +1,11 @@
 package Bases;
 
 import java.awt.AWTException;
-import java.awt.Robot;
-import java.awt.Toolkit;
-import java.awt.datatransfer.StringSelection;
-import java.awt.event.KeyEvent;
+
 import java.io.IOException;
 import java.nio.file.Paths;
 import java.time.Duration;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -23,7 +19,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.NoSuchElementException;
 import java.util.Random;
-import java.util.concurrent.TimeUnit;
+
 
 
 public class CommonFunctions extends APECOTestBase {
@@ -69,6 +65,8 @@ public void clickWebElement(WebElement webElement) {
 		WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(20));
 		wait.until(ExpectedConditions.visibilityOf(webElementName));
 	}
+
+	
 	
 	public void waitElementToBeClickable(WebElement webElementName) {
 		WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(20));

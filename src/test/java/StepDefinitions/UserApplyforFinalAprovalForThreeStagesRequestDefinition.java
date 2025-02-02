@@ -3,7 +3,8 @@ package StepDefinitions;
 import java.awt.AWTException;
 import java.io.IOException;
 
-import AdminPortaPageslLocators.AdminAgentQueueLocators;
+import org.openqa.selenium.support.PageFactory;
+
 import Bases.APECOTestBase;
 import Util.ScenarioContext;
 import io.cucumber.java.en.Then;
@@ -15,7 +16,6 @@ public class UserApplyforFinalAprovalForThreeStagesRequestDefinition extends APE
 
 public UserApplyforFinalAprovalForThreeStagesRequestDefinition(ScenarioContext scenarioContext) throws IOException {
 	this.scenarioContext = scenarioContext;
-
 	UserPagesInitialization();
 	UserPagesInitialization();
 	}
@@ -62,7 +62,7 @@ public void user_applys_for_a_new_final_approval_request_successfully() throws I
 	String  finalapprovalRequestNumber = finalApprovalActions.confirmRequest();
 	 scenarioContext.setData("finalApprovalRequestNumber", finalapprovalRequestNumber);
    adminAgentQueueActions.adminSearchforaRequest(String.valueOf(finalapprovalRequestNumber));
-   adminAgentQueueActions.adminOpenRequestDetailsScreen();
+   adminAgentQueueActions.adminOpenRequestDetailsScreen(String.valueOf(finalapprovalRequestNumber));
 
 }
 

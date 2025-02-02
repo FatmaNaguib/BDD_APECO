@@ -11,7 +11,7 @@ public class AdminPublishingAnnouncementsActions extends APECOTestBase {
 
 	AdminPublishingAnnouncementsLocators adminPublishingAnnouncementsLocators; 
 	public AdminPublishingAnnouncementsActions() throws IOException {
-		super();
+
 		 adminPublishingAnnouncementsLocators = new AdminPublishingAnnouncementsLocators();
 			PageFactory.initElements(driver, adminPublishingAnnouncementsLocators);
 	}

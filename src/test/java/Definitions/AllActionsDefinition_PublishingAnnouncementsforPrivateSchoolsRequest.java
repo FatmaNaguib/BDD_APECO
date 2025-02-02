@@ -1,7 +1,11 @@
 package Definitions;
 
+import static org.testng.Assert.assertTrue;
+
 import java.awt.AWTException;
 import java.io.IOException;
+
+import org.openqa.selenium.support.PageFactory;
 
 import Bases.APECOTestBase;
 import Util.ScenarioContext;
@@ -14,7 +18,7 @@ public class AllActionsDefinition_PublishingAnnouncementsforPrivateSchoolsReques
 	
 	public AllActionsDefinition_PublishingAnnouncementsforPrivateSchoolsRequest(ScenarioContext scenarioContext) throws IOException {
 		this.scenarioContext = scenarioContext;
-		
+
 		AdminPagesInitialization();
 		UserPagesInitialization();
 	}
@@ -24,12 +28,12 @@ public class AllActionsDefinition_PublishingAnnouncementsforPrivateSchoolsReques
 		userLoginPageActions.userlogin(properties.getProperty("username"), properties.getProperty("password"));
 		userWorkspacePageActions.clickonSideMenu_Services_link();
 		userServicesPageActions.clickPublishingAnnouncementsServiceLink();
-		String licensedSchoolName = (String) scenarioContext.getData("licensedSchoolName");
-		userSchoolsListActions.selectSchool(licensedSchoolName);	
-	//	userSchoolsListActions.selectSchool("New Education School 27938");	
+//		String licensedSchoolName = (String) scenarioContext.getData("licensedSchoolName");
+//		userSchoolsListActions.selectSchool(licensedSchoolName);	
+		userSchoolsListActions.selectSchool("New Education School 23895");
 		String publishingAnnouncementsRequestNumber = publishingAnnouncementsPageActions.submitPublishingAnnouncementsRequest("Social media", "Omar.jpeg");
 		scenarioContext.setData("publishingAnnouncementsRequestNumber",publishingAnnouncementsRequestNumber );
-		//Thread.sleep(1000);
+		assertTrue(publishingAnnouncementsRequestNumber.length() > 0);
 		commonFunctions.implicitWait(10);
 		userWorkspacePageActions.logout();
 	}
@@ -44,7 +48,8 @@ public class AllActionsDefinition_PublishingAnnouncementsforPrivateSchoolsReques
 		adminLoginPageActions.adminLogin(properties.getProperty("employeeUsername"), properties.getProperty("employeePassword"));
 		String publishingAnnouncementsRequestNumber = (String) scenarioContext.getData("publishingAnnouncementsRequestNumber");
 		adminAgentQueueActions.adminSearchforaRequest(publishingAnnouncementsRequestNumber);
-		adminAgentQueueActions.adminOpenRequestDetailsScreen();
+		adminAgentQueueActions.adminOpenRequestDetailsScreen(publishingAnnouncementsRequestNumber);
 		adminApprovalofAnnualActivitiesandProgramsActions.employeeApprovesTheApprovalofAnnualActivitiesandProgramsRequest();
+		 adminAgentQueueActions.checkRequestStatus(publishingAnnouncementsRequestNumber, "Closed - Accepted");
 	}
 }

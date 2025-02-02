@@ -25,7 +25,7 @@ public class AdminSchoolLicenseCancellationRequestsActions extends APECOTestBase
 		commonFunctions.clickWebElement(adminSchoolLicenseCancellationRequestsLocators.save_btn);
 //		commonFunctions.waitElementToBeClickable(adminSchoolLicenseCancellationRequestsLocators.save_btn);
 //		adminSchoolLicenseCancellationRequestsLocators.save_btn.click();
-		adminAgentQueueActions.adminLogout();
+		//adminAgentQueueActions.adminLogout();
 	}
 	
 	public void departmentManagerApproval() throws InterruptedException, IOException {
@@ -38,7 +38,7 @@ public class AdminSchoolLicenseCancellationRequestsActions extends APECOTestBase
 		commonFunctions.clickWebElement(adminSchoolLicenseCancellationRequestsLocators.save_btn);
 //		commonFunctions.waitElementToBeClickable(adminSchoolLicenseCancellationRequestsLocators.save_btn);
 //		adminSchoolLicenseCancellationRequestsLocators.save_btn.click();
-		adminAgentQueueActions.adminLogout();
+	//	adminAgentQueueActions.adminLogout();
 	}
 
 }

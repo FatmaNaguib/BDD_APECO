@@ -1,15 +1,14 @@
-Feature: Change School Location Request
-
+Feature: Final Approval Service
 
 
 @UserLogin  
-Scenario: The User Can Apply Change School Location Request And The Request is approved Successfully
+Scenario: The User Can Apply Final Approval Service Request And The Request is approved Successfully
 
 
- Then The Applicant Apply For Change School Location Request
- Then The Engineer Approves the Change School Location Request Engineering Plan
-Then The Engineer Completes the Change School Location Request Field Technical Approval File
-Then The Applicant Approves the Change School Location Request Site is Ready
-Then The Engineer Completes the Change School Location Request Field Visit
-Then The Employee Approves the Change School Location Request
-Then The Applicant Pays The Change School Location Request fees
+  Given The Applicant Has a Valid School Name 
+ Then The Review Employee Rats the Study Plan for The Final Approval Request
+Then The Review Employee Schedules Meeting for The Final Approval Request Manager
+Then The Admin School Manager Approves The Scheduled Meeting
+Then The Review Employee Meets The School Manager
+Then The Engineer Aprroves The Final Approval Request
+Then The Employee Aprroves The Final Approval Request

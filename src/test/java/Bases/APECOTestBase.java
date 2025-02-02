@@ -20,6 +20,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
+import AdminPortaPageslLocators.AdminAgentQueueLocators;
 import AdminPortaPageslLocators.AdminInitialApprovalRequestDetailsLocators;
 import AdminPortaPageslLocators.AdminloginPageLocatore;
 import AdminPortaPageslLocators.AdminSchoolRenewalRequestDetailsLocators;
@@ -33,6 +34,7 @@ import AdminPortalPagesActions.AdminChangeSchoolManagerActions;
 import AdminPortalPagesActions.AdminChangeSchoolNameActions;
 import AdminPortalPagesActions.AdminComplaintActions;
 import AdminPortalPagesActions.AdminEmployeesExperienceCertificateRatificationActions;
+import AdminPortalPagesActions.AdminEventPermitbyanExternalEntityActions;
 import AdminPortalPagesActions.AdminFinalApprovalActions;
 import AdminPortalPagesActions.AdminInitialApprovalRequestDetailsActions;
 import AdminPortalPagesActions.AdminInternationalTravelActions;
@@ -80,7 +82,7 @@ public class APECOTestBase {
 	public static  Properties properties ;
 	public static  WebDriver driver;
 	
-	
+	public static AdminAgentQueueLocators adminAgentQueueLocators;
 	public static  UserLoginPageActions userLoginPageActions;
 	public static UserWorkspacePageActions userWorkspacePageActions ;
 	public static InitialApplovalOwnersProfilesPageActions initialApplovalOwnersProfilesPageActions;
@@ -136,6 +138,7 @@ public class APECOTestBase {
 	public static AdminAddingEducationalStagesActions adminAddingEducationalStagesActions;
 	public static  AdminInternationalTravelActions adminInternationalTravelActions;
 	public static AdminEmployeesExperienceCertificateRatificationActions adminEmployeesExperienceCertificateRatificationActions;
+	public static AdminEventPermitbyanExternalEntityActions adminEventPermitbyanExternalEntityActions;
 
 	 public APECOTestBase() throws IOException {
 			properties = new Properties();
@@ -257,6 +260,7 @@ public class APECOTestBase {
 		 adminEmployeesExperienceCertificateRatificationActions = new  AdminEmployeesExperienceCertificateRatificationActions();			
 	}
 		public void AdminPagesInitialization() throws IOException {
+			adminAgentQueueLocators = new AdminAgentQueueLocators();
 		adminLoginPageActions = new AdminLoginPageActions();
 		adminServicesListPageActions = new AdminServicesListPageActions();
 		adminAgentQueueActions = new AdminAgentQueueActions();
@@ -279,6 +283,7 @@ public class APECOTestBase {
 			adminAppointmentNotificationforEmployeesActions = new AdminAppointmentNotificationforEmployeesActions();
 			adminApprovalofAnnualActivitiesandProgramsActions = new AdminApprovalofAnnualActivitiesandProgramsActions();
 			adminInternationalTravelActions = new AdminInternationalTravelActions();
+			adminEventPermitbyanExternalEntityActions = new AdminEventPermitbyanExternalEntityActions();
 		}
 
 	}

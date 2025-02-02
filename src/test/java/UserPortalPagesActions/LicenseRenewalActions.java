@@ -41,10 +41,13 @@ public class LicenseRenewalActions extends APECOTestBase  {
 			commonFunctions.uploadfile(licenseRenewalLocators.nurseLicense_uploader,nurseLicense );
 			commonFunctions.uploadfile(licenseRenewalLocators.buildingValidityLetterAjmanMunicipalityValid1Year_uploader,buildingValidityLetterAjmanMunicipalityValid1Year);
 			commonFunctions.uploadfile(licenseRenewalLocators.leaseAgreementOwnershipDocumentValid_uploader,leaseAgreementOwnershipDocumentValid);
-		//	Thread.sleep(2000);
-			commonFunctions.implicitWait(2000);
+			js.executeScript("window.scrollBy(0,1000)");
+			//Thread.sleep(2000);
+			commonFunctions.implicitWait(20);
 			//commonFunctions.fluentWait(licenseRenewalLocators.dataAcknowledge_Checkbox);
 			licenseRenewalLocators.dataAcknowledge_Checkbox.click();
+			commonFunctions.moveToWebElement(licenseRenewalLocators.submit_btn);
+			commonFunctions.waitElementToBeClickable(licenseRenewalLocators.submit_btn);
 			commonFunctions.clickWebElement(licenseRenewalLocators.submit_btn);
 			//licenseRenewalLocators.submit_btn.click();
 			

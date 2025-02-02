@@ -3,7 +3,7 @@ Feature: Reducing Educational Stages Request
 
 
 @UserLogin  	
-Scenario: The User Can Apply for 	Approval of Annual Activities and Programs Request And The Request is approved Successfully
+Scenario: The User Can Apply for 	Reducing Educational Stages RequestRequest And The Request is approved Successfully
 
    Given The Applicant Has an Approved Initial approval request
   Given  The Applicant Has School Valid License

@@ -2,6 +2,8 @@ package StepDefinitions;
 
 import java.io.IOException;
 
+import org.openqa.selenium.support.PageFactory;
+
 import Bases.APECOTestBase;
 import Util.ScenarioContext;
 import io.cucumber.java.en.Given;
@@ -12,7 +14,6 @@ public class UserApplyActionsDefinition_FinalApproval extends APECOTestBase {
 	private final ScenarioContext scenarioContext;
 	public UserApplyActionsDefinition_FinalApproval(ScenarioContext scenarioContext) throws IOException {
 		this.scenarioContext = scenarioContext;
-
 	}
 
 
@@ -28,18 +29,20 @@ public void the_review_employee_is_logged_in() throws IOException, InterruptedEx
 public void the_employee_searches_for_the_final_approval_request() throws InterruptedException {
 	String  finalapprovalRequestNumber = (String) scenarioContext.getData("finalapprovalRequestNumber");
     adminAgentQueueActions.adminSearchforaRequest(finalapprovalRequestNumber);
-	adminAgentQueueActions.adminOpenRequestDetailsScreen();
+	adminAgentQueueActions.adminOpenRequestDetailsScreen(finalapprovalRequestNumber);
 }
 
 
 @Then("The Review Employee Rats the Study Plan for The Final Approval Request")
 public void the_review_employee_Rats_the_study_plan_for_the_final_approval_request() throws  InterruptedException, IOException {
-	 adminLoginPageActions.adminLoginurl("https://apeco-admin-portal-qc.graycliff-e2cfdb11.eastus.azurecontainerapps.io/login");
+	// adminLoginPageActions.adminLoginurl("https://apeco-admin-portal-qc.graycliff-e2cfdb11.eastus.azurecontainerapps.io/login");
+	Thread.sleep(1000);
+		driver.get(properties.getProperty("AdminPortalUrl"));
 	adminLoginPageActions.selectEngLang();
 	adminLoginPageActions.adminLogin(properties.getProperty("reviewEmployeeUsername"), properties.getProperty("reviewEmployeePassword"));
 	String  finalapprovalRequestNumber = (String) scenarioContext.getData("finalapprovalRequestNumber");
     adminAgentQueueActions.adminSearchforaRequest(finalapprovalRequestNumber);
-	adminAgentQueueActions.adminOpenRequestDetailsScreen();
+	adminAgentQueueActions.adminOpenRequestDetailsScreen(finalapprovalRequestNumber);
 	adminFinalApprovalActions.reviewEmployeeRatsTheStudyPlanforTheFinalApprovalRequest();
 	 adminLoginPageActions.adminLoginurl("https://apeco-admin-portal-qc.graycliff-e2cfdb11.eastus.azurecontainerapps.io/login");
 }
@@ -50,7 +53,7 @@ public void the_review_employee_schedules_meeting_for_the_final_approval_request
 	adminLoginPageActions.adminLogin(properties.getProperty("reviewEmployeeUsername"), properties.getProperty("reviewEmployeePassword"));
 	String  finalapprovalRequestNumber = (String) scenarioContext.getData("finalapprovalRequestNumber");
     adminAgentQueueActions.adminSearchforaRequest(finalapprovalRequestNumber);
-	adminAgentQueueActions.adminOpenRequestDetailsScreen();
+	adminAgentQueueActions.adminOpenRequestDetailsScreen(finalapprovalRequestNumber);
 	  adminFinalApprovalActions.reviewEmployeeScheduleMeetingForTheFinalApprovalRequest("Manager Meeting", "15-01-2026", "2:45 PM", "5:45 PM", "Online Meeting", "Manager's Online Meeting");
 	  adminLoginPageActions.adminLoginurl("https://apeco-admin-portal-qc.graycliff-e2cfdb11.eastus.azurecontainerapps.io/login");
 	  Thread.sleep(1000);
@@ -62,7 +65,7 @@ public void the_admin_School_manager_approves_the_scheduled_meeting() throws Int
 	adminLoginPageActions.adminLogin(properties.getProperty("adminSchoolManagerUsername"), properties.getProperty("adminSchoolManagerPassword"));
 	String  finalapprovalRequestNumber = (String) scenarioContext.getData("finalapprovalRequestNumber");
     adminAgentQueueActions.adminSearchforaRequest(finalapprovalRequestNumber);
-	adminAgentQueueActions.adminOpenRequestDetailsScreen();
+	adminAgentQueueActions.adminOpenRequestDetailsScreen(finalapprovalRequestNumber);
 	adminFinalApprovalActions.adminAcceptsScheduledMeeting();
 	  adminLoginPageActions.adminLoginurl("https://apeco-admin-portal-qc.graycliff-e2cfdb11.eastus.azurecontainerapps.io/login");
 	Thread.sleep(1000);
@@ -74,7 +77,7 @@ public void the_review_employee_meets_the_school_manager() throws IOException, I
 	adminLoginPageActions.adminLogin(properties.getProperty("reviewEmployeeUsername"), properties.getProperty("reviewEmployeePassword"));
 	String  finalapprovalRequestNumber = (String) scenarioContext.getData("finalapprovalRequestNumber");
     adminAgentQueueActions.adminSearchforaRequest(finalapprovalRequestNumber);
-	adminAgentQueueActions.adminOpenRequestDetailsScreen();
+	adminAgentQueueActions.adminOpenRequestDetailsScreen(finalapprovalRequestNumber);
   adminFinalApprovalActions.reviewEmployeeMeetsTheManager();
 	 adminLoginPageActions.adminLoginurl("https://apeco-admin-portal-qc.graycliff-e2cfdb11.eastus.azurecontainerapps.io/login");
 	  //Thread.sleep(1000);
@@ -87,7 +90,7 @@ public void the_engineer_aprroves_the_final_approval_request() throws IOExceptio
 	adminLoginPageActions.adminLogin(properties.getProperty("engineerUsername"), properties.getProperty("engineerPassword"));
 	String  finalapprovalRequestNumber = (String) scenarioContext.getData("finalapprovalRequestNumber");
     adminAgentQueueActions.adminSearchforaRequest(finalapprovalRequestNumber);
-	adminAgentQueueActions.adminOpenRequestDetailsScreen();
+	adminAgentQueueActions.adminOpenRequestDetailsScreen(finalapprovalRequestNumber);
     adminFinalApprovalActions.engineerTechnicalApproval("الموقع / رقم قطعة الأرض باللغة الإنجليزية - إصدار تصريح جديد", "الموقع / رقم قطعة الأرض باللغة العربية - إصدار تصريح جديد");
     adminLoginPageActions.adminLoginurl("https://apeco-admin-portal-qc.graycliff-e2cfdb11.eastus.azurecontainerapps.io/login");
 	  //Thread.sleep(1000);
@@ -99,7 +102,7 @@ public void the_employee_aprroves_the_final_approval_request() throws IOExceptio
 	adminLoginPageActions.adminLogin(properties.getProperty("employeeUsername"), properties.getProperty("employeePassword"));
 	String  finalapprovalRequestNumber = (String) scenarioContext.getData("finalapprovalRequestNumber");
     adminAgentQueueActions.adminSearchforaRequest(finalapprovalRequestNumber);
-	adminAgentQueueActions.adminOpenRequestDetailsScreen();
+	adminAgentQueueActions.adminOpenRequestDetailsScreen(finalapprovalRequestNumber);
  	adminFinalApprovalActions.employeelApproval();
     adminLoginPageActions.adminLoginurl("https://apeco-portal-qc.graycliff-e2cfdb11.eastus.azurecontainerapps.io/auth/login");
  	//Thread.sleep(1000);

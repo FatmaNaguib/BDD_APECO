@@ -1,7 +1,11 @@
 package Definitions;
 
+import static org.testng.Assert.assertTrue;
+
 import java.awt.AWTException;
 import java.io.IOException;
+
+import org.openqa.selenium.support.PageFactory;
 
 import Bases.APECOTestBase;
 import Util.ScenarioContext;
@@ -23,9 +27,9 @@ public class AllActionsDefinition_ModificationorIncreaseinTuitionFees extends AP
 		userWorkspacePageActions.clickonSideMenu_Services_link();
 		userServicesPageActions.clickModificationorIncreaseinTuitionFeesLink();
 		
-		String licensedSchoolName = (String) scenarioContext.getData("licensedSchoolName");
-		userSchoolsListActions.selectSchool(licensedSchoolName);
-
+//		String licensedSchoolName = (String) scenarioContext.getData("licensedSchoolName");
+//		userSchoolsListActions.selectSchool(licensedSchoolName);
+		userSchoolsListActions.selectSchool("New Education School 23895");
 		modificationorIncreaseinTuitionFeesActions.enterThreeStagesSchoolFees("100","100","100","200","200","200","300","300","300", "400", "400");
 		modificationorIncreaseinTuitionFeesActions.enterTuitionFeesAttachments("UploadFile.pdf", "UploadFile.pdf");
 		modificationorIncreaseinTuitionFeesActions.payRequestfees();
@@ -33,7 +37,7 @@ public class AllActionsDefinition_ModificationorIncreaseinTuitionFees extends AP
 		commonFunctions.implicitWait(10);
 		String tuitionFeesRequestNumber = modificationorIncreaseinTuitionFeesActions.confirmRequest();
 		 scenarioContext.setData("tuitionFeesRequestNumber", tuitionFeesRequestNumber);
-		
+			assertTrue(tuitionFeesRequestNumber.length() > 0);
 		 commonFunctions.implicitWait(10);
 			userWorkspacePageActions.logout();			
 	}
@@ -49,11 +53,11 @@ public class AllActionsDefinition_ModificationorIncreaseinTuitionFees extends AP
 		  commonFunctions.implicitWait(10);
 			String  tuitionFeesRequestNumber = (String) scenarioContext.getData("tuitionFeesRequestNumber");		 
 			   adminAgentQueueActions.adminSearchforaRequest(tuitionFeesRequestNumber);
-			adminAgentQueueActions.adminOpenRequestDetailsScreen();
+			adminAgentQueueActions.adminOpenRequestDetailsScreen(tuitionFeesRequestNumber);
 			adminModificationorIncreaseinTuitionFeesActions.employeeApprovesTheModificationorIncreaseinTuitionFeesRequest();		
+			adminAgentQueueActions.checkRequestStatus(tuitionFeesRequestNumber, "Closed - Accepted");
 			
-			commonFunctions.implicitWait(10);
-			userWorkspacePageActions.logout();
+			 // adminAgentQueueActions.adminLogout();
 		
 	}
 }

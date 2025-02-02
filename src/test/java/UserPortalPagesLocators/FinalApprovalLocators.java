@@ -78,6 +78,8 @@ public class FinalApprovalLocators {
 		@FindBy(xpath = "//button[@class='btn btn-lg btn-primary ng-star-inserted']") public WebElement pay_btn;
 		
 		@FindBy(xpath = "//span[normalize-space()='Submit']") public WebElement submit_btn;
+		//@FindBy(xpath = "//button[@class='ant-btn ant-btn-primary ant-btn-lg ng-star-inserted']") public WebElement submit_btn;
+		
 		@FindBy(xpath = "//span[@class=\"font-weight-semibold fs-2rem\"]") public WebElement confirmation_msg;
 		@FindBy(xpath = "//span[@class='ng-star-inserted']") public WebElement confirmation_btn;
 		

@@ -4,7 +4,6 @@ import java.io.IOException;
 
 import org.openqa.selenium.support.PageFactory;
 
-import AdminPortaPageslLocators.AdminChangeSchoolLocationLocators;
 import AdminPortaPageslLocators.AdminReducingEducationalStagesLocators;
 import Bases.APECOTestBase;
 
@@ -26,7 +25,7 @@ public void engineereRatsTheEngineeringPlanforTheModificationorAdditiontoSchoolB
 		commonFunctions.waitElementToBevisible(adminReducingEducationalStagesLocators.engineerRateApprove_btn);
 		 adminReducingEducationalStagesLocators.engineerRateApprove_btn.click();
 		 adminReducingEducationalStagesLocators.save_btn.click();
-		adminAgentQueueActions.adminLogout();
+		//adminAgentQueueActions.adminLogout();
 	}
 	
 	public void employeeCompletetheInitialApproval(	) throws InterruptedException  {
@@ -35,7 +34,7 @@ public void engineereRatsTheEngineeringPlanforTheModificationorAdditiontoSchoolB
 		commonFunctions.waitElementToBevisible(adminReducingEducationalStagesLocators.complete_btn);
 		adminReducingEducationalStagesLocators.complete_btn.click();
 		adminReducingEducationalStagesLocators.save_btn.click();
-		adminAgentQueueActions.adminLogout();
+	//	adminAgentQueueActions.adminLogout();
 	}
 	
 
@@ -46,7 +45,7 @@ public void engineereRatsTheEngineeringPlanforTheModificationorAdditiontoSchoolB
 		commonFunctions.waitElementToBevisible(adminReducingEducationalStagesLocators.approve_btn);
 		adminReducingEducationalStagesLocators.approve_btn.click();
 		adminReducingEducationalStagesLocators.save_btn.click();
-		adminAgentQueueActions.adminLogout();
+		//adminAgentQueueActions.adminLogout();
 	}
 	
 

@@ -24,7 +24,7 @@ public void engineerRatsTheStudyPlanforTheModificationorAdditiontoSchoolBuilding
 		commonFunctions.waitElementToBevisible(adminChangeSchoolLocationLocators.engineerRateApprove_btn);
 		adminChangeSchoolLocationLocators.engineerRateApprove_btn.click();
 		adminChangeSchoolLocationLocators.save_btn.click();
-		adminAgentQueueActions.adminLogout();
+		//adminAgentQueueActions.adminLogout();
 	}
 	
 	public void engineerCompletetheInitialTechnicalApproval(String engineerApprovalLocationEn, String engineerApprovalLocationAr	) throws InterruptedException  {
@@ -38,7 +38,7 @@ public void engineerRatsTheStudyPlanforTheModificationorAdditiontoSchoolBuilding
 		adminChangeSchoolLocationLocators.engineerApprovalLocationAr_Textbox.clear();
 		adminChangeSchoolLocationLocators.engineerApprovalLocationAr_Textbox.sendKeys(engineerApprovalLocationAr);
 		adminChangeSchoolLocationLocators.save_btn.click();
-		adminAgentQueueActions.adminLogout();
+		//adminAgentQueueActions.adminLogout();
 	}
 	
 	public void engineerCompletetheInitialVisit(String engineerApprovalLocationEn, String engineerApprovalLocationAr	) throws InterruptedException {
@@ -50,7 +50,7 @@ public void engineerRatsTheStudyPlanforTheModificationorAdditiontoSchoolBuilding
 		adminChangeSchoolLocationLocators.engineerApprovalLocationAr_Textbox.clear();
 		adminChangeSchoolLocationLocators.engineerApprovalLocationAr_Textbox.sendKeys(engineerApprovalLocationAr);
 		adminChangeSchoolLocationLocators.save_btn.click();
-		adminAgentQueueActions.adminLogout();
+		//adminAgentQueueActions.adminLogout();
 		
 	}
 	
@@ -60,7 +60,7 @@ public void engineerRatsTheStudyPlanforTheModificationorAdditiontoSchoolBuilding
 		commonFunctions.waitElementToBevisible(adminChangeSchoolLocationLocators.approve_btn);
 		adminChangeSchoolLocationLocators.approve_btn.click();
 		adminChangeSchoolLocationLocators.save_btn.click();
-		adminAgentQueueActions.adminLogout();
+	//	adminAgentQueueActions.adminLogout();
 	}
 	
 

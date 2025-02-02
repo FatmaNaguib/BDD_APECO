@@ -25,7 +25,7 @@ public class AdminModificationorIncreaseinTuitionFeesActions  extends APECOTestB
 		//commonFunctions.clickWebElement(adminModificationorIncreaseinTuitionFeesLocators.employeeApproval_btn);
 		adminModificationorIncreaseinTuitionFeesLocators.employeeApproval_btn.click();
 		commonFunctions.clickWebElement(adminModificationorIncreaseinTuitionFeesLocators.save_btn);
-		adminAgentQueueActions.adminLogout();
+		//adminAgentQueueActions.adminLogout();
 		
 
 	}

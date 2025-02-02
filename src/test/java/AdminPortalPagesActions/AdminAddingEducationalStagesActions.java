@@ -20,12 +20,12 @@ public class AdminAddingEducationalStagesActions  extends APECOTestBase  {
 		commonFunctions.waitElementToBevisible(adminAddingEducationalStagesLocators.approveandcompleteinitialfiles_Btn);
 		adminAddingEducationalStagesLocators.approveandcompleteinitialfiles_Btn.click();
 		adminAddingEducationalStagesLocators.save_btn.click();
-		adminAgentQueueActions.adminLogout();
+		//adminAgentQueueActions.adminLogout();
 	}
 	public void adminApproves() throws InterruptedException {
 		commonFunctions.clickWebElement(adminAddingEducationalStagesLocators.approve_btn);	
 		adminAddingEducationalStagesLocators.save_btn.click();
-		adminAgentQueueActions.adminLogout();
+		//adminAgentQueueActions.adminLogout();
 	}
 	
 	

@@ -35,7 +35,8 @@ public class EventPermitbyanExternalEntityActions extends APECOTestBase {
 		eventPermitbyanExternalEntityLocators.thirdPartyName_TextBox.sendKeys(thirdPartyName);
 		eventPermitbyanExternalEntityLocators.coordinatorSchoolName_Textbox.sendKeys(coordinatorSchoolName);
 		eventPermitbyanExternalEntityLocators.coordinatorPhoneNumber_Textbox.sendKeys(coordinatorPhoneNumber_Textbox);
-		js.executeScript("window.scrollBy(0,500)");
+		js.executeScript("window.scrollBy(0,1000)");
+		commonFunctions.moveToWebElement(eventPermitbyanExternalEntityLocators.dateFrom_Datepicker);
 		commonFunctions.enterddlValue(eventPermitbyanExternalEntityLocators.dateFrom_Datepicker,dateFrom);
 		commonFunctions.moveToWebElement(eventPermitbyanExternalEntityLocators.eventdataNext_btn);
 		commonFunctions.enterddlValue(eventPermitbyanExternalEntityLocators.dateTo_Datepicker,dateTo);
@@ -48,16 +49,14 @@ public class EventPermitbyanExternalEntityActions extends APECOTestBase {
 		eventPermitbyanExternalEntityLocators.eventAttachmentsNext_btn.click();
 	}
 	
-	public void submitEventPermitbyanExternalEntityRequest() {
+	public String submitEventPermitbyanExternalEntityRequest() {
+		commonFunctions.moveToWebElement(eventPermitbyanExternalEntityLocators.dataAcknowledge_Checkbox);
 		eventPermitbyanExternalEntityLocators.dataAcknowledge_Checkbox.click();
 		eventPermitbyanExternalEntityLocators.submit_btn.click();
-		
 		 String msg = eventPermitbyanExternalEntityLocators.confirmation_msg.getText();
-	
-		 int number = Integer.parseInt(msg.replaceAll("[^0-9]",""));
-		 System.out.println(number);
-		 
-		System.out.println("Hiiiiiiiiiiiiiiiiiiii"+eventPermitbyanExternalEntityLocators.confirmation_msg.getText());
+		 String eventPermitbyanExternalEntityRequestNumber = msg.replaceAll("[^0-9]","");
+		 commonFunctions.moveToWebElement(eventPermitbyanExternalEntityLocators.confirmation_btn);
 		eventPermitbyanExternalEntityLocators.confirmation_btn.click();
+		return eventPermitbyanExternalEntityRequestNumber;
 	}
 }

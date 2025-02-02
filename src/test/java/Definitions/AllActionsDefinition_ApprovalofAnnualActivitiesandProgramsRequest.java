@@ -1,5 +1,7 @@
 package Definitions;
 
+import static org.testng.Assert.assertTrue;
+
 import java.awt.AWTException;
 import java.io.IOException;
 
@@ -22,17 +24,16 @@ public class AllActionsDefinition_ApprovalofAnnualActivitiesandProgramsRequest e
 	userWorkspacePageActions.clickonSideMenu_Services_link();
 	 userServicesPageActions.clickAnnualActivitiesandProgramsLink();
 	
-	String licensedSchoolName = (String) scenarioContext.getData("licensedSchoolName");
-	 userSchoolsListActions.selectSchool(licensedSchoolName);
-
-	// userSchoolsListActions.selectSchool("New Education School 86169");
-
+	//String licensedSchoolName = (String) scenarioContext.getData("licensedSchoolName");
+	// userSchoolsListActions.selectSchool(licensedSchoolName);
+	 userSchoolsListActions.selectSchool("New Education School 64590");
 	annualActivitiesandProgramsActions.enterRequestData("Omar Khaled", "01022002200", "omar@hotmail.com");
 
 	 annualActivitiesandProgramsActions.payRequestfees();
 	 
 		String anuannualActivitiesandProgramsmberRequestNumber = annualActivitiesandProgramsActions.getRequestNumber();
 		scenarioContext.setData("anuannualActivitiesandProgramsmberRequestNumber",anuannualActivitiesandProgramsmberRequestNumber );
+		assertTrue(anuannualActivitiesandProgramsmberRequestNumber.length() > 0);
 		Thread.sleep(1000);
 		userWorkspacePageActions.logout();
 		
@@ -41,14 +42,22 @@ public class AllActionsDefinition_ApprovalofAnnualActivitiesandProgramsRequest e
 @Then("The Employee Approves The Annual Activities and Programs")
 public void the_employee_approves_the_annual_activities_and_programs() throws IOException, InterruptedException, AWTException {
 	Thread.sleep(1000);
-	adminLoginPageActions.adminLoginurl("https://apeco-admin-portal-qc.graycliff-e2cfdb11.eastus.azurecontainerapps.io/login");
-	//Thread.sleep(1000);
+	driver.get(properties.getProperty("AdminPortalUrl"));
 	commonFunctions.implicitWait(10);
 	adminLoginPageActions.selectEngLang();	  
 	adminLoginPageActions.adminLogin(properties.getProperty("employeeUsername"), properties.getProperty("employeePassword"));
 	String anuannualActivitiesandProgramsmberRequestNumber = (String) scenarioContext.getData("anuannualActivitiesandProgramsmberRequestNumber");
 	adminAgentQueueActions.adminSearchforaRequest(anuannualActivitiesandProgramsmberRequestNumber);
-	adminAgentQueueActions.adminOpenRequestDetailsScreen();
+	adminAgentQueueActions.adminOpenRequestDetailsScreen(anuannualActivitiesandProgramsmberRequestNumber);
 	adminApprovalofAnnualActivitiesandProgramsActions.employeeApprovesTheApprovalofAnnualActivitiesandProgramsRequest();
+	
+	adminAgentQueueActions.checkRequestStatus(anuannualActivitiesandProgramsmberRequestNumber, "Closed - Accepted");
+//	 adminAgentQueueActions.adminOpenAgentQueueScreen();
+//	 commonFunctions.implicitWait(20);
+//	  adminAgentQueueActions.adminRequestSearchAfterAction(String.valueOf(anuannualActivitiesandProgramsmberRequestNumber));
+//	 commonFunctions.implicitWait(10);
+//     String requestStatus =adminAgentQueueActions.getRequestServiceAndStatus();
+//      System.out.println("Request Status: " + requestStatus);
+//    assertEquals(requestStatus,"Closed - Accepted");
 }
 }

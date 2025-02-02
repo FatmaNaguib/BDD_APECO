@@ -49,6 +49,7 @@ public UserServicesPageLocators clickonSideMenu_Services_link() throws IOExcepti
 }
 	
 public void clickonSideMenuRequestslink()  {
+	
 	Actions.moveToElement(userWorkspacePageLocators.sideMenu).perform();
 	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(TestUtil.IMPLACIT_WAIT));
 	userWorkspacePageLocators.sidemenu_requestsLink.click() ;
@@ -57,6 +58,8 @@ public void clickonSideMenuRequestslink()  {
 public void logout() {
 	
 	commonFunctions.moveToWebElement(userWorkspacePageLocators.sideMenu);
+	commonFunctions.waitElementToBeClickable(userWorkspacePageLocators.logout_Btn);
+	commonFunctions.moveToWebElement(userWorkspacePageLocators.logout_Btn);
 	commonFunctions.clickWebElement(userWorkspacePageLocators.logout_Btn);
 	commonFunctions.clickWebElement(userWorkspacePageLocators.yesLogout_Btn);
 }

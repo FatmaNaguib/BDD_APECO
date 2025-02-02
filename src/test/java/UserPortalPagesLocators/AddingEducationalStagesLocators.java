@@ -40,4 +40,10 @@ public class AddingEducationalStagesLocators {
 			@FindBy(xpath = "//button[@class='btn btn-lg btn-primary ng-star-inserted']") public WebElement pay_btn;
 			@FindBy(xpath = "//button[@class='ant-btn ng-star-inserted ant-btn-lg']") public WebElement okay_btn;
 			@FindBy(xpath = "//button[@class='ant-btn ant-btn-primary ant-btn-lg']") public WebElement payNow_btn;
+			
+			@FindBy(xpath = "(//button//span[@class=\"ng-star-inserted\"])[1]") public WebElement  initialTechnicalapproval_btn;
+			@FindBy(xpath = "(//button//span[@class=\"ng-star-inserted\"])[2]") public WebElement  approvedEngineeringDiagram_btn;
+			@FindBy(xpath = "(//button//span[@class=\"ng-star-inserted\"])[3]") public WebElement  finalTechnicalApproval_btn;
+			@FindBy(xpath = "(//button//span[@class=\"ng-star-inserted\"])[4]") public WebElement schoolFeesApproval_btn;
+			@FindBy(xpath = "(//button//span[@class=\"ng-star-inserted\"])[5]") public WebElement  licensureDoc_btn;
 }

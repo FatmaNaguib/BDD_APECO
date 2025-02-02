@@ -1,5 +1,7 @@
 package UserPortalPagesActions;
 
+import static org.testng.Assert.assertEquals;
+
 import java.awt.AWTException;
 import java.io.IOException;
 
@@ -111,5 +113,24 @@ public class AddingEducationalStagesActions extends APECOTestBase {
 		commonFunctions.waitElementToBevisible(addingEducationalStagesLocators.okay_btn);
 		addingEducationalStagesLocators.okay_btn.click();
 		Thread.sleep(3000);
+	}
+	
+
+	
+	public void CheckDocumentsCreation() {
+		String initialTechnicalapprovalText = addingEducationalStagesLocators.initialTechnicalapproval_btn.getText();
+		assertEquals(initialTechnicalapprovalText, "Initial Technical Approval");
+		
+		String approvedEngineeringDiagramText = addingEducationalStagesLocators.approvedEngineeringDiagram_btn.getText();
+		assertEquals(approvedEngineeringDiagramText, "Approved Engineering Diagram");
+		
+		String finalTechnicalApprovalText = addingEducationalStagesLocators.finalTechnicalApproval_btn.getText();
+		assertEquals(finalTechnicalApprovalText, "I Final Technical Approval");
+		
+		String schoolFeesApprovalText = addingEducationalStagesLocators.schoolFeesApproval_btn.getText();
+		assertEquals(schoolFeesApprovalText, "School Fees Approval");
+		
+		String licensureDocText = addingEducationalStagesLocators.licensureDoc_btn.getText();
+		assertEquals(licensureDocText, "Licensure ");
 	}
 }

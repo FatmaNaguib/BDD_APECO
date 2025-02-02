@@ -1,5 +1,7 @@
 package Definitions;
 
+import static org.testng.Assert.assertTrue;
+
 import java.awt.AWTException;
 import java.io.IOException;
 
@@ -26,17 +28,16 @@ public class AllActionsDefinition_SchoolLicenseRenewal extends APECOTestBase {
 		
 		
 		userServicesPageActions.clickschoolLicenseRenewalLink();
-		String licensedSchoolName = (String) scenarioContext.getData("licensedSchoolName");
-		userSchoolsListActions.selectSchool(licensedSchoolName);
+//		String licensedSchoolName = (String) scenarioContext.getData("licensedSchoolName");
+//		userSchoolsListActions.selectSchool(licensedSchoolName);
 		
-//		userSchoolsListActions.selectSchool("New Education School 16598");	
-		
+		userSchoolsListActions.selectSchool("New Education School 23895");
 		licenseRenewalActions.submitlicenseRenewalRequest("Intoduction Document.pdf", "Intoduction Document.pdf", "Intoduction Document.pdf", "Intoduction Document.pdf", "Intoduction Document.pdf", "Intoduction Document.pdf", "Intoduction Document.pdf", "Intoduction Document.pdf");	
 		String schoolLicenseRenewalRequestNumber = licenseRenewalActions.confirmRequestl();
-		scenarioContext.setData("schoolLicenseRenewalRequestNumber",schoolLicenseRenewalRequestNumber );
+		scenarioContext.setData("schoolLicenseRenewalRequestNumber",schoolLicenseRenewalRequestNumber);
+		assertTrue(schoolLicenseRenewalRequestNumber.length() > 0);
 		//Thread.sleep(1000);
-		commonFunctions.implicitWait(20);
-		userWorkspacePageActions.logout();
+	//	userWorkspacePageActions.logout();
 		 
 	}
 	
@@ -44,28 +45,34 @@ public class AllActionsDefinition_SchoolLicenseRenewal extends APECOTestBase {
 	public void the_employee_approves_the_school_license_renewal_request() throws InterruptedException, IOException {
 
 		Thread.sleep(1000);
-		
-		driver.get("https://apeco-admin-portal-qc.graycliff-e2cfdb11.eastus.azurecontainerapps.io/login");	
+		driver.get(properties.getProperty("AdminPortalUrl"));
 		adminLoginPageActions.selectEngLang();	  
 		adminLoginPageActions.adminLogin(properties.getProperty("employeeUsername"), properties.getProperty("employeePassword"));
 		String schoolLicenseRenewalRequestNumber = (String) scenarioContext.getData("schoolLicenseRenewalRequestNumber");
 		adminAgentQueueActions.adminSearchforaRequest(schoolLicenseRenewalRequestNumber);
-		adminAgentQueueActions.adminOpenRequestDetailsScreen();
+		adminAgentQueueActions.adminOpenRequestDetailsScreen(schoolLicenseRenewalRequestNumber);
 		adminSchoolRenewalRequestDetailsActions.employeeApprovesTheSchoolRenewalRequest();
 		//Thread.sleep(1000);
-		commonFunctions.implicitWait(10);
+		adminAgentQueueActions.checkRequestStatus(schoolLicenseRenewalRequestNumber, "Open - Payment Step");
+		adminAgentQueueActions.adminLogout();
+		
 		
 	}
 	@Then("The Applicant Pays The School License Renewal Request Fees")
 	public void the_applicant_pays_the_school_license_renewal_request_fees() throws InterruptedException, IOException {
-		Thread.sleep(1000);
-		driver.get("https://apeco-portal-qc.graycliff-e2cfdb11.eastus.azurecontainerapps.io/auth/login");
-		userLoginPageActions.userlogin(properties.getProperty("username"), properties.getProperty("password"));
+	 	Thread.sleep(1000);
+	 	driver.get(properties.getProperty("url"));
+	 	commonFunctions.implicitWait(10);
+		//userLoginPageActions.userlogin(properties.getProperty("username"), properties.getProperty("password"));
 		userWorkspacePageActions.clickonSideMenuRequestslink();
 		String schoolLicenseRenewalRequestNumber = (String) scenarioContext.getData("schoolLicenseRenewalRequestNumber");
 		userRequestsPageActions.searchForaRequestbyNumber(schoolLicenseRenewalRequestNumber);
-		userRequestsPageActions.clickDetailsButton();
+		userRequestsPageActions.clickDetailsButton(schoolLicenseRenewalRequestNumber);
 		licenseRenewalActions.postPayRequestfees();
+		userWorkspacePageActions.clickonSideMenuRequestslink();
+		userRequestsPageActions.searchForaRequestbyNumber(schoolLicenseRenewalRequestNumber);
+		
+		userRequestsPageActions.getRequestStatus("Closed - Accepted");
 		userWorkspacePageActions.logout();
 	}
 

@@ -15,13 +15,15 @@ public class EventPermitbyanExternalEntityLocators {
 	@FindBy(xpath = "//input[@placeholder='Date and time of the event (Date To)']") public WebElement dateTo_Datepicker;
 	@FindBy(xpath = "//button[@class='ant-btn ant-btn-primary ant-btn-lg ng-star-inserted']") public WebElement eventdataNext_btn;
 	
-	@FindBy (xpath ="//label[@for='managerLetter']//following::span[1]")public WebElement managerLetter_uploader;
+	@FindBy (xpath ="//input[@id=\"managerLetter\"]")public WebElement managerLetter_uploader;
 	
-	@FindBy (xpath ="//label[@for='administrativeApproval']//following::span[1]")public WebElement administrativeApproval_uploader;
+	@FindBy (xpath ="//input[@id=\"administrativeApproval\"]")public WebElement administrativeApproval_uploader;
 	@FindBy(xpath = "//button[@class='ant-btn ant-btn-primary ant-btn-lg ng-star-inserted']") public WebElement eventAttachmentsNext_btn;
 	
 	@FindBy(xpath = "//input[@type='checkbox']") public WebElement dataAcknowledge_Checkbox;
 	@FindBy(xpath = "//span[normalize-space()='Submit']") public WebElement submit_btn;
 	@FindBy(xpath = "//span[@class=\"font-weight-semibold fs-2rem\"]") public WebElement confirmation_msg;
-	@FindBy(xpath = "//span[@class='ng-star-inserted']") public WebElement confirmation_btn;
+	@FindBy(xpath = "//button[@class='ant-btn ng-star-inserted ant-btn-lg']") public WebElement confirmation_btn;
+//	@FindBy(xpath = "//span[@class='ng-star-inserted']") public WebElement confirmation_btn;
+//	@FindBy(xpath = "//button[@class='ant-btn ng-star-inserted ant-btn-lg']") public WebElement okay_btn;
 	}

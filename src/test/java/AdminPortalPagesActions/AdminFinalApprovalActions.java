@@ -23,8 +23,9 @@ public class AdminFinalApprovalActions extends APECOTestBase {
 		commonFunctions.fluentWait(adminFinalApprovalLocators.Approve_btn);
 		commonFunctions.waitElementToBevisible(adminFinalApprovalLocators.Approve_btn);
 		adminFinalApprovalLocators.Approve_btn.click();
+		commonFunctions.waitElementToBeClickable(adminFinalApprovalLocators.save_btn);
 		adminFinalApprovalLocators.save_btn.click();
-		adminAgentQueueActions.adminLogout();
+		//adminAgentQueueActions.adminLogout();
 	}
 	
 	public void reviewEmployeeScheduleMeetingForTheFinalApprovalRequest(
@@ -39,7 +40,7 @@ public class AdminFinalApprovalActions extends APECOTestBase {
 		adminFinalApprovalLocators.location_TextBox.sendKeys(location);
 		adminFinalApprovalLocators.description_TextBox.sendKeys(description);
 		adminFinalApprovalLocators.save_btn.click();
-		adminAgentQueueActions.adminLogout();
+	//	adminAgentQueueActions.adminLogout();
 	}
 	
 	public void adminAcceptsScheduledMeeting() throws InterruptedException {
@@ -48,15 +49,15 @@ public class AdminFinalApprovalActions extends APECOTestBase {
 		commonFunctions.clickWebElement(adminFinalApprovalLocators.save_btn);
 		//adminFinalApprovalLocators.save_btn.click();
 		//Thread.sleep(1000);
-		commonFunctions.implicitWait(10);
-		adminAgentQueueActions.adminLogout();
+		//commonFunctions.implicitWait(10);
+		//adminAgentQueueActions.adminLogout();
 	}
 	
 	public void reviewEmployeeMeetsTheManager() throws InterruptedException {
 		commonFunctions.waitElementToBevisible(adminFinalApprovalLocators.done_btn);
 		adminFinalApprovalLocators.done_btn.click();
 		adminFinalApprovalLocators.save_btn.click();
-		adminAgentQueueActions.adminLogout();
+		//adminAgentQueueActions.adminLogout();
 	}
 	
 	public void engineerTechnicalApproval(
@@ -70,7 +71,7 @@ public class AdminFinalApprovalActions extends APECOTestBase {
 		adminFinalApprovalLocators.engineerApprovalLocationAr_Textbox.clear();
 		adminFinalApprovalLocators.engineerApprovalLocationAr_Textbox.sendKeys(engineerApprovalLocationAr);
 		adminFinalApprovalLocators.save_btn.click();
-		adminAgentQueueActions.adminLogout();
+		//adminAgentQueueActions.adminLogout();
 	}
 	
 	public void employeelApproval() throws InterruptedException {
@@ -80,7 +81,7 @@ public class AdminFinalApprovalActions extends APECOTestBase {
 		adminFinalApprovalLocators.employeeTypeofHiringValue1ddl.click();
 		commonFunctions.waitElementToBeClickable(adminFinalApprovalLocators.save_btn);
 		adminFinalApprovalLocators.save_btn.click();
-		adminAgentQueueActions.adminLogout();
+		//adminAgentQueueActions.adminLogout();
 	}
 	
 

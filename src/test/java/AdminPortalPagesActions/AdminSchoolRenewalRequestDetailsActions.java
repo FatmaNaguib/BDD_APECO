@@ -22,6 +22,6 @@ public class AdminSchoolRenewalRequestDetailsActions extends APECOTestBase {
 	public void employeeApprovesTheSchoolRenewalRequest() throws InterruptedException {
 		adminRequestDetailsLocators.approve_btn.click();
 		adminRequestDetailsLocators.approvalSave_btn.click();
-		adminAgentQueueActions.adminLogout();
+	//	adminAgentQueueActions.adminLogout();
 	}
 }

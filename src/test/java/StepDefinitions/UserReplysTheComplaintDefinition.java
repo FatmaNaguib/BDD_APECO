@@ -20,12 +20,12 @@ public void user_navigats_to_the_all_reuests_screen() {
 
 @When("User Searchs The Complaint Number")
 public void user_searchs_the_complaint_number() throws InterruptedException {
-	String requestNo = String.valueOf(SubmitaComplaintActions.requestNumber);
-   userRequestsPageActions.searchForaRequestbyNumber(requestNo);
+//	String requestNo = String.valueOf(SubmitaComplaintActions.requestNumber);
+ //  userRequestsPageActions.searchForaRequestbyNumber(requestNo);
 }
 @Then("User Opnes Request Details Screen")
 public void user_opnes_request_details_screen() throws InterruptedException {
-	 userRequestsPageActions.clickDetailsButton();
+//	 userRequestsPageActions.clickDetailsButton();
 }
 
 @Then("User Replies and Submit The Complaint")

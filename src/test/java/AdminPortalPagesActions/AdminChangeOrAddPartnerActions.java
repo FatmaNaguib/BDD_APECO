@@ -20,7 +20,7 @@ public class AdminChangeOrAddPartnerActions extends APECOTestBase {
 		commonFunctions.waitElementToBevisible(adminChangeOrAddPartnerLocators.review_btn);
 		commonFunctions.clickWebElement(adminChangeOrAddPartnerLocators.review_btn);
 		commonFunctions.clickWebElement(adminChangeOrAddPartnerLocators.save_btn);
-		adminAgentQueueActions.adminLogout();
+		//adminAgentQueueActions.adminLogout();
 	}
 	
 	public void employeemployeeUploadSecurityPermitRequest(String initialApprovalfile) throws AWTException, InterruptedException {
@@ -30,7 +30,7 @@ public class AdminChangeOrAddPartnerActions extends APECOTestBase {
 		adminChangeOrAddPartnerLocators.comments_TextArea.sendKeys("The Request Has Been Approved By The Employee");
 		commonFunctions.approvalUploadfile(adminChangeOrAddPartnerLocators.initialApprovalfile_Uploader, initialApprovalfile);
 		commonFunctions.clickWebElement(adminChangeOrAddPartnerLocators.save_btn);
-		adminAgentQueueActions.adminLogout();
+		//adminAgentQueueActions.adminLogout();
 	}
 	
 	

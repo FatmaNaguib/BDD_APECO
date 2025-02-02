@@ -60,13 +60,12 @@ public class InitialApplovalDocumentsPageActions extends APECOTestBase  {
 		commonFunctions.implicitWait(30);
 	}
 	
-	public int confirmRequest() throws InterruptedException {
+	public String confirmRequest() throws InterruptedException {
 		//Thread.sleep(1000);
 		commonFunctions.fluentWait(initialApplovalDocumentsPageLocators.confirmation_msg);
 		commonFunctions.waitElementToBevisible(initialApplovalDocumentsPageLocators.confirmation_msg);
 		 String msg = initialApplovalDocumentsPageLocators.confirmation_msg.getText();
-		 int requestNumber = Integer.parseInt(msg.replaceAll("[^0-9]",""));
-		 System.out.println(requestNumber);
+		 String requestNumber =msg.replaceAll("[^0-9]","");
 		 commonFunctions.moveToWebElement(initialApplovalDocumentsPageLocators.confirmation_btn);
 		initialApplovalDocumentsPageLocators.confirmation_btn.click();
 		return requestNumber;

@@ -23,7 +23,7 @@ public class AdminChangeSchoolManagerActions extends APECOTestBase {
 		adminChangeSchoolManagerLocators.comments_TextArea.sendKeys(comment);
 		commonFunctions.waitElementToBeClickable(adminChangeSchoolManagerLocators.save_btn);
 		adminChangeSchoolManagerLocators.save_btn.click();
-		adminAgentQueueActions.adminLogout();
+		//adminAgentQueueActions.adminLogout();
 	}
 	
 	

@@ -20,7 +20,7 @@ public class AdminApprovalofAnnualActivitiesandProgramsActions  extends APECOTes
 		
 		adminApprovalofAnnualActivitiesandProgramsLocators.employeeApproval_btn.click();
 		commonFunctions.clickWebElement(adminApprovalofAnnualActivitiesandProgramsLocators.save_btn);
-		adminAgentQueueActions.adminLogout();
+		//adminAgentQueueActions.adminLogout();
 
 	}
 }

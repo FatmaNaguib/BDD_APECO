@@ -3,6 +3,8 @@ package StepDefinitions;
 import java.awt.AWTException;
 import java.io.IOException;
 
+import org.openqa.selenium.support.PageFactory;
+
 import Bases.APECOTestBase;
 import Util.ScenarioContext;
 import io.cucumber.java.en.Given;
@@ -11,6 +13,7 @@ public class zzzz extends APECOTestBase{
 	private final ScenarioContext scenarioContext;
 	public zzzz(ScenarioContext scenarioContext) throws IOException {
 		this.scenarioContext = scenarioContext;
+
 	}
 
 	@Given("The Applicant Has School Valid Licenseeeeee")
@@ -41,7 +44,7 @@ public class zzzz extends APECOTestBase{
 			adminLoginPageActions.adminLogin(properties.getProperty("reviewEmployeeUsername"), properties.getProperty("reviewEmployeePassword"));
 			//String  finalapprovalRequestNumber = (String) scenarioContext.getData("finalapprovalRequestNumber");
 		  //  adminAgentQueueActions.adminSearchforaRequest(finalapprovalRequestNumber);
-			adminAgentQueueActions.adminOpenRequestDetailsScreen();
+			adminAgentQueueActions.adminOpenRequestDetailsScreen(finalapprovalRequestNumber);
 			adminFinalApprovalActions.reviewEmployeeRatsTheStudyPlanforTheFinalApprovalRequest();
 			 adminLoginPageActions.adminLoginurl("https://apeco-admin-portal-qc.graycliff-e2cfdb11.eastus.azurecontainerapps.io/login");
 //			adminAgentQueueActions.adminLogout();
@@ -51,7 +54,7 @@ public class zzzz extends APECOTestBase{
 				adminLoginPageActions.adminLogin(properties.getProperty("reviewEmployeeUsername"), properties.getProperty("reviewEmployeePassword"));
 			//	String  finalapprovalRequestNumber = (String) scenarioContext.getData("finalapprovalRequestNumber");
 			    adminAgentQueueActions.adminSearchforaRequest(finalapprovalRequestNumber);
-				adminAgentQueueActions.adminOpenRequestDetailsScreen();
+				adminAgentQueueActions.adminOpenRequestDetailsScreen(finalapprovalRequestNumber);
 				  adminFinalApprovalActions.reviewEmployeeScheduleMeetingForTheFinalApprovalRequest("Manager Meeting", "15-01-2026", "2:45 PM", "5:45 PM", "Online Meeting", "Manager's Online Meeting");
 				  adminLoginPageActions.adminLoginurl("https://apeco-admin-portal-qc.graycliff-e2cfdb11.eastus.azurecontainerapps.io/login");
 				  //Thread.sleep(1000);
@@ -61,7 +64,7 @@ public class zzzz extends APECOTestBase{
 					adminLoginPageActions.adminLogin(properties.getProperty("adminSchoolManagerUsername"), properties.getProperty("adminSchoolManagerPassword"));
 				//	String  finalapprovalRequestNumber = (String) scenarioContext.getData("finalapprovalRequestNumber");
 				    adminAgentQueueActions.adminSearchforaRequest(finalapprovalRequestNumber);
-					adminAgentQueueActions.adminOpenRequestDetailsScreen();
+					adminAgentQueueActions.adminOpenRequestDetailsScreen(finalapprovalRequestNumber);
 					adminFinalApprovalActions.adminAcceptsScheduledMeeting();
 					  adminLoginPageActions.adminLoginurl("https://apeco-admin-portal-qc.graycliff-e2cfdb11.eastus.azurecontainerapps.io/login");
 					//Thread.sleep(1000);
@@ -70,7 +73,7 @@ public class zzzz extends APECOTestBase{
 					adminLoginPageActions.adminLogin(properties.getProperty("reviewEmployeeUsername"), properties.getProperty("reviewEmployeePassword"));
 				//	String  finalapprovalRequestNumber = (String) scenarioContext.getData("finalapprovalRequestNumber");
 				    adminAgentQueueActions.adminSearchforaRequest(finalapprovalRequestNumber);
-					adminAgentQueueActions.adminOpenRequestDetailsScreen();
+					adminAgentQueueActions.adminOpenRequestDetailsScreen(finalapprovalRequestNumber);
 				  adminFinalApprovalActions.reviewEmployeeMeetsTheManager();
 					 adminLoginPageActions.adminLoginurl("https://apeco-admin-portal-qc.graycliff-e2cfdb11.eastus.azurecontainerapps.io/login");
 					  //Thread.sleep(1000);
@@ -79,7 +82,7 @@ public class zzzz extends APECOTestBase{
 						adminLoginPageActions.adminLogin(properties.getProperty("engineerUsername"), properties.getProperty("engineerPassword"));
 					//	String  finalapprovalRequestNumber = (String) scenarioContext.getData("finalapprovalRequestNumber");
 					    adminAgentQueueActions.adminSearchforaRequest(finalapprovalRequestNumber);
-						adminAgentQueueActions.adminOpenRequestDetailsScreen();
+						adminAgentQueueActions.adminOpenRequestDetailsScreen(finalapprovalRequestNumber);
 					    adminFinalApprovalActions.engineerTechnicalApproval("الموقع / رقم قطعة الأرض باللغة الإنجليزية - إصدار تصريح جديد", "الموقع / رقم قطعة الأرض باللغة العربية - إصدار تصريح جديد");
 					    adminLoginPageActions.adminLoginurl("https://apeco-admin-portal-qc.graycliff-e2cfdb11.eastus.azurecontainerapps.io/login");
 						  //Thread.sleep(1000);
@@ -88,7 +91,7 @@ public class zzzz extends APECOTestBase{
 							adminLoginPageActions.adminLogin(properties.getProperty("employeeUsername"), properties.getProperty("employeePassword"));
 						//	String  finalapprovalRequestNumber = (String) scenarioContext.getData("finalapprovalRequestNumber");
 						    adminAgentQueueActions.adminSearchforaRequest(finalapprovalRequestNumber);
-							adminAgentQueueActions.adminOpenRequestDetailsScreen();
+							adminAgentQueueActions.adminOpenRequestDetailsScreen(finalapprovalRequestNumber);
 						 	adminFinalApprovalActions.employeelApproval();
 						    adminLoginPageActions.adminLoginurl("https://apeco-portal-qc.graycliff-e2cfdb11.eastus.azurecontainerapps.io/auth/login");
 						 	//Thread.sleep(1000);
@@ -97,7 +100,7 @@ public class zzzz extends APECOTestBase{
 							userWorkspacePageActions.clickonSideMenuRequestslink();
 							String requestNo = (String) scenarioContext.getData("finalapprovalRequestNumber");
 							 userRequestsPageActions.searchForaRequestbyNumber(requestNo);
-							userRequestsPageActions.clickDetailsButton();
+							userRequestsPageActions.clickDetailsButton(requestNo);
 							finalApprovalActions.payRequestfees();
 							userWorkspacePageActions.logout();
 	}

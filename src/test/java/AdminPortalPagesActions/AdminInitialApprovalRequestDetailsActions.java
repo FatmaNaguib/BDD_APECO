@@ -21,6 +21,7 @@ public class AdminInitialApprovalRequestDetailsActions extends APECOTestBase  {
 	}
 	
 	public void employeeApprovesTheInitialApprovalRequest(String initialApprovalfile) throws AWTException, InterruptedException {
+		commonFunctions.implicitWait(10);
 		commonFunctions.waitElementToBevisible(adminInitialApprovalRequestDetailsLocators.employeeApprove_btn);
 		commonFunctions.clickWebElement(adminInitialApprovalRequestDetailsLocators.employeeApprove_btn);
 		adminInitialApprovalRequestDetailsLocators.comments_TextArea.sendKeys("The Request Has Been Approved By The Employee");
@@ -31,6 +32,7 @@ public class AdminInitialApprovalRequestDetailsActions extends APECOTestBase  {
 	
 	public void engineerApprovesTheInitialApprovalRequest(String engineerApprovalLocation) throws AWTException, InterruptedException {
 		commonFunctions.clickWebElement(adminInitialApprovalRequestDetailsLocators.EngineerApprove_btn);
+		commonFunctions.implicitWait(5);
 		commonFunctions.clickWebElement(adminInitialApprovalRequestDetailsLocators.save_btn);
 	}
 

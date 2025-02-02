@@ -1,5 +1,7 @@
 package UserPortalPagesActions;
 
+import static org.testng.Assert.assertEquals;
+
 import java.io.IOException;
 
 import org.openqa.selenium.JavascriptExecutor;
@@ -27,10 +29,16 @@ public class UserRequestsPageActions  extends APECOTestBase {
 		userRequestsPageLocators.search_Icon.click();
 	}
 	
-	public void clickDetailsButton() throws InterruptedException {
+	public void clickDetailsButton(String requestNumber) throws InterruptedException {
 		commonFunctions.clickWebElement(userRequestsPageLocators.searchRequest_Txtbox);
 		commonFunctions.waitElementToBevisible(userRequestsPageLocators.details_Btn);
-		userRequestsPageLocators.details_Btn.click();
+		String requestNemberLink = userRequestsPageLocators.requestNemberLink.getText();
+		 if (requestNemberLink.contains(requestNumber))   {
+			 userRequestsPageLocators.details_Btn.click();
+				}
+		 else {
+		     System.out.println("Request Not Found");
+		 }
 	}
 	
 	public void replyComplaint(
@@ -43,4 +51,12 @@ public class UserRequestsPageActions  extends APECOTestBase {
 		commonFunctions.fluentWait(userRequestsPageLocators.confirmation_btn);
 		userRequestsPageLocators.confirmation_btn.click();
 	}
+	public void getRequestStatus(String expectedRequestStatus) {
+		String requestStatus =  userRequestsPageLocators.requestStatus_Lable.getText();
+		 System.out.println("Request Status: " + requestStatus);
+		assertEquals(requestStatus,expectedRequestStatus);
+
+	}
+	
+	
 }

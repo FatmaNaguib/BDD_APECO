@@ -4,12 +4,12 @@ import java.awt.AWTException;
 import java.io.IOException;
 
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
 import Bases.APECOTestBase;
 import Bases.CommonFunctions;
 import UserPortalPagesLocators.SubmitaComplaintLocators;
+import freemarker.core.ReturnInstruction.Return;
 
 
 public class SubmitaComplaintActions extends APECOTestBase {
@@ -50,17 +50,18 @@ public class SubmitaComplaintActions extends APECOTestBase {
 	}
 
 	
-	public static int requestNumber = 0;
-	public void confirmRequest() throws InterruptedException {
+
+	public String confirmRequest() throws InterruptedException {
 		//Thread.sleep(3000);
 		commonFunctions.fluentWait( submitaComplaintLocators.confirmation_msg);
 		//commonFunctions.waitElement(submitaComplaintLocators.confirmation_msg);
 		String msg = submitaComplaintLocators.confirmation_msg.getText();
 		//String msg = webElement.getText();
-		requestNumber = Integer.parseInt(msg.replaceAll("[^0-9]",""));
-		 System.out.println(requestNumber);
+		String eventPermitbyanExternalEntityRequestNumber  = msg.replaceAll("[^0-9]","");
+		 System.out.println(eventPermitbyanExternalEntityRequestNumber);
 		 //commonFunctions.waitElement(submitaComplaintLocators.confirmation_btn);
 		submitaComplaintLocators.confirmation_btn.click();
+		return eventPermitbyanExternalEntityRequestNumber ;
 			}
 	
 }

@@ -19,7 +19,7 @@ public class UserPaysPostPaidRequests extends APECOTestBase {
 		userWorkspacePageActions.clickonSideMenuRequestslink();
 		String requestNo = (String) scenarioContext.getData("finalapprovalRequestNumber");
 		 userRequestsPageActions.searchForaRequestbyNumber(requestNo);
-		userRequestsPageActions.clickDetailsButton();
+		userRequestsPageActions.clickDetailsButton(requestNo);
 		finalApprovalActions.payRequestfees();
 		userWorkspacePageActions.logout();
 	}
