@@ -149,7 +149,7 @@ public class APECOTestBase {
 	        "-g","Bases",
 	        "-g","Definitions",
 	        "-g","Runner",
-	                    
+	        "-g","Hooks",            
 	        "classpath:Features", 
 	        
 	        "-t","@UserLogin",
@@ -223,6 +223,7 @@ public class APECOTestBase {
 	
 		
 		 private void configureDriver() {
+
 		driver.manage().window().maximize();
 		driver.manage().deleteAllCookies();
 		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(TestUtil.PAGE_LOAD_TIMEOUT));
