@@ -253,7 +253,8 @@ public class FinalApprovalActions extends APECOTestBase {
 	}
 	
 	public void payRequestfees() throws InterruptedException {
-	commonFunctions.waitElementToBevisible(finalApprovalLocators.pay_btn);
+		
+//	commonFunctions.waitElementToBevisible(finalApprovalLocators.pay_btn);
 //		commonFunctions.moveToWebElement(finalApprovalLocators.pay_btn);
 //		finalApprovalLocators.pay_btn.click();
 //		commonFunctions.moveToWebElement(finalApprovalLocators.payNow_btn);

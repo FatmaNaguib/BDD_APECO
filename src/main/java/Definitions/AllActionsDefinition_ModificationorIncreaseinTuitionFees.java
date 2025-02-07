@@ -5,7 +5,6 @@ import static org.testng.Assert.assertTrue;
 import java.awt.AWTException;
 import java.io.IOException;
 
-import org.openqa.selenium.support.PageFactory;
 
 import Bases.APECOTestBase;
 import Util.ScenarioContext;

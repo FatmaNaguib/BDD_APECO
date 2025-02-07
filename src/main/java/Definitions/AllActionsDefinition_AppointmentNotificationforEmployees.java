@@ -1,6 +1,5 @@
 package Definitions;
 
-import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
 import java.awt.AWTException;

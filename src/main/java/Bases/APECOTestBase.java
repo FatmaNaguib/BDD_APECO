@@ -149,7 +149,7 @@ public class APECOTestBase {
 	        "-g","Bases",
 	        "-g","Definitions",
 	        "-g","Runner",
-	        "-g","Hooks",            
+	        "-g","Hooks.APECOPortalHooks",            
 	        "classpath:Features", 
 	        
 	        "-t","@UserLogin",

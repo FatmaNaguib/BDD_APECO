@@ -1,7 +1,7 @@
 package UserPortalPagesLocators;
 
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindAll;
+
 import org.openqa.selenium.support.FindBy;
 
 public class EmployeesExperienceCertificateRatificationLocators {
@@ -28,7 +28,6 @@ public class EmployeesExperienceCertificateRatificationLocators {
 	@FindBy(xpath = "//span[normalize-space()='Pay']") public WebElement pay_btn;
 	@FindBy(xpath ="//button[@nztype='primary']") public WebElement payNow_btn;
 	@FindBy(xpath = "//button[@class=\"ant-btn\"]") public WebElement submit_btn;
-	//@FindBy(xpath = "//button[span='Submit']") public WebElement submit_btn;
 	
 	@FindBy(xpath = "//span[@class=\"font-weight-semibold fs-2rem\"]") public WebElement confirmation_msg;
 	@FindBy(xpath = "//span[@class='ng-star-inserted']") public WebElement confirmation_btn;

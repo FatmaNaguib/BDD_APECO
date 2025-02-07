@@ -33,10 +33,8 @@ public class TheApplicantHasanApprovedInitiaapprovalrequestDefinition_InitialApp
 		initialApplovalOwnersProfilesPageActions.clicknextButton();
 		initialApplovalOwnersProfilesPageActions.enterOwnerPersonalData("Company","الشركة المتحدة","Omar Kamel", "Al-Ali","Omar.jpeg","CriminalStatusCertifion.jpg","UAE","2024-05-27","Emirati","Muslim", "Engineer","600");
 		initialApplovalOwnersProfilesPageActions.enterOwnerpassportDetails("A123456","UAE","2024-05-27","2025-05-27","Passport.jpg");
-		  //Thread.sleep(1000);
 		commonFunctions.implicitWait(20);
 		 initialApplovalOwnersProfilesPageActions.enterResidenceDetailsDetails("123456789123456","Residence.jpg");
-		  //Thread.sleep(1000);
 		 commonFunctions.implicitWait(10);
 		initialApplovalOwnersProfilesPageActions.enterOwnerQualificationsDetails("Bachelor's Degree","جامعة القاهرة","2024-05-27","Egypt");
 		initialApplovalOwnersProfilesPageActions.enterMaritalStatusDetails("Single");
@@ -55,18 +53,15 @@ public class TheApplicantHasanApprovedInitiaapprovalrequestDefinition_InitialApp
 		 scenarioContext.setData("requestNumber", initialApprovalRequestNumber);
 			assertTrue(initialApprovalRequestNumber.length() > 0);
 		userWorkspacePageActions.logout();
+		
 		Thread.sleep(1000);
-		 //driver.get("https://apeco-admin-portal-qc.graycliff-e2cfdb11.eastus.azurecontainerapps.io/login");
 		driver.get(properties.getProperty("AdminPortalUrl"));
 		adminLoginPageActions.selectEngLang();
 		adminLoginPageActions.adminLogin(properties.getProperty("employeeUsername"), properties.getProperty("employeePassword"));
 	    adminAgentQueueActions.adminSearchforaRequest(String.valueOf(initialApprovalRequestNumber));
-	  //Thread.sleep(2000);
 	    commonFunctions.implicitWait(20);
-	    
 	    adminAgentQueueActions.adminOpenRequestDetailsScreen(String.valueOf(initialApprovalRequestNumber));
 		adminInitialApprovalRequestDetailsActions.employeeApprovesTheInitialApprovalRequest("UploadFile.pdf");	
-		
 		 adminAgentQueueActions.adminOpenAgentQueueScreen();
 		 commonFunctions.implicitWait(20);
 		    adminAgentQueueActions.adminRequestSearchAfterAction(String.valueOf(initialApprovalRequestNumber));
@@ -74,35 +69,25 @@ public class TheApplicantHasanApprovedInitiaapprovalrequestDefinition_InitialApp
 	        String requestStatus =adminAgentQueueActions.getRequestServiceAndStatus();
 	        assertEquals(requestStatus,"Open - Technical Engineer Review");
 	        System.out.println("Request Status: " + requestStatus);
-	        
-	        
 		 	adminAgentQueueActions.adminLogout();
 		 	
-		 	
-		//Thread.sleep(1000);
 		commonFunctions.implicitWait(10);
-		 //adminLoginPageActions.adminLoginurl("https://apeco-admin-portal-qc.graycliff-e2cfdb11.eastus.azurecontainerapps.io/login");
 		driver.get(properties.getProperty("AdminPortalUrl"));
 		adminLoginPageActions.selectEngLang();
 		adminLoginPageActions.adminLogin(properties.getProperty("engineerUsername"), properties.getProperty("engineerPassword"));
 	    adminAgentQueueActions.adminSearchforaRequest(String.valueOf(initialApprovalRequestNumber));
 	    adminAgentQueueActions.adminOpenRequestDetailsScreen(String.valueOf(initialApprovalRequestNumber));
 		adminInitialApprovalRequestDetailsActions.engineerApprovesTheInitialApprovalRequest("Technical Engineer Approval School Location in The Initiall Approval Request");
-		//Thread.sleep(2000);
 		commonFunctions.implicitWait(10);
 		 String licensedSchoolName = adminInitialApprovalRequestDetailsActions.getLicensedSchoolName();
 		 scenarioContext.setData("licensedSchoolName", licensedSchoolName);
 		 adminAgentQueueActions.adminOpenAgentQueueScreen();
-		 
 		 adminAgentQueueActions.adminRequestSearchAfterAction(String.valueOf(initialApprovalRequestNumber));
 		 commonFunctions.implicitWait(20);
 		 requestStatus =adminAgentQueueActions.getRequestServiceAndStatus();
 		 assertEquals(requestStatus,"Closed - Accepted");
 	        System.out.println("Request Status: " + requestStatus);
 		 	adminAgentQueueActions.adminLogout();
-		 
-	//	adminAgentQueueActions.adminLogout();
-		// adminLoginPageActions.adminLoginurl("https://apeco-portal-qc.graycliff-e2cfdb11.eastus.azurecontainerapps.io/auth/login");
 		 driver.get(properties.getProperty("url"));
 	}
 	

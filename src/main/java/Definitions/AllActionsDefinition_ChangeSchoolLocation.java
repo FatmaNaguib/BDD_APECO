@@ -156,8 +156,8 @@ public class AllActionsDefinition_ChangeSchoolLocation extends APECOTestBase {
 
 	@Then("The Applicant Pays The Change School Location Request fees")
 	public void the_applicant_pays_the_change_school_location_request_fees() throws InterruptedException, IOException {
-		// adminLoginPageActions.adminLoginurl("https://apeco-portal-qc.graycliff-e2cfdb11.eastus.azurecontainerapps.io/auth/login");
-		driver.get(properties.getProperty("url"));
+			
+			driver.get(properties.getProperty("url"));
 		 	Thread.sleep(1000);
 		 	userLoginPageActions.userlogin(properties.getProperty("username"), properties.getProperty("password"));
 			userWorkspacePageActions.clickonSideMenuRequestslink();

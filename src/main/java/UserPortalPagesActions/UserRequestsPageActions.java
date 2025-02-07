@@ -31,7 +31,8 @@ public class UserRequestsPageActions  extends APECOTestBase {
 	
 	public void clickDetailsButton(String requestNumber) throws InterruptedException {
 		commonFunctions.clickWebElement(userRequestsPageLocators.searchRequest_Txtbox);
-		commonFunctions.waitElementToBevisible(userRequestsPageLocators.details_Btn);
+		commonFunctions.clickWebElement(userRequestsPageLocators.details_Btn);
+		//commonFunctions.waitElementToBevisible();
 		String requestNemberLink = userRequestsPageLocators.requestNemberLink.getText();
 		 if (requestNemberLink.contains(requestNumber))   {
 			 userRequestsPageLocators.details_Btn.click();
@@ -52,6 +53,7 @@ public class UserRequestsPageActions  extends APECOTestBase {
 		userRequestsPageLocators.confirmation_btn.click();
 	}
 	public void getRequestStatus(String expectedRequestStatus) {
+		commonFunctions.waitElementToBevisible(userRequestsPageLocators.requestStatus_Lable);
 		String requestStatus =  userRequestsPageLocators.requestStatus_Lable.getText();
 		 System.out.println("Request Status: " + requestStatus);
 		assertEquals(requestStatus,expectedRequestStatus);

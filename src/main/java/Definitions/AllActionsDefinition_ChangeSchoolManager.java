@@ -84,6 +84,7 @@ public class AllActionsDefinition_ChangeSchoolManager extends APECOTestBase{
 					    adminAgentQueueActions.adminSearchforaRequest(finalapprovalRequestNumber);
 						adminAgentQueueActions.adminOpenRequestDetailsScreen(finalapprovalRequestNumber);
 					    adminFinalApprovalActions.engineerTechnicalApproval("الموقع / رقم قطعة الأرض باللغة الإنجليزية - إصدار تصريح جديد", "الموقع / رقم قطعة الأرض باللغة العربية - إصدار تصريح جديد");
+					    adminAgentQueueActions.adminLogout();
 					        driver.get(properties.getProperty("AdminPortalUrl"));
 					    commonFunctions.implicitWait(10);
 							adminLoginPageActions.adminLogin(properties.getProperty("employeeUsername"), properties.getProperty("employeePassword"));
