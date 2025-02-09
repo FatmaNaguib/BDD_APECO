@@ -2,23 +2,16 @@ package Bases;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.time.Duration;
-import java.util.Optional;
 import java.util.Properties;
 
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.devtools.DevTools;
-import org.openqa.selenium.devtools.v129.network.Network;
-import org.openqa.selenium.devtools.v129.network.model.RequestId;
-import org.openqa.selenium.devtools.v129.network.model.Response;
-
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 
 import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
 
 import AdminPortaPageslLocators.AdminAgentQueueLocators;
 import AdminPortaPageslLocators.AdminInitialApprovalRequestDetailsLocators;
@@ -145,7 +138,6 @@ public class APECOTestBase {
 	    try {
 	        Main.main(new String[] { 
 	    
-
 	        "-g","Bases",
 	        "-g","Definitions",
 	        "-g","Runner",
@@ -169,7 +161,8 @@ public class APECOTestBase {
 	}
 	 public APECOTestBase() throws IOException {
 			properties = new Properties();
-			FileInputStream confgFile = new FileInputStream("./src/main/java/Config/confg.properties");
+			String configPath = System.getProperty("configPath", "config.properties");
+			FileInputStream confgFile = new FileInputStream(configPath);
 			properties.load(confgFile);
 	 }
 	
@@ -210,8 +203,14 @@ public class APECOTestBase {
 			
 		//	chromeOptions.setExperimentalOption("excludeSwitches", new String[]{"enable-automation"}); 
 			chromeOptions.addArguments("--incognito");
-			System.setProperty("webdriver.chrome.driver", "./src/main/resources/drivers/chromedriver.exe");
-
+			
+			String driverPath = System.getProperty("driverPath", "C:\\drivers\\chromedriver-win64\\chromedriver.exe");
+			String browserPath = System.getProperty("browserPath", "C:\\browsers\\chrome-win64\\chrome.exe");
+			
+			System.setProperty("webdriver.chrome.driver", driverPath);
+			chromeOptions.setBinary(browserPath);
+			
+			
 			driver = new ChromeDriver(chromeOptions);
 			
 		}else if (browserName.equals("firefox")) {
@@ -236,6 +235,7 @@ public class APECOTestBase {
 			}
 		 public ResponseWrapper  setDevTools(String url) {
 			// System.out.println(url);
+			 /*
 				DevTools devTools = ((ChromeDriver) driver).getDevTools();
 				devTools.createSession();
 				devTools.send(Network.enable(Optional.empty(), Optional.empty(), Optional.empty())); 
@@ -252,7 +252,8 @@ public class APECOTestBase {
 			            responseWrapper.Json = JsonParser.parseString(responseBody).getAsJsonObject();
 					}								
 				});
-			    return responseWrapper;
+				*/
+			    return null;
 		 }
 		
 	

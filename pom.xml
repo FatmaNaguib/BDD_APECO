@@ -1,138 +1,100 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>BDD_APECO</groupId>
-  <artifactId>BDD_APECO</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  
-	  <properties>
-			   <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-			   <cucumber.version>7.19.0</cucumber.version>
-			   <extentreports.cucumber7.adapter.version>1.14.0</extentreports.cucumber7.adapter.version>
-       			<extentreports.version>5.1.2</extentreports.version>
-			   <selenium.version>4.25.0</selenium.version>
-			   <testng.version>7.10.2</testng.version>
-			   <maven.compiler.plugin.version>3.10.1</maven.compiler.plugin.version>
-			   <maven.surefire.plugin.version>3.5.0</maven.surefire.plugin.version>
-			 <maven.compiler.source>21</maven.compiler.source>
-  				  <maven.compiler.target>21</maven.compiler.target>
-	 </properties>
-  
-  
-  <dependencies>
-		  	<dependency>
-			    <groupId>ch.qos.logback</groupId>
-			    <artifactId>logback-classic</artifactId>
-			    <version>1.2.11</version>
-			</dependency>
-			<dependency>
-			    <groupId>net.masterthought</groupId>
-			    <artifactId>maven-cucumber-reporting</artifactId>
-			    <version>5.8.4</version>
-			</dependency>
-			<dependency>
-			    <groupId>com.google.guava</groupId>
-			    <artifactId>guava</artifactId>
-			    <version>33.4.0-jre</version>
-			</dependency>
-			
-			  	<dependency>
-			    <groupId>com.google.guava</groupId>
-			    <artifactId>failureaccess</artifactId>
-			    <version>1.0.2</version>
-			</dependency>
-			  <dependency>
-				    <groupId>net.java.dev.jna</groupId>
-				    <artifactId>jna</artifactId>
-				    <version>5.15.0</version>
-			</dependency>
-		  	<dependency>
-					    <groupId>io.cucumber</groupId>
-					    <artifactId>cucumber-java</artifactId>
-					    <version>7.19.0</version>
-			</dependency>
-			<dependency>
-			    <groupId>io.cucumber</groupId>
-			    <artifactId>cucumber-picocontainer</artifactId>
-			    <version>7.19.0</version>
-			</dependency>
-			<dependency>
-					    <groupId>io.cucumber</groupId>
-					    <artifactId>cucumber-testng</artifactId>
-					    <version>7.19.0</version>
-			</dependency>
-		  <dependency>
-				    <groupId>org.seleniumhq.selenium</groupId>
-				    <artifactId>selenium-java</artifactId>
-				    <version>4.27.0</version>
-		</dependency>
-  
-		  <dependency>
-				    <groupId>org.testng</groupId>
-				    <artifactId>testng</artifactId>
-				    <version>7.10.2</version>
-		</dependency>
-
+<project
+	xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>BDD_APECO</groupId>
+	<artifactId>BDD_APECO</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<properties>
+	    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+	<dependencies>
 		<dependency>
-				    <groupId>com.aventstack</groupId>
-				    <artifactId>extentreports</artifactId>
-				    <version>5.1.2</version>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>1.5.16</version>
 		</dependency>
 		<dependency>
-				    <groupId>tech.grasshopper</groupId>
-				    <artifactId>extentreports-cucumber7-adapter</artifactId>
-				    <version>1.14.0</version>
-				</dependency>
- 		 </dependencies>
-    <build>
-        <plugins>
-        
-        
-        
-        
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>3.5.0</version>
-                <configuration>
+			<groupId>net.masterthought</groupId>
+			<artifactId>maven-cucumber-reporting</artifactId>
+			<version>5.8.5</version>
+		</dependency>
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+			<version>33.4.0-jre</version>
+		</dependency>
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>failureaccess</artifactId>
+			<version>1.0.2</version>
+		</dependency>
+		<dependency>
+			<groupId>net.java.dev.jna</groupId>
+			<artifactId>jna</artifactId>
+			<version>5.16.0</version>
+		</dependency>
+		<dependency>
+			<groupId>io.cucumber</groupId>
+			<artifactId>cucumber-java</artifactId>
+			<version>7.21.0</version>
+		</dependency>
+		<dependency>
+			<groupId>io.cucumber</groupId>
+			<artifactId>cucumber-picocontainer</artifactId>
+			<version>7.21.0</version>
+		</dependency>
+		<dependency>
+			<groupId>io.cucumber</groupId>
+			<artifactId>cucumber-testng</artifactId>
+			<version>7.21.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-java</artifactId>
+			<version>4.28.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.testng</groupId>
+			<artifactId>testng</artifactId>
+			<version>7.10.2</version>
+		</dependency>
+		<dependency>
+			<groupId>com.aventstack</groupId>
+			<artifactId>extentreports</artifactId>
+			<version>5.1.2</version>
+		</dependency>
+		<dependency>
+			<groupId>tech.grasshopper</groupId>
+			<artifactId>extentreports-cucumber7-adapter</artifactId>
+			<version>1.14.0</version>
+		</dependency>
+	</dependencies>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>3.5.2</version>
+				<configuration>
 					<suiteXmlFiles>
 						<suiteXmlFile>testng.xml</suiteXmlFile>
-					</suiteXmlFiles>                    
-                </configuration>
-            </plugin>
-                    <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-compiler-plugin</artifactId>
-            <version>3.10.1</version> <!-- or the latest version -->
-      <configuration>
-        <source>21</source>
-        <target>21</target>
-      </configuration>
-        </plugin>
-            
-            
-            <plugin>
-                <groupId>net.masterthought</groupId>
-                <artifactId>maven-cucumber-reporting</artifactId>
-                <version>5.8.4</version>
-                <executions>
-                    <execution>
-                        <id>execution</id>
-                        <phase>verify</phase>
-                        <goals>
-                            <goal>generate</goal>
-                        </goals>
-                        <configuration>
-                            <projectName>BDD_APECO</projectName>
-                            <outputDirectory>${project.build.directory}/cucumber-report-html</outputDirectory>
-                            <cucumberOutput>${project.build.directory}/cucumber.json</cucumberOutput>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-            			<plugin>
+					</suiteXmlFiles>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.13.0</version>
+				<configuration>
+					<source>21</source>
+					<target>21</target>
+				</configuration>
+			</plugin>
+			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-assembly-plugin</artifactId>
-				<version>3.6.0</version>
+				<version>3.7.1</version>
 				<configuration>
 					<archive>
 						<manifest>
@@ -142,7 +104,7 @@
 						<manifestEntries>
 							<Class-Path>.</Class-Path>
 						</manifestEntries>
-					</archive>
+					</archive>				
 					<descriptorRefs>
 						<descriptorRef>jar-with-dependencies</descriptorRef>
 					</descriptorRefs>
@@ -157,7 +119,6 @@
 					</execution>
 				</executions>
 			</plugin>
-        </plugins>
-    </build>
-    
+		</plugins>
+	</build>
 </project>

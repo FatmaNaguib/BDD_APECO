@@ -2,15 +2,11 @@ package Hooks;
 
 import java.io.IOException;
 
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.support.PageFactory;
 
 import Bases.APECOTestBase;
 
-import io.cucumber.java.After;
 import io.cucumber.java.Before;
-import io.cucumber.java.Scenario;
 
 public class APECOPortalHooks extends APECOTestBase {
 
