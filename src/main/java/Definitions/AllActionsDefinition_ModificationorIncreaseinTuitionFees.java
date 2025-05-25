@@ -23,12 +23,13 @@ public class AllActionsDefinition_ModificationorIncreaseinTuitionFees extends AP
 	public void the_applicant_applies_for_a_new_modification_or_increase_in_tuition_fees() throws InterruptedException, AWTException, IOException {
 		
 		userLoginPageActions.userlogin(properties.getProperty("username"), properties.getProperty("password"));
+		Thread.sleep(2000);
 		userWorkspacePageActions.clickonSideMenu_Services_link();
 		userServicesPageActions.clickModificationorIncreaseinTuitionFeesLink();
 		
 //		String licensedSchoolName = (String) scenarioContext.getData("licensedSchoolName");
 //		userSchoolsListActions.selectSchool(licensedSchoolName);
-		userSchoolsListActions.selectSchool("New Education School 23895");
+		userSchoolsListActions.selectSchool("New Education School 260936");
 		modificationorIncreaseinTuitionFeesActions.enterThreeStagesSchoolFees("100","100","100","200","200","200","300","300","300", "400", "400");
 		modificationorIncreaseinTuitionFeesActions.enterTuitionFeesAttachments("UploadFile.pdf", "UploadFile.pdf");
 		modificationorIncreaseinTuitionFeesActions.payRequestfees();

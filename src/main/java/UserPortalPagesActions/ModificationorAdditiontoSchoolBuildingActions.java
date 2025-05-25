@@ -92,6 +92,7 @@ public class ModificationorAdditiontoSchoolBuildingActions extends APECOTestBase
 	
 	public void siteIsReady() {
 		commonFunctions.clickWebElement(modificationorAdditiontoSchoolBuildingLocators.siteisReadyBtn);
+		commonFunctions.implicitWait(5);
 		commonFunctions.clickWebElement(modificationorAdditiontoSchoolBuildingLocators.save_btn);
 		
 	}

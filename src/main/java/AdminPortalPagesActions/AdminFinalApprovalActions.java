@@ -34,6 +34,7 @@ public class AdminFinalApprovalActions extends APECOTestBase {
 		commonFunctions.waitElementToBevisible(adminFinalApprovalLocators.scheduleMeeting_btn);
 		adminFinalApprovalLocators.scheduleMeeting_btn.click(); 
 		adminFinalApprovalLocators.title_TextBox.sendKeys(title);
+		commonFunctions.moveToWebElement(adminFinalApprovalLocators.date_Datepicker);
 		commonFunctions.enterddlValue(adminFinalApprovalLocators.date_Datepicker,date);
 		commonFunctions.enterddlValue(adminFinalApprovalLocators.from_TxtBox,from);
 		commonFunctions.enterddlValue(adminFinalApprovalLocators.to_TxtBox,to);
@@ -46,8 +47,10 @@ public class AdminFinalApprovalActions extends APECOTestBase {
 	public void adminAcceptsScheduledMeeting() throws InterruptedException {
 		commonFunctions.waitElementToBevisible(adminFinalApprovalLocators.accept_btn);
 		adminFinalApprovalLocators.accept_btn.click();
-		commonFunctions.clickWebElement(adminFinalApprovalLocators.save_btn);
-		//adminFinalApprovalLocators.save_btn.click();
+		//commonFunctions.clickWebElement(adminFinalApprovalLocators.save_btn);
+
+		commonFunctions.implicitWait(5);
+		adminFinalApprovalLocators.save_btn.click();
 		//Thread.sleep(1000);
 		//commonFunctions.implicitWait(10);
 		//adminAgentQueueActions.adminLogout();
@@ -65,6 +68,7 @@ public class AdminFinalApprovalActions extends APECOTestBase {
 			) throws InterruptedException {
 		commonFunctions.waitElementToBevisible(adminFinalApprovalLocators.accept_btn);
 		adminFinalApprovalLocators.accept_btn.click();
+		commonFunctions.implicitWait(5);
 		commonFunctions.waitElementToBevisible(adminFinalApprovalLocators.engineerApprovalLocationEn_Textbox);
 		adminFinalApprovalLocators.engineerApprovalLocationEn_Textbox.clear();
 		adminFinalApprovalLocators.engineerApprovalLocationEn_Textbox.sendKeys(engineerApprovalLocationEn);
@@ -77,6 +81,7 @@ public class AdminFinalApprovalActions extends APECOTestBase {
 	public void employeelApproval() throws InterruptedException {
 		commonFunctions.waitElementToBevisible(adminFinalApprovalLocators.employeeApproval_btn);
 		adminFinalApprovalLocators.employeeApproval_btn.click();
+		commonFunctions.waitElementToBevisible(adminFinalApprovalLocators.employeeTypeofHiring_ddl);
 		adminFinalApprovalLocators.employeeTypeofHiring_ddl.click();
 		adminFinalApprovalLocators.employeeTypeofHiringValue1ddl.click();
 		commonFunctions.waitElementToBeClickable(adminFinalApprovalLocators.save_btn);

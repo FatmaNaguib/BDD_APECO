@@ -10,7 +10,6 @@ Scenario: The Employee Approves The Annual Activities and Programs Request Succe
 Then The Applicant Applies for a New Annual Activities and Programs Request
 Then The Employee Approves The Annual Activities and Programs
 
-
 @UserLogin  
 Scenario:  The Employee Rejests The Annual Activities and Programs Request Successfully
 
@@ -35,4 +34,3 @@ Scenario: The User Can Resubmit Returned Annual Activities and Programs Request 
 Then The Applicant Applies for a New Annual Activities and Programs Request
 Then The Applicant Resubmits The Approval of Annual Activities and Programs Request
 Then The Employee Approves The Annual Activities and Programs Request After Return
-

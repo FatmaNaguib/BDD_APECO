@@ -24,16 +24,27 @@ public class UserRequestsPageActions  extends APECOTestBase {
 	public void searchForaRequestbyNumber(
 			String requestNo
 			) throws InterruptedException {
+	//	commonFunctions.fluentWait(userRequestsPageLocators.requestNemberLink);
+	//commonFunctions.implicitWait(10);
+	//	commonFunctions.waitElementToBevisible(userRequestsPageLocators.requestNemberLink);
+		Thread.sleep(2000);
+		commonFunctions.waitElementToBevisible(userRequestsPageLocators.firstRefNumber_txt);
 		commonFunctions.clickWebElement(userRequestsPageLocators.searchRequest_Txtbox);
 		userRequestsPageLocators.searchRequest_Txtbox.sendKeys(requestNo);
-		userRequestsPageLocators.search_Icon.click();
+		commonFunctions.clickWebElement(userRequestsPageLocators.search_Icon);
+		Thread.sleep(1000);
+		
 	}
 	
 	public void clickDetailsButton(String requestNumber) throws InterruptedException {
-		commonFunctions.clickWebElement(userRequestsPageLocators.searchRequest_Txtbox);
-		commonFunctions.clickWebElement(userRequestsPageLocators.details_Btn);
-		//commonFunctions.waitElementToBevisible();
+		
+	//	commonFunctions.clickWebElement(userRequestsPageLocators.searchRequest_Txtbox);
+	//	commonFunctions.waitElementToBevisible(userRequestsPageLocators.details_Btn);
+		commonFunctions.moveToWebElement(userRequestsPageLocators.details_Btn);
+	//	commonFunctions.clickWebElement(userRequestsPageLocators.details_Btn);
+
 		String requestNemberLink = userRequestsPageLocators.requestNemberLink.getText();
+		commonFunctions.implicitWait(15);
 		 if (requestNemberLink.contains(requestNumber))   {
 			 userRequestsPageLocators.details_Btn.click();
 				}

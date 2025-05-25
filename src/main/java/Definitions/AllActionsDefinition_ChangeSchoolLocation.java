@@ -23,12 +23,12 @@ public class AllActionsDefinition_ChangeSchoolLocation extends APECOTestBase {
 	@Then("The Applicant Apply For Change School Location Request")
 	public void the_applicant_apply_for_change_school_location_request() throws IOException, InterruptedException, AWTException {
 
-	userLoginPageActions.userlogin(properties.getProperty("username"), properties.getProperty("password"));
+		userLoginPageActions.userlogin(properties.getProperty("username"), properties.getProperty("password"));
 		userWorkspacePageActions.clickonSideMenu_Services_link();
 		userServicesPageActions.clickChangeSchoolLocationLink();		
-//		String licensedSchoolName = (String) scenarioContext.getData("licensedSchoolName");
-//		userSchoolsListActions.selectSchool(licensedSchoolName);		
-		userSchoolsListActions.selectSchool("New Education School 64590");	
+		String licensedSchoolName = (String) scenarioContext.getData("licensedSchoolName");
+		userSchoolsListActions.selectSchool(licensedSchoolName);		
+	//	userSchoolsListActions.selectSchool("New Education School 17917");	
 		   changeSchoolLocationActions.enterSchoolDetails	("New building", "Moahamed Essam", "شارع جابر المبارك", "Boys",  "الموقع / رقم قطعة الأرض باللغة الإنجليزية - طلب تغيير موقع مدرسة", "الموقع / رقم قطعة الأرض باللغة العربية - طلب تغيير موقع مدرسة",  "800","900", "400", "90", "First","Owner");
 		   changeSchoolLocationActions.uploadAttachments("UploadFile.pdf","UploadFile.pdf","UploadFile.pdf","UploadFile.pdf","UploadFile.pdf","UploadFile.pdf");
 			changeSchoolLocationActions.submitChangeSchoolLocationRequest();			
@@ -37,7 +37,7 @@ public class AllActionsDefinition_ChangeSchoolLocation extends APECOTestBase {
 			  System.out.println(changeSchoolLocationRequestNumber);
 			assertTrue(changeSchoolLocationRequestNumber.length() > 0);
 			commonFunctions.implicitWait(20);
-			userWorkspacePageActions.logout();			
+			userWorkspacePageActions.logout();	
 	}
 	
 	@Then("The Engineer Approves the Change School Location Request Engineering Plan")

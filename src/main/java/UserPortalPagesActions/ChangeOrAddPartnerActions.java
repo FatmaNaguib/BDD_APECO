@@ -23,10 +23,14 @@ public class ChangeOrAddPartnerActions extends APECOTestBase {
 		changeOrAddPartnerLocators = new ChangeOrAddPartnerLocators(); 
 		PageFactory.initElements(driver, changeOrAddPartnerLocators);
 	}
+	
+	
 
 	public void StartAddNewOwnersRequest() {
+	//	commonFunctions.implicitWait(20);
 		commonFunctions.moveToWebElement(changeOrAddPartnerLocators.requestType_NextBtn);
-		changeOrAddPartnerLocators.requestType_NextBtn.click();
+		commonFunctions.clickWebElement(changeOrAddPartnerLocators.requestType_NextBtn);
+	//	changeOrAddPartnerLocators.requestType_NextBtn.click();
 	}
 	
 	public String  enterOwnerPersonalData( 

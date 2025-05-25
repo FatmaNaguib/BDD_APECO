@@ -24,8 +24,8 @@ public class AllActionsDefinition_EventPermitbyanExternalEntity extends APECOTes
 		userWorkspacePageActions.clickonSideMenu_Services_link();
 		userServicesPageActions.clickEventPermitbyanExternalEntityServiceLink();
 		
-//		String licensedSchoolName = (String) scenarioContext.getData("licensedSchoolName");
-//		userSchoolsListActions.selectSchool(licensedSchoolName);
+	//String licensedSchoolName = (String) scenarioContext.getData("licensedSchoolName");
+//	userSchoolsListActions.selectSchool(licensedSchoolName);
 		
 		userSchoolsListActions.selectSchool("New Education School 64590");	
 		eventPermitbyanExternalEntityActions.enterEventData("Lecture", "Implementation Mechanism Value", "Attendee Names", "Third Party Name", "Mohamed Mouner", "012255211", "2025-11-12 01:37 AM", "2025-11-15 01:37 AM");

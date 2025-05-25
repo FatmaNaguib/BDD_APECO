@@ -26,9 +26,9 @@ public class AllActionsDefinition_AddingEducationalStages extends APECOTestBase{
 		userLoginPageActions.userlogin(properties.getProperty("username"), properties.getProperty("password"));
 		userWorkspacePageActions.clickonSideMenu_Services_link();
 		userServicesPageActions.clickAddingEducationalStagesLink();
-		String licensedSchoolName = (String) scenarioContext.getData("licensedSchoolName");
-		userSchoolsListActions.selectSchool(licensedSchoolName);	
-		//userSchoolsListActions.selectSchool("New Education School 64590");
+	//	String licensedSchoolName = (String) scenarioContext.getData("licensedSchoolName");
+		//userSchoolsListActions.selectSchool(licensedSchoolName);	
+		userSchoolsListActions.selectSchool("New Education School 60390");
 		addingEducationalStagesActions.enterSchoolData("15155", "Applicant Relationship of School Building");
 		addingEducationalStagesActions.addingThefourthEducationalStages("Stage 3", "100","10", "Grade 9", "100", "200", "300");
 		addingEducationalStagesActions.addingEducationalStagesAttachments("UploadFile.pdf", "UploadFile.pdf", "UploadFile.pdf", "UploadFile.pdf");
@@ -173,6 +173,7 @@ public class AllActionsDefinition_AddingEducationalStages extends APECOTestBase{
 			userWorkspacePageActions.clickonSideMenuRequestslink();
 			String addingEducationalStagesNumber = (String) scenarioContext.getData("addingEducationalStagesNumber");
 			userRequestsPageActions.searchForaRequestbyNumber(addingEducationalStagesNumber);
+			Thread.sleep(1000);
 			userRequestsPageActions.clickDetailsButton(addingEducationalStagesNumber);
 			reducingEducationalStagesActions.postPayRequestfees();
 			

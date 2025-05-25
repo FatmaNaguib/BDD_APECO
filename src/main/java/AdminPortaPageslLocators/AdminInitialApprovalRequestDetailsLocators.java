@@ -5,8 +5,9 @@ import org.openqa.selenium.support.FindBy;
 
 public class AdminInitialApprovalRequestDetailsLocators {
 
-	@FindBy(xpath = "//button[@class='btn btn-primary']") 
+	@FindBy(xpath = "//button[normalize-space()='Approve']") 
 	public WebElement employeeApprove_btn;
+
 	
 @FindBy(xpath = "//button[@class='btn btn-primary ng-star-inserted']") 
 	public WebElement EngineerApprove_btn;
@@ -26,6 +27,10 @@ public class AdminInitialApprovalRequestDetailsLocators {
 	@FindBy(xpath = "//button[@class=\"btn btn-main flex-grow-1\"]") 
 	public WebElement save_btn;
 	
-	@FindBy(xpath = "//a[@class=\"d-inline-flex ms-2 ng-star-inserted\"]") public WebElement licensedSchoolName_Lable;
+	@FindBy(xpath = "//span[@class=\"d-inline-flex ms-2 ng-star-inserted\"]") public WebElement licensedSchoolName_Lable;
 	
+	@FindBy(xpath = "//button[normalize-space()='Reject']") 	public WebElement  employeeReject_btn;
+	@FindBy(xpath = "//label[@class=\"form-label mt-4 ng-star-inserted\"]//following::app-select[1] //following::ng-select[1]") public WebElement employeeAction_ddl;
+	@FindBy(xpath = "(//span[@class=\"ng-option-label ng-star-inserted\"])[1]") public WebElement employeeActionValue1ddl;
+	@FindBy(xpath = "//button[normalize-space()='Return']") 	public WebElement  employeeReturn_btn;
 }

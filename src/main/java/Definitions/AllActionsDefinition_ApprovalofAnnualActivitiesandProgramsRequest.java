@@ -24,9 +24,9 @@ public class AllActionsDefinition_ApprovalofAnnualActivitiesandProgramsRequest e
 	userWorkspacePageActions.clickonSideMenu_Services_link();
 	 userServicesPageActions.clickAnnualActivitiesandProgramsLink();
 	
-	String licensedSchoolName = (String) scenarioContext.getData("licensedSchoolName");
-	 userSchoolsListActions.selectSchool(licensedSchoolName);
-//	 userSchoolsListActions.selectSchool("New Education School 64590");
+	//String licensedSchoolName = (String) scenarioContext.getData("licensedSchoolName");
+	 //userSchoolsListActions.selectSchool(licensedSchoolName);
+ userSchoolsListActions.selectSchool("New Education School 260936");
 	annualActivitiesandProgramsActions.enterRequestData("Omar Khaled", "01022002200", "omar@hotmail.com");
 
 	 annualActivitiesandProgramsActions.payRequestfees();

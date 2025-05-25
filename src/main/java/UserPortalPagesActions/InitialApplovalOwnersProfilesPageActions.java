@@ -6,18 +6,20 @@ import java.io.IOException;
 
 
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
 
 import Bases.APECOTestBase;
 import Bases.CommonFunctions;
+import UserPortalPagesLocators.InitialApplovalDocumentsPageLocators;
 import UserPortalPagesLocators.InitialApplovalOwnersProfilesPageLocators;
 
 public class InitialApplovalOwnersProfilesPageActions extends APECOTestBase{
 
 	private	 InitialApplovalOwnersProfilesPageLocators initialApplovalPageOwnersProfilesLocators;
-
+	private	 InitialApplovalDocumentsPageLocators initialApplovalDocumentsPageLocators;
 	
 	 CommonFunctions commonFunctions = new CommonFunctions();
 	 JavascriptExecutor js = (JavascriptExecutor)driver;
@@ -81,7 +83,9 @@ public class InitialApplovalOwnersProfilesPageActions extends APECOTestBase{
 		commonFunctions.enterddlValue(initialApplovalPageOwnersProfilesLocators.ownersCurrentnationality_ddl, ownersCurrentnationality);
 		commonFunctions.moveToWebElement(initialApplovalPageOwnersProfilesLocators.ownersReligion_ddl);
 		commonFunctions.enterddlValue(initialApplovalPageOwnersProfilesLocators.ownersReligion_ddl,ownersReligion);
+		js.executeScript("window.scrollTo(0,1300)");
 		commonFunctions.moveToWebElement(initialApplovalPageOwnersProfilesLocators.ownerOccupationTextbox);
+		commonFunctions.implicitWait(10);
 		initialApplovalPageOwnersProfilesLocators.ownerOccupationTextbox.sendKeys(ownerOccupation);
 		initialApplovalPageOwnersProfilesLocators.ownersSalaryTextbox.sendKeys(ownersSalary);
       commonFunctions.moveToWebElement(initialApplovalPageOwnersProfilesLocators.passportDetailsTap);		
@@ -89,6 +93,56 @@ public class InitialApplovalOwnersProfilesPageActions extends APECOTestBase{
 	String personalDataComplitionStat = getLableText(initialApplovalPageOwnersProfilesLocators.personalDataComplitionLable);
 	System.out.println(personalDataComplitionStat);
 		return personalDataComplitionStat;
+	}
+	
+	public void reenterOwnerPersonalData( 
+
+			String companyName ,
+			String ownersFullname, String ownersFamilyName,
+			String photographName,
+			String criminalStatusCertifion,
+			String ownersPlaceofbirth,String dateofBirth ,
+			String ownerOccupation, 
+			String ownersSalary) throws AWTException, InterruptedException   {
+
+		Thread.sleep(1000);
+		//js.executeScript("arguments[0].click();", initialApplovalPageOwnersProfilesLocators.TypeofOwner_ddl);
+	//	commonFunctions.enterddlValue(initialApplovalPageOwnersProfilesLocators.TypeofOwner_ddl, ownerType);
+		commonFunctions.clearText(initialApplovalPageOwnersProfilesLocators.institutionorCompanyTextbox);
+		initialApplovalPageOwnersProfilesLocators.institutionorCompanyTextbox.sendKeys(companyName);
+		commonFunctions.clearText(initialApplovalPageOwnersProfilesLocators.ownersFullnameTextbox);
+		initialApplovalPageOwnersProfilesLocators.ownersFullnameTextbox.sendKeys(ownersFullname);
+		commonFunctions.clearText(initialApplovalPageOwnersProfilesLocators.ownersFamilyNameTextbox);
+		initialApplovalPageOwnersProfilesLocators.ownersFamilyNameTextbox.sendKeys(ownersFamilyName);
+		js.executeScript("window.scrollTo(0,800)");
+		commonFunctions.uploadfile(initialApplovalPageOwnersProfilesLocators.PhotographUploader,photographName);
+		commonFunctions.uploadfile(initialApplovalPageOwnersProfilesLocators.criminalStatusCertificate,criminalStatusCertifion);;
+		commonFunctions.fluentWait(initialApplovalPageOwnersProfilesLocators.ownersPlaceofbirthTextbox);
+		commonFunctions.clearText(	initialApplovalPageOwnersProfilesLocators.ownersPlaceofbirthTextbox);
+		initialApplovalPageOwnersProfilesLocators.ownersPlaceofbirthTextbox.sendKeys(ownersPlaceofbirth);
+		commonFunctions.moveToWebElement(initialApplovalPageOwnersProfilesLocators.dateofBirthDatepicker);
+		commonFunctions.clearText(initialApplovalPageOwnersProfilesLocators.dateofBirthDatepicker);
+		commonFunctions.enterddlValue(initialApplovalPageOwnersProfilesLocators.dateofBirthDatepicker, dateofBirth);
+		js.executeScript("window.scrollTo(0,800)");
+		commonFunctions.moveToWebElement(initialApplovalPageOwnersProfilesLocators.ownerOccupationTextbox);
+		commonFunctions.clearText(initialApplovalPageOwnersProfilesLocators.ownerOccupationTextbox);
+		initialApplovalPageOwnersProfilesLocators.ownerOccupationTextbox.sendKeys(ownerOccupation);
+		js.executeScript("window.scrollTo(0,800)");
+		commonFunctions.moveToWebElement(initialApplovalPageOwnersProfilesLocators.ownersSalaryTextbox);
+		commonFunctions.clearText(initialApplovalPageOwnersProfilesLocators.ownersSalaryTextbox);
+		initialApplovalPageOwnersProfilesLocators.ownersSalaryTextbox.sendKeys(ownersSalary);
+		js.executeScript("window.scrollBy(0,1000)");
+		commonFunctions.waitElementToBeClickable(initialApplovalPageOwnersProfilesLocators. returnOwnerProfileNextButton);
+		commonFunctions.moveToWebElement(initialApplovalPageOwnersProfilesLocators. returnOwnerProfileNextButton);
+	//	initialApplovalPageOwnersProfilesLocators.ownerProfileNextButton.click();
+		//initialApplovalPageOwnersProfilesLocators.ownerProfileNextButton.click();	
+		js.executeScript("arguments[0].click();", initialApplovalPageOwnersProfilesLocators.returnOwnerProfileNextButton);
+		js.executeScript("window.scrollBy(0,1000)");
+		js.executeScript("arguments[0].click();", initialApplovalPageOwnersProfilesLocators.returnOwnerProfileNextButton);
+		initialApplovalDocumentsPageActions.downloadDocument();
+		js.executeScript("arguments[0].click();", initialApplovalPageOwnersProfilesLocators.returnOwnerProfileNextButton);
+		commonFunctions.moveToWebElement(initialApplovalDocumentsPageLocators.dataAcknowledge_Checkbox);
+		initialApplovalDocumentsPageLocators.dataAcknowledge_Checkbox.click();
 	}
 
 

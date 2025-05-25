@@ -24,9 +24,9 @@ public void the_applicant_applies_for_a_new_international_travel_request() throw
 	userLoginPageActions.userlogin(properties.getProperty("username"), properties.getProperty("password"));
 	userWorkspacePageActions.clickonSideMenu_Services_link();
 	userServicesPageActions.clickInternationalTravelServiceLink();
-//	String licensedSchoolName = (String) scenarioContext.getData("licensedSchoolName");
-//	userSchoolsListActions.selectSchool(licensedSchoolName);			
-	userSchoolsListActions.selectSchool("New Education School 64590");
+	String licensedSchoolName = (String) scenarioContext.getData("licensedSchoolName");
+userSchoolsListActions.selectSchool(licensedSchoolName);			
+	//userSchoolsListActions.selectSchool("New Education School 64590");
 	String internationalTravelRequestNumber = approvalforInternationalTravelActions.submitInternationalTravelRequest("Egypt",  "Pre-Kindergarten", "2025-11-20", "2025-11-22", "Goal of The Trip", "Emad Ali", "01005065998", "employee_01@hotmail.com", "Daily Trip Program","Academic Plan.pdf");
 	scenarioContext.setData("internationalTravelRequestNumber",internationalTravelRequestNumber );
 	assertTrue(internationalTravelRequestNumber.length() > 0);

@@ -55,7 +55,9 @@ public void startChangeSchoolNameRequest() throws InterruptedException {
 //			userServicesPageLocators.newRequest_btn.click();
 //		}
 //		js.executeScript("window.scrollTo(0,0)");
-
+	userServicesPageLocators.serviceType_ddl.click();
+	userServicesPageLocators.LicensingServices_ddlValue.click();
+	commonFunctions.implicitWait(5);
 	js.executeScript("window.scrollTo(0,0)");
 	String currentUrl = driver.getCurrentUrl();
 	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
@@ -94,7 +96,9 @@ public void startChangeSchoolNameRequest() throws InterruptedException {
 			js.executeScript("window.scrollTo(0,0)");
 			
 			*/
-			
+			userServicesPageLocators.serviceType_ddl.click();
+			userServicesPageLocators.LicensingServices_ddlValue.click();
+			commonFunctions.implicitWait(5);
 			js.executeScript("window.scrollTo(0,0)");
 			//ResponseWrapper responseWrapper = setDevTools("https://apeco-gateway-qc.graycliff-e2cfdb11.eastus.azurecontainerapps.io/ServiceDesk/api/Requests/GetRequests?Status=0&ServiceCode=final-approval-school&PageIndex=1&PageSize=1000");
 			String currentUrl = driver.getCurrentUrl();
@@ -133,7 +137,9 @@ public void startChangeSchoolNameRequest() throws InterruptedException {
 			userServicesPageLocators.newRequest_btn.click();
 		}
 		js.executeScript("window.scrollTo(0,0)");*/
-		
+		userServicesPageLocators.serviceType_ddl.click();
+		userServicesPageLocators.LicensingServices_ddlValue.click();
+		commonFunctions.implicitWait(5);
 		js.executeScript("window.scrollTo(0,0)");
 		//ResponseWrapper responseWrapper = setDevTools("https://apeco-gateway-qc.graycliff-e2cfdb11.eastus.azurecontainerapps.io/ServiceDesk/api/Requests/GetRequests?Status=0&ServiceCode=final-approval-school&PageIndex=1&PageSize=1000");
 		String currentUrl = driver.getCurrentUrl();
@@ -176,7 +182,9 @@ public void clickChangeSchoolManagerLink() throws InterruptedException {
 //			userServicesPageLocators.newRequest_btn.click();
 //		}
 //		js.executeScript("window.scrollTo(0,0)");
-
+	userServicesPageLocators.serviceType_ddl.click();
+	userServicesPageLocators.LicensingServices_ddlValue.click();
+	commonFunctions.implicitWait(5);
 	js.executeScript("window.scrollTo(0,0)");
 	String currentUrl = driver.getCurrentUrl();
 	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
@@ -202,6 +210,9 @@ public void clickChangeSchoolManagerLink() throws InterruptedException {
 
 	
 	public void clickPublishingAnnouncementsServiceLink() throws InterruptedException {
+		userServicesPageLocators.serviceType_ddl.click();
+		userServicesPageLocators.LicensingServices_ddlValue.click();
+		commonFunctions.implicitWait(5);
 	js.executeScript("window.scrollTo(0,0)");
 	String currentUrl = driver.getCurrentUrl();
 	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
@@ -223,7 +234,10 @@ public void clickChangeSchoolManagerLink() throws InterruptedException {
 	}
 		
 	}
-	public void clickInternationalTravelServiceLink() throws InterruptedException {		
+	public void clickInternationalTravelServiceLink() throws InterruptedException {
+		userServicesPageLocators.serviceType_ddl.click();
+		userServicesPageLocators.LicensingServices_ddlValue.click();
+		commonFunctions.implicitWait(5);
 		js.executeScript("window.scrollTo(0, 1000)");
 		String currentUrl = driver.getCurrentUrl();
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
@@ -247,7 +261,9 @@ public void clickChangeSchoolManagerLink() throws InterruptedException {
 	}
 	
 	public void clickSchoolLicenseCancelationServiceLink() throws InterruptedException {
-
+		userServicesPageLocators.serviceType_ddl.click();
+		userServicesPageLocators.LicensingServices_ddlValue.click();
+		commonFunctions.implicitWait(5);
 		String currentUrl = driver.getCurrentUrl();
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
 		userServicesPageLocators.schoolLicenseCancelationServiceLink.click();
@@ -283,7 +299,9 @@ public void clickChangeSchoolManagerLink() throws InterruptedException {
 //		}	if(draftRequests!=0) {
 //			userServicesPageLocators.newRequest_btn.click();
 //		}
-		
+		userServicesPageLocators.serviceType_ddl.click();
+		userServicesPageLocators.LicensingServices_ddlValue.click();
+		commonFunctions.implicitWait(5);
 
 		String currentUrl = driver.getCurrentUrl();
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
@@ -320,6 +338,9 @@ public void clickChangeSchoolManagerLink() throws InterruptedException {
 //		}	if(draftRequests!=0) {
 //			userServicesPageLocators.newRequest_btn.click();
 //		}
+		userServicesPageLocators.serviceType_ddl.click();
+		userServicesPageLocators.LicensingServices_ddlValue.click();
+		commonFunctions.implicitWait(5);
 		
 
 		String currentUrl = driver.getCurrentUrl();
@@ -344,7 +365,9 @@ public void clickChangeSchoolManagerLink() throws InterruptedException {
 	}
 	
 	public void clickexperienceCertificateforEmployeesServiceLink() throws InterruptedException {
-		
+		userServicesPageLocators.serviceType_ddl.click();
+		userServicesPageLocators.LicensingServices_ddlValue.click();
+		commonFunctions.implicitWait(5);
 		String currentUrl = driver.getCurrentUrl();
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
 		commonFunctions.moveToWebElement(userServicesPageLocators.experienceCertificateforEmployeesServiceLink);
@@ -371,6 +394,9 @@ public void clickChangeSchoolManagerLink() throws InterruptedException {
 	
 	
 	public void clickeFinalApprovalServiceLink() throws InterruptedException {
+		userServicesPageLocators.serviceType_ddl.click();
+		userServicesPageLocators.LicensingServices_ddlValue.click();
+		commonFunctions.implicitWait(5);
 		js.executeScript("window.scrollTo(0,0)");
 		String currentUrl = driver.getCurrentUrl();
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
@@ -407,15 +433,20 @@ public void clickChangeorAddPartnerRequestLink() throws InterruptedException {
 //			userServicesPageLocators.newRequest_btn.click();
 //		}
 //		js.executeScript("window.scrollTo(0,0)");
+	
+	userServicesPageLocators.serviceType_ddl.click();
+	userServicesPageLocators.LicensingServices_ddlValue.click();
+	commonFunctions.implicitWait(5);
 	js.executeScript("window.scrollTo(0,0)");
-	String currentUrl = driver.getCurrentUrl();
-	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+	String currentUrl = 			driver.getCurrentUrl();
+	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 	userServicesPageLocators.changeorAddPartnerServiceLink.click();
 	try {
 	    wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("draft-request-dialog")));
 	    System.out.println("Modal dialog is displayed.");
 	    js.executeScript("window.scrollTo(0,0)");
-	    commonFunctions.clickWebElement( userServicesPageLocators.newRequest_btn);
+	  commonFunctions.clickWebElement( userServicesPageLocators.newRequest_btn);
+	 //   userServicesPageLocators.newRequest_btn.click();
 	} catch (org.openqa.selenium.TimeoutException e) {
 	    try {
 	        wait.until(ExpectedConditions.not(ExpectedConditions.urlToBe(currentUrl)));
@@ -439,6 +470,9 @@ public void clickChangeorAddPartnerRequestLink() throws InterruptedException {
 //						}	if(draftRequests!=0) {
 //							userServicesPageLocators.newRequest_btn.click();
 //						}
+				userServicesPageLocators.serviceType_ddl.click();
+				userServicesPageLocators.LicensingServices_ddlValue.click();
+				commonFunctions.implicitWait(5);
 						js.executeScript("window.scrollTo(0,0)");
 						String currentUrl = driver.getCurrentUrl();
 						WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
@@ -461,7 +495,10 @@ public void clickChangeorAddPartnerRequestLink() throws InterruptedException {
 						js.executeScript("window.scrollTo(0,0)");
 						
 			}
-			public void clickAppointmentNotificationforEmployeesRequestLink() throws InterruptedException {				
+			public void clickAppointmentNotificationforEmployeesRequestLink() throws InterruptedException {	
+				userServicesPageLocators.serviceType_ddl.click();
+				userServicesPageLocators.LicensingServices_ddlValue.click();
+				commonFunctions.implicitWait(5);
 				js.executeScript("window.scrollTo(0,0)");
 				String currentUrl = driver.getCurrentUrl();
 				WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
@@ -483,7 +520,10 @@ public void clickChangeorAddPartnerRequestLink() throws InterruptedException {
 				}
 			}
 			
-			public void clickChangeSchoolLocationLink() throws InterruptedException {			
+			public void clickChangeSchoolLocationLink() throws InterruptedException {	
+				userServicesPageLocators.serviceType_ddl.click();
+				userServicesPageLocators.LicensingServices_ddlValue.click();
+				commonFunctions.implicitWait(5);
 				js.executeScript("window.scrollTo(0,0)");
 				String currentUrl = driver.getCurrentUrl();
 				WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
@@ -509,7 +549,9 @@ public void clickChangeorAddPartnerRequestLink() throws InterruptedException {
 			}
 			
 			public void clickModificationorAdditiontoSchoolBuildingLink() throws InterruptedException {
-
+				userServicesPageLocators.serviceType_ddl.click();
+				userServicesPageLocators.LicensingServices_ddlValue.click();
+				commonFunctions.implicitWait(5);
 				js.executeScript("window.scrollTo(0,0)");
 				//ResponseWrapper responseWrapper = setDevTools("https://apeco-gateway-qc.graycliff-e2cfdb11.eastus.azurecontainerapps.io/ServiceDesk/api/Requests/GetRequests?Status=0&ServiceCode=final-approval-school&PageIndex=1&PageSize=1000");
 				String currentUrl = driver.getCurrentUrl();
@@ -536,7 +578,9 @@ public void clickChangeorAddPartnerRequestLink() throws InterruptedException {
 			}
 		
 			public void clickModificationorIncreaseinTuitionFeesLink() throws InterruptedException {
-
+				userServicesPageLocators.serviceType_ddl.click();
+				userServicesPageLocators.LicensingServices_ddlValue.click();
+				commonFunctions.implicitWait(5);
 				js.executeScript("window.scrollTo(0,0)");
 				String currentUrl = driver.getCurrentUrl();
 				WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
@@ -561,6 +605,9 @@ public void clickChangeorAddPartnerRequestLink() throws InterruptedException {
 			}
 			
 			public void clickAddingEducationalStagesLink() throws InterruptedException {
+				userServicesPageLocators.serviceType_ddl.click();
+				userServicesPageLocators.LicensingServices_ddlValue.click();
+				commonFunctions.implicitWait(5);
 				js.executeScript("window.scrollTo(0,0)");
 				String currentUrl = driver.getCurrentUrl();
 				WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
@@ -584,7 +631,9 @@ public void clickChangeorAddPartnerRequestLink() throws InterruptedException {
 			}
 			
 			public void clickReducingEducationalStagesLink() throws InterruptedException {
-		
+				userServicesPageLocators.serviceType_ddl.click();
+				userServicesPageLocators.LicensingServices_ddlValue.click();
+				commonFunctions.implicitWait(5);
 				js.executeScript("window.scrollTo(0, 1000)");
 				String currentUrl = driver.getCurrentUrl();
 				WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
@@ -609,7 +658,9 @@ public void clickChangeorAddPartnerRequestLink() throws InterruptedException {
 			}
 			
 			public void clickAnnualActivitiesandProgramsLink() throws InterruptedException {				
-				//js.executeScript("window.scrollTo(0,700)");
+				userServicesPageLocators.serviceType_ddl.click();
+				userServicesPageLocators.LicensingServices_ddlValue.click();
+				commonFunctions.implicitWait(5);
 				js.executeScript("window.scrollTo(0, 1000)");
 				String currentUrl = driver.getCurrentUrl();
 				WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));

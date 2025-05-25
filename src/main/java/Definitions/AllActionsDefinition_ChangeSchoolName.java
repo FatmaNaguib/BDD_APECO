@@ -30,9 +30,9 @@ public void the_applicant_applies_for_a_new_change_school_name_request() throws 
 	userLoginPageActions.userlogin(properties.getProperty("username"), properties.getProperty("password"));
 	userWorkspacePageActions.clickonSideMenu_Services_link();
 	userServicesPageActions.startChangeSchoolNameRequest();
-//	String licensedSchoolName = (String) scenarioContext.getData("licensedSchoolName");
-//	userSchoolsListActions.selectSchool(licensedSchoolName);
-	userSchoolsListActions.selectSchool("New Education School 20565");	
+	String licensedSchoolName = (String) scenarioContext.getData("licensedSchoolName");
+	userSchoolsListActions.selectSchool(licensedSchoolName);
+	//userSchoolsListActions.selectSchool("New Education School 1693861");	
 	String[] schoolNames = UserSchoolsListActions.schoolName();
 	String schoolNameAr = schoolNames[0];
 	String schoolNameEng = schoolNames[1];

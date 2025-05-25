@@ -126,6 +126,7 @@ public class ChangeSchoolManagerActions extends APECOTestBase {
 
 	}
 	public void payRequestfees() throws InterruptedException {
+		commonFunctions.implicitWait(1000);
 		commonFunctions.clickWebElement(changeSchoolManagerLocators.postPay_btn);
 		commonFunctions.clickWebElement(changeSchoolManagerLocators.payNow_btn);
 		//commonFunctions.waitElementToBevisible(changeSchoolManagerLocators.submit_btn);

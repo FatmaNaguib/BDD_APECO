@@ -24,9 +24,9 @@ public class AllActionsDefinition_AppointmentNotificationforEmployees extends AP
 		userLoginPageActions.userlogin(properties.getProperty("username"), properties.getProperty("password"));
 		userWorkspacePageActions.clickonSideMenu_Services_link();
 		 userServicesPageActions.clickAppointmentNotificationforEmployeesRequestLink();
-		 String licensedSchoolName = (String) scenarioContext.getData("licensedSchoolName");
-		 userSchoolsListActions.selectSchool(licensedSchoolName);
-	//	 userSchoolsListActions.selectSchool("New Education School 37913");
+		 //String licensedSchoolName = (String) scenarioContext.getData("licensedSchoolName");
+		 //userSchoolsListActions.selectSchool(licensedSchoolName);
+		 userSchoolsListActions.selectSchool("New Education School 260936");
 		 
 			apointmentNotificationforEmployeesActions.enterEmployeesGeneralData("Permanent notification");
 			apointmentNotificationforEmployeesActions.enterBasicCandidateData("Mahmoud Shaker", "Emirati", "Male", "Math", "Australian", "Pre-Kindergarten", "Teacher", "Single", "2001-12-17", "UAE", "123456789987654", "2031-12-17", "A12345", "2031-12-17", "Muslim", "2031-12-17", "مدينة عجمان", "fatma_naguib22@hotmail.com", "010052265598");

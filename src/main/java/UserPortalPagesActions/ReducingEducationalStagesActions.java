@@ -60,7 +60,7 @@ public class ReducingEducationalStagesActions extends APECOTestBase {
 	}
 	
 	public void postPayRequestfees() throws InterruptedException {
-		
+		Thread.sleep(1000);
 		commonFunctions.waitElementToBevisible(reducingEducationalStagesLocators.postPay_btn);
 		commonFunctions.moveToWebElement(reducingEducationalStagesLocators.postPay_btn);
 		reducingEducationalStagesLocators.postPay_btn.click();

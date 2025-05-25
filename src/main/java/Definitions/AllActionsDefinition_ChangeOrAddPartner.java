@@ -22,13 +22,12 @@ public class AllActionsDefinition_ChangeOrAddPartner extends APECOTestBase {
 	
 	@Then("The Applicant Applies for a New Change Or Add Partner Request")
 	public void the_applicant_applies_for_a_new_change_or_add_partner_request() throws Exception {
-
 		userLoginPageActions.userlogin(properties.getProperty("username"), properties.getProperty("password"));
 		userWorkspacePageActions.clickonSideMenu_Services_link();	
 		userServicesPageActions.clickChangeorAddPartnerRequestLink();
-//		String licensedSchoolName = (String) scenarioContext.getData("licensedSchoolName");
-//		userSchoolsListActions.selectSchool(licensedSchoolName);
-		userSchoolsListActions.selectSchool("New Education School 64590");
+		//String licensedSchoolName = (String) scenarioContext.getData("licensedSchoolName");
+		//userSchoolsListActions.selectSchool(licensedSchoolName);
+		userSchoolsListActions.selectSchool("New Education School 260936");
 		changeOrAddPartnerActions.StartAddNewOwnersRequest(); 
 		 changeOrAddPartnerActions.enterOwnerPersonalData("Company","الشركة المتحدة","Omar Kamel", "Al-Ali","Omar.jpeg","CriminalStatusCertifion.jpg","UAE","2024-05-27","Emirati","Muslim", "Engineer","600");
 		 changeOrAddPartnerActions.enterOwnerpassportDetails("A123456","UAE","2024-05-27","2025-05-27","Passport.jpg");

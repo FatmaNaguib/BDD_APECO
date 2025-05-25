@@ -27,6 +27,9 @@ public class AdminAgentQueueActions extends APECOTestBase {
 	}
 	
 	public void adminSearchforaRequest( String requestNumber) throws InterruptedException {
+		commonFunctions.implicitWait(30);
+		//Thread.sleep(2000);
+		commonFunctions.fluentWait(adminAgentQueueLocators.requestLink);
 		commonFunctions.waitElementToBevisible(adminAgentQueueLocators.requestLink);
 		actions.sendKeys(adminAgentQueueLocators.saerch_Textbox,requestNumber);
 		actions.build().perform();
@@ -34,8 +37,10 @@ public class AdminAgentQueueActions extends APECOTestBase {
 	}	
 	
 	public void adminRequestSearchAfterAction(String requestNumber) throws InterruptedException {
-		commonFunctions.waitElementToBevisible(adminAgentQueueLocators.requestLink2);
+		//commonFunctions.implicitWait(20);
+		Thread.sleep(2000);
 		actions.sendKeys(adminAgentQueueLocators.saerch_Textbox,requestNumber);
+		commonFunctions.waitElementToBevisible(adminAgentQueueLocators.requestLink2);
 		actions.build().perform();
 		Thread.sleep(2000);
 	}	
@@ -58,7 +63,7 @@ public class AdminAgentQueueActions extends APECOTestBase {
 		commonFunctions.implicitWait(10);
 		 
 		adminAgentQueueActions.adminOpenAgentQueueScreen();
-			 commonFunctions.implicitWait(20);
+			 Thread.sleep(3000);
 			    adminAgentQueueActions.adminRequestSearchAfterAction(String.valueOf(requestNumber));
 			 commonFunctions.implicitWait(10);
 			 

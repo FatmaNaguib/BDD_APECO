@@ -25,9 +25,9 @@ public class AllActionsDefinition_CertificationofExperienceCertificateforEmploye
 		userLoginPageActions.userlogin(properties.getProperty("username"), properties.getProperty("password"));
 		userWorkspacePageActions.clickonSideMenu_Services_link();
 		userServicesPageActions.clickexperienceCertificateforEmployeesServiceLink();	
-//		String licensedSchoolName = (String) scenarioContext.getData("licensedSchoolName");
-//		userSchoolsListActions.selectSchool(licensedSchoolName);	
-		userSchoolsListActions.selectSchool("New Education School 64590");
+	//String licensedSchoolName = (String) scenarioContext.getData("licensedSchoolName");
+	//	userSchoolsListActions.selectSchool(licensedSchoolName);	
+	userSchoolsListActions.selectSchool("New Education School 260936");
 		employeesExperienceCertificateRatificationActions.enterExperienceCertificateData("Mohamed Samir","محمد سمير","English", "اللغة الانجليزية","English Teacher","مدرس لغة انجليزية", "British", "Pre-Kindergarten", "2020-11-04", "2023-11-04");
 		employeesExperienceCertificateRatificationActions.enterExperienceCertificateAttachments("UploadFile.pdf","UploadFile.pdf");
 		employeesExperienceCertificateRatificationActions.payExperienceCertificateRequestRequestfees();

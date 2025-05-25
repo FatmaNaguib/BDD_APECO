@@ -32,7 +32,7 @@ finalApprovalActions.enterSchoolFees("100", "100", "100","200", "200", "200","30
 @Then("^User Enters Valid data in the Manager Data Step$")
 public void user_enters_valid_data_in_the_manager_data_step() throws InterruptedException, AWTException {
  finalApprovalActions.enterCandidateData();
- finalApprovalActions.enterManagerData("Mohamed Nader","Emirati","Male","School Manager","Single","1990-11-05","United Arab Emirates","123456789","2025-11-05","987654321","2025-11-05","Muslim","fatma_naguib99@hotmail.com","123456", "123456", "123456", "123456");
+ finalApprovalActions.enterManagerData("Mohamed Nader","Emirati","Male","School Manager","Single","1990-11-05","United Arab Emirates","123456789","2025-11-05","987654321","2025-11-05","Muslim","apecoschoolmanager@hotmail.com","123456", "123456", "123456", "123456");
  finalApprovalActions.enterQualificationsData("Bachelor's Degree", "Engineering", "2020-11-05", "Cairo university","UploadFile.pdf","School","Manager","UploadFile.pdf");
 }
 
@@ -53,7 +53,7 @@ public void user_sumbits_the_final_aproval_request() throws InterruptedException
 public void user_applys_for_a_new_final_approval_request_successfully() throws InterruptedException, AWTException {
 	finalApprovalActions.enterSchoolFees("100", "100", "100","200", "200", "200","300", "300", "300", "Dubai", "500", "500");
 	finalApprovalActions.enterCandidateData();
-	 finalApprovalActions.enterManagerData("Mohamed Nader","Emirati","Male","School Manager","Single","1990-11-05","United Arab Emirates","123456789","2025-11-05","987654321","2025-11-05","Muslim","fatma_naguib99@hotmail.com","123456", "123456", "123456", "123456");
+	 finalApprovalActions.enterManagerData("Mohamed Nader","Emirati","Male","School Manager","Single","1990-11-05","United Arab Emirates","123456789","2025-11-05","987654321","2025-11-05","Muslim","apecoschoolmanager@hotmail.com","123456", "123456", "123456", "123456");
 	 finalApprovalActions.enterQualificationsData("Bachelor's Degree", "Engineering", "2020-11-05", "Cairo university","UploadFile.pdf","School","Manager","UploadFile.pdf");
 	 finalApprovalActions.enterManagerAttachments("UploadFile.pdf", "UploadFile.pdf","UploadFile.pdf", "UploadFile.pdf", "UploadFile.pdf","UploadFile.pdf", "UploadFile.pdf", "UploadFile.pdf", "UploadFile.pdf", "UploadFile.pdf", "Omar.jpeg", "UploadFile.pdf", "UploadFile.pdf");
 	finalApprovalActions.submitTheRequest();	

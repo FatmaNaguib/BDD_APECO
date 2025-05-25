@@ -24,24 +24,26 @@ public class FinalApprovalLocators {
 	 
 	    
 		@FindBy(xpath = "//button[normalize-space()='Basic Candidate Data']") public WebElement basicCandidateData_tab;
-		@FindBy(id = "name") public WebElement managerNameTextBox;
+		@FindBy(xpath ="//input[@id=\"name\"]") public WebElement managerNameTextBox;
 		@FindBy(xpath = "//label[@for=\"nationality\"]//following::input[1]") public WebElement mangerNationality_ddl;
 		@FindBy(xpath = "//label[@for=\"gender\"]//following::input[1]") public WebElement managerGender_ddl;
-		@FindBy(id = "appliedPosition") public WebElement appliedPosition_TextBox;
+		@FindBy(xpath = "//input[@id=\"appliedPosition\"]") public WebElement appliedPosition_TextBox;
 		@FindBy(xpath = "//label[@for=\"maritalStatus\"]//following::input[1]") public WebElement maritalStatus_ddl;
 		@FindBy(xpath = "//label[@for=\"birthDate\"]//following::input[1]") public WebElement birthDate_Calendar;
 		@FindBy(xpath= "//label[@for='placeOfDate']//following::input[1]") public WebElement placeOfBirth_ddl;
 		
-		@FindBy(id = "idCardNumber") public WebElement idCardNumber_TextBox;
+		@FindBy(xpath ="//input[@id=\"idCardNumber\"]") public WebElement idCardNumber_TextBox;
 		@FindBy(xpath = "//input[@placeholder='ID Card Expiration Date']") public WebElement idCardExpirationDate_TextBox;
-		@FindBy(id = "passportNumber") public WebElement passportNumber_TextBox;
+		@FindBy(xpath="//input[@id=\"passportNumber\"]") public WebElement passportNumber_TextBox;
+		
 		@FindBy(xpath = "//input[@placeholder='Passport Expiration Date']") public WebElement passportExpirationDate_Calendar;
 		@FindBy(xpath = "//label[@for=\"religion\"]//following::input[1]") public WebElement religion_ddl;
 		@FindBy(xpath = "	//input[@placeholder='Residency Expiration Date']") public WebElement residencyExpirationDate_Calendar;
 		@FindBy(xpath = "	//input[@placeholder='Visa Expiration Date']") public WebElement visaExpirationDate_Calendar;
-		@FindBy(id = "addressInsideCountry") public WebElement addressInsideCountry_TextBox;
-		@FindBy(id = "email") public WebElement email_TextBox;
-		@FindBy(id = "phoneNumber") public WebElement phoneNumber_TextBox;
+		
+		@FindBy(xpath = "//input[@id=\"addressInsideCountry\"]") public WebElement addressInsideCountry_TextBox;
+		@FindBy(xpath ="//input[@id=\"email\"]") public WebElement email_TextBox;
+		@FindBy(xpath ="//input[@id=\"phoneNumber\"]") public WebElement phoneNumber_TextBox;
 		
 		
 		@FindBy(xpath = "//button[normalize-space()='Qualifications']") public WebElement qualifications_tab;
@@ -51,8 +53,8 @@ public class FinalApprovalLocators {
 		@FindBy(xpath = "//input[@id='Certificate Issuing Authority']") public WebElement certificateIssuingAuthority_Textbox;
 		@FindBy (xpath ="//input[@id=\"verifiedQualificationAndAcademicRecord\"]")public WebElement verifiedQualificationAndAcademicRecord_uploader;
 		 @FindBy(xpath = "//button[@id='nz-tabs-0-tab-3']") public  WebElement previousExperience_btn;
-		@FindBy(id = "Employer") public WebElement employer_TextBox;
-		@FindBy(id = "Job Title") public WebElement jobTitle_TextBox;
+		@FindBy(xpath= "//input[@id=\"Employer\"]") public WebElement employer_TextBox;
+		@FindBy(xpath ="//input[@id=\"Job Title\"]") public WebElement jobTitle_TextBox;
 		@FindBy (xpath ="//input[@id=\"experienceCertificates\"]")public WebElement experienceCertificates_uploader;
 	    @FindBy(xpath = "//button[@class='ant-btn ant-btn-primary ant-btn-lg ng-star-inserted']") public  WebElement managerDataNext_btn; 
 	    
