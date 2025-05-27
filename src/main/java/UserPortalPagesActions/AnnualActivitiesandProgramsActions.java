@@ -75,7 +75,6 @@ public class AnnualActivitiesandProgramsActions extends APECOTestBase {
 		annualActivitiesandProgramsLocators.confirmation_btn.click();
 		return anuannualActivitiesandProgramsmberRequestNumber;
 	}
-	
 	public void resubmitRequest() {
 		annualActivitiesandProgramsLocators.resubmit_btn.click();
 		annualActivitiesandProgramsLocators.resubmitSave_btn.click();

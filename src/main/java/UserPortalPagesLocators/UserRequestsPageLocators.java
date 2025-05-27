@@ -10,7 +10,6 @@ public class UserRequestsPageLocators {
 	 @FindBy(xpath = "//span[@class=\"ant-input-suffix ng-star-inserted\"]") public WebElement search_Icon;
 	 @FindBy(xpath = "//tbody/tr[1]/td[1]/span") public WebElement requestNemberLink;
 	 @FindBy(xpath = "//tbody/tr[1]/td[5]//span[@class=\"ng-star-inserted\"]") public WebElement requestStatus_Lable;
-	 @FindBy(xpath = "//tbody/tr[1]/td[1]") public WebElement firstRefNumber_txt;
 	 @FindBy(xpath = "//tbody/tr[1]/td[6]/button[1]") public WebElement details_Btn;
 	 @FindBy(xpath = "//tbody/tr[1]/td[1]") public WebElement requestRefNumber;
 	 @FindBy(xpath = "//button[normalize-space()='Reply']") public WebElement reply_Btn;

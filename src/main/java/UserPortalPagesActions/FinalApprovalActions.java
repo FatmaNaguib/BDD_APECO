@@ -266,8 +266,7 @@ public class FinalApprovalActions extends APECOTestBase {
 //		commonFunctions.waitElementToBevisible(finalApprovalLocators.okay_btn);
 //		finalApprovalLocators. okay_btn.click();
 //		//Thread.sleep(3000);
-	//commonFunctions.implicitWait(5);
-		Thread.sleep(1000);
+//		commonFunctions.implicitWait(30);
 		commonFunctions.waitElementToBevisible(finalApprovalLocators.pay_btn);
 		commonFunctions.moveToWebElement(finalApprovalLocators.pay_btn);
 		finalApprovalLocators.pay_btn.click();

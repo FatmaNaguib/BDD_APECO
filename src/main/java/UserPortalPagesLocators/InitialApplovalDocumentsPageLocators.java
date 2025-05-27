@@ -14,8 +14,4 @@ public class InitialApplovalDocumentsPageLocators {
 	@FindBy(xpath = "//span[normalize-space()='Submit']") public WebElement submit_btn;
 	@FindBy(xpath = "//span[@class=\"font-weight-semibold fs-2rem\"]") public WebElement confirmation_msg;
 	@FindBy(xpath = "//span[@class='ng-star-inserted']") public WebElement confirmation_btn;	
-	
-	@FindBy(xpath = "//button[@class='btn btn-lg btn-success ng-star-inserted']") public WebElement resubmit_btn;
-	@FindBy(xpath = "(//button[@class=\"ant-btn btn btn-main flex-grow-1\"])[2]") public WebElement resubmitSave_btn;
-	
 }

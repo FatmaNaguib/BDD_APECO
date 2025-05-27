@@ -41,7 +41,6 @@ public  String getworkspaceHeader() throws IOException{
 	}
 
 public UserServicesPageLocators clickonSideMenu_Services_link() throws IOException {
-	commonFunctions.implicitWait(5);
 	Actions.moveToElement(userWorkspacePageLocators.sideMenu).perform();
 	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(TestUtil.IMPLACIT_WAIT));
 	userWorkspacePageLocators.sidemenu_servicesLink.click() ;

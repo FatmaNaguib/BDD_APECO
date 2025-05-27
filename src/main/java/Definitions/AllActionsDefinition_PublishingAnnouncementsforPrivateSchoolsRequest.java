@@ -29,7 +29,7 @@ public class AllActionsDefinition_PublishingAnnouncementsforPrivateSchoolsReques
 		userServicesPageActions.clickPublishingAnnouncementsServiceLink();
 //		String licensedSchoolName = (String) scenarioContext.getData("licensedSchoolName");
 //		userSchoolsListActions.selectSchool(licensedSchoolName);	
-		userSchoolsListActions.selectSchool("New Education School 260936");
+		userSchoolsListActions.selectSchool("New Education School 23895");
 		String publishingAnnouncementsRequestNumber = publishingAnnouncementsPageActions.submitPublishingAnnouncementsRequest("Social media", "Omar.jpeg");
 		scenarioContext.setData("publishingAnnouncementsRequestNumber",publishingAnnouncementsRequestNumber );
 		assertTrue(publishingAnnouncementsRequestNumber.length() > 0);

@@ -1,22 +1,24 @@
 package Bases;
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.time.Duration;
-
+import java.util.Optional;
 import java.util.Properties;
 
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-
+import org.openqa.selenium.devtools.DevTools;
+import org.openqa.selenium.devtools.v129.network.Network;
+import org.openqa.selenium.devtools.v129.network.model.RequestId;
+import org.openqa.selenium.devtools.v129.network.model.Response;
 
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 
 import com.google.gson.JsonObject;
-
+import com.google.gson.JsonParser;
 
 import AdminPortaPageslLocators.AdminAgentQueueLocators;
 import AdminPortaPageslLocators.AdminInitialApprovalRequestDetailsLocators;
@@ -74,7 +76,7 @@ import UserPortalPagesActions.PartnerWithdrawalRequestActions;
 
 import Util.TestUtil;
 import io.cucumber.core.cli.Main;
-import java.io.File;
+
 
 public class APECOTestBase {
 
@@ -140,46 +142,18 @@ public class APECOTestBase {
 	public static AdminEventPermitbyanExternalEntityActions adminEventPermitbyanExternalEntityActions;
 
 	public static void main(String args[]) throws Throwable {
-	   
-		File failedFile = new File("target/failedrerun.txt");
-        if (!failedFile.exists() && failedFile.length() < 0) {
-					    		try {
-					    	    	
-					    	        Main.main(new String[] { 
-					    	        		
-					    	        "-g","Bases",
-					    	        "-g","Definitions",
-					    	        "-g","Runner.TestRunner",
-					    	        "-g","Hooks.APECOPortalHooks",            
-					    	        "classpath:Features", 
-					    	        
-					    	        "-t","@UserLogin",
-					    	                
-					    	        "-p", "pretty", 
-					    	        "-p", "json:target/cucumber.json", 
-					    	        "-p", "json:target/json/file.json",
-					    	        
-					    	        "-m"
-					    	    }
-					    	        
-					    	    );
-					    	} catch (Exception e) {
-					    	        e.printStackTrace();
-					    	        System.out.println("Main method exception : " + e);
-					    	}
-          if (failedFile.exists() && failedFile.length() > 0) {}
-        	
-  		try {
-	    	
+	    try {
 	        Main.main(new String[] { 
-	        		
+	    
+
 	        "-g","Bases",
 	        "-g","Definitions",
-	        "-g","Runner.FailedRun",
+	        "-g","Runner",
 	        "-g","Hooks.APECOPortalHooks",            
 	        "classpath:Features", 
 	        
 	        "-t","@UserLogin",
+	        
 	                
 	        "-p", "pretty", 
 	        "-p", "json:target/cucumber.json", 
@@ -187,18 +161,12 @@ public class APECOTestBase {
 	        
 	        "-m"
 	    }
-	        
 	    );
 	} catch (Exception e) {
 	        e.printStackTrace();
 	        System.out.println("Main method exception : " + e);
 	}
-        }
-
 	}
-	
-	
-	
 	 public APECOTestBase() throws IOException {
 			properties = new Properties();
 			FileInputStream confgFile = new FileInputStream("./src/main/java/Config/confg.properties");
@@ -266,7 +234,26 @@ public class APECOTestBase {
 			    public JsonObject Json = null;
 			    public String String = null;
 			}
+	/*	 public ResponseWrapper  setDevTools(String url) {
+			// System.out.println(url);
+				DevTools devTools = ((ChromeDriver) driver).getDevTools();
+				devTools.createSession();
+				devTools.send(Network.enable(Optional.empty(), Optional.empty(), Optional.empty())); 
+			    final ResponseWrapper responseWrapper = new ResponseWrapper();
 
+				devTools.addListener(Network.responseReceived(), responseReceived ->{
+					Response response = responseReceived.getResponse();
+					RequestId requestId = responseReceived.getRequestId();
+					//System.out.println(response.getUrl());
+					if(response.getStatus()==200 && response.getUrl().equals(url)) {
+						//System.out.println("match: "+response.getUrl());
+			            String responseBody = devTools.send(Network.getResponseBody(requestId)).getBody();
+			            responseWrapper.String = responseBody;
+			            responseWrapper.Json = JsonParser.parseString(responseBody).getAsJsonObject();
+					}								
+				});
+			    return responseWrapper;
+		 }*/
 		
 	
 	public void UserPagesInitialization() throws IOException {

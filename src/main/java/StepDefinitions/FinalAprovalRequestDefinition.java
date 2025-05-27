@@ -38,7 +38,7 @@ public class FinalAprovalRequestDefinition extends APECOTestBase {
 	@Then("User Enters Valid Data in the Manager Data Step")
 	public void user_enters_valid_data_in_the_manager_data_step() throws InterruptedException, AWTException {
 		 finalApprovalActions.enterCandidateData();
-		 finalApprovalActions.enterManagerData("Mohamed Nader","Emirati","Male","School Manager","Single","1990-11-05","United Arab Emirates","123456789","2025-11-05","987654321","2025-11-05","Muslim","apecoschoolmanager@hotmail.com","123456", "123456", "123456", "123456");
+		 finalApprovalActions.enterManagerData("Mohamed Nader","Emirati","Male","School Manager","Single","1990-11-05","United Arab Emirates","123456789","2025-11-05","987654321","2025-11-05","Muslim","fatma_naguib99@hotmail.com","123456", "123456", "123456", "123456");
 		 finalApprovalActions.enterQualificationsData("Bachelor's Degree", "Engineering", "2020-11-05", "Cairo university","UploadFile.pdf","School","Manager","UploadFile.pdf");
 	}
 

@@ -28,10 +28,10 @@ public class AllActionsDefinition_SchoolLicenseRenewal extends APECOTestBase {
 		
 		
 		userServicesPageActions.clickschoolLicenseRenewalLink();
-		String licensedSchoolName = (String) scenarioContext.getData("licensedSchoolName");
-		userSchoolsListActions.selectSchool(licensedSchoolName);
+//		String licensedSchoolName = (String) scenarioContext.getData("licensedSchoolName");
+//		userSchoolsListActions.selectSchool(licensedSchoolName);
 		
-		//userSchoolsListActions.selectSchool("New Education School 42607");
+		userSchoolsListActions.selectSchool("New Education School 23895");
 		licenseRenewalActions.submitlicenseRenewalRequest("Intoduction Document.pdf", "Intoduction Document.pdf", "Intoduction Document.pdf", "Intoduction Document.pdf", "Intoduction Document.pdf", "Intoduction Document.pdf", "Intoduction Document.pdf", "Intoduction Document.pdf");	
 		String schoolLicenseRenewalRequestNumber = licenseRenewalActions.confirmRequestl();
 		scenarioContext.setData("schoolLicenseRenewalRequestNumber",schoolLicenseRenewalRequestNumber);

@@ -70,14 +70,6 @@ public class InitialApplovalDocumentsPageActions extends APECOTestBase  {
 		initialApplovalDocumentsPageLocators.confirmation_btn.click();
 		return requestNumber;
 	}
-	
-	public void resubmitRequest() {
-		commonFunctions.waitElementToBevisible(	initialApplovalDocumentsPageLocators.resubmit_btn);
-		initialApplovalDocumentsPageLocators.resubmit_btn.click();
-		initialApplovalDocumentsPageLocators.resubmitSave_btn.click();
-		commonFunctions.implicitWait(30);
-	}
-	
 }
 	
 	

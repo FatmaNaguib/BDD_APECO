@@ -123,7 +123,6 @@ commonFunctions.moveToWebElement(appointmentNotificationforEmployeesLocators.dat
 		//Thread.sleep(2000);
 		commonFunctions.implicitWait(20);
 //		commonFunctions.waitElementToBevisible(appointmentNotificationforEmployeesLocators.submit_btn);
-		commonFunctions.moveToWebElement(appointmentNotificationforEmployeesLocators.submit_btn);
 		appointmentNotificationforEmployeesLocators.submit_btn.click();
 	//	commonFunctions.clickWebElement(appointmentNotificationforEmployeesLocators.submit_btn);
 	}

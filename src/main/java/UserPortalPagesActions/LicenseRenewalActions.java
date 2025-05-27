@@ -45,7 +45,6 @@ public class LicenseRenewalActions extends APECOTestBase  {
 			//Thread.sleep(2000);
 			commonFunctions.implicitWait(20);
 			//commonFunctions.fluentWait(licenseRenewalLocators.dataAcknowledge_Checkbox);
-			commonFunctions.moveToWebElement(licenseRenewalLocators.dataAcknowledge_Checkbox);
 			licenseRenewalLocators.dataAcknowledge_Checkbox.click();
 			commonFunctions.moveToWebElement(licenseRenewalLocators.submit_btn);
 			commonFunctions.waitElementToBeClickable(licenseRenewalLocators.submit_btn);

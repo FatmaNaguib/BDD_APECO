@@ -9,16 +9,11 @@ public class AdminAgentQueueLocators {
 	public WebElement pageHtml;
 	
 	
-//	@FindBy(xpath = "/html[1]/body[1]/app-root[1]/app-layout[1]/div[1]/div[1]/div[1]/div[1]/agent-queue-page[1]/div[1]/div[1]/app-page-filters[1]/div[1]/div[1]/div[1]/app-search[1]/div[1]/input[1]")	public WebElement saerch_Textbox;
-	@FindBy(xpath = "(//input[@placeholder=\"Search\"])[2]")	public WebElement saerch_Textbox;
+	@FindBy(xpath = "/html[1]/body[1]/app-root[1]/app-layout[1]/div[1]/div[1]/div[1]/div[1]/agent-queue-page[1]/div[1]/div[1]/app-page-filters[1]/div[1]/div[1]/div[1]/app-search[1]/div[1]/input[1]")	public WebElement saerch_Textbox;
 
 	@FindBy(xpath ="//div[@class='start-area']//i[@class='bx bx-search']") 	public WebElement saerch_btn;
-
-//	@FindBy(xpath = "//a[@class='details hoverableLink']") public WebElement requestLink;
 	
-	@FindBy(xpath = "//a[@class='details hoverableLink ng-star-inserted']") public WebElement requestLink;	
-//@FindBy(xpath = \"//a[@class='details hoverableLink']\") public WebElement requestLink;") public WebElement requestLink;
-//@FindBy(xpath = "(//input[@placeholder=\"Search\"])[2]") public WebElement requestLink;
+@FindBy(xpath = "//a[@class='details hoverableLink']") public WebElement requestLink;
 
 @FindBy(xpath = "(//tr//td)[2]") public  WebElement serviceName;
 @FindBy(xpath = "(//tr//td)[3]") public WebElement requestStatus;

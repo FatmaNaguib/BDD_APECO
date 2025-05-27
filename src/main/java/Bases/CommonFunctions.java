@@ -31,16 +31,6 @@ public class CommonFunctions extends APECOTestBase {
 		super();
 		PageFactory.initElements(driver, this);
 	}
-
-	public void clearText(WebElement webElement )
-    {
-        WebElement elementToClear = webElement;
-        elementToClear.click();
-        actions.keyDown(Keys.CONTROL).sendKeys("a").keyUp(Keys.CONTROL);
-        actions.perform();
-        actions.sendKeys(Keys.DELETE);
-        actions.perform();
-    }
 	
 	public void implicitWait(int seconds) {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(seconds));
@@ -151,7 +141,7 @@ public void clickWebElement(WebElement webElement) {
 	}
 	public int createRandomNumber() {
 		 Random random = new Random();
-		 int randomNumber = random.nextInt(10000000);
+		 int randomNumber = random.nextInt(100000);
 		return randomNumber;
 	}
 //public void uploadfile(WebElement uploaderName,String fileName ) throws AWTException, InterruptedException {

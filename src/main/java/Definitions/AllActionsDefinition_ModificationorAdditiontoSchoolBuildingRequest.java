@@ -25,7 +25,7 @@ public class AllActionsDefinition_ModificationorAdditiontoSchoolBuildingRequest 
 		userServicesPageActions.clickModificationorAdditiontoSchoolBuildingLink();	
 //		String licensedSchoolName = (String) scenarioContext.getData("licensedSchoolName");
 //		userSchoolsListActions.selectSchool(licensedSchoolName);		
-		userSchoolsListActions.selectSchool("New Education School 62447");
+		userSchoolsListActions.selectSchool("New Education School 64590");
 		modificationorAdditiontoSchoolBuildingActions.enterSchoolDetails	("Modification of existing building", "Moahamed Essam", "شارع جابر المبارك", "Boys",  "الموقع / رقم قطعة الأرض باللغة الإنجليزية - طلب تغيير موقع مدرسة", "الموقع / رقم قطعة الأرض باللغة العربية - طلب تغيير موقع مدرسة",  "800","900", "400", "90", "First Class","Owner");
 		modificationorAdditiontoSchoolBuildingActions.uploadAttachments("UploadFile.pdf","UploadFile.pdf","UploadFile.pdf","UploadFile.pdf");
 		   modificationorAdditiontoSchoolBuildingActions.submitModificationorAdditiontoSchoolBuildingRequest();  

@@ -36,7 +36,6 @@ public class UserServicesPageLocators {
 	@FindBy(xpath = "//div[normalize-space()='Education Services']")	public WebElement  educationServices;
 	@FindBy(xpath = "//nz-select")	public WebElement  serviceType_ddl;
 	@FindBy(xpath = "//div[normalize-space()='Parent Services']")	public WebElement  parentServices_ddlValue;
-	@FindBy(xpath = "//div[normalize-space()='Licensing Services']")	public WebElement LicensingServices_ddlValue;
 	@FindBy(xpath = "//nz-select-clear//span")	public WebElement  serviceType_xicon;
 	@FindBy (xpath = "//body") 	public WebElement pageBody;
 	@FindBy (xpath = "//span[normalize-space()='New Request']") public WebElement newRequest_btn;

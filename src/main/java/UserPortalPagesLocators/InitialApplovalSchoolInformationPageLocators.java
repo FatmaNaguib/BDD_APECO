@@ -9,24 +9,24 @@ public class InitialApplovalSchoolInformationPageLocators {
 	
 	@FindBy(xpath = "//select-input[@ng-reflect-name='requestType']//nz-select//input[1]") public WebElement requestType_ddl;
 	
-	@FindBy(xpath ="//input[@placeholder=\"Arabic School Name\"]") public WebElement arabicSchoolNameTextbox;
-	@FindBy(xpath ="//input[@placeholder=\"English School Name\"]") public WebElement englishSchoolNameTextbox;
-	@FindBy(xpath ="//input[@placeholder=\"Consultant\"]") public WebElement consultantTextbox;
-	@FindBy(xpath ="//input[@placeholder=\"School Address\"]")  public WebElement schoolAddressTextbox;
+	@FindBy(id = "arabicSchoolName") public WebElement arabicSchoolNameTextbox;
+	@FindBy(id = "englishSchoolName") public WebElement englishSchoolNameTextbox;
+	@FindBy(id = "consultant") public WebElement consultantTextbox;
+	@FindBy(id = "schoolAddress")  public WebElement schoolAddressTextbox;
     @FindBy(xpath = "//label[@for='Gender']//following::input[1]") public WebElement gender_ddl;
-    @FindBy(xpath ="//input[@placeholder=\"English Location/Block number\"]") public WebElement locationNumberEn_Textbox;
-    @FindBy(xpath ="//input[@placeholder=\"Arabic Location/Block number\"]") public WebElement locationNumberAr_Textbox;
+    @FindBy(id = "locationNumber") public WebElement locationNumberEn_Textbox;
+    @FindBy(id = "locationNumberAr") public WebElement locationNumberAr_Textbox;
     @FindBy(xpath = "//label[@for='landOwnership']//following::input[1]")  public WebElement landOwnership_ddl;
     @FindBy(xpath = "//label[@for='ownershipBuilding']//following::input[1]") public WebElement buildingOwnership_ddl;
 	@FindBy(xpath = "//label[@for='landArea']//following::input[1]") public WebElement landAreaTextbox;
 	@FindBy(xpath = "//label[@for='buildingArea']//following::input[1]") public WebElement buildingAreaTextbox;
 	@FindBy(xpath = "//label[@for='totalIndoorcourtArea']//following::input[1]") public WebElement totalIndoorCourtAreaTextbox;
 	@FindBy(xpath = "//label[@for='totalExternalCanopyArea']//following::input[1]") public WebElement totalExternalCanopyAreaTextbox;
-    @FindBy(xpath ="//input[@placeholder=\"Relation to School Building\"]") public WebElement relationshiptoSchoolBuildingTextbox;
+    @FindBy(id = "relationshipSchoolBuilding") public WebElement relationshiptoSchoolBuildingTextbox;
 	@FindBy(xpath = "//label[@for='applicantPhone']//following::input[1]") public WebElement applicantPhoneTextbox;
-	@FindBy (xpath ="//input[@placeholder=\"School Reservation File\"]") public WebElement schoolReservationUploader;
-	@FindBy (xpath ="//input[@placeholder=\"The engineering plan for the school building issued by an accredited engineering office\"]") public WebElement engPlaneUploader;
-	@FindBy (xpath ="//input[@placeholder=\"A map of the land issued by the concerned authorities, showing the name of the area and the plot number\"]") public WebElement landMapUploader;
+	@FindBy (id="reservationFileSchool") public WebElement schoolReservationUploader;
+	@FindBy (id="engPlane") public WebElement engPlaneUploader;
+	@FindBy (id="landMap") public WebElement landMapUploader;
 	@FindBy (xpath = "//body") public WebElement pageBody;
 	@FindBy(xpath ="//div[@class=\"ant-tabs-tab ng-star-inserted\"]") public WebElement tabsList;
    @FindBy(xpath ="//div[@class=\"ant-tabs-tab ng-star-inserted\"]//button[1]") public WebElement curriculumTab;

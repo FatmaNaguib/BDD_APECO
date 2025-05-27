@@ -26,12 +26,12 @@ public class AllActionsDefinition_ChangeSchoolManager extends APECOTestBase{
 		userLoginPageActions.userlogin(properties.getProperty("username"), properties.getProperty("password"));
 		userWorkspacePageActions.clickonSideMenu_Services_link();
 		userServicesPageActions.clickeFinalApprovalServiceLink();
-	//	String licensedSchoolName = (String) scenarioContext.getData("licensedSchoolName");
-	//userSchoolsListActions.selectSchool(licensedSchoolName);
-		userSchoolsListActions.selectSchool("New Education School 1693861");
+	String licensedSchoolName = (String) scenarioContext.getData("licensedSchoolName");
+	userSchoolsListActions.selectSchool(licensedSchoolName);
+		//userSchoolsListActions.selectSchool("New Education School 25817");
 		finalApprovalActions.enterSchoolFees("100", "100", "100","200", "200", "200","300", "300", "300", "Dubai", "500", "500");
 		 finalApprovalActions.enterCandidateData();
-		 finalApprovalActions.enterManagerData("Mohamed Nader","Emirati","Male","School Manager","Single","1990-11-05","United Arab Emirates","123456789","2025-11-05","987654321","2025-11-05","Muslim","manger30@mailinator.com","123456", "123456", "123456", "123456");
+		 finalApprovalActions.enterManagerData("Mohamed Nader","Emirati","Male","School Manager","Single","1990-11-05","United Arab Emirates","123456789","2025-11-05","987654321","2025-11-05","Muslim","fatma_naguib99@hotmail.com","123456", "123456", "123456", "123456");
 		 finalApprovalActions.enterQualificationsData("Bachelor's Degree", "Engineering", "2020-11-05", "Cairo university","UploadFile.pdf","School","Manager","UploadFile.pdf");
 		 finalApprovalActions.enterManagerAttachments("UploadFile.pdf", "UploadFile.pdf","UploadFile.pdf", "UploadFile.pdf", "UploadFile.pdf","UploadFile.pdf", "UploadFile.pdf", "UploadFile.pdf", "UploadFile.pdf", "UploadFile.pdf", "Omar.jpeg", "UploadFile.pdf", "UploadFile.pdf");
 			finalApprovalActions.submitTheRequest();
@@ -96,16 +96,15 @@ public class AllActionsDefinition_ChangeSchoolManager extends APECOTestBase{
 						    commonFunctions.implicitWait(10);
 							userLoginPageActions.userlogin(properties.getProperty("username"), properties.getProperty("password"));
 							userWorkspacePageActions.clickonSideMenuRequestslink();
-							finalapprovalRequestNumber = (String) scenarioContext.getData("finalapprovalRequestNumber");
-							userRequestsPageActions.searchForaRequestbyNumber(finalapprovalRequestNumber);
-							 
-							userRequestsPageActions.clickDetailsButton(finalapprovalRequestNumber);
+							String requestNo = (String) scenarioContext.getData("finalapprovalRequestNumber");
+							 userRequestsPageActions.searchForaRequestbyNumber(requestNo);
+							userRequestsPageActions.clickDetailsButton(requestNo);
 							finalApprovalActions.payRequestfees();
 							userWorkspacePageActions.clickonSideMenuRequestslink();
-							userRequestsPageActions.searchForaRequestbyNumber(finalapprovalRequestNumber);
+							userRequestsPageActions.searchForaRequestbyNumber(requestNo);
 							userRequestsPageActions.getRequestStatus("Closed - Accepted");
-							//userRequestsPageActions.clickDetailsButton(requestNo);
-							Thread.sleep(1000);
+							userRequestsPageActions.clickDetailsButton(requestNo);
+							
 							
 							userWorkspacePageActions.logout();
 	}
@@ -115,17 +114,17 @@ public class AllActionsDefinition_ChangeSchoolManager extends APECOTestBase{
 		userLoginPageActions.userlogin(properties.getProperty("username"), properties.getProperty("password"));
 		userWorkspacePageActions.clickonSideMenu_Services_link();
 		userServicesPageActions.clickChangeSchoolManagerLink();
-	//String licensedSchoolName = (String) scenarioContext.getData("licensedSchoolName");
-	//	userSchoolsListActions.selectSchool(licensedSchoolName);
-		userSchoolsListActions.selectSchool("New Education School 12896");
-		changeSchoolManagerActions.enterManagerData("Mohamed Nader","Emirati","Male","Teacher","Single","1990-11-05","UAE","123456789","2025-11-05","987654321","2025-11-05","Muslim","manger30@mailinator.com","2025-11-05","2025-11-05","Dubai","2025-11-05",
+		String licensedSchoolName = (String) scenarioContext.getData("licensedSchoolName");
+		userSchoolsListActions.selectSchool(licensedSchoolName);
+		//userSchoolsListActions.selectSchool("New Education School 23895");
+		changeSchoolManagerActions.enterManagerData("Mohamed Nader","Emirati","Male","Teacher","Single","1990-11-05","UAE","123456789","2025-11-05","987654321","2025-11-05","Muslim","fatma_naguib22@hotmail.com","2025-11-05","2025-11-05","Dubai","2025-11-05",
 				"Bachelor's Degree","Engineering","2020-11-05","Cairo university","UploadFile.pdf","School","Manager","2020-12-03","2024-12-03","United Arab Emirates","UploadFile.pdf");
 		changeSchoolManagerActions.enterManagerAttachments("UploadFile.pdf", "UploadFile.pdf", "UploadFile.pdf", "Omar.jpeg", "UploadFile.pdf", "UploadFile.pdf");
 		changeSchoolManagerActions.submitRequest();
 		String changeSchoolManagerRequestNumber = changeSchoolManagerActions.confirmRequest();
 		scenarioContext.setData("changeSchoolManagerRequestNumber", changeSchoolManagerRequestNumber);
 		assertTrue(changeSchoolManagerRequestNumber.length() > 0);
-		Thread.sleep(2000);
+		commonFunctions.implicitWait(10);
 		userWorkspacePageActions.logout();
 		driver.get(properties.getProperty("url"));
 	}
@@ -206,54 +205,21 @@ public void the_Employee_approves_his__final_approvalfor_the_change_school_manag
 
 @Then("User Pays for The Change School Manager Request")
 public void user_pays_for_the_change_school_manager_request() throws InterruptedException, IOException {
-//	driver.get(properties.getProperty("url"));
-//    commonFunctions.implicitWait(10);
-//	userLoginPageActions.userlogin(properties.getProperty("username"), properties.getProperty("password"));
-//	userWorkspacePageActions.clickonSideMenuRequestslink();
-//	String changeSchoolManagerRequestNumber = (String) scenarioContext.getData("changeSchoolManagerRequestNumber");
-//	 userRequestsPageActions.searchForaRequestbyNumber(changeSchoolManagerRequestNumber);
-//	userRequestsPageActions.clickDetailsButton(changeSchoolManagerRequestNumber);
-//	
-//	changeSchoolManagerActions.payRequestfees();
-//	
-//	userWorkspacePageActions.clickonSideMenuRequestslink();
-//	userRequestsPageActions.searchForaRequestbyNumber(changeSchoolManagerRequestNumber);
-//	userRequestsPageActions.getRequestStatus("Closed - Accepted");
-
-	driver.get( properties.getProperty("url"));
+	driver.get(properties.getProperty("url"));
     commonFunctions.implicitWait(10);
 	userLoginPageActions.userlogin(properties.getProperty("username"), properties.getProperty("password"));
 	userWorkspacePageActions.clickonSideMenuRequestslink();
-	String	changeSchoolManagerRequestNumber = (String) scenarioContext.getData("changeSchoolManagerRequestNumber");
-	userRequestsPageActions.searchForaRequestbyNumber(changeSchoolManagerRequestNumber);
-	//userRequestsPageActions.searchForaRequestbyNumber("4665");
+	String changeSchoolManagerRequestNumber = (String) scenarioContext.getData("changeSchoolManagerRequestNumber");
+	 userRequestsPageActions.searchForaRequestbyNumber(changeSchoolManagerRequestNumber);
 	userRequestsPageActions.clickDetailsButton(changeSchoolManagerRequestNumber);
-	//userRequestsPageActions.clickDetailsButton("4665");
-	finalApprovalActions.payRequestfees();
+	changeSchoolManagerActions.payRequestfees();
+	
 	userWorkspacePageActions.clickonSideMenuRequestslink();
 	userRequestsPageActions.searchForaRequestbyNumber(changeSchoolManagerRequestNumber);
-//	userRequestsPageActions.clickDetailsButton("4665");
 	userRequestsPageActions.getRequestStatus("Closed - Accepted");
 	userRequestsPageActions.clickDetailsButton(changeSchoolManagerRequestNumber);
-	//userRequestsPageActions.clickDetailsButton("4665");
 	
-//	userWorkspacePageActions.logout();
-	
-	
-	
-	
-//	driver.get( properties.getProperty("url"));
-//    commonFunctions.implicitWait(10);
-//	userLoginPageActions.userlogin(properties.getProperty("username"), properties.getProperty("password"));
-//	userWorkspacePageActions.clickonSideMenuRequestslink();
-//	finalapprovalRequestNumber = (String) scenarioContext.getData("finalapprovalRequestNumber");
-//	userRequestsPageActions.searchForaRequestbyNumber(finalapprovalRequestNumber);
-//	 
-//	userRequestsPageActions.clickDetailsButton(finalapprovalRequestNumber);
-//	finalApprovalActions.payRequestfees();
-//	userWorkspacePageActions.clickonSideMenuRequestslink();
-//	userRequestsPageActions.searchForaRequestbyNumber(finalapprovalRequestNumber);
-//	userRequestsPageActions.getRequestStatus("Closed - Accepted");
+	userWorkspacePageActions.logout();
 }
 
 

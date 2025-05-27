@@ -54,13 +54,12 @@ public class TheApplicantHasanApprovedInitiaapprovalrequestDefinition_InitialApp
 			assertTrue(initialApprovalRequestNumber.length() > 0);
 		userWorkspacePageActions.logout();
 		
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 		driver.get(properties.getProperty("AdminPortalUrl"));
 		adminLoginPageActions.selectEngLang();
 		adminLoginPageActions.adminLogin(properties.getProperty("employeeUsername"), properties.getProperty("employeePassword"));
-		Thread.sleep(2000);
 	    adminAgentQueueActions.adminSearchforaRequest(String.valueOf(initialApprovalRequestNumber));
-	    commonFunctions.implicitWait(30);
+	    commonFunctions.implicitWait(20);
 	    adminAgentQueueActions.adminOpenRequestDetailsScreen(String.valueOf(initialApprovalRequestNumber));
 		adminInitialApprovalRequestDetailsActions.employeeApprovesTheInitialApprovalRequest("UploadFile.pdf");	
 		 adminAgentQueueActions.adminOpenAgentQueueScreen();
@@ -76,7 +75,6 @@ public class TheApplicantHasanApprovedInitiaapprovalrequestDefinition_InitialApp
 		driver.get(properties.getProperty("AdminPortalUrl"));
 		adminLoginPageActions.selectEngLang();
 		adminLoginPageActions.adminLogin(properties.getProperty("engineerUsername"), properties.getProperty("engineerPassword"));
-		commonFunctions.implicitWait(10);
 	    adminAgentQueueActions.adminSearchforaRequest(String.valueOf(initialApprovalRequestNumber));
 	    adminAgentQueueActions.adminOpenRequestDetailsScreen(String.valueOf(initialApprovalRequestNumber));
 		adminInitialApprovalRequestDetailsActions.engineerApprovesTheInitialApprovalRequest("Technical Engineer Approval School Location in The Initiall Approval Request");

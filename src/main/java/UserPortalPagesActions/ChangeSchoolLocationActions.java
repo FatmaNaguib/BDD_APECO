@@ -102,7 +102,6 @@ public class ChangeSchoolLocationActions extends APECOTestBase{
 		commonFunctions.moveToWebElement(changeSchoolLocationLocators.payNow_btn);
 		changeSchoolLocationLocators.payNow_btn.click();
 		commonFunctions.waitElementToBevisible(changeSchoolLocationLocators.submit_btn);
-		commonFunctions.moveToWebElement(changeSchoolLocationLocators.submit_btn);
 		changeSchoolLocationLocators.submit_btn.click();	
 		commonFunctions.moveToWebElement(changeSchoolLocationLocators.okay_btn);
 		commonFunctions.waitElementToBevisible(changeSchoolLocationLocators.okay_btn);
