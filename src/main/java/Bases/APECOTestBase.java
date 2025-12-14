@@ -4,6 +4,10 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.time.Duration;
 
+import java.nio.file.Files;
+import java.nio.file.Path;
+
+
 import java.util.Properties;
 
 
@@ -14,9 +18,10 @@ import org.openqa.selenium.chrome.ChromeOptions;
 
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-
+//import com.google.common.io.Files;
 import com.google.gson.JsonObject;
-
+//import com.itextpdf.text.pdf.parser.Path;
+import org.openqa.selenium.Dimension;
 
 import AdminPortaPageslLocators.AdminAgentQueueLocators;
 import AdminPortaPageslLocators.AdminInitialApprovalRequestDetailsLocators;
@@ -72,9 +77,13 @@ import UserPortalPagesActions.ModificationorAdditiontoSchoolBuildingActions;
 import UserPortalPagesActions.ModificationorIncreaseinTuitionFeesActions;
 import UserPortalPagesActions.PartnerWithdrawalRequestActions;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
+
 import Util.TestUtil;
 import io.cucumber.core.cli.Main;
-import java.io.File;
+
+
+import java.util.UUID;
 
 public class APECOTestBase {
 
@@ -142,7 +151,8 @@ public class APECOTestBase {
 	public static void main(String args[]) throws Throwable {
 	   
 		File failedFile = new File("target/failedrerun.txt");
-        if (!failedFile.exists() && failedFile.length() < 0) {
+      //  if (!failedFile.exists() && failedFile.length() < 0) {
+		if (!failedFile.exists() || failedFile.length() == 0) {
 					    		try {
 					    	    	
 					    	        Main.main(new String[] { 
@@ -216,41 +226,52 @@ public class APECOTestBase {
 	
 
 	   
-	   private void setupDriver(String browserName) {
-		if(browserName.equals("chrome")) {
+	   private void setupDriver(String browserName) throws IOException {
+		if(browserName.equalsIgnoreCase("chrome")) {
 			
-	
-			ChromeOptions chromeOptions = new ChromeOptions();
+			WebDriverManager.chromedriver().setup(); // ✅ no need for path
+	      
 			
+			ChromeOptions chromeOptions = new ChromeOptions();				
+			chromeOptions.setExperimentalOption("excludeSwitches", new String[]{"enable-automation"}); 
+		//	chromeOptions.addArguments("--disable-extensions");
 			
-		chromeOptions.setExperimentalOption("excludeSwitches", new String[]{"enable-automation"}); 
-			chromeOptions.addArguments("--disable-extensions");
+			Path tempProfile = Files.createTempDirectory("chrome-profile-");
+			chromeOptions.addArguments("--user-data-dir=" + tempProfile.toAbsolutePath().toString());
+			
+	//		String userDataDir = System.getProperty("java.io.tmpdir") + "chrome-profile-" + UUID.randomUUID();
+			
+		//	File profile = new File(userDataDir);
+
+			
+			//chromeOptions.addArguments("--user-data-dir=" + userDataDir);
+			
+			//chromeOptions.addArguments("--user-data-dir=" + profile.getAbsolutePath());
+			
+			//chromeOptions.addArguments("--incognito");
+			
 			 boolean isHeadless = Boolean.parseBoolean(System.getProperty("headless", "false"));
 	        if (isHeadless) {
-	        	chromeOptions.addArguments("--headless");
+	        	chromeOptions.addArguments("--headless=new");
 	        	chromeOptions.addArguments("--window-size=1920,1080");
 	        }
-
+	   
 	        System.out.println("Headless mode: " + isHeadless);
-			
-	//	chromeOptions.addArguments("--headless");
-		/*
-			DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
-			desiredCapabilities.setCapability(ChromeOptions.CAPABILITY,chromeOptions);
-			chromeOptions.merge(desiredCapabilities);*/
-			
-			
-		//	chromeOptions.setExperimentalOption("excludeSwitches", new String[]{"enable-automation"}); 
-			chromeOptions.addArguments("--incognito");
-			System.setProperty("webdriver.chrome.driver", "./src/main/resources/drivers/chromedriver.exe");
 
+
+	        //String chromeDriverPath = properties.getProperty("chrome.driver");
+	      //  System.setProperty("webdriver.chrome.driver", chromeDriverPath);
+	              
 			driver = new ChromeDriver(chromeOptions);
+
 			
-		}else if (browserName.equals("firefox")) {
+		}else if (browserName.equalsIgnoreCase("firefox")) {
+			WebDriverManager.firefoxdriver().setup();
 			driver = new FirefoxDriver();
 		}else {
             throw new IllegalArgumentException("Browser not supported: " + browserName);
         }
+		
 	   }
 	
 		
@@ -260,6 +281,8 @@ public class APECOTestBase {
 		driver.manage().deleteAllCookies();
 		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(TestUtil.PAGE_LOAD_TIMEOUT));
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(TestUtil.IMPLACIT_WAIT));	
+
+	     driver.manage().window().setSize(new Dimension(2560, 1440));
 	}
 		 
 		 public class ResponseWrapper {

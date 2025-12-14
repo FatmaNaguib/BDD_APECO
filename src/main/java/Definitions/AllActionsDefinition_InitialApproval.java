@@ -32,11 +32,13 @@ public class AllActionsDefinition_InitialApproval extends APECOTestBase {
 	@Then("The Applicant Applys For a New Initial application Request")
 	public void the_applicant_applys_for_a_new_initial_application_request() throws Exception {
 		userLoginPageActions.userlogin(properties.getProperty("username"), properties.getProperty("password"));
+		commonFunctions.implicitWait(10);
 		userWorkspacePageActions.clickonSideMenu_Services_link();
+		commonFunctions.implicitWait(10);
 		userServicesPageActions.startNewInitialApprovalRequest();
 		initialApplovalOwnersProfilesPageActions.clicknextButton();
 		initialApplovalOwnersProfilesPageActions.enterOwnerPersonalData("Company","الشركة المتحدة","Omar Kamel", "Al-Ali","Omar.jpeg","CriminalStatusCertifion.jpg","UAE","2024-05-27","Emirati","Muslim", "Engineer","600");
-		initialApplovalOwnersProfilesPageActions.enterOwnerpassportDetails("A123456","UAE","2024-05-27","2025-05-27","Passport.jpg");
+		initialApplovalOwnersProfilesPageActions.enterOwnerpassportDetails("A123456","UAE","2024-05-27","2028-05-27","Passport.jpg");
 		commonFunctions.implicitWait(20);
 		 initialApplovalOwnersProfilesPageActions.enterResidenceDetailsDetails("123456789123456","Residence.jpg");
 		 commonFunctions.implicitWait(10);

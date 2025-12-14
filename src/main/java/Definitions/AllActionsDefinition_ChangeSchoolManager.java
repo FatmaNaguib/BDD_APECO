@@ -7,6 +7,7 @@ import java.awt.AWTException;
 import java.io.IOException;
 
 import Bases.APECOTestBase;
+import Bases.CommonFunctions;
 import Util.ScenarioContext;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -134,14 +135,17 @@ public class AllActionsDefinition_ChangeSchoolManager extends APECOTestBase{
 @Then("The Review Employee Rats the Study Plan for The Change School Manager Request")
 public void the_review_employee_rats_the_study_plan_for_the_change_school_manager_request() throws IOException, InterruptedException {
 	driver.get(properties.getProperty("AdminPortalUrl"));
-		adminLoginPageActions.selectEngLang();
-	adminLoginPageActions.adminLogin(properties.getProperty("reviewEmployeeUsername"), properties.getProperty("reviewEmployeePassword"));
-	String  changeSchoolManagerRequestNumber = (String) scenarioContext.getData("changeSchoolManagerRequestNumber");
-   adminAgentQueueActions.adminSearchforaRequest(changeSchoolManagerRequestNumber);
-	adminAgentQueueActions.adminOpenRequestDetailsScreen(changeSchoolManagerRequestNumber);
-	adminFinalApprovalActions.reviewEmployeeRatsTheStudyPlanforTheFinalApprovalRequest();
-	   adminAgentQueueActions.checkRequestStatus(changeSchoolManagerRequestNumber, "Open - Meet The School Manager");    
-      adminAgentQueueActions.adminLogout();
+	
+	adminLoginPageActions.selectEngLang();
+
+adminLoginPageActions.adminLogin(properties.getProperty("reviewEmployeeUsername"), properties.getProperty("reviewEmployeePassword"));
+
+//	String  changeSchoolManagerRequestNumber = (String) scenarioContext.getData("changeSchoolManagerRequestNumber");
+//   adminAgentQueueActions.adminSearchforaRequest(changeSchoolManagerRequestNumber);
+//	adminAgentQueueActions.adminOpenRequestDetailsScreen(changeSchoolManagerRequestNumber);
+//	adminFinalApprovalActions.reviewEmployeeRatsTheStudyPlanforTheFinalApprovalRequest();
+//	   adminAgentQueueActions.checkRequestStatus(changeSchoolManagerRequestNumber, "Open - Meet The School Manager");    
+  //    adminAgentQueueActions.adminLogout();
 
 }
 

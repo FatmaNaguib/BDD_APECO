@@ -40,7 +40,10 @@ public class InitialApplovalSchoolInformationPageActions  extends APECOTestBase 
 			String engPlaneFile, String landMapFile) throws AWTException, InterruptedException {
 	
 	
-		js.executeScript("window.scrollBy(0,-3000)");
+	//js.executeScript("window.scrollBy(0,-3000)");
+		
+		commonFunctions.moveTotoTheTop();
+		Thread.sleep(1000);
 		commonFunctions.moveToWebElement(initialApplovalSchoolInformationPageLocatoes.requestType_ddl);
 		commonFunctions.enterddlValue(initialApplovalSchoolInformationPageLocatoes.requestType_ddl, requestType);
 		initialApplovalSchoolInformationPageLocatoes.arabicSchoolNameTextbox.sendKeys(arabicSchoolName);
@@ -65,9 +68,19 @@ public class InitialApplovalSchoolInformationPageActions  extends APECOTestBase 
 		commonFunctions.uploadfile(initialApplovalSchoolInformationPageLocatoes.schoolReservationUploader, schoolReservationUploader);
 		commonFunctions.uploadfile(initialApplovalSchoolInformationPageLocatoes.engPlaneUploader, engPlaneFile);
 		commonFunctions.uploadfile(initialApplovalSchoolInformationPageLocatoes.landMapUploader, landMapFile);
-		js.executeScript("window.scrollBy(0,-3000)");
+		//js.executeScript("window.scrollBy(0,-3000)");
+		commonFunctions.moveTotoTheTop();
 		
-		commonFunctions.moveToWebElement(initialApplovalSchoolInformationPageLocatoes.curriculumTab);
+		
+		if (initialApplovalSchoolInformationPageLocatoes.curriculumTab.isDisplayed()) {
+			   js.executeScript("arguments[0].scrollIntoView(true);", initialApplovalSchoolInformationPageLocatoes.curriculumTab);
+			}
+		
+		
+		Thread.sleep(1000);
+		
+		
+		//commonFunctions.moveToWebElement(initialApplovalSchoolInformationPageLocatoes.curriculumTab);
 		initialApplovalSchoolInformationPageLocatoes.curriculumTab.click();
 	
 	}
@@ -164,6 +177,7 @@ public class InitialApplovalSchoolInformationPageActions  extends APECOTestBase 
 		initialApplovalSchoolInformationPageLocatoes.capacity1_TextBox.sendKeys(capacity1);
 		initialApplovalSchoolInformationPageLocatoes.numberOfClassRooms1_TextBox.sendKeys(numberofClassRooms1);
 		
+		
 		commonFunctions.moveToWebElement(initialApplovalSchoolInformationPageLocatoes.addStage_btn);
 		initialApplovalSchoolInformationPageLocatoes.addStage_btn.click();
 		commonFunctions.moveToWebElement(initialApplovalSchoolInformationPageLocatoes.stage2Collaps_btn);
@@ -177,22 +191,27 @@ public class InitialApplovalSchoolInformationPageActions  extends APECOTestBase 
 		js.executeScript("window.scrollBy(0,1000)");
 		initialApplovalSchoolInformationPageLocatoes.capacity2_TextBox.sendKeys(capacity2);
 		initialApplovalSchoolInformationPageLocatoes.numberOfClassRooms2_TextBox.sendKeys(numberofClassRooms2);
-//		
-//		commonFunctions.moveToWebElement(initialApplovalSchoolInformationPageLocatoes.addStage_btn);
-//		
-//		initialApplovalSchoolInformationPageLocatoes.addStage_btn.click();
 		commonFunctions.clickWebElement(initialApplovalSchoolInformationPageLocatoes.addStage_btn);
-		commonFunctions.moveToWebElement(initialApplovalSchoolInformationPageLocatoes.stage3Collaps_btn);
+		js.executeScript("window.scrollBy(0,1000)");
+		Thread.sleep(1000);
+
+		
+
 		initialApplovalSchoolInformationPageLocatoes.stage3Collaps_btn.click();
+		
 		commonFunctions.moveToWebElement(initialApplovalSchoolInformationPageLocatoes.stage3_ddl);
 		commonFunctions.enterCurriculumddlValue(initialApplovalSchoolInformationPageLocatoes.stage3_ddl, stage3);
-		js.executeScript("window.scrollBy(0,1000)");
-		//initialApplovalSchoolInformationPageLocatoes.pageBody.click();
-	commonFunctions.clickWebElement(initialApplovalSchoolInformationPageLocatoes.pageBody);
-		commonFunctions.moveToWebElement(initialApplovalSchoolInformationPageLocatoes.grades3_ddl);
+		commonFunctions.clickWebElement(initialApplovalSchoolInformationPageLocatoes.pageBody);
+	
+		if (initialApplovalSchoolInformationPageLocatoes.grades3_ddl.isDisplayed()) {
+			   js.executeScript("arguments[0].scrollIntoView(true);",initialApplovalSchoolInformationPageLocatoes.grades3_ddl);
+			}
+			Thread.sleep(1000);
+
+			//commonFunctions.moveToWebElement(initialApplovalSchoolInformationPageLocatoes.grades3_ddl);
 		commonFunctions.enterCurriculumddlValue(initialApplovalSchoolInformationPageLocatoes.grades3_ddl, grades3);		
-		//initialApplovalSchoolInformationPageLocatoes.pageBody.click();
-		js.executeScript("window.scrollBy(0,1000)");
+		initialApplovalSchoolInformationPageLocatoes.pageBody.click();
+		//js.executeScript("window.scrollBy(0,1000)");
 		initialApplovalSchoolInformationPageLocatoes.capacity3_TextBox.sendKeys(capacity3);
 		initialApplovalSchoolInformationPageLocatoes.numberOfClassRooms3_TextBox.sendKeys(numberofClassRooms3);
 		js.executeScript("window.scrollBy(0,1000)");	

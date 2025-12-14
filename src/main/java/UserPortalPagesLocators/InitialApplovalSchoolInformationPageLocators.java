@@ -45,6 +45,7 @@ public class InitialApplovalSchoolInformationPageLocators {
 	@FindBy (xpath = "//span[normalize-space()='Add Stage']")  public WebElement addStage_btn;
 	
 	@FindBy (xpath = "(//button[@class=\"ant-btn ant-btn-lg ant-btn-icon-only\"])[3]")  public WebElement stage2Collaps_btn;
+	
 	@FindBy (xpath = "(//label[@for='stage']//following::input[1])[2]")  public WebElement stage2_ddl;
 	@FindBy (xpath = "(//nz-option-item[@title=\"Pre-Kindergarten\"])[2]")  public WebElement SelectStage2_ddl;
 	@FindBy (xpath = "(//label[@for='grades']//following::input[1])[2]")  public WebElement grades2_ddl;

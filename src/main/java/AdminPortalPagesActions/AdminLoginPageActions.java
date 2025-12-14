@@ -19,6 +19,7 @@ public class AdminLoginPageActions extends APECOTestBase {
 	}
 
 	public void selectEngLang() {
+		commonFunctions.fluentWait(adminLoginPageLcators.english_btn);
 	String dir =	CommonFunctions.getPagedir(adminLoginPageLcators.pageHtml);
 	if("rtl".equals(dir)) {
 		adminLoginPageLcators.english_btn.click();

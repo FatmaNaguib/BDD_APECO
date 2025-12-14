@@ -91,13 +91,13 @@ public class UserApplyforInitialApprovalForThreeStagesRequestDefinition extends 
 	}
 
 	@Then("^User Enters Owner's Housing Details$")
-	public void user_enters_owner_s_housing_details() {
+	public void user_enters_owner_s_housing_details() throws InterruptedException {
 		 String housingDetailsStat = initialApplovalOwnersProfilesPageActions.enterHousingDetails("القاهرة","شارع شبرا","010505050","12345");
 		 assertEquals(housingDetailsStat, "Completed");	
 	}
 
 	@Then("^User Enters Owner's Shared Percentage Details$")
-	public void user_enters_owner_s_shared_percentage_details() {
+	public void user_enters_owner_s_shared_percentage_details() throws InterruptedException {
 		initialApplovalOwnersProfilesPageActions.enterOwnerSharedPercentage("100");
 	}
 

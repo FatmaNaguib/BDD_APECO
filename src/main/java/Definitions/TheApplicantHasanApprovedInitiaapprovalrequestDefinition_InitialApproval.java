@@ -32,7 +32,7 @@ public class TheApplicantHasanApprovedInitiaapprovalrequestDefinition_InitialApp
 		userServicesPageActions.startNewInitialApprovalRequest();
 		initialApplovalOwnersProfilesPageActions.clicknextButton();
 		initialApplovalOwnersProfilesPageActions.enterOwnerPersonalData("Company","الشركة المتحدة","Omar Kamel", "Al-Ali","Omar.jpeg","CriminalStatusCertifion.jpg","UAE","2024-05-27","Emirati","Muslim", "Engineer","600");
-		initialApplovalOwnersProfilesPageActions.enterOwnerpassportDetails("A123456","UAE","2024-05-27","2025-05-27","Passport.jpg");
+		initialApplovalOwnersProfilesPageActions.enterOwnerpassportDetails("A123456","UAE","2024-05-27","2026-05-27","Passport.jpg");
 		commonFunctions.implicitWait(20);
 		 initialApplovalOwnersProfilesPageActions.enterResidenceDetailsDetails("123456789123456","Residence.jpg");
 		 commonFunctions.implicitWait(10);

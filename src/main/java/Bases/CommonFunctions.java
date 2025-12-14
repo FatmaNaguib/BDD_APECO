@@ -88,6 +88,11 @@ public void clickWebElement(WebElement webElement) {
 		actions.perform();
 	}
 	
+	public void moveTotoTheTop() {
+		actions.sendKeys(Keys.HOME).perform();
+	}
+
+	
 	public void enterddlValue(WebElement dllName, String dllValue) {
 		dllName.click();
 		dllName.sendKeys(dllValue);

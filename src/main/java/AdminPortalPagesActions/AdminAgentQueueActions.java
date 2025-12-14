@@ -26,6 +26,19 @@ public class AdminAgentQueueActions extends APECOTestBase {
 		PageFactory.initElements(driver, adminAgentQueueLocators);
 	}
 	
+	public void selectEnglishPageLang() {
+	String pageLang=	adminAgentQueueLocators.lang_btn.getText();
+	if(pageLang.equals("English")) {
+		System.out.println(pageLang);
+		adminAgentQueueLocators.lang_btn.click();
+	}
+	if(pageLang.equals("عربي")) {
+		System.out.println(pageLang);
+	}else {
+		System.out.println("noLang");
+	}
+	}
+	
 	public void adminSearchforaRequest( String requestNumber) throws InterruptedException {
 		commonFunctions.implicitWait(30);
 		//Thread.sleep(2000);

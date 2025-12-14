@@ -2,26 +2,26 @@
 <testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-02-24T14:54:40 EET" name="Failed suite [Suite]" finished-at="2025-02-24T14:58:54 EET" duration-ms="253485">
+  <suite started-at="2025-12-14T17:18:09 EET" name="Failed suite [Suite]" finished-at="2025-12-14T17:18:21 EET" duration-ms="11480">
     <groups>
       <group name="cucumber">
-        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:Runner.FailedRun@2e463f4]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
+        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:Runner.TestRunner@14ed7ddf]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
       </group> <!-- cucumber -->
     </groups>
-    <test started-at="2025-02-24T14:54:40 EET" name="Cucumber with TestNG Test(failed)" finished-at="2025-02-24T14:58:54 EET" duration-ms="253485">
-      <class name="Runner.FailedRun">
-        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:Runner.FailedRun@2e463f4]" started-at="2025-02-24T14:54:40 EET" name="setUpClass" finished-at="2025-02-24T14:54:40 EET" duration-ms="23" status="PASS">
+    <test started-at="2025-12-14T17:18:09 EET" name="Cucumber with TestNG Test(failed)" finished-at="2025-12-14T17:18:21 EET" duration-ms="11480">
+      <class name="Runner.TestRunner">
+        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:Runner.TestRunner@14ed7ddf]" started-at="2025-12-14T17:18:09 EET" name="setUpClass" finished-at="2025-12-14T17:18:09 EET" duration-ms="21" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@78d71df1]]>
+                <![CDATA[org.testng.TestRunner@4c5f7b4f]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:Runner.FailedRun@2e463f4]" started-at="2025-02-24T14:54:40 EET" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-02-24T14:58:53 EET" duration-ms="252531" status="FAIL">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:Runner.TestRunner@14ed7ddf]" started-at="2025-12-14T17:18:09 EET" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-12-14T17:18:19 EET" duration-ms="10181" status="FAIL">
           <params>
             <param index="0">
               <value>
@@ -34,41 +34,56 @@
               </value>
             </param>
           </params>
-          <exception class="org.openqa.selenium.TimeoutException">
+          <exception class="org.openqa.selenium.ElementNotInteractableException">
             <message>
-              <![CDATA[Expected condition failed: waiting for visibility of [[ChromeDriver: chrome on windows (4f7e0179ebc48716d7b8b79a41d9f3e9)] -> xpath: //button[@class="btn btn-main flex-grow-1"]] (tried for 20 second(s) with 500 milliseconds interval)
+              <![CDATA[Element <span> could not be scrolled into view
 Build info: version: '4.28.1', revision: '73f5ad48a2'
-System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.8'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 133.0.6943.127, chrome: {chromedriverVersion: 133.0.6943.126 (cffa127ce7b..., userDataDir: C:\WINDOWS\SystemTemp\scope...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:63173}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:63173/devtoo..., se:cdpVersion: 133.0.6943.127, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 4f7e0179ebc48716d7b8b79a41d9f3e9]]>
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.4'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Command: [aeddf1d2-1d5a-4696-bbde-e3126add0e9b, clickElement {id=d67ff3e4-de36-462c-92fb-eaa06a84d4c2}]
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 146.0, moz:accessibilityChecks: false, moz:buildID: 20251205151434, moz:geckodriverVersion: 0.36.0, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 10872, moz:profile: C:\Users\Fatma\AppData\Loca..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (Windows NT 10....}
+Element: [[FirefoxDriver: firefox on windows (aeddf1d2-1d5a-4696-bbde-e3126add0e9b)] -> xpath: //span[normalize-space()='Services']]
+Session ID: aeddf1d2-1d5a-4696-bbde-e3126add0e9b]]>
             </message>
             <full-stacktrace>
-              <![CDATA[org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of [[ChromeDriver: chrome on windows (4f7e0179ebc48716d7b8b79a41d9f3e9)] -> xpath: //button[@class="btn btn-main flex-grow-1"]] (tried for 20 second(s) with 500 milliseconds interval)
+              <![CDATA[org.openqa.selenium.ElementNotInteractableException: Element <span> could not be scrolled into view
 Build info: version: '4.28.1', revision: '73f5ad48a2'
-System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.8'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 133.0.6943.127, chrome: {chromedriverVersion: 133.0.6943.126 (cffa127ce7b..., userDataDir: C:\WINDOWS\SystemTemp\scope...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:63173}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:63173/devtoo..., se:cdpVersion: 133.0.6943.127, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 4f7e0179ebc48716d7b8b79a41d9f3e9
-at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
-at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
-at Bases.CommonFunctions.waitElementToBevisible(CommonFunctions.java:66)
-at Bases.CommonFunctions.clickWebElement(CommonFunctions.java:54)
-at Bases.CommonFunctions.clickWebElement(CommonFunctions.java:61)
-at AdminPortalPagesActions.AdminInitialApprovalRequestDetailsActions.engineerApprovesTheInitialApprovalRequest(AdminInitialApprovalRequestDetailsActions.java:39)
-at Definitions.TheApplicantHasanApprovedInitiaapprovalrequestDefinition_InitialApproval.the_applicant_has_an_approved_initial_approval_request(TheApplicantHasanApprovedInitiaapprovalrequestDefinition_InitialApproval.java:82)
-at ✽.The Applicant Has an Approved Initial approval request(file:///C:/Users/Fatma/git/repository/BDD_APECO/src/main/resources/Features/ReducingEducationalStages2.feature:8)
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.4'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Command: [aeddf1d2-1d5a-4696-bbde-e3126add0e9b, clickElement {id=d67ff3e4-de36-462c-92fb-eaa06a84d4c2}]
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 146.0, moz:accessibilityChecks: false, moz:buildID: 20251205151434, moz:geckodriverVersion: 0.36.0, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 10872, moz:profile: C:\Users\Fatma\AppData\Loca..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (Windows NT 10....}
+Element: [[FirefoxDriver: firefox on windows (aeddf1d2-1d5a-4696-bbde-e3126add0e9b)] -> xpath: //span[normalize-space()='Services']]
+Session ID: aeddf1d2-1d5a-4696-bbde-e3126add0e9b
+at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:215)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:545)
+at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:223)
+at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:76)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)
+at jdk.proxy2/jdk.proxy2.$Proxy27.click(Unknown Source)
+at UserPortalPagesActions.UserWorkspacePageActions.clickonSideMenu_Services_link(UserWorkspacePageActions.java:47)
+at Definitions.TheApplicantHasanApprovedInitiaapprovalrequestDefinition_InitialApproval.the_applicant_has_an_approved_initial_approval_request(TheApplicantHasanApprovedInitiaapprovalrequestDefinition_InitialApproval.java:31)
+at ✽.The Applicant Has an Approved Initial approval request(file:///C:/Users/Fatma/git/repository/BDD_APECO/./src/main/resources/Features/ReducingEducationalStages2.feature:8)
 ]]>
             </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.TimeoutException -->
+          </exception> <!-- org.openqa.selenium.ElementNotInteractableException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:Runner.FailedRun@2e463f4]" started-at="2025-02-24T14:58:53 EET" name="tearDownClass" finished-at="2025-02-24T14:58:54 EET" duration-ms="926" status="PASS">
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:Runner.TestRunner@14ed7ddf]" started-at="2025-12-14T17:18:19 EET" name="tearDownClass" finished-at="2025-12-14T17:18:21 EET" duration-ms="1277" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownClass -->
-      </class> <!-- Runner.FailedRun -->
+      </class> <!-- Runner.TestRunner -->
     </test> <!-- Cucumber with TestNG Test(failed) -->
   </suite> <!-- Failed suite [Suite] -->
 </testng-results>
