@@ -36,17 +36,14 @@ public APECOPortalHooks()   throws IOException {
 		AdminPagesInitialization();
 		
 	}
-
-	
-/*@After ()
-public void tearDown(Scenario scenario) {
-	if (scenario.isFailed()) {
-		final byte[] screenshot = ((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES);
-		scenario.attach(screenshot, "image/png", scenario.getName()); 
+	@After
+	public void tearDown(Scenario scenario) {
+		if (scenario.isFailed()) {
+			final byte[] screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
+			scenario.attach(screenshot, "image/png", scenario.getName());
+		}
+		if (driver != null) {
+			driver.quit();
+		}
 	}
-	 if (driver != null) {
-		// driver.close();
-           driver.quit();
-       }
-}*/
 }
