@@ -8,12 +8,15 @@ import java.io.File;
 
 public class TestNGListener implements IExecutionListener {
 	 private static int executionCount = 0;
+	 private static final int MAX_RETRY_COUNT = Integer.parseInt(
+			 System.getProperty("testng.retry.count", "3"));
 	
 	 @Override
 	    public void onExecutionFinish() {
 		 
-		 if (executionCount >= 3) {
-	            return;  // Exit early if the method has already been executed twice
+		 if (executionCount >= MAX_RETRY_COUNT) {
+	            System.out.println("Maximum retry count (" + MAX_RETRY_COUNT + ") reached. Skipping further retries.");
+	            return;
 	        }
 	        // After all tests are finished, check for failed tests
 		 //target/surefire-reports/Suite/testng-failed.xml

@@ -18,9 +18,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-//import com.google.common.io.Files;
 import com.google.gson.JsonObject;
-//import com.itextpdf.text.pdf.parser.Path;
 import org.openqa.selenium.Dimension;
 
 import AdminPortaPageslLocators.AdminAgentQueueLocators;
@@ -81,9 +79,6 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 import Util.TestUtil;
 import io.cucumber.core.cli.Main;
-
-
-import java.util.UUID;
 
 public class APECOTestBase {
 
@@ -151,7 +146,6 @@ public class APECOTestBase {
 	public static void main(String args[]) throws Throwable {
 	   
 		File failedFile = new File("target/failedrerun.txt");
-      //  if (!failedFile.exists() && failedFile.length() < 0) {
 		if (!failedFile.exists() || failedFile.length() == 0) {
 					    		try {
 					    	    	
@@ -177,9 +171,11 @@ public class APECOTestBase {
 					    	        e.printStackTrace();
 					    	        System.out.println("Main method exception : " + e);
 					    	}
-          if (failedFile.exists() && failedFile.length() > 0) {}
-        	
-  		try {
+        }
+        
+        // Rerun failed tests if any exist
+        if (failedFile.exists() && failedFile.length() > 0) {
+        	try {
 	    	
 	        Main.main(new String[] { 
 	        		
@@ -204,7 +200,6 @@ public class APECOTestBase {
 	        System.out.println("Main method exception : " + e);
 	}
         }
-
 	}
 	
 	
@@ -234,21 +229,9 @@ public class APECOTestBase {
 			
 			ChromeOptions chromeOptions = new ChromeOptions();				
 			chromeOptions.setExperimentalOption("excludeSwitches", new String[]{"enable-automation"}); 
-		//	chromeOptions.addArguments("--disable-extensions");
 			
 			Path tempProfile = Files.createTempDirectory("chrome-profile-");
 			chromeOptions.addArguments("--user-data-dir=" + tempProfile.toAbsolutePath().toString());
-			
-	//		String userDataDir = System.getProperty("java.io.tmpdir") + "chrome-profile-" + UUID.randomUUID();
-			
-		//	File profile = new File(userDataDir);
-
-			
-			//chromeOptions.addArguments("--user-data-dir=" + userDataDir);
-			
-			//chromeOptions.addArguments("--user-data-dir=" + profile.getAbsolutePath());
-			
-			//chromeOptions.addArguments("--incognito");
 			
 			 boolean isHeadless = Boolean.parseBoolean(System.getProperty("headless", "false"));
 	        if (isHeadless) {
@@ -257,10 +240,6 @@ public class APECOTestBase {
 	        }
 	   
 	        System.out.println("Headless mode: " + isHeadless);
-
-
-	        //String chromeDriverPath = properties.getProperty("chrome.driver");
-	      //  System.setProperty("webdriver.chrome.driver", chromeDriverPath);
 	              
 			driver = new ChromeDriver(chromeOptions);
 

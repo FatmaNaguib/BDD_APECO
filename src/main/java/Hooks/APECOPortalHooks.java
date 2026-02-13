@@ -38,12 +38,21 @@ public APECOPortalHooks()   throws IOException {
 	}
 	@After
 	public void tearDown(Scenario scenario) {
-		if (scenario.isFailed()) {
-			final byte[] screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
-			scenario.attach(screenshot, "image/png", scenario.getName());
-		}
-		if (driver != null) {
-			driver.quit();
+		try {
+			if (scenario.isFailed() && driver != null) {
+				final byte[] screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
+				scenario.attach(screenshot, "image/png", scenario.getName());
+			}
+		} catch (Exception e) {
+			System.err.println("Failed to capture screenshot: " + e.getMessage());
+		} finally {
+			if (driver != null) {
+				try {
+					driver.quit();
+				} catch (Exception e) {
+					System.err.println("Failed to close driver: " + e.getMessage());
+				}
+			}
 		}
 	}
 }
